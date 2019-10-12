@@ -1,0 +1,195 @@
+<section xml:id="polar-coordinates">
+  <title>Polar Coordinates</title>
+  <p>
+    We often use substitution in several variables to simplify the domain of integration instead of simplifying the function.
+    Polar coordinates are ideals for a domain of integration which has any kind of circular symmetry:
+    circles, wedges, arcs, etc.
+  </p>
+  <p>
+    The polar coordinate transformation is <m>x = r \cos \theta</m> and
+    <m>y = r \sin \theta</m> with Jacobian <m>|J| = r</m> so that <m>dx dy = r dr d\theta</m>.
+    (Notice this Jacobian also corrects units:
+    <m>dx dy</m> has units of length squared,
+    but <m>\theta</m> doesn't have any units,
+    so <m>r dr d\theta</m> also has units of length squared.)
+  </p>
+  <p>
+    First, we need to understand what happens with constant bounds in polar coordinates.
+    If <m>r \in [0,R]</m> and <m>\theta \in [0, 2\pi]</m>,
+    we integrate over a whole circle of radius <m>R</m>.
+    Integrating over a wedge with radius <m>R</m> from
+    <m>\theta_1</m> to <m>\theta_2</m> is
+    <m>r \in [0,R]</m> and <m>\theta \in [\theta_1, \theta_2]</m>.
+    Integrating over an annulus with radii <m>R_1</m> and <m>R_2</m> is
+    <m>r \in [R_1, R_2]</m> and <m>\theta \in [0, 2\pi]</m>.
+    Finally, over an arc in such an annulus is
+    <m>r \in [R_1, R_2]</m> and <m>\theta \in [\theta_1, \theta_2]</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the function <m>f(x,y) = x + y</m> on the arc in the first quadrant between radii <m>2</m> and <m>4</m>.
+        <md>
+          <mrow>\int_D x + y dA \amp  = \int_0^{\pi/2} \int_2^4 r (\cos \theta + \sin \theta) r dr d\theta</mrow>
+          <mrow>\amp  = \int_0^{\pi/2} \left. \frac{r^3}{r} (\cos \theta + \sin \theta) \right|_2^4 d\theta</mrow>
+          <mrow>\amp  = \frac{56}{3} \int_0^{\pi/2} (\cos \theta + \sin \theta) d \theta</mrow>
+          <mrow>\amp  = \left. \frac{56}{3} (\sin \theta - \cos \theta) \right|_0^{\pi/2}</mrow>
+          <mrow>\amp  = \frac{56}{3} (1 - 0 - 0 + 1) = \frac{112}{3}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Now consider the function <m>e^{x^2 + y^2}</m> on the circle of radius <m>R</m> centered at the origin.
+        Notice here that the integrand also has circular symmetry <mdash/> changing to polar coordinates will help the integrand as well as the domain.
+      </p>
+      <p>
+        The integral is annoying in conventional Cartesian coordinates.
+        <me>
+          \int_D f(x,y) dA = \int_{-R}^R \int_{-\sqrt{R^2 - x^2}}^{\sqrt{R^2 - x^2}} e^{x^2 + y^2} dy dx
+        </me>
+      </p>
+      <p>
+        This is essentially impossible.
+        However, in polar coordinates it improves greatly.
+        <md>
+          <mrow>\int_D f(x,y) dA \amp  = \int_0^{2\pi} \int_0^R e^{r^2} r dr d\theta</mrow>
+          <mrow>\amp  = \int_0^{2\pi} d\theta \int_0^R e^{r^2} r dr</mrow>
+          <mrow>\amp  = 2\pi \left. \frac{e^{r^2}}{2} \right|_0^R = \frac{2\pi}{2} (e^{R^2} - 1) = \pi (e^{R^2} - 1)</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Now recall the integral we did to calcluate the volume of a sphere of radius <m>R</m>.
+        <me>
+          8 \int_0^{R} \int_0^{R^2 - x^2} \sqrt{R^2 - x^2 - y^2} dy dx
+        </me>
+      </p>
+      <p>
+        This was a trickly integral.
+        If we change to polar coordinates,
+        an integrate over the whole circle instead of just a quarter,
+        the integral improves.
+        <md>
+          <mrow>A \amp  = 2 \int_0^{2\pi} \int_0^R \sqrt{R^2 - r^2} r dr d\theta</mrow>
+          <mrow>\amp  = 2 \int_0^{2\pi} d\theta \int_0^R \sqrt{R^2 - r^2} r dr d\theta</mrow>
+          <mrow>\amp  = 4\pi \left. (R^2 - r^2)^{\frac{3}{2}} \frac{2}{3} \frac{-1}{2} \right|_0^R</mrow>
+          <mrow>\amp  = \frac{4\pi}{3} (R^2)^{\frac{3}{2}} = \frac{4\pi R^3}{3}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        For the cone of height <m>h</m> and radius <m>R</m>,
+        we had the following integral.
+        <me>
+          \int_D f(x,y) dA = 4 \int_0^r \int_0^{\sqrt{r^2 - x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy dx
+        </me>
+      </p>
+      <p>
+        We didn't even evaluate the cone volume integral before,
+        but now we can use polar coordinates to make it much more accessible.
+        <md>
+          <mrow>A \amp  = \int_0^{2\pi} \int_0^R \left( h - \frac{hr}{R} \right) r dr d\theta</mrow>
+          <mrow>\amp  = 2\pi \left. \left( \frac{hr^2}{2} - \frac{hr^3}{3R} \right) \right|_0^R</mrow>
+          <mrow>\amp  = 2\pi \left( \frac{hR^2}{2} - \frac{hR^2}{3} \right) = \frac{\pi R^2 h}{3}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        To show how some of these techniques work together,
+        consider integrating the function
+        <m>f(x,y) = x^2</m> over the ellipse <m>D = \frac{x^2}{4} + \frac{y^2}{9} = 1</m>.
+        <me>
+          \int_D x^2 dA
+        </me>
+      </p>
+      <p>
+        We're going to do two changes of variables.
+        First we can take <m>x=2u</m> and <m>y=3v</m>.
+        That has Jacobian <m>|J| = 6</m> so that <m>dx dy = 6 du dv</m>.
+        The ellipse <m>D</m> becomes the unit circle <m>C</m>.
+        <me>
+          \int_C (2u)^2 6 du dv = 24 \int_C u^2 du dv
+        </me>
+      </p>
+      <p>
+        Then we change to polar coordinates to integrate over this circle.
+        <md>
+          <mrow>24 \int_C u^2 du dv \amp  = 24 \int_0^{2\pi} \int_0^1 r^2 \cos^2 \theta r dr d\theta</mrow>
+          <mrow>\amp  = 24 \int_0^{2\pi} \cos^2 \theta d \theta \int_0^1 r^3 dr</mrow>
+          <mrow>\amp  = 24 \left. \left( \frac{\theta}{2} + \frac{\sin 2\theta}{4} \right) \right|_0^{2\pi} \left. \left( \frac{r^4}{4} \right) \right|_0^1</mrow>
+          <mrow>\amp  = 24 \pi \frac{1}{4} = 6 \pi</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Say we wanted to integrate the function
+        <m>x^2 + y^2</m> over the circle of radius 1 centered at <m>(1,0)</m>.
+        The integrand obviously lends itself to polar coordinates.
+        There is circular symmetry in the domain,
+        but the offset is confusing.
+      </p>
+      <p>
+        The equation of such a circle is <m>(x-1)^2 + y^2 = 1</m>.
+        In polar coordinates this is <m>r^2 \cos^2 \theta - 2 r \cos \theta + 1 + r^2 \sin^2 \theta =1</m>,
+        which simplifies into <m>r^2 - 2r \cos \theta = 0</m> or
+        <m>r = 2 \cos \theta</m> for <m>\theta \in [-\pi/2, \pi/2]</m>.
+        We can take a constant bound for <m>\theta</m> and have <m>\theta</m> be the outside variable.
+        Then we can use the expression
+        <m>r = 2 \cos \theta</m> as an higher bound for <m>r</m> in terms of <m>\theta</m>.
+        <md>
+          <mrow>\int_D f(x,y) dA \amp  = \int_{-\pi/2}^{\pi/2} \int_0^{2\cos \theta} \frac{1}{r^2} r dr d\theta</mrow>
+          <mrow>\amp  = \int_{-\pi/2}^{\pi/2} \left. \frac{r^4}{4} \right|_0^{2 \cos \theta} d \theta</mrow>
+          <mrow>\amp  = 4 \int_{-\pi/2}^{\pi/2} \cos^4 \theta d \theta</mrow>
+          <mrow>\amp  = 4 \left. \frac{1}{32} \left( 12 \theta + 8 \sin (2\theta) + \sin (4\theta) \right) \right|_{-\pi/2}^{\pi/2}</mrow>
+          <mrow>\amp  = \frac{1}{8} \left(12 \left( \frac{\pi}{2} - \frac{-\pi}{2} \right) \right) + 0 + 0 = \frac{3\pi}{2}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        What if <m>D</m> is the circle of radius <m>2</m> excluding the circle of radius <m>1</m> centered at <m>(1,0)</m> and we want to integrate <m>\sqrt{x^2 + y^2}</m> over this region?
+        Here, we can think of the entire circle of radius 2 as <m>D_1</m> and the removed circle as <m>D_2</m>;
+        then the integral will be the integral over <m>D_1</m> subtracting the integral over <m>D_2</m>.
+      </p>
+      <p>
+        The first part is an integral over <m>D_1</m>.
+        <md>
+          <mrow>\int_{D_1} \sqrt{x^2 + y^2} dA \amp  = \int_0^{2\pi} \int_0^2 r r dr d\theta</mrow>
+          <mrow>\amp  = \left. 2\pi \frac{r^3}{3} \right|_0^2 = \frac{16\pi}{3}</mrow>
+        </md>
+      </p>
+      <p>
+        The second part is an integral over <m>D_2</m>.
+        <md>
+          <mrow>\int_{D_2} \sqrt{x^2 + y^2} dA \amp  = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \int_0^{2 \cos \theta} r^2 dr d\theta</mrow>
+          <mrow>\amp  = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left. \frac{r^3}{3} \right|_0^{2 \cos \theta} d\theta</mrow>
+          <mrow>\amp  = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left( \frac{8 \cos^3 \theta}{3} \right) = \frac{8}{3} \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \cos^3 \theta d \theta</mrow>
+          <mrow>\amp  = \frac{8}{3} \left. \left( \frac{1}{3} (2 + \cos^2 + \theta) \sin \theta \right) \right|_{\frac{-\pi}{2}}^{\frac{\pi}{2}} = \frac{32}{9}</mrow>
+        </md>
+      </p>
+      <p>
+        The result of the original integral is the difference of the two parts.
+        <me>
+          \int_{D_1 \backslash D_2} \sqrt{x^2 + y^2} dA = \frac{16\pi}{3} - \frac{32}{9} = \frac{48\pi - 32}{9}
+        </me>
+      </p>
+    </statement>
+  </example>
+</section>

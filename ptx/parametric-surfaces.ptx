@@ -1,0 +1,151 @@
+<section xml:id="parametric-surfaces">
+  <title>Parametric Surfaces</title>
+  <p>
+    We've defined integrals of vector fields along arametric curves.
+    However, parametric curves are only one dimensional objects.
+    What does it mean to integrate a vector field over higher dimensional objects?
+  </p>
+  <p>
+    Vector fields are not like scalar fields,
+    where we can just integrate over regions of <m>\RR^3</m>.
+    We take a hint from line integrals using parametric curves:
+    we need parametric objects.
+    We can define parametric objects in any dimension,
+    though the theory gets more and more difficult with added dimensions.
+    In this section we define parametric surfaces,
+    which are the 2-dimensional analogue to parametric curves.
+  </p>
+  <p>
+    If <m>[a,b]</m> is an interval on <m>\RR</m>,
+    a curve was a function on that interval into a vector space.
+    <me>
+      \gamma: [a,b] \rightarrow \RR^3
+    </me>
+  </p>
+  <p>
+    The curve is a <em>continuous</em>
+    (usually differentiable)
+    function on the interval.
+    For surfaces, we need two directions of freedom,
+    so we start in <m>\RR^2</m> instead of <m>\RR</m>.
+    We might start with intervals <m>I</m> in <m>\RR^2</m>,
+    but we can be a bit more general.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>D \subset \RR^2</m> be a
+        <term>simply connected</term> set.
+        A parametric surfaces in <m>\RR^3</m> is a <term>continuous</term>
+        (usually differentiable)
+        function on <m>D</m> into a vector space.
+        <me>
+          \sigma: D \rightarrow \RR^3
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Like parametric curves, we visualize surfaces only by their outputs.
+    The input set <m>D</m> isn't visualized;
+    rather, it is thought of as the parameter space.
+    The difference, compared to curves,
+    is that we now have a 2-dimensional parameter space.
+    This allows two independent directions of movement on the surface.
+  </p>
+  <p>
+    We need to refine the previous definition a little bit:
+    we want to avoid places where the surface has strange behaviour by insisting that the surface is <sq>smooth</sq>.
+    Differentiability is required here,
+    but the condition is actually a bit stronger.
+    We need to think about tangents.
+  </p>
+  <p>
+    For a curve <m>\gamma(t)</m>,
+    the only derivative was the time derivative and <m>\gamma^\prime(t)</m> was the tangent.
+    For a surface,
+    let <m>u</m> and <m>v</m> be the coordinates in the region <m>D</m>.
+    Then we have two partial derivatives:
+    <m>\sigma_u = \frac{\del}{\del u} \sigma(u,v)</m> and <m>\sigma_v = \frac{\del}{\del v} \sigma (u,v)</m>.
+    These are both tangents.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A parametric surface is called <term>smooth</term>
+        if it has two (linearly) independent tangent directions at any point.
+        Working in <m>\RR^3</m>, we can calculate <m>\sigma_u \times \sigma_v</m>.
+        This is perpendicular to both tangents,
+        so this direction should be normal to the surface.
+        We will use that name, and call
+        <m>\sigma_u \times \sigma_v</m> the <term>normal</term>
+        to a smooth parametric surface.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The smoothness condition can be rephrased:
+    the normal must never be zero.
+    We will be using the normal extensively and zero normals will cause many problems.
+    Therefore, from this point,
+    we assume all surfaces are piece-wise smooth, with non-zero normals.
+    Piece-wise is enough,
+    since the cross-over sections will be lower-dimensions and thus can be ignored in integration.
+    (For curves,
+    we made implicit use of a similar convention that the tangent should never be the zero vector,
+    though we didn't say so at the time.)
+    Since we are using the cross-product,
+    this definition on applies to <m>\RR^3</m>.
+    For the rest of this entire chapter,
+    we will exclusive be working with parametric surfaces in <m>\RR^3</m>.
+  </p>
+  <example xml:id="example-surface-graph">
+    <statement>
+      <p>
+        If <m>f(x,y)</m> is a 2-variable function on a simply-connected domain <m>D</m>,
+        it's graph is a surface.
+        We can use <m>D</m> as the domain and
+        <m>\sigma (u,v) = (u,v,f(u,v))</m> is the graph expressed as a parametric surface.
+      </p>
+    </statement>
+  </example>
+  <example xml:id="example-surface-revolution">
+    <statement>
+      <p>
+        Consider a surface of rotation.
+        If we rotate <m>y = f(x)</m> about the <m>x</m> axis for <m>x \in [a,b]</m>,
+        then we can take <m>\theta</m> to be other parameter and
+        <m>D =[a,b] \times [0, 2\pi]</m> to be the parameter domain.
+        Then <m>\sigma(x,\theta) = (x, f(x) \cos \theta,
+        f(x) \sin \theta)</m> is the surface of revolution.
+      </p>
+    </statement>
+  </example>
+  <example xml:id="example-sphere-parametrization">
+    <statement>
+      <p>
+        If <m>(\theta, \phi) \in D = [0, 2\pi] \times [0, \pi]</m> then
+        <m>\sigma (\theta, \phi) = (r \sin \phi \cos \theta, r \sin \phi \sin \theta,
+        r \cos \phi)</m> is a parametric description of the sphere with radius <m>r</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        If <m>(\theta, z) \in D = [0, 2\pi] \times [0,h]</m> then
+        <m>\sigma (\theta,
+        z) = (r \cos \theta, r \sin \theta,
+        z)</m> is a parametric description of a cylinder with height <m>h</m> and radius <m>r</m> oriented along the <m>z</m>-axis.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        If <m>(u,v) \in D = [0,h] \times [0, 2\pi]</m> then
+        <m>\sigma (u,v) = (u \cos v, u \sin v, u)</m> is a parametric description of a cone opening upwards in the <m>z</m> direction with height <m>h</m> and base radius <m>h</m> as well.
+      </p>
+    </statement>
+  </example>
+</section>

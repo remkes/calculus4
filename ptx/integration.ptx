@@ -1,0 +1,11 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="integration">
+  <title>Integration</title>
+  <xi:include  href="indefinite-integral.ptx" />
+  <xi:include  href="definite-integra.ptx" />
+  <xi:include  href="iterated-integrals.ptx" />
+  <xi:include  href="arbitrary-sets.ptx" />
+  <xi:include  href="change-of-variables.ptx" />
+  <xi:include  href="polar-coordinates.ptx" />
+  <xi:include  href="cylindrical-and-spherical.ptx" />
+  <xi:include  href="applications.ptx" />
+</chapter>

@@ -1,0 +1,540 @@
+<section xml:id="manifolds">
+  <title>Manifolds and Coordinate Functions</title>
+  <introduction>
+    <p>
+      The major goal of this chapter is to explain the underlying structure behind Gauss-Green-Stokes and the fundamental theorem of calculus.
+      By defining objects called <em>differential forms</em>,
+      we can reduce all these theorems to one elegant statment.
+      Differential forms arise in doing calculus on manifolds and the study of that calculus is called differential geometry,
+      so this section is an introduction to differential geometry.
+    </p>
+    <p>
+      So we start with a geometric object: the manifold.
+      In this course and in previous courses,
+      we've worked with parametric curves and surfaces.
+      Manifolds are a generalization of parametric objects.
+      The major novelty of manifolds is that we allow different parts of the manifolds to have different parametrizations,
+      as long the parametrizations cooperate where they overlap.
+      We'll use parametric curves and surfaces to motivate our definition of manifolds,
+      and then we'll worry about what it means for different parametrizations to cooperate on overlaps.
+    </p>
+    <p>
+      As a core motivating example, consider the sphere.
+      We parametrized the unit sphere as <m>\sigma(\theta,\phi) = (\sin \phi \cos \theta, \sin \phi \sin \theta, \cos \phi)</m>.
+      This was a good parametrization,
+      but it had problems at the poles,
+      where <m>\theta</m> was no longer defined.
+      We ignored these problems when we were doing integrals,
+      since the isolated points didn't effect the value of the integral.
+      However, we can't ingore the problem forever;
+      there are operations where the poles present a real problem.
+    </p>
+    <p>
+      To fix this, we might try to rework the parametrization,
+      but we would find that <em>any</em>
+      parametrization of the sphere will have at least one point with this polar problem.
+      To fully allow calculus on the sphere,
+      we have to use different different parametrization for different regions.
+      The sphere is thus one of the first and most important manifolds in differential geometry.
+    </p>
+    <p>
+      We can understand the problems of parametrization in terms of coordinate lines.
+      At most points on the sphere, the coordinate lines
+      (looking very locally)
+      resemble the coordinates lines of <m>\RR^2</m>: a grid.
+      However, at the poles,
+      the coordinate lines look like rays and concentric circles.
+      For manifolds,
+      we seek local parametrizations where the coordinate lines always look like a grid.
+      This will lead us to a formal definition,
+      but first we need to do some topology.
+    </p>
+  </introduction>
+  <subsection xml:id="topology">
+    <title>Some Topology</title>
+    <p>
+      We previously defined open and closed set in <m>\RR^n</m>.
+      A method of distinguishing open sets is called a <em>topology</em>,
+      so we have a topology on <m>\RR^n</m>.
+      Now, we also need to know the topology of any subset.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S \subset \RR^n</m>.
+          Let <m>U \subset S</m>.
+          We say that <m>U</m> is an <term>open set in <m>S</m></term>
+          if there exists an open set
+          <m>V \subset \RR^n</m> such that <m>U = V \cap S</m>.
+          Stated less formally,
+          the open sets of <m>S</m> are exactly the intersections of the open sets of <m>\RR^n</m> with <m>S</m>.
+          As with any topology,
+          the closed sets of <m>S</m> are the complements of the open sets.
+          This system of open sets on <m>S</m> is called the
+          <term>subspace topology</term> on <m>S</m>.
+        </p>
+      </statement>
+    </definition>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S \subset \RR^n</m>.
+          An <term>open cover</term> of <m>S</m> is an indexed set <m>U_i</m> for <m>i \in I</m> such that two things are true.
+          <ul>
+            <li>
+              <p>
+                The union of all the <m>U_i</m> is <m>S</m>.
+                That is, the collection of sets
+                <em>cover</em> <m>S</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Each <m>U_i</m> is open as a subset of <m>S</m>,
+                in the sense of the subspace topology that we just defined.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection xml:id="manifold-definition">
+    <title>The Definitions</title>
+    <definition>
+      <statement>
+        <p>
+          Let <m>M \subset \RR^n</m> be a connected subset.
+          <m>M</m> is called a <term>(differentiable) manifold of dimension <m>k</m></term>
+          if there is an open cover <m>U_i, \ i \in I</m> of <m>M</m> and,
+          for each <m>U_i</m>,
+          an invertible <m>C^1</m> function
+          <m>\phi: D_i \rightarrow U</m> defined on a simply connected open domain <m>D_i \subset \RR^k</m>.
+          This is the basic definition,
+          but there are a number of associated terms and definitions.
+          <ul>
+            <li>
+              <p>
+                The sets <m>U_i</m> in the open cover are called <em>charts</em>
+                and the collection of all of them is called an <em>atlas</em>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The functions <m>\phi_i</m> are called the
+                <em>coordinate functions</em> of the manifold.
+              </p>
+            </li>
+            <li>
+              <p>
+                The number <m>k</m> must be the same for all the charts and coordinate functions.
+                It is called the <em>dimension</em> of the manifold.
+              </p>
+            </li>
+            <li>
+              <p>
+                A manifold of dimension one is called a <em>curve</em>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A manifold of dimension two is called a <em>surface</em>.
+              </p>
+            </li>
+            <li>
+              <p>
+                We could insist that the coordinate function are in a class <m>C^k</m> for a stronger definition.
+                If we insist that the coordinate function are <m>C^{\infty}</m>,
+                we call the object a <em>smooth manifold</em>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The functions <m>\phi_i</m> are called a coordinate functions because they allow us to use the variables
+      <m>u_j \in D_i</m> as coordinates (equivalently,
+      parameters) on the manifold.
+      The functions <m>\phi_i</m> are indeed parametrizations as we previously understood them:
+      the situation is the same as
+      <m>\gamma(t)</m> for a curve which lets us use <m>t</m> as a parameter;
+      or <m>\sigma(u,v)</m> for a surface which lets us use <m>u</m> and <m>v</m> as parameters.
+      The only difference, now,
+      is that the parametrization doesn't need to apply to the whole object.
+      We allow different parametrizations for different portions of the manifold.
+    </p>
+    <p>
+      Recall that for parametric curves and surfaces,
+      all of the calculus is done in the parameters.
+      For curves, we defined tangents, normals, binormals,
+      length integrals and line integrals all in the variable <m>t</m>.
+      For parametric surfaces, we defined normals, area,
+      scalar field integrals and flux integrals all in terms of the variales <m>u</m> and <m>v</m>.
+      The same is true for manifolds.
+      The coordinate functions let use the coordinate variables from the open sets <m>D_i</m> to do calculus.
+    </p>
+    <p>
+      Everything we've done so far for parametric curves and surfaces can be extended to manifolds.
+      There real challenge, though,
+      is multiple charts, each with its own parametrization.
+      The difficult reality with manifolds is that we have to make sure that the various results
+      <em>agree with each other</em>
+      on the overlaps of the charts.
+      To help that out, we have one last definition.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>X</m> be a differentiable manifold with an atlas
+          <m>U_i \ i \in I</m> and coordinate function <m>\phi_i</m>.
+          On every non-empty intersection <m>A = U_i \cap U_j</m> for any pair
+          <m>i,j \in I</m> with <m>i \neq j</m>,
+          the function <m>\phi_i^{-1} \circ \phi_j: \phi_j^{-1}(A) \rightarrow \phi_i^{-1}(A)</m> is an invertible <m>C^1</m> function between subsets of <m>\RR^k</m>.
+          It must be <m>C^1</m> because it is a composition of <m>C^1</m> functions.
+          These compositions <m>\phi_i^{-1} \circ \phi_j</m> are called the
+          <term>transition functions</term> of the manifold.
+          (If we have a smooth manifold,
+          the transition function are <m>C^{\infty}</m> functions.)
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The transition functions will help us understand how calculations for the manifold agree on the overlapping charts.
+    </p>
+  </subsection>
+  <subsection xml:id="manifold-examples">
+    <title>Examples</title>
+    <example>
+      <statement>
+        <p>
+          Any open set <m>U</m> in <m>\RR^n</m> is itself a manifold of dimension <m>n</m> with only one chart
+          (all of <m>U</m>)
+          and only one coordinate function
+          (<m>\phi = \Id</m>).
+          This may seem like a trivial example,
+          but it is quite important to mention.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Any parametric curve <m>\gamma: (a,b) \rightarrow \RR^n</m> is a manifold of dimension <m>1</m> with only one chart.
+          The function <m>\gamma</m> is the coordinate function.
+          We exclude the endpoints since we want the coordinate function to be defined on an open set in <m>\RR^1</m>.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          If <m>D</m> is a connected open set in <m>\RR^2</m>,
+          then any parametric surface
+          <m>\sigma: D\rightarrow \RR^n</m> is a manifold of dimension <m>2</m> with only one chart.
+          The function <m>\sigma</m> is the coordinate function.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The sphere of radius <m>r</m> with the parametrization from <xref ref="example-sphere-parametrization">Example</xref> is <em>not</em>
+          a manifold, as we discussed earlier,
+          since the parametrization doesn't work properly at the poles.
+          How do we make it a manifold?
+          We can make a atlas of two charts.
+          <ul>
+            <li>
+              <p>
+                Let <m>U_1</m> be the subset of the sphere without the two poles (the points <m>(0,0,r)</m> and
+                <m>(0,0,-r)</m> and without the arc between the poles in the positive <m>x</m> half of the <m>xz</m> plane.
+                For this parts of the sphere,
+                we can use the standard parametrization as a coordinate function.
+                <me>
+                  \phi_1: (u,v) = (r\sin u \cos v, r\sin u \sin v, r\cos u)
+                </me>
+                The domain <m>D_1</m> of this coordinate function is<m>(u,v) \in (0,\pi) \times (0,2\pi)</m>.
+                (Note the open brackets in this domains,
+                so that it is an open subset of <m>\RR^2</m>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Let <m>U_2</m> be the subset of the sphere without the two points <m>(0,r,0)</m> and
+                <m>(0,-r,0)</m> and without the arc connecting these two points in the negative <m>x</m> half of the <m>xy</m> plane.
+                For this part of ther sphere,
+                we can do the same lattitude/longitutde parametrization as if these points were the two poles.
+                That gives us a new a coordinate functon.
+                <me>
+                  \phi_2: (s,t) = (-r\sin s \cos t, r\cos s , r\sin s \sin t)
+                </me>
+                The domain <m>D_2</m> for this coordinate function is <m>(s,t) \in (0,\pi) \times (0,2\pi)</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          These two charts <m>U_1</m> and <m>U_2</m> entirely cover the sphere.
+          On each chart, <m>\phi_i</m> is an invertible,
+          differentiable map from an open set of <m>\RR^2</m>.
+          This is a manifold.
+        </p>
+        <p>
+          Since there are only two charts,
+          there is just one transition function:
+          <m>T = \phi_1^{-1} \circ \phi_2</m>.
+          (Technically, we could say there are two transition functions,
+          since we also have <m>T^{-1}</m> going back.)
+          We can calculate the inverse of <m>\phi_1</m> with some trigonometry.
+          <me>
+            \phi_1^{-1} (x,y,z) = \left( \arctan \frac{z}{\sqrt{x^2+y^2}}, \arctan \frac{y}{x} \right)
+          </me>
+        </p>
+        <p>
+          There is a subtlety here with the second component arctangent;
+          we need an adjusted version of this inverse that make sense in all quandrants and works when <m>y= 0</m>,
+          but this adjusted version can be constructed as a piecewise differentiable function.
+          The composiiton of this <m>\phi_1^{-1}</m> with <m>\phi_2</m> gives the transition function. (I've not worked out the details,
+          which are a bit annoying.)
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          For any manifold,
+          there are many different possible choices of charts and atlases.
+          For the sphere,
+          we'll construct a different set of charts to illustrate this variation.
+          Consider this coordinate function.
+          <me>
+            \phi_1(u,v) = \left (u,v,\sqrt{r^2-u^2-v^2} \right) \hspace{1cm} (u,v) \in D(0,r)
+          </me>
+        </p>
+        <p>
+          This chart parametrizes the hemisphere with strictly positive <m>z</m> coordinate.
+          It covers an open set <m>U_i</m> which is exactly half the sphere
+          (without the equator.)
+          By permuting the coordinates and changing the sign of the square root term,
+          we can likewise parametrize all six hemispheres oriented along coordinate axes.
+          <md>
+            <mrow>\phi_1(u,v) \amp  = \left(u,v,\sqrt{r^2-u^2-v^2} \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>\phi_2(u,v) \amp  = \left(u,v,-\sqrt{r^2-u^2-v^2} \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>\phi_3(u,v) \amp  = \left(u,\sqrt{r^2-u^2-v^2},v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>\phi_4(u,v) \amp  = \left(u,-\sqrt{r^2-u^2-v^2},v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>\phi_5(u,v) \amp  = \left(\sqrt{r^2-u^2-v^2},u,v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>\phi_6(u,v) \amp  = \left(-\sqrt{r^2-u^2-v^2},u,v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+          </md>
+        </p>
+        <p>
+          These six charts completely cover the sphere, but no five of them do.
+          Some of the charts,
+          such as <m>\phi_1</m> and <m>\phi_2</m> do not overlap at all.
+          Some of the charts,
+          such as <m>\phi_1</m> and <m>\phi_3</m> overlap on an open quarter of the sphere.
+          The inverse functions are pleasant here:
+          for example, <m>\phi_1^{-1}(x,y,z) = (x,y)</m>.
+          The transition functions, then,
+          are also relatively reasonable.
+          Here is one example.
+          <me>
+            \phi_1^{-1} \circ \phi_3(u,v) = (u, \sqrt{r^2-u^2-v^2}) \hspace{1cm} (u,v) \in D(0,r) \cap \{ x \lt  0 \}
+          </me>
+        </p>
+        <p>
+          Even though there are six charts here,
+          this may be a better atlas to work with for the sphere,
+          since the transition functions are much more reasonable than the previous example.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          The torus is another manifold where one chart is insufficient,
+          even though there exists a full parametrization as a surface.
+          Here is the parametrization,
+          where <m>a</m> is the larger radius of the torus and <m>b</m> is the smaller radius.
+          <me>
+            \sigma(u,v) = ((a + b \cos v) \cos u, (a + b \cos v) \sin u + , b \sin v)
+          </me>
+        </p>
+        <p>
+          This is a full parametrization of the torus.
+          It doesn't have the problem of poles;
+          all the local coordinates look like grids.
+          However, it does have a domain problem:
+          the domain for the parameters is
+          <m>[0, 2\pi) \times [0,2\pi)</m>, which is a closed set.
+          To define this as a manifold,
+          we take the exact same parametrization,
+          but on four different domains.
+          There are multiple choices for these domiains,
+          but they have to overlap to cover the whole torus.
+          A reasonable choice is these four domains:
+          <m>(0,2\pi) \times (0,2\pi)</m>,
+          <m>(0,2\pi) \times (\pi,3\pi)</m>,
+          <m>(\pi, 3\pi) \times (0, 2\pi)</m> and <m>(3,\pi) \times (3,\pi)</m>.
+          Each of these charts is missing only one value of each angle,
+          which leads to the torus missing one horizontal circle and one vertical circle.
+          <md>
+            <mrow>\phi_1(u,v) = ((a + b \cos v) \cos u, (a + b \cos v) \sin u + , b \sin v) \hspace{1cm} (u,v) \in (0,2\pi) \times (0,2\pi)</mrow>
+            <mrow>\phi_2(u,v) = ((a + b \cos v) \cos u, (a + b \cos v) \sin u + , b \sin v) \hspace{1cm} (u,v) \in (0,2\pi) \times (\pi,3\pi)</mrow>
+            <mrow>\phi_3(u,v) = ((a + b \cos v) \cos u, (a + b \cos v) \sin u + , b \sin v) \hspace{1cm} (u,v) \in (\pi,3\pi) \times (0,2\pi)</mrow>
+            <mrow>\phi_4(u,v) = ((a + b \cos v) \cos u, (a + b \cos v) \sin u + , b \sin v) \hspace{1cm} (u,v) \in (\pi,3\pi) \times (\pi,3\pi)</mrow>
+          </md>
+        </p>
+        <p>
+          These functions are exactly the same where they overlap.
+          Therefore, the transition functions should be identity functions.
+          Here is one example.
+          <me>
+            \phi_1 \circ \phi_2^{_1} = \Id \hspace{1cm} (u,v) \in (0,2\pi) \times [\pi, 2\pi]
+          </me>
+        </p>
+        <p>
+          Using these coordinate functions,
+          we can think of the torus as these four squares in <m>\RR^2</m> pasted together along their overlap.
+          That leads us to thinking of the torus as a single square
+          <m>[0,2\pi] \times [0,2\pi]</m> where going off one side loops around to the other side.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          An important manifold in mathematical and physical history is
+          <em>Minkowski Space</em>,
+          which is the ambient space-time domain for special relativity.
+          It's not a very interesting manifold for the purposes of this chapter:
+          it is just <m>\RR^4</m> with one chart for the whole space (and variables <m>(x,y,z,t)</m>).
+          However, it has a strange notion of distance (a notion of distance is called a
+          <em>metric</em> in manifold theory).
+          The <sq>length</sq> of a vector
+          <m>(x,y,y,t)</m> is <m>\sqrt{x^2 + y^2 + z^2 - t^2}</m>.
+          The relitavistic time dialation of distance is built into the manifold structure.
+        </p>
+        <p>
+          The more radically curved space-time of general relativity is also a manifold,
+          and one that usually needs several charts.
+          Since these manifold are the <em>ambient spaces</em> for physics,
+          hopefully it becomes clear that we need to do calculus <em>on manifolds</em>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="manifold-scalar-fields">
+    <title>Scalar Fields on Manifolds</title>
+    <definition>
+      <statement>
+        <p>
+          Let <m>M</m> be a <m>k</m>-dimensional manifold in <m>\RR^n</m>.
+          A <term>scalar field</term> on <m>M</m> is a continuous function <m>f: M \rightarrow \RR</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      This definition is sufficient for an continuous function,
+      but what about differentiable functions?
+      To define differentiable functions
+      (as with any calculus definition on a manifold)
+      we have to use the coordinate functions.
+    </p>
+    <definition xml:id="def-differentiable-scalar-field">
+      <statement>
+        <p>
+          Let <m>M</m> be a <m>k</m>-dimensional manifold in <m>\RR^n</m>.
+          Let <m>f: M \rightarrow \RR</m> be a scalar field on <m>M</m>.
+          The scalar field is differentiable
+          (or <m>C^1</m>, <m>C^\infty</m>)
+          if, for all coordinate functon <m>\phi: D \rightarrow U</m>,
+          the composition <m>f \circ \phi :D \rightarrow \RR</m> is differentiable (or <m>C^1</m>,
+          <m>C^\infty)</m>).
+        </p>
+      </statement>
+    </definition>
+  </subsection>
+  <subsection xml:id="manifolds-with-boundary">
+    <title>Manifolds with Boundary</title>
+    <p>
+      Like parametric curves and surfaces,
+      manifolds can be closed or open and can have boundaries.
+      Informally speaking,
+      boundaries happen at the edge of a chart where there isn't an overlap with another chart.
+      Not all manifolds have well behaved boundaries,
+      but we will restrict ourselves to manifold where the boundaries are reasonable:
+      we want boundaries to be either empty or are themselves (piecewise) manifolds of one lower dimension.
+    </p>
+    <p>
+      For our reasonable manifolds,
+      boundaries will parallel what we saw before for parametric objects.
+      For curves, the boundary is the endpoints of the curve.
+      For surfaces,
+      the bounadry is a (piecewise) curve which goes around the edge of an open surface.
+      For higher dimensional manifolds,
+      the same intuition extends.
+      In every case, though,
+      the boundary is of a lower dimension than the manifold.
+    </p>
+    <p>
+      By allowing piecewsie boundaries,
+      we include manifolds where the boundaries can have some sharp corners.
+      Consider the solid cube, as an open set in <m>\RR^3</m>
+      (and thus a manifold with one chart and the identity function as the coordinate function).
+      The boundary of the cube consists of six solid squares.
+      Each square, inside its edges, is a manifold itself
+      (as a parametric surface, at least).
+      We're alright with the situation that the boundary of the cube consists of <em>six</em>
+      individual manifolds instead of one.
+    </p>
+  </subsection>
+  <subsection xml:id="manifold-orientation">
+    <title>Orientation on Manifolds</title>
+    <p>
+      Simple topological boundaries, however,
+      are not enough for the theorems that we wish to establish.
+      We need boundaries that consider orientation.
+    </p>
+    <p>
+      Orientation essentially works as it did before with parametric objects.
+      A curve has an orientation given by a direction of movement along the curve.
+      This still works with multiple charts,
+      as long as the orientations agree on the overlaps.
+      A surface has an orientation given by the direction of a normal
+      (naively: above or below the surface).
+      This still works with multiple charts,
+      as long as the orientations agree on the overlaps.
+      This notion of orientation extends to higher dimension manifold in ways that I will not describe in these notes.
+    </p>
+    <p>
+      Boundaries, then, must have compatible orientations.
+      The boundary of a curve is two points,
+      with the starting points labelled as positive and the ending point laelled as negative.
+      The boundary of a surface is a curve
+      (or collection of curves)
+      such that a right-hand-rule relates the direction of the curve and the direction of the normal.
+      The boundary of a solid region in <m>\RR^3</m> is a collection of surfaces with normals that point outwards.
+    </p>
+    <p>
+      As we did in the previous chapter,
+      we use the symbol <m>\del</m> to indicate an oriented topological boundary.
+      If <m>M</m> is a manifold, its boundary is written <m>\del M</m>.
+      Orientation lead to one very important result.
+      <me>
+        \del (\del M) = \emptyset
+      </me>
+    </p>
+    <p>
+      For a solid region, the boundary is a collection of surface.
+      These surface may meet at their boundaries,
+      but with opposite directions due to the outward facing normals.
+      These opposite directions cancel out these boundary curves,
+      leaving no boundary.
+      For a surface, the boundary is a closed curve,
+      with the same starting and ending points.
+      Since the same point is labelled both positive and negative,
+      this cancels out and the boundary is empty.
+    </p>
+  </subsection>
+</section>

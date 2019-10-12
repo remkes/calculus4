@@ -1,0 +1,134 @@
+<section xml:id="surface-integrals">
+  <title>Surface Integrals</title>
+  <p>
+    Recall the definition of the line integral.
+    <me>
+      \int_{\gamma} F \cdot T ds = \int_a^b F(\gamma(t)) \cdot \gamma^\prime(t) dt
+    </me>
+  </p>
+  <p>
+    On the left, we started with intrinsic information,
+    using the arclength parametrization and infinitesimal <m>ds</m> to build a definition which didn't depends on parametrization.
+    Then we showed,
+    using <m>ds = |\gamma^\prime(t)| dt</m> how to calculate the line integral for an arbitrary the description of length in terms of the parametrization.
+    We have something similar for surfaces.
+    Instead of length,
+    we have an infinitesimal area <m>dA</m> which is independent of the parametrization.
+    If <m>\sigma(u,v)</m> is a function of the parameters <m>u</m> and <m>v</m> on a simply connected domain <m>D</m>,
+    through a change of variables,
+    we can express the intrinsic <m>dA</m> in terms of the specific parameters <m>u</m> and <m>v</m>.
+    For curves, the mediating factor was the length of the tangent;
+    for surfaces, it is the length of the normal.
+    <me>
+      dA = |\sigma_u \times \sigma_v| du dv
+    </me>
+  </p>
+  <p>
+    This gives us a local area differential for integration.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\sigma(u,v)</m> be a parametric surface defined on a simply connected open set <m>D</m>.
+        Let <m>f</m> be a scalar field defined in a neighbourhood of the surface <m>\sigma</m>.
+        The integral of <m>f</m> over <m>\sigma</m> is defined as follows.
+        <me>
+          \int_\sigma f dA = \int_D f(\sigma(u,v)) |\sigma_u \times \sigma_v | du dv
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    This definition lets us calculate surface area of parametric surfaces.
+    To find area,
+    we just integrate the constant scalar field <m>f = 1</m>.
+    <me>
+      A = \int_\sigma 1 dA = \int_D |\sigma_u \times \sigma_v| du dv
+    </me>
+  </p>
+  <p>
+    If we expand this out,
+    we can get the full expression in all its complexity.
+    <me>
+      A = \int_D \sqrt{ \left( \frac{\del \sigma_2}{\del u} \frac{\del \sigma_3}{\del v} - \frac{\del \sigma_2}{\del v} \frac{\del \sigma_3}{\del u} \right)^2 + \left( \frac{\del \sigma_3}{\del u} \frac{\del \sigma_1}{\del v} - \frac{\del \sigma_3}{\del v} \frac{\del \sigma_1}{\del u} \right)^2 + \left( \frac{\del \sigma_1}{\del u} \frac{\del \sigma_2}{\del v} - \frac{\del \sigma_1}{\del v} \frac{\del \sigma_2}{\del u} \right)^2 } du dv
+    </me>
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>\sigma</m> be the graph of a function
+        <m>f: \RR^2 \rightarrow \RR</m> as defined in <xref ref="example-surface-graph">Example</xref>.
+        Then we can use the area formula to write the general equation of the surface area of the graph of <m>f</m> over a simply-connected region <m>D</m> in its domain.
+        <me>
+          A = \int_D \sqrt{ \left( \frac{\del f}{\del x} \right)^2 + \left( \frac{\del f}{\del y} \right)^2 + 1} dx dy
+        </me>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>f: [a,b] \rightarrow \RR</m> be a differentiable function and let <m>\sigma</m> is a surface of revolution as defined in <xref ref="example-surface-revolution">Example</xref>.
+        Let <m>D = [a,b] \times [0,2\pi]</m>.
+        Then we can define the surface of such a general surface of revolution.
+        <me>
+          A = \int_D \sqrt{ 1 - \left( \frac{\del f}{\del x} \right)^2} f(x) dx
+        </me>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The parabaloid <m>z = k(x^2 +y^2)</m> can be described by
+        <m>\sigma(u,v) = (u,v,k(u^2+v^2))</m> over <m>D</m> a circle of radius <m>r</m>.
+        We can calculate its surface area.
+        <md>
+          <mrow>A \amp  = \int_D \sqrt{4k^2 u^2 + 4k^2 v^w + 1} du dv</mrow>
+          <mrow>\amp  = \int_0^{2\pi} \int_0^r \sqrt{4k^2 r^2 + 1} r dr d \theta</mrow>
+          <mrow>u \amp  = 4k^2 r^1 + 1 \implies du = 8k^2 r dr</mrow>
+          <mrow>\amp  = 2\pi \int_1^{4hk} \sqrt{u} \frac{1}{8k^2} du</mrow>
+          <mrow>\amp  = \left. \frac{\pi}{4k^2} \frac{2u^{\frac{3}{2}}}{3} \right|_1^{4kh}</mrow>
+          <mrow>\amp  = \frac{\pi}{6k^2} \left( (4kh)^{\frac{3}{2}} -1 \right) = \frac{2\sqrt{h^3k^3} - 1}{6k^2}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The surface of revolution under <m>f(x) = \frac{1}{x}</m> for
+        <m>x \in [1,\infty)</m> is called the Horn of Gabriel.
+        It can be described parametrically for
+        <m>(x,\theta) \in [1, \infty) \times [0, 2\pi]</m> as the following surface.
+        <me>
+          \sigma(x,\theta) = \left( x, \frac{\cos \theta}{x}, \frac{\sin \theta}{x} \right)
+        </me>
+      </p>
+      <p>
+        The surface area of the Horn of Gabriel is quite interesting.
+        (The comparison results for single-variable integrals are useful in this calculation.)
+        <md>
+          <mrow>\sigma_x \amp  = \left( 1, \frac{-\cos \theta}{x^2}, \frac{-\sin \theta}{x^2} \right)</mrow>
+          <mrow>\sigma_{\theta} \amp  = \left( 0, \frac{-\sin \theta}{x}, \frac{\cos \theta}{x} \right)</mrow>
+          <mrow>\sigma_x \times \sigma_{\theta} \amp  = \left( \frac{-1}{x^3}, \frac{\cos \theta}{x}, \frac{-\sin \theta}{x} \right)</mrow>
+          <mrow>|\sigma_x \times \sigma_\theta| \amp  = \sqrt{ \frac{1}{x^6} + \frac{1}{x^2}} = \frac{1}{x} \sqrt{ \frac{1}{x^4} + 1}</mrow>
+          <mrow>A \amp  = \int_\sigma 1 = \int_1^{\infty} \int_0^{2\pi} \frac{1}{x} \sqrt{ \frac{1}{x^4} + 1} d\theta dx</mrow>
+          <mrow>\amp  = 2\pi \int_1^{\infty} \frac{1}{x} \sqrt{ \frac{1}{x^4} + 1} dx \geq 2\pi \int_1^\infty \frac{1}{x} = \infty</mrow>
+        </md>
+      </p>
+      <p>
+        Compare this surface are with the volume of the Horn of Gabriel.
+        <md>
+          <mrow>V \amp  = \int_1^{\infty} \int_0^{\frac{1}{x}} \int_0^{2\pi} r d \theta dr dx</mrow>
+          <mrow>\amp  = 2\pi \int_1^\infty \left. \frac{r^2}{2} \right|_0^{\frac{1}{x}} = 2\pi \int_1^\infty \frac{1}{2x^2} dx</mrow>
+          <mrow>\amp  = \left. \frac{2\pi}{2} \frac{-1}{x} \right|_1^\infty = \pi</mrow>
+        </md>
+      </p>
+      <p>
+        This is a very strange situation:
+        an object with finite volume and infinite surface area.
+      </p>
+    </statement>
+  </example>
+</section>

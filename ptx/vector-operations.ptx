@@ -1,0 +1,346 @@
+<section xml:id="vector-operations">
+  <title>Vector Operations on Vector Fields</title>
+  <introduction>
+    <p>
+      Recall the gradient <m>\nabla f</m> of a scalar field <m>f</m>.
+      It's useful to recall the definition of the operator <m>\nabla</m>.
+      (stated in <m>\RR^3</m> for convenience).
+      <me>
+        \nabla = \left( \frac{\del}{\del x}, \frac{\del}{\del y}, \frac{\del}{\del z} \right)
+      </me>
+    </p>
+    <p>
+      If <m>f</m> is a scalar field,
+      then the gradient <m>\nabla f</m> is a <em>vector field</em>
+      describing the direction of greatest change.
+      We didn't investigate it's propreties as a vector field in Calculus III, but it was the first vector field we used.
+    </p>
+    <p>
+      There are new operators we can define using <m>\nabla</m> on vector fields <m>F</m>.
+      <m>\nabla</m> operates a vector,
+      since is has components which are differential operators.
+      Therefore, we use vector notation involving <m>\nabla</m>.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>F : \RR^3 \rightarrow \RR^3</m> be a vector field.
+          The <term>curl</term> of <m>F</m> is defined as the the cross product of <m>\nabla</m> and <m>F</m>.
+          Note that this outputs a new vector field, not a scalar field.
+          <me>
+            \nabla \times F = \left( \frac{\del F_3}{\del y} - \frac{\del F_2}{\del z}, \frac{\del F_1}{\del z} - \frac{\del F_3}{\del x}, \frac{\del F_2}{\del x} - \frac{\del F_1}{\del y}, \right)
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Curl measures the tendency of the vector field to cause
+      <em>local</em> rotation.
+      If we think of the vector field as a fluid flow and if we drop an object in the fluid,
+      it will flow along the integral curves of the vector field.
+      However, as it flows along, it may also start spinning about its own axis.
+      Curl measure the tendency of the vector field to cause such a spin.
+      (This is very different from global rotation.
+      The paths of rotation themselves may be circular without actually causing the object itself to spin.
+      Likewise, the paths can be totally straight but still cause rotation.)
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A vector field with zero curl is called
+          <term>irrotational</term>.
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>
+          Consider <m>F(x,y,z) = (y,0,0)</m>.
+          This is a field which moves objects in the <m>x</m> direction,
+          but the speed of movement varies with the <m>y</m> coordinate.
+          The curl is <m>\nabla \times F = (0,0,-1)</m>.
+          This field causes a clockwise rotation about the <m>z</m> axis;
+          as particles in the fluid move in the <m>x</m> direction,
+          they start spinning around a vertical axis.
+        </p>
+      </statement>
+    </example>
+    <definition>
+      <statement>
+        <p>
+          Let <m>F: \RR^n \rightarrow \RR^n</m> be a vector field in any dimension.
+          The <term>divergence</term> of <m>F</m> is the dot product <m>\nabla \cdot F</m>.
+          Note that this outputs a new scalar field, not a vector field.
+          <me>
+            \nabla \cdot F = \frac{\del F_1}{\del x_1} + \frac{\del F_2}{\del x_2} + \ldots + \frac{\del F_n}{\del x_n}
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The divergence measure the tendency of a vector field to diffuse.
+      Thinking in terms of gaseous fluids,
+      a positive divergence at a point means that the density of the gas is <em>decreasing</em>.
+      Some directions of flow may be inward and some outward,
+      but there is a net diffusion of the gas.
+      If the divergence is negative,
+      the density is <em>increasing</em>
+      and there is a net gathering of the gas.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A vector where where the divergence is zero is called
+          <term>incompressible</term>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Many liquids are incompressible,
+      at least locally and under reasonable energy circumstances.
+      Water is usually treated as an incompressible fluid.
+      The major difference in fluid dynamics between gases and liquid is compressibility.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>f</m> be is a scalar field <m>\RR^n \rightarrow \RR</m>.
+          It's <term>Laplacian</term> is the divergence of its gradient:
+          <m>\nabla \cdot (\nabla f) = \nabla^2 f</m>.
+          Note that this outputs a scalar field.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The Laplacian was mentioned in the previous term,
+      since the input and output are both scalar fields.
+      However, the intermediate state
+      (the gradient)
+      is a vector field, and the second part of the operation
+      (the divergence)
+      is a vector operation.
+      This persepctive of the Laplacian is quite useful.
+    </p>
+    <p>
+      The Laplacian is very important for many differential equations in physics.
+      As the divergence of the gradient field,
+      it measures where the scalar field leads to a gathering or spreading.
+      In a potential energy field,
+      it measures the sources (attractors) and repellors which generate the field.
+    </p>
+    <p>
+      There were two important differential equations introduced in Calculus III: the heat equation and the wave equation.
+      Extending these DES to several dimensions uses the Laplacian.
+      Recall the 1-variable and multi-variable versions of those two equations.
+      <md>
+        <mrow>\frac{\del f}{\del t} \amp  = \alpha \frac{\del^2 f}{\del x^2}</mrow>
+        <mrow>\frac{\del^2 f}{\del t^2} \amp  = \alpha \frac{\del^2 f}{\del x^2}</mrow>
+      </md>
+    </p>
+    <p>
+      Replacing the 1-variable position derivative with a multivariable Laplacian extends these DEs to several variables.
+      <md>
+        <mrow>\frac{\del f}{\del t} \amp  = \alpha \nabla^2 f</mrow>
+        <mrow>\frac{\del^2 f}{\del t^2} \amp  = \alpha \nabla^2 f</mrow>
+      </md>
+    </p>
+    <p>
+      We've also seen the Laplacian in the Schr&#xf6;dinger equation and the Navier-Stokes equation as the space derivative term.
+    </p>
+    <p>
+      In the wave equation,
+      if <m>\nabla^2 f = 0</m> then <m>\frac{\del^2 f}{\del t^2} = 0</m>.
+      Therefore, <m>f</m> has, at most,
+      a linear dependence in <m>t</m>.
+      Since the dependence in <m>x</m> is often sinusoidal,
+      a common solution here is a standing wave or a wave with constant velocity.
+      This (among other,
+      more confusing reasons) leads to the terminology of harmonic functions.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A scalar field <m>f</m> is <term>harmonic</term> if <m>\nabla^2 f = 0</m>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The harmonic condition is a very restrictive condition.
+      In particular,
+      harmonic functions satify a maximum modulus principle:
+      if <m>f</m> has an strict extrema in an open set,
+      then it has a point with non-zero Laplacian and cannot be harmonic.
+      Therefore, the extrema of <m>f</m> must always come on the boundary of any open set.
+      In complex analysis,
+      all differentiable (holomorphic) functions are harmonic;
+      this fact leads to very different behaviour between real and complex differentiable functions.
+    </p>
+  </introduction>
+  <subsection xml:id="interactions">
+    <title>Interaction between Vector Operations</title>
+    <p>
+      All uses of <m>\nabla</m> are linear.
+    </p>
+    <proposition>
+      <statement>
+        <p>
+          Let <m>f</m> and <m>g</m> be scalar fields on <m>\RR^3</m>,
+          and let <m>F</m> and <m>G</m> be vector fields on <m>\RR^3</m>.
+          Let <m>a</m> and <m>b</m> be constants.
+          Then:
+          <md>
+            <mrow>\nabla (af \pm bg) \amp  = a \nabla f \pm b \nabla g</mrow>
+            <mrow>\nabla \times (aF \pm bG) \amp  = a (\nabla \times F) \pm b (\nabla \times G)</mrow>
+            <mrow>\nabla \cdot (aF \pm bG) \amp  = a (\nabla \cdot F) \pm b (\nabla \cdot G)</mrow>
+            <mrow>\nabla^2 (af \pm bg) \amp  = a \nabla^2 f \pm b \nabla^2 g</mrow>
+          </md>
+        </p>
+      </statement>
+    </proposition>
+    <p>
+      In the previous identity
+      (and similar identities),
+      pay careful attention to which outputs are scalar fields and which are vector fields.
+    </p>
+    <p>
+      Since <m>\nabla</m> is a differential operator,
+      it doesn't distribute over multiplication.
+      However, there are several generalizations of the Leibniz rule.
+    </p>
+    <proposition>
+      <statement>
+        <p>
+          Let <m>f</m> be a scalar field on <m>\RR^3</m> and let <m>F</m> and <m>G</m> be vector fields on <m>\RR^3</m>.
+          <md>
+            <mrow>\nabla \cdot (F \times G) \amp  = (\nabla \times F) \cdot G - F \cdot (\nabla \times G)</mrow>
+            <mrow>\nabla \cdot (fF) \amp  = f (\nabla \cdot F) + (\nabla f) \cdot F</mrow>
+            <mrow>\nabla \times (fF) \amp  = f (\nabla \times F) + (\nabla f) \times F</mrow>
+          </md>
+        </p>
+      </statement>
+    </proposition>
+    <p>
+      In the first Leibniz rule we have a difference instead of the expected sum.
+      In general versions of the Leibniz rule,
+      this negative sign is quite common.
+      Many versions of the rule have <m>(-1)^k</m> for some <m>k</m>,
+      showing that it is equally easy to have a sum or difference.
+    </p>
+    <p>
+      There are two important results about composition of vector operations.
+    </p>
+    <proposition>
+      <statement>
+        <p>
+          Let <m>f</m> be a scalar field on <m>\RR^3</m> and <m>F</m> a vector field on <m>\RR^3</m>.
+          Then <m>\nabla \times (\nabla f) = 0</m>:
+          the curl of a gradient is zero.
+          Also, <m>\nabla \cdot (\nabla \times F) = 0</m>:
+          the divergence of a curl is zero.
+        </p>
+      </statement>
+    </proposition>
+    <p>
+      This proposition is established by calculating all the terms and using the compatibility of order in mixed second partial derivatives.
+      The proofs are left as exercises.
+    </p>
+    <p>
+      This proposition is also a glimpse of a very general result in analysis.
+      If we work with the right definitions, applying the same
+      (or similar)
+      differential operator twice in a row should give the zero operator.
+      Obviously, this isn't always true:
+      partial derivatives certainly don't satisfy this,
+      and even for <m>\nabla</m>,
+      <m>\nabla \cdot \nabla f \neq 0</m> for a general scalar field.
+      Near the end of these notes,
+      we will give a general structure for understanding why differential operators should compose to zero.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider the scalar field <m>f(x,y) = \ln (x^2 + y^2)</m>,
+          which is defined everywhere except the origin.
+          <md>
+            <mrow>\nabla f \amp  = \left( \frac{2x}{x^2 + y^2}, \frac{2y}{x^2+y^2} \right)</mrow>
+            <mrow>\nabla^2 f \amp  = \frac{2}{x^2 + y^2} - \frac{4x^2}{(x^2 + y^2)^2} + \frac{2}{x^2+y^2} - \frac{4x^2}{(x^2+y^2)^2} = 0</mrow>
+          </md>
+        </p>
+        <p>
+          This is a harmonic scalar field.
+          In particular, it can have no extrema on an open set.
+          Values approach <m>-\infty</m> near the origin and <m>\infty</m> as we get very far from the origin.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the vector field <m>F(x,y,z) = (-z,x,-y)</m>.
+          <m>\nabla \times F = (-1,1,1)</m>,
+          so the vector field causes the same local rotation at all points,
+          about the axis <m>(-1,1,1)</m>
+          (as a local axis direction).
+          <m>\nabla \cdot F = (0,0,0)</m>,
+          so the flow is incompressible.
+          This is a good field to potentially model a liquid flow that induces a particular local rotation everywhere.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the vector field <m>F(x,y,z) = (x^2,y^2,z^2)</m>.
+          <m>\nabla \times F = (0,0,0)</m>,
+          so the field is irrotational.
+          The divergence is <m>\nabla \cdot F = (2x +2y+2z)</m>.
+          In the positive octant, the flow accelerates away from the origin,
+          so the rate of difussion increases away from the origin In other octants,
+          we may have negative divergence,
+          reflecting the fact that the local vector field directions are always positive.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the vector field <m>F(x,y,z) = (-y,x,0)</m>
+          (which should be fairly familiar by this time).
+          <m>\nabla \times F = (0,0,2)</m>,
+          which shows the creation of local rotation about the <m>z</m> axis.
+          Note that this is local rotation,
+          which is seperate from the global rotation of the integral curves about the origin.
+          Also, <m>\nabla \cdot F = 0</m>,
+          so the flow is incompressible.
+          As the flow spins around, it neither collects or diffuses anywhere.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the vector field <m>F(x,y,z) = (\sin x, \cos y, 0)</m>.
+          <m>\nabla \times F = (0,0,0)</m>,
+          so the flow is irrotational.
+          This is interesting, given the trigonometric term;
+          trigonometry might cause us to expect spin.
+          <m>\nabla \cdot F = \cos x - \sin y</m>,
+          so there are various areas of diffusion and collection.
+          The trigonometric term here causes diffusion/collection,
+          not rotation.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Consider the vector field <m>F(x,y,z) = \left( \frac{1}{x+y}, \frac{1}{x+y}, 0 \right)</m>.
+          <m>\nabla \times F = \left(0,0, \frac{-1}{(x-y)^2} - \frac{-1}{(x+y)^2} \right)</m>:
+          this curl is always negative and always about the <m>z</m> axis.
+          <m>\nabla \cdot F = \frac{-1}{(x+y)^2} + \frac{1}{(x-y)^2}</m>:
+          therefore, <m>F</m> collects when <m>x</m> and <m>y</m> are dissimilar and diffuses when <m>x</m> and <m>y</m> are quite close.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+</section>

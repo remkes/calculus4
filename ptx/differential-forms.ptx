@@ -1,0 +1,486 @@
+<section xml:id="differential-forms">
+  <title>Differential Forms</title>
+  <introduction>
+    <p>
+      Now we can start to define the main object of this chapter:
+      the differential form.
+      The definition is quite odd: be warned.
+      However, we will be rewarded by the end of the chapter.
+      We start with a little bit of linear algebra.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>L</m> be a vector space over <m>\RR</m>.
+          The <term>dual space</term> of <m>L</m> is the space of all linear functions <m>f: L \rightarrow \RR</m>.
+          It is a linear space of the same dimension as <m>L</m> and is written <m>L^\vee</m>.
+          If <m>\{v_1, \ldots, v_k\}</m> is a basis for <m>L</m>,
+          then the <term>dual basis</term> for <m>L^\vee</m> is the set of functions <m>f_i</m> such that <m>f_i(v_j) = \delta_{ij}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Differential forms are classified by their degree,
+      which is a non-negative integer.
+      Instead of attempting a full definition,
+      we will start with the lowest degree forms and work our way up,
+      using some of this linear algebra language.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A degree <m>0</m> differential form (0-form) on a manifold <m>M</m> is just a scalar field on <m>M</m>.
+        </p>
+      </statement>
+    </definition>
+    <definition>
+      <statement>
+        <p>
+          Let <m>M</m> be a manifold of dimension <m>k</m> and
+          <m>\phi: D \rightarrow U</m> a coordinate functionon <m>M</m>.
+          A degree <m>1</m> differential form (1-form) on the chart <m>U</m> is a function <m>\omega</m> defined on <m>U</m> as follows.
+          <me>
+            \omega: U \rightarrow \bigcup_{p \in U} T_p^\vee
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      This is very strange:
+      <m>T_p^\vee</m> is the set of linear functions on each tangent space <m>T_p</m>.
+      Therefore, a 1-form is a function that,
+      at each point of the manifold,
+      outputs a new linear function on its own tangent space <m>T_p</m>.
+      Functions that output other functions <mdash/> it's a valid definition,
+      but difficult to parse.
+    </p>
+    <p>
+      Since the <m>\del_i</m> are a basis for each <m>T_p</m> and differential forms create linear function on the <m>T_p</m>,
+      it is sufficent to know their effect on the <m>\del_i</m>.
+      We can make use of the dual basis defined above.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>du_i</m> to be the unique differential form that acts on each <m>\del_i</m> by
+          <me>
+            du_i (\del_i) = \delta_{ij} = \left\{ \begin{matrix} 1 \amp  i = j \\ 0 \amp  i \neq j \end{matrix} \right.
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The <m>du_i</m> for the dual basis to <m>\del_i</m>.
+      A general 1-form <m>\omega</m> can always be written in terms of this basis.
+      If the <m>f_i</m> are scalar functions,
+      then all 1-forms are written as a linear combination of the <m>du_i</m>.
+      <me>
+        \omega = \sum_{i=1}^k f_i du_i
+      </me>
+    </p>
+    <p>
+      This defines 1-forms in a much more tangible way.
+      Since 1-forms output linear functions on the tangent space <m>T_p</m>,
+      we think of them acting on tangent vectors.
+      Informally, higher degree forms are defined similarly;
+      the only difference is that they act on <m>m</m>-tuples of vectors.
+      A 1-form acts on one vector, but an <m>m</m>-forms acts on a <m>m</m> vectors.
+      Instead of giving a precise definition for this action,
+      we'll define higher order forms out of 1-form by the operations in the next section.
+    </p>
+    <p>
+      We still have a bit of a problem.
+      This description, including the definition of the basis <m>du_i</m>,
+      all happened on a chart <m>U</m>, not the whole manifold.
+      To finish the definition, we need to use the whole atlas of charts.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A differential form on a manifold <m>M</m> is given by a differential form for each <m>U_i</m> in on an atlas of charts such that the definition agree on the overlaps <m>U_i \cap U_j</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      So, now, how do differential 1-forms agree?
+      Let's do the same analysis we did before for a vector field.
+      We'll use the same two-dimensional setup.
+      Let <m>\phi_1(u,v)</m> and
+      <m>\phi_2(s,t)</m> be coordinate function and
+      <m>D = D_1 \cap D_2</m> the portion of the manifold where they overlap.
+      A differential 1-form on <m>D</m> can first be describe in the original coordinates <m>u,v</m>.
+      <me>
+        f_1((u,v)) du + f_2((u,v)) dv
+      </me>
+    </p>
+    <p>
+      How do we change this into a description in the new variables <m>s,t</m>?
+    </p>
+    <p>
+      Again, we have the transition function
+      <m>T = \phi_1^{-1} \circ \phi_2</m> which starts with <m>(s,t)</m> and outputs <m>(u,v)</m>.
+      Like a vector field, we can replace <m>(u,v)</m> with <m>T(s,t)</m>.
+      <me>
+        f_1(T(s,t))) du + f_2(T(s,t))) dv
+      </me>
+    </p>
+    <p>
+      Like vector fields, this is again only halfway.
+      How do the <m>du</m> and <m>dv</m> change?
+      We look to the chain rule again for inspiration.
+      If <m>du</m> and <m>dv</m> were derivative
+      (and not differential forms),
+      the chain rule calculation would look like this.
+      <md>
+        <mrow>du \amp  = \frac{\del u}{\del s} ds + \frac{\del u}{\del t} dt</mrow>
+        <mrow>dv \amp  = \frac{\del v}{\del s} ds + \frac{\del v}{\del t} dt</mrow>
+      </md>
+    </p>
+    <p>
+      Again, we can write this as a matrix transformation.
+      <me>
+        \left( du \ dv \right) = \left( \begin{matrix} \dfrac{\del u}{\del s} \amp \dfrac{\del v}{\del s} \\[1em] \dfrac{\del u}{\del t} \amp \dfrac{\del v}{\del t} \end{matrix} \right) \left( \begin{matrix} ds \\[1em] dt \end{matrix} \right) = J(T) \left( \begin{matrix} ds \\[1em] dt \end{matrix} \right)
+      </me>
+    </p>
+    <p>
+      We finish the transformation of the differential form.
+      <me>
+        f_1((T(s,t))) \left[ \frac{\del u}{\del s} du + \frac{\del u}{\del t} dv \right] + f_2((T(s,t))) \left[ \frac{\del v}{\del s} ds + \frac{\del v}{\del t} dt \right]
+      </me>
+    </p>
+    <p>
+      Now, we used the chain rule as if these differential form were derivatives,
+      which they are not.
+      What is the justification that this chain rule works?
+      Well, differential forms act on vector fields as a dual basis.
+      That means the following four equations should hold.
+      <md>
+        <mrow>ds(\del_s) \amp  = 1 \hspace{2cm} ds(\del_t) = 0</mrow>
+        <mrow>dt(\del_s) \amp  = 0 \hspace{2cm} dt(\del_t) = 1</mrow>
+      </md>
+    </p>
+    <p>
+      Let's check that our new forms for <m>ds</m> and <m>dt</m>,
+      acting on the transformed form for <m>\del_s</m> and <m>\del_t</m>,
+      actually satisfy this equation.
+      If they do, then we are justified in using our chain-rule calculations.
+      We start with the first of the four equations.
+      <md>
+        <mrow>ds(\del_s) \amp  = \left( \frac{\del u}{\del s} du + \frac{\del u}{\del t} dv \right) \left( \frac{\del s}{\del u} \del_u + \frac{\del s}{\del v} \del_v \right)</mrow>
+        <intertext>The action is linear, to we break this into two terms.</intertext>
+        <mrow>\amp  = \frac{\del u}{\del s} du \left( \frac{\del s}{\del u} \del_u + \frac{\del s}{\del v} \del_v \right) \ + \frac{\del u}{\del t} dv \left( \frac{\del s}{\del u} \del_u + \frac{\del s}{\del v} \del_v \right)</mrow>
+        <intertext>Again, the action is linear, to we distribute it.</intertext>
+        <mrow>\amp  = \frac{\del u}{\del s} du \left( \frac{\del s}{\del u} \del_u \right) + \frac{\del u}{\del s} du \left( \frac{\del s}{\del v} \del_v \right) \ + \frac{\del u}{\del t} dv \left( \frac{\del s}{\del u} \del_u \right) + \frac{\del u}{\del t} dv \left( \frac{\del s}{\del v} \del_v \right)</mrow>
+        <mrow>\amp  = \frac{\del u}{\del s} \frac{\del s}{\del u} du(\del_u) + \frac{\del u}{\del s} \frac{\del s}{\del v} du(\del_v) + \frac{\del u}{\del t} \frac{\del s}{\del u} dv(\del_u) + \frac{\del u}{\del t} \frac{\del s}{\del v} dv(\del_v)</mrow>
+        <mrow>\amp  = \left( \frac{\del u}{\del s} \frac{\del s}{\del u} + \frac{\del u}{\del t} \frac{\del s}{\del v} \right)</mrow>
+        <intertext>Now we use the expressions we derived in the previous section to replace <m>\frac{\del s}{\del u}</m> and <m>\frac{\del s}{\del v}</m>.</intertext>
+        <mrow>\amp  = \left( \frac{\del u}{\del s} \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del v}{\del t} + \frac{\del u}{\del t} \frac{-1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del u}{\del t} \right)</mrow>
+        <mrow>\amp  = \left( \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \right) \left( \frac{\del u}{\del s} \dfrac{\del v}{\del t} + \frac{\del u}{\del t} \dfrac{\del u}{\del t} \right)</mrow>
+        <mrow>\amp  = \frac{\left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right)}{\left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right)} = 1</mrow>
+      </md>
+    </p>
+    <p>
+      The first of the four equation is satisfied.
+      The remainin three are very similar calculations.
+      This justifies the expressions we used for <m>ds</m> and <m>dt</m>:
+      after changing to <m>du</m> and <m>dv</m>,
+      we produce the require and expected action onf <m>\del_u</m> and <m>\del_v</m>.
+    </p>
+    <p>
+      Notice, unlike the case for vector fields,
+      that the composition is with <m>T</m> and we use the Jacobian matrix of <m>T</m> as well.
+      Objects on manifold that transform this way,
+      where the same transition function is used for composition and for the Jacobian,
+      are called <em>covariant</em>.
+      This is a very important distinction between vector fields and differential forms:
+      vector fields are contravariant and differential forms are covariant.
+      We will make use of this when we define integration.
+    </p>
+  </introduction>
+  <subsection xml:id="products-derivatives">
+    <title>Products and Derivatives</title>
+    <p>
+      There are four important operations that we can perform on differential forms.
+      First, differential forms are linear, so we can add,
+      subtract and multiply by constants.
+    </p>
+    <p>
+      Second, there is a product of forms which is called the exterior product.
+      We'll define it on 1-forms, but it can be extended to any degree.
+      In general, the exterior product adds the degrees of the forms;
+      in particular, the product of two 1-forms will be a 2-form.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>\omega</m> and <m>\eta</m> be 1-forms.
+          They each act on vectors in tangent spaces.
+          Their <term>exterior product</term> is a 2-form,
+          so it acts on two vectors from each tangent space.
+          It is defined by the following formula.
+          <me>
+            \omega \wedge \eta (v_1,v_2) = \omega(v_1) \eta(v_2) - \omega(v_2) \eta(v_1)
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <proposition>
+      <statement>
+        <p>
+          The exterior product is associative. if <m>\omega</m>,
+          <m>\eta</m> and <m>\sigma</m> are all forms, then
+          <me>
+            \omega \wedge \eta \wedge \sigma = \omega \wedge (\eta \wedge \sigma) = (\omega \wedge \eta) \wedge \sigma
+          </me>
+        </p>
+      </statement>
+    </proposition>
+    <proposition>
+      <statement>
+        <p>
+          The exterior product is not commutative.
+          Instead, it is anti-communtative.
+          <me>
+            \omega \wedge \eta = - \eta \wedge \omega
+          </me>
+        </p>
+      </statement>
+    </proposition>
+    <p>
+      The anti-commutativity is easy to see from the definition.
+      It implies a strange but very important property of the exterior product.
+      <me>
+        \omega \wedge \omega = 0
+      </me>
+    </p>
+    <p>
+      With the basis <m>du_i</m>,
+      we had a description of any 1-form as a linear combination of the <m>du_i</m>
+      (where the scalars were scalar functions).
+      The exterior product gives a basis for higher degree forms.
+      However, anti-commutativity implies that <m>du_i \wedge du_i = 0</m>,
+      so the basis for the 2-forms are all
+      <m>du_i \wedge du_j</m> such that <m>i \neq j</m>.
+      Likewise, the 3-forms have a basis
+      <m>du_i \wedge du_j \wedge du_k</m> where all three indices are distinct.
+      In general, <m>l</m>-forms are spanned by wedges of <m>du_i</m> of length <m>l</m> where no index is repeated.
+      When any index is repeated, the form becomes 0.
+      After we have these bases,
+      any form is a linear combination of the basis elements,
+      where the coefficients are scalar functions.
+    </p>
+    <p>
+      In addition to a product, there is a derivative for differential forms.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>\omega</m> be a 1-form,
+          which we write with the basis <m>du_i</m>.
+          <me>
+            \omega = \sum_{i=1}^k f_i du_i
+          </me>
+        </p>
+        <p>
+          The the <term>exterior derivative</term>
+          of <m>\omega</m> is written <m>d\omega</m> and is expressed as follows.
+          <me>
+            dw = \sum_{i=1}^k \left( \sum_{j=1, j \neq i}^k \frac{\del f_i}{\del x_j} du_j \wedge du_i \right)
+          </me>
+        </p>
+        <p>
+          For higher degree forms, a similar equation holds:
+          we express the form in a basis of wedges of <m>du_i</m> and differentiate the coefficient scalar functions.
+          Each time we differentiate <m>\frac{\del}{\del u_i}</m> we add a
+          <m>du_i \wedge</m> to the start of the wedge product.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      In the previous chapter,
+      we talked about how certain differential operators composed to zero:
+      the curl of a gradient is zero and the divergence of a curl is zero.
+      The exterior derivative lives up to this legacy perfectly.
+    </p>
+    <proposition>
+      <statement>
+        <p>
+          If <m>\omega</m> is any differential form,
+          then <m>d(d\omega) = 0</m>.
+          Succinctly, we write <m>d^2 = 0</m> for the exterior derivative.
+        </p>
+      </statement>
+    </proposition>
+    <proof>
+      <p>
+        The is nothing radical or insightful about the proof.
+        We just apply the expression for the exterior derivative twice and do a lot of tedious algebra with the indicies.
+        All the terms cancel out and we get zero.
+      </p>
+    </proof>
+    <p>
+      There is one last operator on forms.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>\omega</m> be a k-form and <m>v</m> is a vector field on the manifold.
+          The <term>interior product</term>
+          of <m>\omega</m> and <m>v</m> is written <m>i_v \omega</m>.
+          It is a k-1-form and is defined as follows.
+          <me>
+            i_v \omega (v_1, \ldots, v_{k-1}) = \omega(v,v_1, \ldots, v_{k-1})
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      As a differential k-form, <m>\omega</m> acts on <m>k</m> vectors.
+      The interior product simply insist that the first vector acted on is always the vector <m>v</m>,
+      leaving the remainin <m>k-1</m> vectors undetermined.
+    </p>
+  </subsection>
+  <subsection xml:id="differential-forms-r3">
+    <title>Differential Forms in <m>\RR^3</m></title>
+    <p>
+      The definitions so far have all been very abstract,
+      so lets try to specialize back to <m>\RR^3</m> to see what happens.
+      In this section,
+      our manifold will simple be an open set <m>U</m> in <m>\RR^3</m>.
+      Its coordinate function is simply the identity <m>\Id: U \rightarrow U</m>.
+      This lets us use the familiar coordinates <m>x,y,z</m> as local coordinates on <m>U</m> and define fields and forms interms of these local coordinates.
+      (Here, the local and ambient coordinate are the same.)
+      <md>
+        <mrow>\text{ Vector Fields }  \amp  \del_x,\ \del_y,\ \del_z</mrow>
+        <mrow>\text{ 1-Forms }  \amp  dx,\ dy,\ dz</mrow>
+        <mrow>\text{ 2-Forms }  \amp  dy \wedge dz,\ dz \wedge dx,\ dx \wedge dy</mrow>
+        <mrow>\text{ 3-Forms }  \amp  dx \wedge dy \wedge dz</mrow>
+      </md>
+    </p>
+    <p>
+      It is impossible to have a differential form of degree 4 or higher,
+      since a 4-form must have at least one repeated <m>dx</m>,
+      <m>dy</m> or <m>dz</m> term and forms with repeated basis terms are zero.
+      The degree of forms is bounded by the dimension of the object.
+      For the 2-forms,
+      the ordering of the basis is related to orientation.
+      We will stick with the order as presented above.
+    </p>
+    <p>
+      If <m>\omega_0</m>, <m>\omega_1</m>,
+      <m>\omega_2</m> and <m>\omega_3</m> are 0, 1, 2, and 3 forms respectively,
+      they are written in terms of the basis by using scalar fields <m>f_i</m> as follows.
+      <md>
+        <mrow>\omega_0 \amp  = f</mrow>
+        <mrow>\omega_1 \amp  = f_1 dx + f_2 dy + f_3 dz</mrow>
+        <mrow>\omega_2 \amp  = f_1 dy\wedge dz + f_2 dz\wedge dx + f_3 dx \wedge dy</mrow>
+        <mrow>\omega_3 \amp  = f dx \wedge dy \wedge dz</mrow>
+      </md>
+    </p>
+    <p>
+      Now we can consider the exterior derivatives of these forms.
+      This will start to show us the connection to the vector calculus.
+    </p>
+    <p>
+      First, let's differentiate <m>\omega_0</m>,
+      which just a scalar field.
+      Its derivative, however, will be a 1-form.
+      <me>
+        d \omega_0 = \frac{\del f}{\del x} dx + \frac{\del f}{\del y} dy + \frac{\del f}{\del z} dz = df = \nabla f \cdot (dx, dy, dz)
+      </me>
+    </p>
+    <p>
+      The exterior derivative of a 0-form
+      (scalar field)
+      recovers the gradient operator.
+      The gradient is the <em>coefficients</em> of the 1-form.
+    </p>
+    <p>
+      Now let's take <m>\omega_1</m> a 1-form and calculate its exterior derivative.
+      This derivative will be a 2-form.
+      <md>
+        <mrow>\omega_1 \amp  = f_1 dx + f_2 dy + f_3 dz</mrow>
+        <mrow>d \omega_1 \amp  = \frac{\del f_1}{\del y} dy \wedge dx + \frac{\del f_1}{\del z} dz \wedge dx + \frac{\del f_2}{\del x} dx \wedge dy + \frac{\del f_2}{\del z} dz \wedge dy + \frac{\del f_3}{\del x} dx \wedge dz + \frac{\del f_3}{\del y} dy \wedge dz</mrow>
+        <mrow>\amp  = - \frac{\del f_1}{\del y} dx \wedge dy + \frac{\del f_1}{\del z} dz \wedge dx + \frac{\del f_2}{\del x} dx \wedge dy - \frac{\del f_2}{\del z} dy \wedge dz - \frac{\del f_3}{\del x} dz \wedge dx + \frac{\del f_3}{\del y} dy \wedge dz</mrow>
+        <mrow>\amp  = \left( \frac{\del f_3}{\del y} - \frac{\del f_2}{\del z} \right) dy \wedge dz + \left( \frac{\del f_1}{\del z} - \frac{\del f_3}{\del x} \right) dz \wedge dx + \left( \frac{\del f_2}{\del x} - \frac{\del f_1}{\del y} \right) dx \wedge dy</mrow>
+        <mrow>\amp  = \left( \nabla \times (f_1, f_2, f_3) \right) \cdot (dy \wedge dz, dz \wedge dx, dx \wedge dy)</mrow>
+      </md>
+    </p>
+    <p>
+      If we do the orientation correctly and choose the basis order as we did,
+      we recover the curl operation.
+      Again, the curl gives the <em>coefficients</em> of this 2-form.
+    </p>
+    <p>
+      The exterior derivative of a 0-form involed the gradient.
+      For a 1-form, it involved the curl.
+      If we take a 0-form <m>\omega_0</m> and take the exterior derivative twice,
+      then the fact <m>d (d\omega_0) = 0</m> is equivalent to the identity <m>\nabla \times \nabla f = 0</m>.
+    </p>
+    <p>
+      Now let's take <m>\omega_2</m> a 2-form and calculate its exterior derivative.
+      <md>
+        <mrow>\omega_2 \amp  = f_1 dy\wedge dz + f_2 dz\wedge dx + f_3 dx \wedge dy</mrow>
+        <mrow>d \omega_2 \amp  = \frac{\del f_1}{\del x} dx \wedge dy \wedge dz + \frac{\del f_2}{\del y} dy \wedge dz \wedge dx + \frac{\del f_3}{\del z} dz \wedge dx \wedge dy</mrow>
+        <mrow>\amp  = \left( \frac{\del f_1}{\del x} + \frac{\del f_2}{\del y} + \frac{\del f_3}{\del z} \right) dx \wedge dy \wedge dz</mrow>
+        <mrow>\amp  = \left( \nabla \cdot (f_1, f_2, f_3) \right) dx \wedge dy \wedge dz</mrow>
+      </md>
+    </p>
+    <p>
+      The exterior derivative of a 2-form recovers the divergence operator.
+      Again, <m>d^2 = 0</m> on a 1-form recovers the identity that <m>\nabla \cdot (\nabla \times F) = 0</m> from before.
+    </p>
+    <p>
+      All three operators: gradient, divergence and curl,
+      are found in the exterior derivative in the right degree.
+      Our vector fields defined previously were never really vectors fields!
+      They can now be interpreted as the component functions of either 1-forms or 2-forms in <m>\RR^3</m>.
+    </p>
+    <p>
+      The idea of potentials also generalize.
+      On a simply connected open set,
+      we can prove that <m>d\omega_1 = 0 \implies \omega = df</m>,
+      i.e, we can find scalar potentials.
+      Similarly, <m>d\omega_2 = 0 \implies \omega_2 = d \omega_1</m>,
+      i.e., we can find vector potentials.
+      This is part of a very general theorem that any differential form on a simply connected open set which satisfies
+      <m>d \omega = 0</m> must have another form as its potential,
+      i.e., <m>\omega = d \eta</m>.
+      There is some language for this situation.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A differential form <m>\omega</m> is called
+          <term>closed</term> if <m>d \omega = 0</m>.
+          It is called exact is there exists another form <m>\eta</m> with <m>\omega = d\eta</m>.
+          On a simply connected open set,
+          all closed forms are exact.
+          On an arbitrary set, there are often closed forms which are not exact.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      These results about finding potentials are local on manifolds,
+      where we can also work with these simply connected open sets.
+      Whether we can find a potential that works everywhere is a major question in differential geometry.
+      The problems that prevent us from finding such global potentials are called <em>obstructions</em>
+      and obstructions are the building blocks of structures called (co)homology theories.
+      A great deal of effort is spent studying (co)homology theories on manifolds.
+    </p>
+    <p>
+      One of the great advantages of working with differential forms is that all the algebra works in any dimension.
+      This tells us how to generalize definition which were previously specific to <m>\RR^3</m>.
+      Curl is particular to <m>\RR^3</m>,
+      and it is not at all obvious what the generlization of curl is in higher dimensions.
+      Now that curl is the just the exterior derivative of differential 2-form,
+      the extension of curl is the same:
+      the exterior derivative of a 2-form in any higher dimension.
+      The exterior derivative will give the formula in terms of components.
+      The question of potentials is also now extendable,
+      since asking for potentials is the same as asking when a k-form
+      <m>\omega_k</m> which satisifes <m>d\omega_k = 0</m> also has
+      <m>\omega_k = d \omega_{k-1}</m> for <m>\omega_{k-1}</m> some k-1-form.
+    </p>
+  </subsection>
+</section>

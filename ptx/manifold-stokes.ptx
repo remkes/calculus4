@@ -1,0 +1,71 @@
+<section xml:id="manifold-stokes">
+  <title>Stokes' Theorem</title>
+  <p>
+    Having done all this work, we can state the final result.
+    This is called Stokes' Theorem,
+    but it generalizes Stokes' Green's, Gauss', and all the fundamental theorems we have so far.
+    It is one theorem that clearly,
+    succintly and elegantly describe the relationships between integration,
+    differentiation and boundary operators,
+    all in the language of differential forms.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>S</m> be a oriented smooth k-dimensional manifold in <m>\RR^n</m> with boundary <m>\del S</m> a piecewise-smooth oriented k-1-dimensional manifold with compatible orientation.
+        Let <m>\omega</m> be a degree k-1 differential form on <m>\del S</m> with <m>C^2</m> coefficients which can be extended to a neighbourhood of <m>S</m>
+        (so that <m>d\omega</m> is a degree k form on <m>S</m> with <m>C^1</m> coefficents.)
+        Under all these assumption, the following statement is true.
+        <me>
+          \int_S d\omega = \int_{\del S} \omega
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    That's the whole theorem.
+    Let's special to various dimensions to see how it extends our previous results.
+  </p>
+  <p>
+    If <m>k=1</m> then we have <m>\omega =f</m> a scalar field,
+    <m>\gamma</m> a curve and <m>d\omega</m> had coefficients which were <m>\nabla f</m>,
+    so the theorem turns into the fundamental theorem for line integrals.
+    <me>
+      \int_\gamma \nabla f = \int_\gamma d \omega = \int_{\del \gamma} \omega = \int_{\del \gamma} f = f(\gamma(b)) - f(\gamma(a))
+    </me>
+  </p>
+  <p>
+    Integration over a zero dimensional set,
+    such as the endpoint of a curve, is just evaluation.
+    The sign (positive or negative) is given by the orientation.
+    If the curve parametrized just a integral in the real line,
+    we recover the fundamental theorem of calculus from Calculus I.
+  </p>
+  <p>
+    If <m>k=2</m>,
+    then <m>\omega = f_1 dx + f_2 dy + f_3 dz</m> a 1-form,
+    <m>\sigma</m> is a surface, and <m>\del \sigma</m> is a closed curve.
+    The exterior derivative <m>d\omega</m> has coeficients which would be the coefficients of
+    <m>\nabla \times F</m> is <m>F = (f_1,f_2,f_3)</m> were a vector field.
+    The general Stokes' theorem turns into its previous defined vector-field version,
+    which was also called Stokes' theorem. (We already argued that Green's theorem was just a special case of this vector-field Stokes' theorem).
+    <me>
+      \int_\sigma dw = \int_{\del \sigma} \omega \implies \int_S \nabla \times (f_1, f_2, f_3) = \int_{\del \sigma} (f_1, f_2, f_3)
+    </me>
+  </p>
+  <p>
+    Lastly, if <m>k-3</m>,
+    then we have <m>\omega = f_1 dy \wedge dz + f_2 dz \wedge dx + f_3 dx \wedge dy</m>,
+    <m>S</m> is a solid region and <m>\del S</m> is a closed surface.
+    The component of the 3-form <m>dw</m> is the scalar field given by
+    <m>\nabla \cdot F</m> is <m>F = (f_1,f_2,f_3)</m> were a vector field.
+    Stokes' theorem recovers Gauss' theorem.
+    <me>
+      \int_S dw = \int_{\del S} \omega \implies \int_S \nabla \cdot (f_1, f_2, f_3) = \int_{\del S} (f_1, f_2, f_3)
+    </me>
+  </p>
+  <p>
+    In this way, using the general theorem for differential forms,
+    we recover Gauss-Green-Stokes and the fundamental theorem of line integrals.
+  </p>
+</section>

@@ -1,0 +1,143 @@
+<section xml:id="integral-curves">
+  <title>Integral Curves</title>
+  <figure xml:id="figure-vector-field3">
+    <caption>The Vector Field <m>F(x,y) = (-y,x)</m></caption>
+    <image width="600%" source="images/figure02.png" />
+  </figure>
+  <figure xml:id="figure-vector-field3-curves">
+    <caption>The Integral Curves for <m>F(x,y) = (-y,x)</m></caption>
+    <image width="600%" source="images/figure03.png" />
+  </figure>
+  <p>
+    If we interpret a vector field as a fluid flow,
+    imagine a bouyant object floating in the flow.
+    Moving with the flow, what path would the bouyant object take?
+    More mathematically, given the arrows of direction of a vector field,
+    can we find parametric curves
+    <m>\gamma(t)</m> which follow these arrows?
+    What does follow mean?
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>F: S \rightarrow \RR^m</m> be a vector field on a region <m>S \subset \RR^n</m>.
+        If there exists a family
+        (depending on some variable <m>a \in \RR^k</m>)
+        of parametric curves <m>\gamma_a</m> such that,
+        over the whole family, <m>\gamma^\prime(t) = F</m>,
+        then these parametric curves are called the
+        <term>integral curves</term> of the vector field.
+        That is, the <term>tangents</term>
+        of the parametric curves are the same as the vector field everywhere.
+        Equivalently, a parametric curve
+        <m>\gamma(t)</m> is an integral curve for a vector field <m>F</m> if <m>\gamma^\prime(t) = F(\gamma(t))</m>.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Consider the vector field <m>F(x,y) = (-y,x)</m>,
+        as shown in <xref ref="figure-vector-field3">Figure</xref>,
+        with its integral curves.
+        These integral curves of <m>F(x,y) = (-y,x)</m> aren't surprising.
+        Looking just at the vector fields,
+        we can clearly tell that the fluid is travelling in a circular paths.
+        Mathematically, the circles are curves
+        <m>\gamma(t) = (a \cos t, a \sin t)</m> for a parameter <m>a > 0</m>.
+        We can calculate <m>\gamma^\prime(t) = (-a\sin t, a \cos t) = (-y, x)</m>.
+        In terms of the curve coordinates,
+        these tangents are exactly the vector field.
+      </p>
+    </statement>
+  </example>
+  <figure xml:id="figure-vector-field4">
+    <caption>The Vector Field <m>F(x,y) = (x,y)</m></caption>
+    <image width="600%" source="images/figure04.png" />
+  </figure>
+  <figure xml:id="figure-vector-field4-curves">
+    <caption>Integral Curves for <m>F(x,y) = (x,y)</m></caption>
+    <image width="600%" source="images/figure05.png" />
+  </figure>
+  <example>
+    <statement>
+      <p>
+        Let <m>F(x,y) = (x,y)</m>,
+        as in <xref ref="figure-vector-field4">Figure</xref>.
+        The curves <m>\gamma(t) = (ae^t,be^t)</m> where <m>a,b \in \RR</m> are integral curves.
+        They have <m>x = ae^t</m> and <m>y = be^t</m>,
+        and we can calculate tangents:
+        <m>\gamma^\prime(t) = (ae^t, be^t) = (x,y)</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Integral curves are a very powerful conceptual tool.
+    However, they are usually very hard to calculate and most examples are beyond the scope of this course.
+    However, there will be a few we can attempt.
+    I'll describe the general process in <m>\RR^3</m>.
+  </p>
+  <p>
+    If <m>F = (F_1,F_2,F_3)</m> is a vector field and
+    <m>\gamma(t) = (\gamma_1, \gamma_2,\gamma_3)</m> is a parametric curve,
+    then <m>\gamma</m> is an integral curve if it satisfies the following system.
+    <md>
+      <mrow>\gamma_1^\prime(t) \amp  = F_1(\gamma_1, \gamma_2, \gamma_3)</mrow>
+      <mrow>\gamma_2^\prime(t) \amp  = F_2(\gamma_1, \gamma_2, \gamma_3)</mrow>
+      <mrow>\gamma_3^\prime(t) \amp  = F_3(\gamma_1, \gamma_2, \gamma_3)</mrow>
+    </md>
+  </p>
+  <p>
+    This is a system
+    (generally non-linear)
+    of three differential equations in three functions, the <m>\gamma_i</m>.
+    Even if it is linear,
+    this is still a difficult system to solve, if not impossible.
+    Even a simple field such as
+    <m>F(x,y,z) = (y,z,x)</m> leads to a difficult system.
+    <md>
+      <mrow>\gamma_1^\prime \amp  = \gamma_2</mrow>
+      <mrow>\gamma_2^\prime \amp  = \gamma_3</mrow>
+      <mrow>\gamma_3^\prime \amp  = \gamma_1</mrow>
+    </md>
+  </p>
+  <p>
+    Currently, we have no method for approaching this system.
+    The solution would be a function which is its own third derivative,
+    and we are not currently aware of any such functions.
+    However, there are some approach examples with reasonable systems of equations.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>F = (x,y,z)</m>.
+        <md>
+          <mrow>\gamma_1^\prime \amp  = \gamma_1 \implies \gamma_1(t) = ae^t</mrow>
+          <mrow>\gamma_2^\prime \amp  = \gamma_2 \implies \gamma_2(t) = be^t</mrow>
+          <mrow>\gamma_3^\prime \amp  = \gamma_3 \implies \gamma_3(t) = ce^t</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>F = (1,2x,3y)</m>.
+        <md>
+          <mrow>\gamma_1^\prime \amp  = 1</mrow>
+          <mrow>\gamma_2^\prime \amp  = 2\gamma_1</mrow>
+          <mrow>\gamma_3^\prime \amp  = 3\gamma_2</mrow>
+        </md>
+      </p>
+      <p>
+        This can be solved iteratively.
+        <md>
+          <mrow>\gamma_1 \amp  = \int 1 dt = t + a</mrow>
+          <mrow>\gamma_2 \amp  = 2\int \gamma_1 dt = \int 2t + 2a dt = t^2 + 2at + b</mrow>
+          <mrow>\gamma_3 \amp  = 3 \int \gamma_2 dt = \int 3t^2 + 6at + 3b dt = t^3 + 3at^2 + 3bt + c</mrow>
+          <mrow>\gamma(t) \amp  = (t+a, t^2 + 2ta + b, t^3 + 3at^2 + 3bt + c)</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+</section>
