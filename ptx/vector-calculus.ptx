@@ -1,0 +1,13 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="vector-calculus">
+  <title>Vector Calculus</title>
+  <xi:include  href="vector-fields.ptx" />
+  <xi:include  href="integral-curves.ptx" />
+  <xi:include  href="vector-operations.ptx" />
+  <xi:include  href="conservative.ptx" />
+  <xi:include  href="line-integrals.ptx" />
+  <xi:include  href="parametric-surfaces.ptx" />
+  <xi:include  href="surface-integrals.ptx" />
+  <xi:include  href="flux-integrals.ptx" />
+  <xi:include  href="major-results.ptx" />
+  <xi:include  href="maxwells-equations.ptx" />
+</chapter>

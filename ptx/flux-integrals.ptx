@@ -1,0 +1,165 @@
+<section xml:id="flux-integrals">
+  <title>Flux Integrals</title>
+  <p>
+    In addition to integrating scalars along surfaces,
+    we also want to integrate vector fields.
+    For the definition, we again look at line integrals.
+    We took a dot product with the tangent to the curve to measure how much the field acts with or against the motion of the curve.
+    For surfaces, we also take a dot product,
+    but now with the normal of the surface.
+    By doing so,
+    we are measuring how much the vector field passes through the surface:
+    if the dot product is large,
+    the field direction is similar to the normal and almost perpendicular to the surface.
+    If the dot product is small,
+    the field moves almost in parallel with the surface,
+    moving across it instead of through it.
+  </p>
+  <p>
+    We used the dot product with the unit tangent to calculate a line integral.
+    <me>
+      \int_{\gamma} F \cdot ds = \int_{\gamma} F \cdot T ds = \int_a^b F(\gamma(t)) \cdot \gamma^\prime(t) dt
+    </me>
+  </p>
+  <p>
+    We need something similar to the unit tangent to calculate integrals of fields over surfaces.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\sigma(u,v)</m> be a parametric surface in <m>\RR^3</m> defined over a simply-connected domain <m>D</m>.
+        The <term>unit normal</term> of the surface is the vector <m>\frac{\sigma_u \times \sigma_v}{|\sigma_u \times \sigma_v|}</m>.
+        (Our convention that the normal is never zero helps to avoid division by zero in this definition.)
+      </p>
+    </statement>
+  </definition>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\sigma(u,v)</m> be a parametric surface in <m>\RR^3</m> defined over a simply-connected domain <m>D</m>.
+        Let <m>F</m> be a vector field defined on a neighbourhood of the surface.
+        The <term>flux integral</term> is defined to be the following integral.
+        <me>
+          \int_{\sigma} F \cdot N dA = \int_{\sigma} F \cdot dA
+        </me>
+      </p>
+      <p>
+        The first notation is more complete,
+        but the second notation is conventional.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As with curve,
+    we don't want to calculate with the intrinsic unit normal;
+    we'd rather calculate with a specific parametrization.
+    In an arbitrary parametrization,
+    <m>da = |\sigma_u \times \sigma_v| du dv</m>.
+    Then we perform a change of variables on the integral in the definition.
+    <me>
+      \int_{\sigma} F \cdot N dA = \int_D F(\sigma(u,v)) \cdot \frac{\sigma u \times \sigma_v}{|\sigma_u \times \sigma_v|} |\sigma_u \times \sigma_v| du dv = \int_D F(\sigma(u,v)) \cdot (\sigma_u \times \sigma_v) du dv
+    </me>
+  </p>
+  <p>
+    Like the line integral,
+    this is independent of the parametrization since it is equal
+    (by change of variables)
+    to the intrinsic defintion.
+  </p>
+  <p>
+    Flux measures how much of the vector field passes through the surface.
+    This is mostly easily seen for fluids if we think of the surface as a net.
+    In this case the flux is exactly the amount of fluid passing through the net per unit time.
+    For fields of force, the interpretation is slightly less obvious.
+    However, flux will still matter a great deal for calculations involving forces.
+  </p>
+  <example>
+    <statement>
+      <p>
+        <m>F(x,y,z) = (0,0,k)</m> is a constant vertical flow with the same flow rate.
+        We can think of this flowing through a vertical pipe with radius <m>a</m> around the <m>z</m> axis by restricting the field to the domain where <m>x^2 + y^2 \leq a</m>.
+        The surface is a cross-section of the pipe,
+        which we can parametrize as
+        <m>\sigma(r,\theta) = (r \cos \theta,
+        r \sin \theta )</m> for <m>(r,\theta) \in [0,a] \times [0,2\pi]</m>.
+        <md>
+          <mrow>\sigma_r \amp  = (\cos \theta, \sin \theta, 0)</mrow>
+          <mrow>\sigma_\theta \amp  = (-r \sin \theta, r \cos \theta, 0)</mrow>
+          <mrow>\sigma_r \times \sigma_\theta \amp  = (0, 0, r)</mrow>
+          <mrow>\int_\sigma F \cdot dA \amp  = \int_0^a \int_0^{2\pi} k r d\theta dr</mrow>
+          <mrow>\amp  = \frac{2\pi a^2}{2} = \pi a^2 k = (\pi a^2) k</mrow>
+        </md>
+      </p>
+      <p>
+        <m>\pi a^2</m> is the cross-sectional area and <m>k</m> is the rate of flow,
+        so we have a uniform rate of volume of water flowing through the pipe per unit time.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        We could ask the same question with a different flow, one which is not uniform.
+        Consider somthing like this, still moving vertically, but with variable speed.
+        <md>
+          <mrow>F(x,y,z) \amp  = \left( 0, 0, \frac{k (a^2 - x^2 - y^2)}{a^2} \right)</mrow>
+          <mrow>\int_\sigma F \cdot dA \amp  = \int_0^a \int_0^{2\pi} \frac{k(a^2-r^2)}{a^2} r d\theta dr</mrow>
+          <mrow>\amp  = \frac{2\pi k}{a^2} \int_0^a a^2r - r^3 dr</mrow>
+          <mrow>\amp  = \frac{2\pi k}{a^2} \left. \left( \frac{a^2 r^2}{2} - \frac{r^2}{4} \right) \right|_0^a</mrow>
+          <mrow>\amp  = \frac{2\pi k}{a^2} \left(\frac{a^4}{2} - \frac{a^4}{4} \right) = \frac{\pi k a^2}{2}</mrow>
+        </md>
+      </p>
+      <p>
+        This is half the original flux.
+        The lower rate of flow is justified since the fluid speed goes to zero near the edge of the pipe.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        We can also consider a turbulent flow.
+        <md>
+          <mrow>F(x,y,z) \amp  = \left( \sin \left( \left( \frac{a-r}{a} \right) \pi \right), \sin \left( \left( \frac{a-r}{a} \right) \pi \right), \cos \left( \left( \frac{a-r}{a} \right) \pi \right) \right)</mrow>
+          <mrow>F \cdot \sigma_r \times \sigma_z \amp  = k \cos \left( \left( \frac{a-r}{a} \right) \pi \right) r</mrow>
+          <mrow>\int_\sigma F \cdot dA \amp  = \int_0^a \int_0^{2\pi} k \cos \left( \left( \frac{a-r}{a} \right) \pi \right) r dr d\theta</mrow>
+          <mrow>\amp  = 2\pi k \int_0^a \cos \left( \pi - \frac{\pi r}{a} \right) r dr</mrow>
+          <mrow>\amp  = 2\pi k\int_0^a -r \cos \left( \frac{\pi r}{a} \right) dr</mrow>
+          <mrow>\amp  = -2\pi k \frac{a}{\pi} \int_0^a \frac{\pi r}{a} \cos \left( \frac{\pi r}{a} \right) dr</mrow>
+          <mrow>u \amp  = \frac{\pi r}{a}</mrow>
+          <mrow>\amp  = -2\pi k \frac{a}{\pi} \int_0^{\pi} u \cos u \frac{a du }{\pi}</mrow>
+          <mrow>\amp  = \frac{-2\pi a^2}{\pi} \left( \cos u + u \sin u \right) \bigg|_0^{\pi} = \frac{4k a^2}{\pi}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Consider a paddle with a roughly rectangular cross section 15cm wide and 30cm tall.
+        Say it moves through the water in the <m>z</m> direction with speed <m>v</m>.
+        We can reinterpret the situation by letting the water move with field
+        <m>F = (0,0,v)</m> in which the paddle is stationary.
+        We can think of the force the paddle causes in terms of the flux of this field through the paddle.
+      </p>
+      <p>
+        Now, we can perform a paddle stroke directly perpendicular to the direction of movement or at an angle <m>\theta</m>.
+        Our question is: how does our forward force
+        (hence flux)
+        vary due to <m>\theta</m>?
+      </p>
+      <p>
+        If the paddle is angled at angle <m>\theta</m>,
+        then it is represented as a surface with normal <m>(\sin \theta, 0, \cos \theta)</m>.
+        Therefore <m>F \cdot N = v \cos \theta</m>.
+        <me>
+          \int_\sigma F \cdot N dA = \int_D V \cos \theta dA = v \cos \theta \int \sigma 1 dv = 450 v \cos \theta
+        </me>
+      </p>
+      <p>
+        Compared to the perpendicular force or <m>450v</m>,
+        we just multiply by <m>\cos \theta</m>.
+      </p>
+    </statement>
+  </example>
+</section>

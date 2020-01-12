@@ -1,0 +1,372 @@
+<section xml:id="change-of-variables">
+  <title>Change of Variables</title>
+  <p>
+    Substitution was very useful for single variable integration.
+    In the <m>e^{-x^2}</m> example,
+    we did single-variable substitution in <m>y</m>,
+    treating <m>x</m> as a constant.
+    One might think that since we do iterated integrals,
+    single variable substitution is sufficient.
+    However, treating substitution in several variables holistically turns out to be very useful and powerful.
+  </p>
+  <p>
+    Let's review single variable substitution,
+    formalizing the language and showing the way forward for higher dimensions.
+    Consider a single variable integral.
+    <me>
+      \int_{x=a}^{x=b} f(x) dx
+    </me>
+  </p>
+  <p>
+    Typically, we substitute <m>u = g(x)</m> using some
+    <em>invertible</em> function <m>g</m>.
+    Then we have <m>du = g^\prime(x) dx</m> and we try to change all the <m>x</m> variables to <m>u</m> variables with some algebra.
+    We also change the bounds, starting from <m>u = g(a)</m> to <m>u = g(b)</m>.
+    In this process, the old variable is the <em>domain</em>
+    of the transformation and the new variable is the <em>range</em>.
+  </p>
+  <p>
+    However, for several variables we're going other direction.
+    We want the starting variables <m>x_i</m> to be the range.
+    We do have one example from single variable calculus in this style;
+    trigonometric substitution, such as <m>x = a \sin \theta</m>,
+    have the original variable as the output of the transformation.
+  </p>
+  <p>
+    Therefore, in the single variable case,
+    introduce a new variable <m>u</m> by <m>x = h(u)</m> for some
+    <em>invertible</em> function <m>h</m>.
+    Then <m>dx = h^\prime(u) du</m> and the bounds become
+    <m>h^{-1}(a)</m> and <m>h^{-1}(b)</m>.
+    We get a new integral in the variable <m>u</m>.
+    <me>
+      \int_{u=h^{-1}(a)}^{u=h^{-1}(b)} f(h(u)) h^\prime(u) du
+    </me>
+  </p>
+  <p>
+    The key relationship here is <m>dx = h^\prime(u) du</m>:
+    the derivative tells us the relationships between the differential terms.
+    In Calculus III, we did all that work on extending the notion of the derivative.
+    We came to the conclusion that the derivative measures
+    (in local coordinates)
+    the best linear approximation to the function.
+    In one variable, that was just multiplication by a number.
+    In several variables, though,
+    that linear approximation was a matrix,
+    called the Jacobian matrix.
+    Let's recall the definition.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>F: \RR^n \rightarrow \RR^n</m> be a function on <m>n</m> variables,
+        <m>x_1, \ldots, x_n</m>.
+        We can write <m>F</m> as its component functions <m>F_1, \ldots, F_n</m>.
+        Then the Jacobian Matrix of <m>F</m> is the matrix of all partial derivatives.
+        <me>
+          J(F) = \left( \begin{matrix} \frac{\del F_1}{\del x_1} \amp \frac{\del F_1}{\del x_2} \amp \ldots \amp \frac{\del F_1}{\del x_n} \\ \frac{\del F_2}{\del x_1} \amp \frac{\del F_2}{\del x_2} \amp \ldots \amp \frac{\del F_2}{\del x_n} \\ \vdots \amp  \vdots \amp  \vdots \amp  \vdots \\ \frac{\del F_n}{\del x_1} \amp \frac{\del F_n}{\del x_2} \amp \ldots \amp \frac{\del F_n}{\del x_n} \end{matrix} \right)
+        </me>
+      </p>
+      <p>
+        The determinant <m>\det J(F)</m> is called the Jacobian of the function and is often written <m>|J(F)|</m>.
+        Note that the notation <m>|\cdot|</m> is a reminder to take a determinant;
+        it is <term>not</term> an absolute value.
+        The Jacobian is often negative.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    From the single variable case <m>dx = h^\prime(u) du</m>,
+    the Jacobian is part of the new differential <m>du</m>.
+    If we start with variables
+    <m>x_1, x_2, \ldots,
+    x_n</m> and we have a function
+    <m>F: \RR^n \rightarrow \RR^n</m> that has <m>x_i</m> as it output
+    (the original variables are the range of the transformation),
+    we can write <m>x_1 = F_1(u_1, \ldots, u_n)</m>,
+    <m>x_2 = F_2(u_1, \ldots, u_n)</m> up to <m>x_n = F_n(u_1, \ldots,
+    u_n)</m>.
+    The Jacobian determines the relationship between the differential in these variables.
+    <me>
+      dx_1 dx_2 \ldots dx_n = |J(F)| du_1 du_2 \ldots du_n
+    </me>
+  </p>
+  <p>
+    We can interpret the Jacobian as the change in area/volume/hyper-volume due to the change in variables.
+    Its appearance in the integral makes sense with this interpretation:
+    the integral is measureing area/volume/hyper-volume,
+    so when we change variables,
+    we need a term that keeps track of the relative change in area/volume/hypervolume.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>(x,y) = F(u,v) = (3u, 4v)</m>.
+        Then we have
+        <md>
+          <mrow>\frac{\del F_1}{\del u} \amp  = 3</mrow>
+          <mrow>\frac{\del F_1}{\del v} \amp  = 0</mrow>
+          <mrow>\frac{\del F_2}{\del u} \amp  = 0</mrow>
+          <mrow>\frac{\del F_2}{\del v} \amp  = 4</mrow>
+          <mrow>J(F) \amp  = \left( \begin{matrix} 3 \amp  0</mrow>
+          <mrow>0 \amp  5 \end{matrix} \right)</mrow>
+          <mrow>|J(F)| \amp  = (3)(4) - (0)(0) = 12</mrow>
+          <mrow>dx dy \amp  = 12 du dv</mrow>
+        </md>
+      </p>
+      <p>
+        The function is a dialation by <m>3</m> in <m>u</m> and by <m>4</m> in <m>v</m>,
+        so the effect on area is multiplication by <m>12</m>, which makes sense.
+        The function is linear already,
+        to the linear approximation is constant:
+        it is exactly the function itself.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>(x,y) = F(u,v) = (u^2, v)</m>.
+        <md>
+          <mrow>\frac{\del F_1}{\del u} \amp  = 2u</mrow>
+          <mrow>\frac{\del F_1}{\del v} \amp  = 0</mrow>
+          <mrow>\frac{\del F_2}{\del u} \amp  = 0</mrow>
+          <mrow>\frac{\del F_2}{\del v} \amp  = 1</mrow>
+          <mrow>J(F) \amp  = \left( \begin{matrix} 2u \amp  0</mrow>
+          <mrow>0 \amp  1 \end{matrix} \right)</mrow>
+          <mrow>|J(F)| \amp  = 2u</mrow>
+          <mrow>dx dy \amp  = 2u du dv</mrow>
+        </md>
+      </p>
+      <p>
+        This Jacobian isn't constant.
+        This is a stretch in <m>u</m>,
+        the but effect is exagerated away from the origin due to the square term.
+        Therefore, as <m>u</m> get larger,
+        the stretch effect is greater.
+        The Jacobian reflects that.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>(x,y) = F(r,\theta) = (r \cos \theta,
+        r \sin \theta)</m>. (Polar coordinates!)
+        <md>
+          <mrow>\frac{\del F_1}{\del r} \amp  = \cos \theta</mrow>
+          <mrow>\frac{\del F_1}{\del \theta} \amp  = -r\sin \theta</mrow>
+          <mrow>\frac{\del F_2}{\del r} \amp  = \sin \theta</mrow>
+          <mrow>\frac{\del F_2}{\del \theta} \amp  = r \cos \theta</mrow>
+          <mrow>J(F) \amp  = \left( \begin{matrix} \cos \theta \amp  - r \sin \theta</mrow>
+          <mrow>\sin \theta \amp  r \cos \theta \end{matrix} \right)</mrow>
+          <mrow>|J(F)| \amp  = r</mrow>
+          <mrow>dx dy \amp  = r dr d\theta</mrow>
+        </md>
+      </p>
+      <p>
+        This Jacobian shows that the radius term gives the effect on area.
+        This make sense: for larger circles,
+        the differential area is part of a larger arc.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>(x,y) = F(u,v) = (u, uv)</m>.
+        This is the change in variables we used in the <m>e^{-x^2}</m> example,
+        now treated as a two-variable changes of variables.
+        <md>
+          <mrow>\frac{\del F_1}{\del u} \amp  = 1</mrow>
+          <mrow>\frac{\del F_1}{\del v} \amp  = 0</mrow>
+          <mrow>\frac{\del F_2}{\del u} \amp  = v</mrow>
+          <mrow>\frac{\del F_2}{\del v} \amp  = u</mrow>
+          <mrow>J(F) \amp  = \left( \begin{matrix} 1 \amp  0</mrow>
+          <mrow>v \amp  u \end{matrix} \right)</mrow>
+          <mrow>|J(F)| \amp  = u</mrow>
+          <mrow>dx dy \amp  = u du dv</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <p>
+    We can use a change of variables to help us with either the integrand or the region of integration.
+    Sometime, as in the following examples,
+    the same transformation helps both.
+    When we are choosing a change of variables to simplify the region of integration,
+    we are looking for a transformation where some of the bounding curves of the region become <m>u=c</m> or <m>v=c</m>.
+    We need constant bounds in at least one of the variable to set up the iterated integral.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>D</m> be the region in the first quadrant between the lines <m>x+y = 1</m> and the line <m>x+y =2</m>.
+        In the following integral,
+        we want to simply the integrand and integrate over a simpler region if possible.
+        <me>
+          \int_D \cos \left( \frac{y-x}{y+x} \right) dA
+        </me>
+      </p>
+      <p>
+        To simplify the integrand,
+        we can look for transformations where <m>u = x+y</m> and <m>v = x-y</m>.
+        Inverting these
+        (either by linear algebra,
+        since the transformation is linear,
+        or just by solving with conventional algebra),
+        we get <m>x = \frac{u+v}{2}</m> and <m>y = \frac{u-v}{2}</m>.
+      </p>
+      <p>
+        Then we look at the bounds.
+        If we take <m>x+y=1</m> and replace <m>x</m> and <m>y</m>,
+        we get <m>u=1</m>.
+        Likewise, <m>x+y=2</m> is <m>u=2</m>.
+        This is excellent,
+        since we need at least one variable with constant bounds;
+        we'll take <m>u</m> to be the variable of the outside integral.
+        The other bounds are the axes,
+        which we can express by the equations <m>y=0</m> and <m>x=0</m>.
+        These turn into <m>u=v</m> and <m>u=-v</m>, respective.
+        Therefore, the bounds of <m>v</m> will be these two lines:
+        <m>v \in [u, -u]</m>.
+      </p>
+      <p>
+        Finally, we calculate the Jacobian.
+        <md>
+          <mrow>x_u \amp  = \frac{1}{2}</mrow>
+          <mrow>x_v \amp  = \frac{1}{2}</mrow>
+          <mrow>y_u \amp  = \frac{1}{2}</mrow>
+          <mrow>y_v \amp  = -\frac{1}{2}</mrow>
+          <mrow>|J| \amp  = -\frac{1}{2}</mrow>
+          <mrow>dx dy \amp  = \frac{1}{-2} du dv</mrow>
+        </md>
+      </p>
+      <p>
+        We have the new integrand, the new bounds and the Jacobian.
+        We can proceed to the new integral.
+        <md>
+          <mrow>\int_D \cos \left( \frac{y-x}{y+x} \right) dA \amp  = \int_1^2 \int_{-u}^u \cos \left( \frac{-v}{u} \right) \frac{-1}{2} dv du</mrow>
+          <mrow>\amp  = \frac{-1}{2} \int_1^2 \left. -\sin \left( \frac{-v}{u} \right) (-u) \right|_{-u}^{u} du</mrow>
+          <mrow>\amp  = \frac{-1}{2} \int_1^2 u (\sin (-1) - \sin(1)) du</mrow>
+          <mrow>\amp  = \frac{\sin (1) - \sin (-1)}{2} \left. \frac{u^2}{2} \right|_1^2</mrow>
+          <mrow>\amp  = \frac{\sin (1) - \sin (-1)}{2} (2 - \frac{1}{2}) = \frac{3(\sin(1) - \sin(-1))}{4}</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>D</m> be the region in the plane bounded by the curves <m>y = \frac{1}{x}</m>,
+        <m>y = \frac{3}{x}</m>, <m>y = 3x</m> and <m>y = x</m>.
+        Consider the following integral.
+        <me>
+          \int_D xy dA
+        </me>
+      </p>
+      <p>
+        The integrand is reasonable,
+        so we will chose a substitution to changes the bounds.
+        We want constant bounds in at least one variables.
+        Here is one changes of variables which gets those constant bound:
+        <m>(x,y) = F(u,v) = (uv,v)</m>.
+        The lines <m>y=3x</m> and <m>y=x</m> become <m>v=3uv</m> and <m>v=uv</m>.
+        Away from <m>v=0</m>,
+        these lines are <m>u=\frac{1}{3}</m> and <m>u=1</m>,
+        so we have constant bounds in <m>u</m> and we will treat <m>u</m> as the outside variable. (We are save with the assumption <m>v=0</m> since <m>v=y</m> and the region is disjoint from the <m>x</m>-axis,
+        where <m>y=0</m>).
+        The curves <m>y = \frac{1}{x}</m> and <m>y = \frac{3}{x}</m> become
+        <m>v = \frac{1}{uv}</m> and <m>v = \frac{3}{uv}</m>,
+        which simplify into <m>uv^2 =1</m> and <m>uv^2=3</m>.
+        If we solve for <m>v</m> we get
+        <m>v = \sqrt{\frac{1}{u}}</m> and <m>v = \sqrt{\frac{3}{u}}</m>.
+        That means we can take <m>u \in [\frac{1}{3}, 3]</m> and <m>v \in \left[\sqrt{\frac{1}{u}}, \sqrt{\frac{3}{u}} \right]</m>.
+        The integrand <m>xy</m> becomes <m>uv^2</m>.
+        <md>
+          <mrow>x_u \amp  = v</mrow>
+          <mrow>x_v \amp  = u</mrow>
+          <mrow>y_u \amp  = 0</mrow>
+          <mrow>y_v \amp  = 1</mrow>
+          <mrow>|J| \amp  = (v)(1) - (u)(0) = v</mrow>
+          <mrow>dx dy \amp  = v du dv</mrow>
+        </md>
+      </p>
+      <p>
+        Then we complete the change of variables.
+        <md>
+          <mrow>\int_D xy dA \amp  = \int_{\frac{1}{3}}^1 \int_{\sqrt{\frac{1}{u}}}^{\sqrt{\frac{3}{u}}} uv^2 v dv du</mrow>
+          <mrow>\amp  = \int_{\frac{1}{3}}^1 \left. u\frac{v^4}{4} \right|_{\sqrt{\frac{1}{u}}}^{\sqrt{\frac{3}{u}}} du</mrow>
+          <mrow>\amp  = \int_{\frac{1}{3}}^1 \frac{u}{4} (\frac{9}{u^2} - \frac{1}{u^2}) du</mrow>
+          <mrow>\amp  = \int_{\frac{1}{3}}^1 \frac{-2}{u} du</mrow>
+          <mrow>\amp  = 2 \ln |u| \bigg|_{\frac{1}{3}}^1</mrow>
+          <mrow>\amp  = 2 \ln 1 - 2 \ln \frac{1}{3} = -2 \ln \frac{1}{3} = 2 \ln 3</mrow>
+        </md>
+      </p>
+      <p>
+        For the same integral,
+        we could have taken <m>y=v</m> and <m>x= \frac{u}{v}</m>.
+        Under this transformation,
+        the bounds become <m>u \in [1,3]</m> and <m>v \in [\sqrt{u}, \sqrt{3u}]</m>.
+        The Jacobian is now <m>\frac{1}{v}</m> and the integrand is <m>u</m>.
+        <md>
+          <mrow>\int_D xy dA \amp  = \int_1^3 \int_{\sqrt{u}}^{\sqrt{3u}} \frac{1}{v} u dv du</mrow>
+          <mrow>\amp  = \int_1^3 u \ln |v| \bigg|_{\sqrt{u}}^{\sqrt{3u}} du</mrow>
+          <mrow>\amp  = \int_1^3 u (\ln |\sqrt{3u}| - \ln |\sqrt{u}|du</mrow>
+          <mrow>\amp  = \int_1^3 \frac{1}{2} (u \ln 3u - u \ln u) du</mrow>
+          <mrow>\amp  = \left. \frac{1}{2} \left(\frac{1}{4} u^2 (2 \ln 3u - 1) \frac{1}{3} - \frac{1}{4} u^2 (2 \ln u - 1) \right) \right|_1^3</mrow>
+        </md>
+      </p>
+      <p>
+        If we evaluate this, it will evaluate,
+        eventually, to <m>2 \ln 3</m>.
+        However, the result is obviously more complicated.
+        Different changes of variables can have very different effects on the integral;
+        some will make it easier, some more difficult.
+        Also, the answers from different change of variables can look quite differet,
+        such as the expression above,
+        while actually being the same value.
+      </p>
+      <p>
+        As an aside,
+        there is a simplification in the second version of this example that removes the complication.
+        In the second last step,
+        we could write <m>\ln 3u</m> as <m>\ln 3 + \ln u</m>.
+        <md>
+          <mrow>\amp  = \int_1^3 \frac{1}{2} (u \ln 3u - u \ln u) du</mrow>
+          <mrow>\amp  = \frac{1}{2} \int_1^3 u (\ln 3 + \ln u - \ln u) du = \frac{1}{2} \int_1^3 u \ln 3 du</mrow>
+          <mrow>\amp  = \left. \frac{\ln 3}{2} \frac{u^2}{2} \right|_1^3 = \frac{\ln 3}{4} (9-1) = \frac{8 \ln 3}{4} = 2 \ln 3</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <md>
+        <mrow>\int_I f(x,y) dA \amp  = \int_0^2 \int_3^6 \frac{3x+y}{2x-y} dy dx</mrow>
+        <mrow>x \amp  = \frac{u+v}{5}</mrow>
+        <mrow>y \amp  = \frac{2u-3v}{5}</mrow>
+        <mrow>J \amp  = \left( \begin{matrix} \frac{1}{5} \amp  \frac{1}{5}</mrow>
+        <mrow>\frac{2}{5} \amp  \frac{-3}{5} \end{matrix}
+        \right)</mrow>
+        <mrow>|J| \amp  = \frac{-1}{5}</mrow>
+        <mrow>dy dx \amp  = \frac{-1}{5} du dv</mrow>
+        <mrow>\frac{3x+y}{2x-y} \amp  = \frac{3u+3v+2u -3v}{2u + 2v -2u + 3v} =
+        \frac{5u}{5v} = \frac{u}{v}</mrow>
+      </md>
+      <p>
+        The change of variables does indeed simplify the integrand,
+        but what about the region of integration?
+        We know <m>(x,y) \in [0,2] \times [3,6]</m>.
+        Looking at the boundary lines<m>x=0</m> and <m>x=2</m> in the changes of variables gives <m>u+v=0</m> and <m>u+v-10</m>.
+        Likewise, <m>y=3</m> and <m>y=6</m> give <m>2u-3v=15</m> and <m>2u-3v=30</m>.
+        The resulting shape is a parallelogram with vertices <m>(9,1)</m>,
+        <m>(12,-2)</m>,
+        <m>(6,-6)</m> and <m>(3,-3)</m>.
+        We would have to split up the domain of integration into three pieces to evaluate this;
+        the result may be a much longer process than dealing with the original integral.
+        Substitution may not always make things easier.
+      </p>
+    </statement>
+  </example>
+</section>

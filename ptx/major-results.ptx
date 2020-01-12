@@ -1,0 +1,527 @@
+<section xml:id="major-results">
+  <title>The Major Results</title>
+  <introduction>
+    <p>
+      We we discussed the fundamental theorem of calculus earlier in these notes,
+      we identified a particular archetypical style.
+      <me>
+        \int_{\del D} f = \int_D df
+      </me>
+    </p>
+    <p>
+      Here, <m>\del</m> is a boundary operator for sets and <m>df</m> is some kind of derivative of <m>f</m>.
+      There are several very important theorems involving flux integrals which have this style.
+      Before we state them,
+      we have to talk a little about boundaries of sets and orientation.
+    </p>
+  </introduction>
+  <subsection xml:id="boundaries-orientation">
+    <title>Boundaries and Orientation</title>
+    <p>
+      Topologically, we have already defined the boundary of a set.
+      The boundaries we want to use are slightly different from the topological definition.
+      Our sets here are parametric objects,
+      so the boundaries are the edges in terms of the parameter.
+      For curves, these were the endpoints,
+      and the boundary integral was evaluation on the endpoints.
+      However, evaluation on one endpoint was positive and the other was negative.
+      These boundaries have orientation,
+      which affects the integrals.
+      For curves, orientation is direction and curves move from negative to positive.
+      This gives the positive or negative signs for evaluation on the endpoints.
+    </p>
+    <p>
+      For surfaces,
+      orientation is a choice of an outward or inward direction.
+      It is indicated by the direction of the
+      (outward facing)
+      normal vector.
+      If the surface has an edge,
+      then we can think of the edge as a closed parametric curve;
+      the curve traces the path around the edge.
+      We need the direction of the curve and the orientation of the surface to compatible.
+      This is accomplished by a right-hand-rule.
+      If we trace the path around the surface,
+      then the outward pointing normal of the surface must satisfy a right-hand-rule for this rotation.
+    </p>
+    <p>
+      Lastly, we have solid regions in <m>\RR^3</m>.
+      By themselves, solid regions have no orentiation.
+      However, solid regions have boundaries which are closed surfaces
+      (surfaces without edges).
+      By convention,
+      we insist that the surface which bounds a solid region has an outward pointing normal:
+      the normal points away from the region, not into it.
+    </p>
+    <p>
+      Note that on the objects discussed in this section,
+      the boundary operator <m>\del</m> satisfies <m>\del^2 = 0</m>.
+      If we have a solid region,
+      its boundary is a closed surface,
+      i.e., a surface with no boundary.
+      If we have a surface, its boundary is a closed curved,
+      i.e., a curve with no boundary.
+      And the boundary of a curve is two points,
+      which don't have boundaries for dimension reasons.
+    </p>
+  </subsection>
+  <subsection xml:id="gauss-green-stokes">
+    <title>Gauss-Green-Stokes</title>
+    <p>
+      Now we can state the two main theorems for vector calculus.
+      The theorems are stated for piece-wise smooth objects,
+      which means we allow for some number of sharp corners.
+      The first is called Stokes' Theorem.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>\sigma</m> be a piecewise-smooth oriented parametric surface in <m>\RR^3</m>,
+          with boundary <m>\del \sigma = \gamma</m> a piecewise smooth oriented closed curve.
+          Let <m>F</m> be a <m>C^1</m> vector field defined on a neighbourhood of <m>\sigma</m>.
+          <me>
+            \int_{\del \sigma} F \cdot ds = \int_\sigma (\nabla \times F) \cdot dA
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This theorem has the desired form.
+      We have a boundary on the left,
+      and a differential operator (curl,
+      in this case) on the right.
+      The second result is called Gauss' Theorem.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>D</m> be a simply-connected region in <m>\RR^3</m> whose boundary
+          <m>\del D = \sigma</m> is a piecewise smooth oriented closed parametric surface.
+          Let <m>F</m> be a <m>C^1</m> vector field defined on a neighbourhood of <m>D</m>.
+          <me>
+            \int_{\del D} F \cdot dA = \int_D (\nabla \cdot F) dV
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      This theorem also has the desired form.
+      We have a boundary on the left and a differential operator (divergence,
+      in thic case) on the right.
+    </p>
+    <p>
+      Lastly, there is a specialization of Stokes' thoerem for <m>\RR^2</m>,
+      called Green's theorem.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>D</m> be a simply-connected region in <m>\RR^2</m> and let
+          <m>F = (F_1,F_2)</m> be a <m>C^1</m> vector field defined on a neightbourhood of <m>D</m>.
+          We can interpret <m>\RR^2</m> as the <m>xy</m> plane in <m>\RR^3</m> and extend <m>F</m> as
+          <m>F = (F_1,F_2,0)</m> as a vector field in <m>\RR^3</m>.
+          We can interpret <m>D</m> as a parametric surface in <m>\RR^3</m> which is restricted to the <m>xy</m> plane,
+          using <m>x</m> and <m>y</m> as parameters and the identity function <m>D \rightarrow D</m> as <m>\sigma</m>.
+          In this setting, we can apply Stokes' to get Green's theorem.
+          <me>
+            \int_{\del D} F \cdot ds = \int_D (\nabla \times F) \cdot dA = \int_D \left( \frac{\del F_2}{\del x} - \frac{\del F_1}{\del y} \right) dx dy
+          </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      Since these three named theorems are of similar form,
+      they are often referred to as Gauss-Green-Stokes.
+    </p>
+  </subsection>
+  <subsection xml:id="gauss-green-stokes-examples">
+    <title>Examples of Gauss-Green-Stokes</title>
+    <example>
+      <statement>
+        <p>
+          Let's start in <m>\RR^2</m> with Green's theorem.
+          Let <m>F(x,y) = (\sin x, x^2 y^3)</m> and let <m>\sigma</m> be the triangle with vertices <m>(0,0)</m>,
+          <m>(2,0)</m> and <m>(2,2)</m>.
+          Then <m>\gamma</m> is the path in three straight lines from <m>(0,0)</m> to <m>(2,0)</m> to <m>(2,2)</m> and back to <m>(0,0)</m>.
+          (Now we see why we need piece-wise smooth conditions:
+          allowing these sharp corners on the boundary path is very reasonable.)
+          The line integral of <m>F</m> over <m>\gamma</m> could be calculated in three steps,
+          by parametrizing each line segments and calculating those line integrals.
+          Green's theorem gives us an alternate way to calcaulate the line integral.
+          <md>
+            <mrow>\int_\gamma F \cdot ds \amp  = \int_\sigma (\nabla \times F) \cdot dA = \int_\sigma ( 2xy^3 - -0) dx dy</mrow>
+            <mrow>\amp  = \int_0^2 \int_0^x 2 x y^3 dy dx</mrow>
+            <mrow>\amp  = 2 \int_0^2 \left. \frac{xy^4}{4} \right|_0^x dx</mrow>
+            <mrow>\amp  = 2 \int_0^2 \frac{x^5}{4} dx = \left. \frac{x^6}{12} \right|_0^2 = \frac{2^6}{12} = \frac{16}{3}</mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>F = (\sin x^2, e^{y^2} + x^2, z^2 + 2x^2)</m> and let <m>\gamma</m> be the counterclockwise path around the triangle in <m>\RR^3</m> with vertices <m>(3,0,0)</m>,
+          <m>(0,2,0)</m> and <m>(0,0,1)</m>.
+          We could parametrize the three pieces of the triangle,
+          but lets use Stokes' theorem with the triangle as the surface.
+          The triangle is flat, so it may be parametrized with a constant normal.
+          The equation of the plane containing the triangle is <m>\frac{x}{3} + \frac{y}{2} + z = 1</m>,
+          with normal <m>\left( \frac{1}{3}, \frac{1}{2}, 1 \right)</m>.
+          The curl of <m>F</m>, after some algebra is
+          <m>(0, -4x, 2x)</m>. (Here the curl is much easier to work with than the origianl <m>F</m>!) Then <m>\nabla \times F \cdot N = (0, -4x, 2x) \cdot \left( \frac{1}{3}, \frac{1}{2}, 1 \right) = 0</m>.
+          This lets us treat the original
+          (very complicated)
+          line integral as a very straightforward surface integral.
+          <me>
+            \int_\gamma F \cdot ds = \int_{\sigma} F \cdot dA = \int_\sigma F \cdot N dA = \int_{\sigma} 0 dA = 0
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>F</m> be any <m>C^1</m> vector field and let <m>\sigma = S^2</m>,
+          the unit sphere in <m>\RR^3</m>.
+          <me>
+            \int_{\sigma} \nabla \times F = \int_{\del \sigma} F \cdot ds = 0
+          </me>
+        </p>
+        <p>
+          The last integral is zero because the sphere doesn't have any boundary.
+          This is true for any closed surface: Stokes' theorem tells us that the integral of a curl over any closed surface must be zero.
+        </p>
+      </statement>
+    </example>
+    <p>
+      We can ask: what does it mean to consider the flux of curl?
+      If there is a positive flux of <m>\nabla \times F</m> through a surface,
+      this indicates the (local) tendnecy of the flow to move in a counterclockwise rotation across the surface.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Let <m>\sigma(u,v) = (u,v,4-u^2-v^2)</m> for <m>(u,v)</m> in the disc about the origin of radius <m>2</m>,
+          (<m>u^2 + v^2 \leq 4</m>).
+          This <m>\sigma</m> is a parabaloid above the <m>xy</m> plane.
+          Its bounding curve is the circle of radius <m>2</m> about the origin in the <m>xy</m> plane,
+          going counterclockwise
+          (to fit the upward normal of the surface with a right-hand-rule).
+          The boundary curve is parametrized as <m>\gamma(t) = (2 \cos t, 2 \sin t, 0)</m>.
+          Let <m>F(x,y,z) = (z^2, x^2, y^2)</m>.
+          Then we can calculate the line integral of <m>F</m> over the boundary curve.
+          <md>
+            <mrow>\int_{\gamma} F \cdot ds \amp  = \int_0^{2\pi} F(\gamma(t)) \cdot \gamma^\prime(t) dt</mrow>
+            <mrow>\amp  = \int_0^{2\pi} (0, 4\cos^2 t, 4 \sin^2 t) \cdot (-2\sin t, 2\cos t, 0) dt</mrow>
+            <mrow>\amp  = \int_0^{2\pi} 8 \cos^3 t dt = \left. \frac{8}{3} (2 + \cos^2 2t) \sin t \right|_0^{2\pi} = 0</mrow>
+          </md>
+        </p>
+        <p>
+          This implies, by Stokes' theorem,
+          a zero result about the surface integral of <m>\nabla \times F</m> over the parabaloid.
+          <me>
+            \int_{\sigma} (\nabla \times F) \cdot dA = \int_{\sigma} (2y, 2z, 2x) \cdot dA = 0
+          </me>
+        </p>
+        <p>
+          It we calculated the flux directly, it would be as follows.
+          <md>
+            <mrow>\sigma_u \amp  = (1,0, -2u)</mrow>
+            <mrow>\sigma_v \amp  = (0,1, -2v)</mrow>
+            <mrow>\sigma_u \times \sigma_v \amp  = (2u, 2v, 1)</mrow>
+            <mrow>\nabla \times F \amp  = (8v, 8-2u^2-2v^2, 2u)</mrow>
+            <mrow>\int_{\sigma} \nabla \times F \cdot dA \amp  = \int_D (4uv - 16 v - 4vu^2 - 4v^3 + 2u) du dv</mrow>
+          </md>
+        </p>
+        <p>
+          Now we already know this is zero,
+          without doing the long polar coordinate integration.
+          Curiously, this would be zero for <em>any</em>
+          surface with this bounding curve <m>\gamma</m>.
+          A cylinder closed at the top,
+          a cone, a very complicated ballon; it doesn't matter.
+          Only the boundary matters.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Similarly, lets say that we want to integrate
+          <m>F = (z^2, y, xz)</m> over a closed curve <m>\gamma</m>.
+          Stokes' theorem says we can calculate the integral of
+          <m>\nabla \times F</m> over any surface with boundary <m>\gamma</m>.
+          <m>\nabla \times F = (0,z,0)</m>.
+          But <m>\nabla \times (\frac{z^2}{2}, 0,0)</m> is also <m>(0,z,0)</m>.
+          Look at Stokes' theorem for this case.
+          <me>
+            \int_{\gamma} F \cdot ds = \int_{\sigma} \nabla \times F \cdot dA = \int_{\gamma} (\frac{z^2}{2}, 0, 0) \cdot dA
+          </me>
+        </p>
+        <p>
+          We can replace <m>F</m> with a much less complicated field and get the same line integral.
+          This is true because <m>F</m> and this new field both give the same curl.
+          We have some terminology to generalize this strange situation.
+        </p>
+      </statement>
+    </example>
+    <definition>
+      <statement>
+        <p>
+          Let <m>G</m> and <m>F</m> be <m>C^1</m> vectors fields with <m>G = \nabla \times F</m>.
+          We call <m>F</m> a <term>vector potential</term> for <m>G</m>.
+          If we need to differentiate between the two notion of potential,
+          we will refer to the previous use of potential as
+          <term>scalar potential</term>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The above argument shows that if <m>G_1</m> and <m>G_2</m> are vector potentials for the same <m>F</m>,
+      then they have equivalent line integrals over any closed curve.
+    </p>
+    <p>
+      How do we know if a field has a vector potential?
+      For scalar potentials
+      (on a simply connected set),
+      we checked <m>\nabla \times F =0</m>.
+      If <m>F = \nabla \times G</m> then <m>\nabla \cdot F = \nabla \cdot (\nabla) \times G = 0</m>.
+      As with scalar potentials,
+      under reasonable conditions, the inverse is true as well.
+      A field has a vector potential
+      (on a simply connected set)
+      if it have zero divergence.
+    </p>
+    <p>
+      How do we find a vector potential?
+      If we know <m>G</m> and we assume <m>\nabla \times F = G</m>,
+      then we have to solve this system of three differential equations:
+      <md>
+        <mrow>\frac{\del F_3}{\del y} - \frac{\del F^2}{\del z} \amp  = G_1</mrow>
+        <mrow>\frac{\del F_1}{\del z} - \frac{\del F^3}{\del x} \amp  = G_2</mrow>
+        <mrow>\frac{\del F_2}{\del x} - \frac{\del F^1}{\del y} \amp  = G_3</mrow>
+      </md>
+    </p>
+    <p>
+      This is usually prohibitively difficult.
+      Moreover, this is a very underdetermined system.
+      If <m>F</m> is a vector potential,
+      then for any scalar field <m>f</m>,
+      <m>F + \nabla f</m> is also a vector potential, because
+      <me>
+        \nabla \times (F + \nabla f) = \nabla \times F + \nabla \times \nabla f = \nabla \times F + (0,0,0) = \nabla \times F = G
+      </me>
+    </p>
+    <p>
+      The inverse is true as well:
+      if two have two vector potentials,
+      they must differ by some <m>\nabla f</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          To do a tractable example, let's return to the previous field.
+          Let <m>G = (0,z,0)</m>.
+          <m>F_a = (z^2, y, xz)</m>,
+          <m>F_b = \left( \frac{z^2}{2}, 0, 0 \right)</m> are both vector potentials for <m>G</m>.
+          Their difference must be a conservative field.
+          <me>
+            F_a - F_b = \left( \frac{z^2}{x}, y, xz \right) = \nabla \left( \frac{xz^2}{2} + \frac{y^2}{2} \right)
+          </me>
+        </p>
+        <p>
+          If <m>\gamma</m> is any closed curve entirely in the <m>xy</m> plane,
+          then since <m>F_b = 0</m> on the <m>xy</m> plane,
+          we have a general vanish result about line integrals along <m>\gamma</m>.
+          <me>
+            \int_\gamma F_a \cdot ds = \int_\gamma F_b \cdot ds = \int_\gamma 0 \cdot ds = 0
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          If <m>\sigma</m> is the sphere of radius <m>4</m> in <m>\RR^3</m> and <m>F = (2x^3, 2y^3, 2z^3)</m>,
+          then let <m>D</m> be the solid ball of radius <m>4</m>.
+          We start with a flux integral and use Gauss' theorem to solve it.
+          <md>
+            <mrow>\int_\sigma F \cdot dA \amp  = \int_D \nabla \cdot F dV = \int_D 6 (x^2 + y^2 + z^2) dV</mrow>
+            <mrow>\amp  = \int_0^4 \int_0^{\pi} \int_0^{2\pi} 6 r^2 r^2 \sin \phi d\theta d \phi dr</mrow>
+            <mrow>\amp  = 12\pi \left. ( -\cos \phi ) \right|_0^{\pi} \left. \frac{r^5}{2} \right|_0^4 = \frac{12288\pi}{5}</mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>D</m> is the region inside the cyliner
+          <m>x^2 + y^2 = 4</m> bounded below by the <m>xy</m> plane and above by the plane <m>x+z=6</m>.
+          Let <m>F = (x^2 + \sin z, xy + \cos z, e^y)</m>.
+          Again, we start with a flux integral and use Gauss' theorem to solve it.
+          <md>
+            <mrow>\int_{\sigma} F \cdot dA \amp  = \int_D \nabla \cdot F dA = \int_D 3x dV</mrow>
+            <mrow>\amp  = \int_0^{2\pi} \int_0^2 \int_0^{6-r\cos \theta} 3 r \cos \theta r dz dr d\theta</mrow>
+            <mrow>\amp  = \int_0^{2\pi} \int_0^2 3 \cos \theta r^2 (6-r\cos \theta) dr d\theta</mrow>
+            <mrow>\amp  = \int_0^{2\pi} \left. \left( 16 \frac{r^3}{3} \cos \theta - \frac{3r^4}{4} \cos^2 \theta \right) \right|_0^2 d \theta</mrow>
+            <mrow>\amp  = \frac{128}{3} \left. ( -\sin \theta) \right|_0^{2\pi} - 12 \left. \left( \frac{\theta}{2} + \frac{\sin 2\theta}{4} \right) \right|_0^{2\pi} = -12\pi</mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          If <m>F = (z^2 + xy^2, \cos(x+z), e^{-y} + zy^2)</m>,
+          then <m>\nabla \cdot F = 0</m>,
+          so <m>F</m> is incompressible.
+          Then, if <m>D</m> is any solid region in <m>\RR^3</m> with boundary <m>\sigma</m>, Gauss' theorem gives us a vanishing result.
+          <me>
+            \int_{\sigma} F \cdot dA = \int_D \nabla \cdot F dV = 0
+          </me>
+        </p>
+        <p>
+          That calculation means that the flux of an incompressible field over any closed surface is zero.
+          The property of being incompressible means that equal amonts of the field flow in and flow out of any closed surface,
+          no matter how complicated the geometry.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Working with Stokes' theorem previously,
+      we realized we could change line integrals over a closed curve by a conservative field and not alter the line integral.
+      We can do the same over closed surfaces.
+      Let <m>\sigma</m> be a closed surface and <m>F</m> any field.
+      Recall that <m>\nabla \cdot (\nabla \times G ) = 0</m>.
+      The following calculation shows how we can alter the field <m>F</m> without changing the value of the flux integral.
+      <me>
+        \int_\sigma F \cdot dA = \int_D \nabla \cdot F dv = \int_D \nabla \cdot (F + \nabla \times G) dV = \int_{\sigma} (F + \nabla \times G) \cdot dA
+      </me>
+    </p>
+    <example>
+      <statement>
+        <p>
+          Consider a windsock which is the surface of revolution of the function
+          <m>y = \sqrt{1 - \frac{x}{3}}</m> for <m>x \in [0,3]</m>,
+          with outward oriented normal.
+          Let <m>F = (7, -z, y)</m> be a field describing the wind near the windsock.
+          What is the flux through the windsock?
+        </p>
+        <p>
+          First, we can check <m>\nabla \cdot F = 0</m>,
+          so <m>F</m> is incompressible and has a vector potential.
+          Assume <m>F = \nabla \times G</m> for some vector potential <m>G</m>.
+          If we call <m>D</m> the solid interior of the windsock,
+          then the boundary of <m>D</m> is the windsock and the circle at its mouth.
+          We label the circle <m>\mu</m> and consider it a parametric surface with normal in the
+          <em>negative</em> <m>x</m> direction.
+          Then we apply Gauss twice, once in each direction.
+          <me>
+            \int_{\sigma} F \cdot dA = \int_{D} \nabla \cdot F dV - \int_\mu F \cdot dA = -\int_\mu F \cdot dA
+          </me>
+        </p>
+        <p>
+          Alternatively, if <m>\gamma</m> is the boundary of the circle,
+          we have the following calculation using Stokes' theorem
+          (with the negative sign accounting for the change in direction of the normal).
+          <me>
+            \int_\sigma F \cdot dA = \int_\gamma G \cdot ds = -\int_\mu F \cdot dA
+          </me>
+        </p>
+        <p>
+          Very curiuosly,
+          both Stokes' and Gauss' give the same assistance here.
+          In any case,
+          we can replace our surface with a much easier surface:
+          a disc of radius <m>1</m> in the <m>yz</m> plane,
+          parametrized as <m>\mu(r,\theta) = (0, r\cos \theta,
+          r \sin \theta)</m> for <m>r \in [0,1]</m> and <m>\theta \in [0, 2\pi]</m>.
+          We calculate the flux,
+          reversing the conventional order of the cross product to account for the normal in the negative <m>x</m> direction.
+          <md>
+            <mrow>\sigma_r \amp  = (0, \cos \theta, \sin \theta)</mrow>
+            <mrow>\sigma_\theta \amp  = (0, -r\sin \theta, r \cos \theta)</mrow>
+            <mrow>\sigma_\theta \times \sigma_l \amp  = (-r\sin^2 \theta - r \cos^2 \theta, 0 ,0) = (-r,0,0)</mrow>
+            <mrow>\int_\mu F \cdot dA \amp  = -\int_0^{2\pi} \int_0^1 (7, -r\sin \theta, r \cos \theta) \cdot (-r, 0, 0) dr d\theta</mrow>
+            <mrow>\amp  = -\int_0^{2\pi} \int_0^1 -7rdr d\theta = 2\pi 7 \left. \frac{r^2}{2} \right|_0^1 = 7\pi</mrow>
+          </md>
+        </p>
+        <p>
+          This is substantially easier than working with the windsock directly.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let's calculate the flux of
+          <m>F = \frac{1}{\sqrt{(x^2+y^2+z^2)^3}} (x,y,z)</m> through the ellipsoid <m>4x^2 + 9y^2 + 6z^2 = 36</m>.
+          <md>
+            <mrow>\frac{\del}{\del x} F_1 \amp  = \frac{\del}{\del x} \frac{x}{\sqrt{(x^2+y^2+z^2)^3}}</mrow>
+            <mrow>\amp  = \frac{(x^2+y^2+z^2)^\frac{3}{2} 0 x \frac{3}{x} (x^2+y^2+z^2)^{\frac{1}{2}} 2x}{(x^2+y^2+z^2)^3}</mrow>
+            <mrow>\amp  = \frac{(x^2+y^2+z^2)^\frac{1}{2}}{(x^2+y^2+z^2)^3} (x^2+y^2+z^2 - 3x^2)</mrow>
+            <mrow>\amp  = \frac{-2x^2 + y^2 + z^2}{(x^2+y^2+z^2)^\frac{3}{2}}</mrow>
+            <mrow>\nabla \cdot F \amp  = \frac{1}{(x^2+y^2+z^2)^\frac{3}{2}} (-2x^2 + y^2 +z^2 - 2y^2 + x^2 +z^2 - 2z^2 + x^2 + y^2) =</mrow>
+            <mrow>\int_\sigma F \cdot dA \amp  = \int_D \nabla \cdot F dV = 0</mrow>
+          </md>
+        </p>
+        <p>
+          This is an incompressible field over a closed surface,
+          so it has zero flux.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Let <m>F = (y, z e^{y^2}, x + z^2 e^{z^2})</m> and let <m>\gamma</m> be the semicirlce from
+          <m>(-3,0,0)</m> to <m>(3,0,0)</m> which lies in the positive <m>y</m> part of the <m>xy</m>plane.
+          What is the line integral?
+        </p>
+        <p>
+          First, we can check that <m>\nabla \times F = (-1,1,0)</m>,
+          so the field is not conservative.
+          However, let's also consider the path <m>\delta</m> from <m>(3,0,0)</m> to
+          <m>(-3,0,0)</m> along the <m>x</m> axis.
+          Then <m>\gamma</m> followed by <m>\delta</m> is a closed path which is the boundary of the half-circle of radius <m>3</m> in the <m>xy</m> plane.
+          Call the half circle <m>\sigma</m>.
+          We apply Stokes' theorem.
+          <me>
+            \int_{\gamma + \delta} F \cdot ds = \int_\sigma (\nabla \times F) \cdot dA
+          </me>
+        </p>
+        <p>
+          We can solve for the original line integral.
+          <me>
+            \int_\gamma F \cdot ds = \int_\sigma (\nabla \times F) \cdot dA - \int_\delta F \cdot ds
+          </me>
+        </p>
+        <p>
+          These two integrals on the right are notably easier than the first integral.
+          <m>\delta</m> is entirely on the <m>x</m> axis,
+          so <m>F = (0,0,x)</m> when <m>y = z = 0</m>.
+          The tangent to <m>\delta</m> is <m>(1,0,0)</m> so <m>F \cdot N = 0</m>,
+          which means the second integral vanishes.
+        </p>
+        <p>
+          The normal to <m>\sigma</m> is <m>(0,0,-1)</m>,
+          pointing in the negative <m>z</m> direction to match orientation.
+          <m>(\nabla \times F) \cdot N = (-1,1,0) \cdot (0,0,-1) = 0</m>,
+          so the first integral vanishes.
+          Therefore, our original line integral also vanishes.
+        </p>
+        <p>
+          Note that the field is not conservative,
+          so a different path from <m>(-3,0,0)</m> to <m>(3,0,0)</m> might have a different value.
+          If we worked in the <m>xz</m> plane instead of the <m>xy</m> plane with the same setup,
+          the second integral would still vanish but the normal to <m>\sigma</m> would be <m>(0,-1,0)</m>,
+          so <m>(\nabla \times F) \cdot N = (-1)</m> and the value of the first integral would be non-zero.
+          <me>
+            \int_\sigma -1 dA = - \frac{9\pi}{2} \implies \int_\gamma F \cdot ds = \frac{-9\pi}{2}
+          </me>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+</section>

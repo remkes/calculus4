@@ -1,0 +1,91 @@
+<section xml:id="indefinite-integral">
+  <title>The Indefinite Integral</title>
+  <p>
+    In single variable calculus,
+    the integral is defined as a limit of approximating Riemann sums.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>f: [a,b] \rightarrow \RR</m> be a continuous function.
+        If we partion the interval <m>[a,b]</m> into <m>n</m> equal pieces of size
+        <m>\frac{b-a}{n}</m> and <m>x_k^*</m> is any element in the <m>k</m>th partition,
+        the integral of <m>f</m> on <m>[a,b]</m> is defined to be
+        <me>
+          \int_a^b f(x) dx = \lim_{n \rightarrow \infty} \sum_{k=1}^n f(x_k^*) \frac{b-a}{n}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Recall the fundamental theorem of calculus.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>f: [a,b] \rightarrow \RR</m> be a continuous function.
+        Then if <m>F(x)</m> is any antiderivative of <m>f</m> (i.e.
+        <m>F^\prime(x) = f(x)</m>),
+        we can evaluate the definite integral using the antiderivative.
+        <me>
+          \int_a^b f(x) dx = F(b) - F(a)
+        </me>
+      </p>
+      <p>
+        There are several version of the fundamental theorem,
+        but all say the same thing: (single-variable) derivatives and integrals are inverse processes.
+        <me>
+          \frac{d}{dx} \int_a^x f(t) dt = f(x)
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We used the indefinite integral
+    <m>\int f dx</m> to stand for <em>all</em>
+    anti-derivatives of the single-variable function.
+    Is there a multivariable version of this anti-derivative?
+    Calculus III tried to extend the derivative to multi-variable functions.
+    The result was a collection of construction:
+    partial derivatives, tangent (hyper-)planes,
+    gradients and the Jacobian matrix.
+    However, none of these notions of the derivative gave a new multi-variable funciton.
+    Therefore, there isn't a nice notion of anti-derivative:
+    going back doesn't make sense,
+    since going forward led to more complicated constructions.
+  </p>
+  <p>
+    We can, however, take indefinite integrals in one variable,
+    much like partial derivatives.
+    If <m>f(x,y,z)</m> is a multivariable continuous function,
+    then the following three integrals are the counterparts of partial differentiation.
+    In each of the following we pretend the other two variables are constant;
+    only the variable indicated by the infintesimal term is non-constant.
+    <md>
+      <mrow>\int f(x,y,z) dx \amp</mrow>
+      <mrow>\int f(x,y,z) dy \amp</mrow>
+      <mrow>\int f(x,y,z) dz \amp</mrow>
+    </md>
+  </p>
+  <p>
+    Our best extention of the fundamental theorem is just a version involving the partial derivatives.
+    <md>
+      <mrow>\int \frac{\del}{\del x} f(x,y,z) dx \amp  = f(x,y,z) + g(y,z)</mrow>
+      <mrow>\int \frac{\del}{\del y} f(x,y,z) dy \amp  = f(x,y,z) + g(x,z)</mrow>
+      <mrow>\int \frac{\del}{\del z} f(x,y,z) dz \amp  = f(x,y,z) + g(x,y)</mrow>
+    </md>
+  </p>
+  <p>
+    Note that the <sq>constants of integration</sq> now may involve the other variables.
+    When we do single variable integration or partial differentiation,
+    we pretend all the other variables are constant;
+    therefore, the constant term can include those variables.
+  </p>
+  <p>
+    We will discover much deeper and more interesting extensions of the fundamental theorem of calculus later in this course.
+    However, they will come from entirely new directions.
+    For now, this is as far as we can extend the fundamental theorem.
+    Nothing more can be said about the indefinite integral;
+    it is not used for multivariable functions.
+  </p>
+</section>
