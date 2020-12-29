@@ -1,0 +1,8 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter-week8">
+  <title>Week 8</title>
+  <xi:include href="flux-integrals.ptx" />
+  <xi:include href="week8-activity.ptx" />
+</chapter>
+
+
+

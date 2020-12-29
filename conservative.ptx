@@ -1,113 +1,128 @@
-<section xml:id="conservative">
+<section xml:id="section-conservative">
   <title>Conservative Vector Fields</title>
   <p>
-    An important class of vector fields are gradients of scalar fields.
-    The most common case is a potential energy scalar field,
-    where <m>f</m> measures potential energy.
-    A principle of motion in physics states that particles will seek to lower their potential energy in the most efficient way possible.
-    That is, they will move in the direction of greatest descent of potential energy.
-    That movement is precisely along the integral curves of the vector field <m>\nabla f</m>.
-    So, if we try to explain a physical situation by a potential energy field,
-    then the movement of particles is equivalent to finding integral curves of <m>\nabla f</m>.
-    Moreover, movement along these paths creates kinetic energy.
-    The speed of movement can be determined by conservation of energy:
-    the movement along the paths has speed and kinetic energy gained at exactly the same rate as potential energy is lost.
-    Conservation of energy explains the terminology of this section.
+    An important class of vector fields are gradients of scalar
+    fields. The most common case is a potential energy scalar field,
+    where <m>f</m> measures potential energy. A principle of motion
+    in physics states that particles will seek to lower their
+    potential energy in the most efficient way possible. That is,
+    they will move in the direction of greatest descent of potential
+    energy. That movement is precisely along the integral curves of
+    the vector field <m>\nabla f</m>. So, if we try to explain a
+    physical situation by a potential energy field, then the movement
+    of particles is equivalent to finding integral curves of <m>\nabla
+    f</m>. Moreover, movement along these paths creates kinetic
+    energy. The speed of movement can be determined by conservation
+    of energy: the movement along the paths has speed and kinetic
+    energy gained at exactly the same rate as potential energy is
+    lost. Conservation of energy explains the terminology of this
+    section.
   </p>
   <definition>
     <statement>
       <p>
-        Let <m>f</m> be a scalar field.
-        Then field <m>\nabla f</m> created from a potential energy field is called a
+        Let <m>f</m> be a scalar field. Then field <m>\nabla f</m>
+        created from a potential energy field is called a
         <term>conservative vector field</term>.
       </p>
     </statement>
   </definition>
   <p>
-    If we are given a general vector field <m>F</m>,
-    we would like to check whether or not it is conservative.
-    We have the identity <m>\nabla \times \nabla f=0</m>,
-    which shows that all conservative fields are irrotational.
-    Is the converse true?
-    We need a technical definition before we can answer this question.
+    If we are given a general vector field <m>F</m>, we would like to
+    check whether or not it is conservative. We have the identity
+    <m>\nabla \times \nabla f=0</m>, which shows that all conservative
+    fields are irrotational. Is the converse true? We need a
+    technical definition before we can answer this question.
   </p>
   <definition>
     <statement>
       <p>
-        Let <m>U</m> be an open subset of <m>\RR^n</m>.
-        <m>U</m> is called <term>path connected</term>
-        if there is a parametric curve connecting any two points <m>a,
-        b \in U</m>.
-        (Recall in our definition in Calculus III that parametric curves are always continuous.)
-        If <m>U</m> is path connected,
-        it is also called <term>simply connected</term>
-        if any closed path (a path which starts and ends at the same spot) can be contracted down to a point. (Think of the path as a loop in a rope,
-        and contraction as pulling the rope so that the loop disappears.
-        This needs to happen in such a way that all the intermediate steps are still paths in the set <m>U</m>).
+        Let <m>U</m> be an open subset of <m>\RR^n</m>. <m>U</m> is
+        called <term>path connected</term> if there is a parametric
+        curve connecting any two points <m>a, b \in U</m>. (Recall in
+        our definition in Calculus III that parametric curves are
+        always continuous.) If <m>U</m> is path connected, it is also
+        called <term>simply connected</term> if any closed path (a
+        path which starts and ends at the same spot) can be contracted
+        down to a point. (Think of the path as a loop in a rope, and
+        contraction as pulling the rope so that the loop disappears.
+        This needs to happen in such a way that all the intermediate
+        steps are still paths in the set <m>U</m>).
       </p>
     </statement>
   </definition>
   <p>
-    Na&#xef;vely, a simply connected set has no holes in it.
-    A solid cylinder is simply connected.
-    However, the hollow cylinder is not,
-    since a loop around the cylinder can never be contracted.
+    Naively, a simply connected set has no holes in it. A solid
+    cylinder is simply connected. However, the hollow cylinder is
+    not, since a loop around the cylinder can never be contracted.
   </p>
   <proposition>
     <statement>
       <p>
-        Let <m>U</m> be a simply connected open set in <m>\RR^3</m> and let
-        <m>F: U \rightarrow \RR^3</m> be a differentiable vector field Then <m>F</m> is conservative on <m>U</m> if an only if <m>\nabla \times F = 0</m>.
+        Let <m>U</m> be a simply connected open set in <m>\RR^3</m>
+        and let <m>F: U \rightarrow \RR^3</m> be a differentiable
+        vector field Then <m>F</m> is conservative on <m>U</m> if an
+        only if <m>\nabla \times F = 0</m>.
       </p>
     </statement>
   </proposition>
   <p>
-    The condition <m>\nabla \times F</m> works both ways under a reasonable condition for the domain of the vector field.
-    We can check if a vector is conservative by taking the curl;
-    if the curl is zero, it is conservative.
+    The condition <m>\nabla \times F</m> works both ways under a
+    reasonable condition for the domain of the vector field. We can
+    check if a vector is conservative by taking the curl; if the curl
+    is zero, it is conservative.
   </p>
   <p>
-    If <m>F</m> is conservative, then there exists at least one
-    (in fact, infinitely many!)
-    scalar fields <m>f</m> with <m>F = \nabla f</m>.
-    This <m>f</m>, inspired by the physics situation,
-    is called a (scalar) potential for <m>F</m>.
-    If <m>f</m> is a potential energy field,
-    <m>F</m> is the associated field of force.
-    Usually, both the potential energy and force fields are defined per unit mass or charge,
-    so that they can act on any mass or charge present in the field.
+    If <m>F</m> is conservative, then there exists at least one (in
+    fact, infinitely many!) scalar fields <m>f</m> with <m>F = \nabla
+    f</m>. This <m>f</m>, inspired by the physics situation, is
+    called a (scalar) potential for <m>F</m>. If <m>f</m> is a
+    potential energy field, <m>F</m> is the associated field of force.
+    Usually, both the potential energy and force fields are defined
+    per unit mass or charge, so that they can act on any mass or
+    charge present in the field.
   </p>
   <p>
-    How do we calculate <m>f</m>?
-    The equation <m>F = \nabla f</m> can be expanded.
+    How do we calculate <m>f</m>? The equation <m>F = \nabla f</m>
+    can be expanded.
     <md>
-      <mrow>F_1 \amp  = \frac{\del f}{\del x}</mrow>
-      <mrow>F_2 \amp  = \frac{\del f}{\del y}</mrow>
-      <mrow>F_3 \amp  = \frac{\del f}{\del z}</mrow>
+      <mrow>
+        F_1 \amp = \frac{\del f}{\del x}
+      </mrow>
+      <mrow>
+        F_2 \amp = \frac{\del f}{\del y}
+      </mrow>
+      <mrow>
+        F_3 \amp = \frac{\del f}{\del z}
+      </mrow>
     </md>
   </p>
   <p>
-    We can integrate each of these equations.
-    We have to be careful with the <sq>constants</sq>:
-    in each integral,
-    the constants can be functions of both of the remaining variables.
+    We can integrate each of these equations. We have to be careful
+    with the <sq>constants</sq>: in each integral, the constants can
+    be functions of both of the remaining variables.
     <md>
-      <mrow>f \amp  = \int F_1 dx + g_1(y,z)</mrow>
-      <mrow>\amp  = \int F_2 dy + g_2(x,z)</mrow>
-      <mrow>\amp  = \int F_3 dz + g_3(x,y)</mrow>
+      <mrow>
+        f \amp = \int F_1 dx + g_1(y,z)
+      </mrow>
+      <mrow>
+        \amp = \int F_2 dy + g_2(x,z)
+      </mrow>
+      <mrow>
+        \amp = \int F_3 dz + g_3(x,y)
+      </mrow>
     </md>
   </p>
   <p>
-    Finding <m>f</m> amounts to finding a scalar field that fits this system.
-    For reasonable <m>F</m>, this isn't too terrible.
-    We expect a family of solutions:
-    since we are integrating and there will be constants of integration introduced.
-    Initial values can determine the constant to give a unique potential.
-    The constants here make sense:
-    potential energy is always a relative measure,
-    so we have to set a base level of potential energy.
-    Please note: energy is always relative!
-    Unlike mass and charge, energy is not an intrinsic measure.
-    Energy is a fiction, but a very useful fiction for explaning motion.
+    Finding <m>f</m> amounts to finding a scalar field that fits this
+    system. For reasonable <m>F</m>, this isn't too terrible. We
+    expect a family of solutions: since we are integrating and there
+    will be constants of integration introduced. Initial values can
+    determine the constant to give a unique potential. The constants
+    here make sense: potential energy is always a relative measure, so
+    we have to set a base level of potential energy. Please note:
+    energy is always relative!  Unlike mass and charge, energy is not
+    an intrinsic measure. Energy is a fiction, but a very useful
+    fiction for explaning motion.
   </p>
 </section>

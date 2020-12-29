@@ -1,94 +1,131 @@
 <section xml:id="integration-differential-forms">
   <title>Integration of Differential Forms</title>
   <p>
-    Differential forms are built to serve as integrands.
-    A major contention of differential geometry is that an differential form is the <em>only</em>
-    object that should be integrated and that any previously defined integrations can be efficiently and clearly realized as the integrals of differential forms.
-    The notation reflects this:
-    the fact that the bases for forms uses the symbols <m>dx_i</m> is explicitly because these have always been part of the notation for integration.
-    The differential terms <m>dx</m> in an integral have always been problematic:
-    historically, they were infinitesimals,
-    and they have lingered as a vestige in modern calculus.
-    Differential forms finally give those pieces of notation proper,
-    clear definitions in the moderm treatment of integration.
+    Differential forms are built to serve as integrands. A major
+    contention of differential geometry is that an differential form
+    is the <em>only</em> object that should be integrated and that any
+    previously defined integrations can be efficiently and clearly
+    realized as the integrals of differential forms. The notation
+    reflects this: the fact that the bases for forms uses the symbols
+    <m>dx_i</m> is explicitly because these have always been part of
+    the notation for integration. The differential terms <m>dx</m> in
+    an integral have always been problematic: historically, they were
+    infinitesimals, and they have lingered as a vestige in modern
+    calculus. Differential forms finally give those pieces of
+    notation proper, clear definitions in the moderm treatment of
+    integration.
   </p>
   <p>
-    This definition of integration assumes we already know single-variable integral and multiple integral of scalar functions by way of iterated integrals as describe in <xref ref="integration">Chapter</xref>.
-    This definition does not assume any previous definitions for integration of vector fields or integration over parametric surfaces.
+    This definition of integration assumes we already know
+    single-variable integral and multiple integral of scalar functions
+    by way of iterated integrals as described in <xref
+    ref="section-iterated-integrals" />. This definition does not assume
+    any previous definitions for integration of vector fields or
+    integration over parametric surfaces.
   </p>
   <definition>
     <statement>
       <p>
-        Let <m>\omega</m> is a k-form on <m>U</m>,
-        an open set in a <m>k-</m>dimensional manifold.
-        Let <m>u_1, \ldots, u_k</m> be local coordinates and let
-        <m>x_1, \ldots,
-        x_n</m> be ambient coordinates.
-        We can write <m>\omega = f dx_{j_1} \wedge \ldots \wedge dx_{j_k}</m> in ambient coordinates.
-        Let <m>\phi :D \rightarrow U</m> be a coordinate function.
-        The integral of <m>\omega</m> over <m>U</m> is defined as the integral of the pullback of <m>\omega</m> over the domain of the coordinate function.
+        Let <m>\omega</m> is a k-form on <m>U</m>, an open set in a
+        <m>k-</m>dimensional manifold. Let <m>u_1, \ldots, u_k</m> be
+        local coordinates and let <m>x_1, \ldots, x_n</m> be ambient
+        coordinates. We can write <m>\omega = f dx_{j_1} \wedge
+        \ldots \wedge dx_{j_k}</m> in ambient coordinates. Let
+        <m>\phi :D \rightarrow U</m> be a coordinate function. The
+        integral of <m>\omega</m> over <m>U</m> is defined as the
+        integral of the pullback of <m>\omega</m> over the domain of
+        the coordinate function.
         <me>
-          \int_U \omega = \int_U f dx_{j_1} \wedge \ldots \wedge dx_{j_k} = \int_D \phi^* \omega du_1 \ldots du_l
+          \int_U \omega = \int_U f dx_{j_1} \wedge \ldots \wedge
+          dx_{j_k} = \int_D \phi^* \omega du_1 \ldots du_l
         </me>
       </p>
     </statement>
   </definition>
   <p>
-    So we pullback to a simply connected set in <m>\RR^k</m> and do the integral there.
-    The coefficient <m>\phi^* f(u_1, \ldots,
-    u_k)</m> is just a scalar function,
-    so the integral is just a multiple-integral of a scalar function.
-    Notice that the wedge <m>dx_{j_1} \wedge \ldots \wedge dx_{j_k}</m> turns into
-    <m>du_1 \ldots du_k</m> in the integral over <m>D</m>!
-    We finally treat the differential terms <m>du</m> is integration properly:
-    they are just differential forms written without the wedge product.
+    So we pullback to a simply connected set in <m>\RR^k</m> and do
+    the integral there. The coefficient <m>\phi^* f(u_1, \ldots,
+    u_k)</m> is just a scalar function, so the integral is just a
+    multiple-integral of a scalar function. Notice that the wedge
+    <m>dx_{j_1} \wedge \ldots \wedge dx_{j_k}</m> turns into <m>du_1
+    \ldots du_k</m> in the integral over <m>D</m>!  We finally treat
+    the differential terms <m>du</m> is integration properly: they are
+    just differential forms written without the wedge product.
   </p>
   <p>
-    Let's work this out in dimensions 1 and 2.
-    In dimension 1, a manifold is locally a parametric curve and the coordinate function is <m>\gamma: [a,b] \rightarrow \RR^3</m>.
-    We want to integrate a 1-form on <m>\gamma</m>,
-    since the degree has to match the dimension.
-    Such a form in ambient coordinates is <m>\omega = f_1 dx + f_2 dy + f_3 dz</m>.
-    Let's calculate the integral.
+    Let's work this out in dimensions 1 and 2. In dimension 1, a
+    manifold is locally a parametric curve and the coordinate function
+    is <m>\gamma: [a,b] \rightarrow \RR^3</m>. We want to integrate a
+    1-form on <m>\gamma</m>, since the degree has to match the
+    dimension. Such a form in ambient coordinates is <m>\omega = f_1
+    dx + f_2 dy + f_3 dz</m>. Let's calculate the integral.
     <md>
-      <mrow>\int_\gamma \omega \amp  = \int_{[a,b]} \gamma^* \omega</mrow>
-      <mrow>\amp  = \int_{[a,b]} \left( f_1 \circ \gamma \frac{dx}{dt} dt + f_2 \circ \phi \frac{dy}{dt} dt + f_3 \circ \gamma \frac{dz}{dt} dt \right)</mrow>
-      <mrow>\amp  = \int_a^b f(\gamma(t)) \cdot \gamma^\prime(t) dt</mrow>
+      <mrow>
+        \int_\gamma \omega \amp = \int_{[a,b]} \gamma^* \omega
+      </mrow>
+      <mrow>
+        \amp = \int_{[a,b]} \left( f_1 \circ \gamma \frac{dx}{dt} dt +
+        f_2 \circ \phi \frac{dy}{dt} dt + f_3 \circ \gamma
+        \frac{dz}{dt} dt \right)
+      </mrow>
+      <mrow>
+        \amp = \int_a^b f(\gamma(t)) \cdot \gamma^\prime(t) dt
+      </mrow>
     </md>
   </p>
   <p>
-    If we treat the coefficient of the form as a vector field,
-    we recover the integration forumla for line integrals of a vector field over parametric curves.
+    If we treat the coefficient of the form as a vector field, we
+    recover the integration forumla for line integrals of a vector
+    field over parametric curves.
   </p>
   <p>
-    In dimension 2, a manifold is locally a parametric surface and the coordinate function is
-    <m>\sigma: D \rightarrow \RR^3</m> in variables <m>(u,v)</m>.
-    We want to integrate a 2-form on <m>\sigma</m>,
-    since the degree has to match the dimensions.
-    Such a form can be written in ambient coordinates.
+    In dimension 2, a manifold is locally a parametric surface and the
+    coordinate function is <m>\sigma: D \rightarrow \RR^3</m> in
+    variables <m>(u,v)</m>. We want to integrate a 2-form on
+    <m>\sigma</m>, since the degree has to match the dimensions. Such
+    a form can be written in ambient coordinates.
     <me>
       \omega = f_1 dy\wedge dz + f_2 dz\wedge dx + f_3 dx \wedge dy
     </me>
   </p>
   <p>
-    Its integral over a surface <m>\sigma</m> is the integral of the pullback over the parameter domain.
+    Its integral over a surface <m>\sigma</m> is the integral of the
+    pullback over the parameter domain.
     <md>
-      <mrow>\int_\sigma \omega \amp  = \int_D \sigma^* \omega</mrow>
-      <mrow>\amp  = \int_D \left( f_1 \circ \sigma \frac{\del (y,z)}{\del (u,v)} + f_2 \circ \sigma \frac{\del (z,x)}{\del (u,v)} + f_3 \circ \sigma \frac{\del (x,y)}{\del (u,v)} \right) du \wedge dv</mrow>
-      <mrow>\amp  = \int_D (f \circ \sigma) \cdot \left( \frac{dy}{dv} \frac{dz}{du} - \frac{dy}{du} \frac{dz}{dv}, \frac{dz}{dv} \frac{dx}{du} - \frac{dz}{du} \frac{dx}{dv}, \frac{dx}{dv} \frac{dy}{du} - \frac{dx}{du} \frac{dy}{dv} \right) du \wedge dv</mrow>
-      <mrow>\amp  = \int_D f(\sigma(u,v)) \cdot (\sigma_u \times \sigma_v) du dv</mrow>
+      <mrow>
+        \int_\sigma \omega \amp = \int_D \sigma^* \omega
+      </mrow>
+      <mrow>
+        \amp = \int_D \left( f_1 \circ \sigma \frac{\del (y,z)}{\del
+        (u,v)} + f_2 \circ \sigma \frac{\del (z,x)}{\del (u,v)} + f_3
+        \circ \sigma \frac{\del (x,y)}{\del (u,v)} \right) du \wedge
+        dv
+      </mrow>
+      <mrow>
+        \amp = \int_D (f \circ \sigma) \cdot \left( \frac{dy}{dv}
+        \frac{dz}{du} - \frac{dy}{du} \frac{dz}{dv}, \frac{dz}{dv}
+        \frac{dx}{du} - \frac{dz}{du} \frac{dx}{dv}, \frac{dx}{dv}
+        \frac{dy}{du} - \frac{dx}{du} \frac{dy}{dv} \right) du \wedge
+        dv
+      </mrow>
+      <mrow>
+        \amp = \int_D f(\sigma(u,v)) \cdot (\sigma_u \times \sigma_v)
+        du dv
+      </mrow>
     </md>
   </p>
   <p>
-    If we treated the cooeficients of the differential form as a vector field,
-    we recover the integration formula for the flux integral of a field over a parametric surfaces.
+    If we treated the cooeficients of the differential form as a
+    vector field, we recover the integration formula for the flux
+    integral of a field over a parametric surfaces.
   </p>
   <p>
-    In this way,
-    the integration definition for differential forms recovers all the vector field integrals we defined
-    (and any similar vector field integrals one might define in any higher dimensions).
-    Differential geometry argues,
-    based on the fact that we can recover all these integration definition and the covariant nature of differential forms,
-    that differential forms are the proper elements for integration.
+    In this way, the integration definition for differential forms
+    recovers all the vector field integrals we defined (and any
+    similar vector field integrals one might define in any higher
+    dimensions). Differential geometry argues, based on the fact that
+    we can recover all these integration definition and the covariant
+    nature of differential forms, that differential forms are the
+    proper elements for integration.
   </p>
 </section>

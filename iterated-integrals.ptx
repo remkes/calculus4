@@ -1,73 +1,92 @@
-<section xml:id="iterated-integrals">
+<section xml:id="section-iterated-integrals">
   <title>Iterated Integrals</title>
   <p>
-    The previous section gave us a good definition,
-    but how do we actually calculate these integrals?
-    Let <m>I = [a,b] \times [c,d]</m> be an interval in <m>\RR^2</m>.
-    The infintesimal piece of area <m>dA</m> in the integral can be thought of as the product <m>dx dy</m> of infinitesimal pieces of length.
-    Separating <m>x</m> and <m>y</m>,
-    we can interate the integral,
-    first working in <m>x</m> and then in <m>y</m>.
+    The previous section gave us a good definition, but how do we
+    actually calculate these integrals? Let <m>I = [a,b] \times
+    [c,d]</m> be an interval in <m>\RR^2</m>. The infintesimal piece
+    of area <m>dA</m> in the integral can be thought of as the product
+    <m>dx dy</m> of infinitesimal pieces of length. Separating
+    <m>x</m> and <m>y</m>, we can interate the integral, first working
+    in <m>x</m> and then in <m>y</m>.
     <me>
-      \int_{I} f(x,y) dA = \int_c^d \left[ \int_a^b f(x,y) dy \right] dx
+      \int_{I} f(x,y) dA = \int_c^d \left[ \int_a^b f(x,y) dy \right]
+      dx
     </me>
   </p>
   <p>
-    We work from the inside out:
-    the infinitesimal piece <m>dx</m> or <m>dy</m> that is closest to the function acts first.
-    Its bounds are written on the right, closest to the function.
-    That integral is a single-variable integration,
-    pretending that the other variables are constant,
-    as we did with partial derivatives.
-    Then, once the firstintegration is finished,
-    we proceed outward to the next integral.
+    We work from the inside out: the infinitesimal piece <m>dx</m> or
+    <m>dy</m> that is closest to the function acts first. Its bounds
+    are written on the right, closest to the function. That integral
+    is a single-variable integration, pretending that the other
+    variables are constant, as we did with partial derivatives. Then,
+    once the firstintegration is finished, we proceed outward to the
+    next integral.
   </p>
   <p>
-    The same works in higher dimensions:
-    we just iterate through the variables.
-    In <m>\RR^3</m>, over the interval
-    <m>I = [a_1,b_1] \times [a_2,b_2] \times [a_3,b_3]</m> with three iterations.
+    The same works in higher dimensions: we just iterate through the
+    variables. In <m>\RR^3</m>, over the interval <m>I = [a_1,b_1]
+    \times [a_2,b_2] \times [a_3,b_3]</m> with three iterations.
     <me>
-      \int_{I} f(x,y,z) dV = \int_{a_3}^{b_3} \left[ \int_{a_2}^{b_2} \left[ \int_{a_1}^{b_2} f(x,y,z) dx \right] dy \right] dz
+      \int_{I} f(x,y,z) dV = \int_{a_3}^{b_3} \left[ \int_{a_2}^{b_2}
+      \left[ \int_{a_1}^{b_2} f(x,y,z) dx \right] dy \right] dz
     </me>
   </p>
   <p>
-    Notice that we always have to match the bounds of integration with the correct infinitesimal piece,
-    working from the inside out.
+    Notice that we always have to match the bounds of integration with
+    the correct infinitesimal piece, working from the inside out.
   </p>
   <p>
-    You might ask, at this point,
-    what happens when we change the order?
-    We have to choose an order for these iterated integrals.
+    You might ask, at this point, what happens when we change the
+    order? We have to choose an order for these iterated integrals.
     Fubini's Theorem tells us that we are able to choose the order.
   </p>
   <theorem xml:id="thm-fubini">
     <statement>
       <p>
-        If <m>f: I \rightarrow \RR</m> is an integrable function on an interval,
-        then the iterated integral is independent of the choice or order.
-        Any ordering of the variables will result in the same value.
+        If <m>f: I \rightarrow \RR</m> is an integrable function on an
+        interval, then the iterated integral is independent of the
+        choice or order. Any ordering of the variables will result in
+        the same value.
       </p>
     </statement>
   </theorem>
   <p>
-    In working with iterated integrals,
-    we must be careful with the evaluation if each integral.
-    It's easy to confuse the variable of integration and substitue for the wrong variables.
+    In working with iterated integrals, we must be careful with the
+    evaluation if each integral. It's easy to confuse the variable of
+    integration and substitue for the wrong variables.
   </p>
   <example>
     <statement>
       <p>
-        Consider the interval <m>I = [0,1] \times[3,6]</m> and the function <m>f(x,y) = e^x + e^y</m>.
-        In this example, I've carefully labelled the bound to remind myself which variable to replace.
+        Consider the interval <m>I = [0,1] \times[3,6]</m> and the
+        function <m>f(x,y) = e^x + e^y</m>. In this example, I've
+        carefully labelled the bound to remind myself which variable
+        to replace.
         <md>
-          <mrow>\int_I f dA \amp  = \int_0^1 \int_3^6 f(x,y) dy dx</mrow>
-          <mrow>\amp  = \int_0^1 \int_3^6 (e^x + e^y) dy dx</mrow>
-          <mrow>\amp  = \int_0^1 \int_3^6 e^x dy dx + \int_0^1 \int_3^6 e^y dy dx</mrow>
-          <mrow>\amp  = \int_0^1 y e^x \bigg|_{y=3}^{y=6} dx + \int_0^1 e^y \bigg|_{y=3}^{y=6} dx</mrow>
-          <mrow>\amp  = \int_0^1 3e^x dx + \int_0^1 (e^6-e^3) dx</mrow>
-          <mrow>\amp  = 3e^x \bigg|_{x=0}^{x=1} + x(e^6-e^3) \bigg|_{x=0}^{x=1}</mrow>
-          <mrow>\amp  = 3e - 3 + e^6 - e^3</mrow>
+          <mrow>
+            \int_I f dA \amp = \int_0^1 \int_3^6 f(x,y) dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 \int_3^6 (e^x + e^y) dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 \int_3^6 e^x dy dx + \int_0^1 \int_3^6 e^y
+            dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 y e^x \bigg|_{y=3}^{y=6} dx + \int_0^1 e^y
+            \bigg|_{y=3}^{y=6} dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 3e^x dx + \int_0^1 (e^6-e^3) dx
+          </mrow>
+          <mrow>
+            \amp = 3e^x \bigg|_{x=0}^{x=1} + x(e^6-e^3)
+            \bigg|_{x=0}^{x=1}
+          </mrow>
+          <mrow>
+            \amp = 3e - 3 + e^6 - e^3
+          </mrow>
         </md>
       </p>
     </statement>
@@ -75,41 +94,75 @@
   <example>
     <statement>
       <p>
-        Consider the interval <m>I = [-1,1] \times [-2,2]</m> and the function <m>f(x,y) = x^2y^3</m>.
+        Consider the interval <m>I = [-1,1] \times [-2,2]</m> and the
+        function <m>f(x,y) = x^2y^3</m>.
         <md>
-          <mrow>\int_I f(x,y) dA \amp  = \int_{-2}^2 \int_{-1}^1 x^2 y^3 dx dy</mrow>
-          <mrow>\amp  = \int_{-2}^2 \left. \frac{x^3y^3}{3} \right|_{-1}^1 dy</mrow>
-          <mrow>\amp  = \int_{-2}^2 \left( \frac{y^3}{3} + \frac{y^3}{3} \right) dy = \int_{-2}^2 \frac{2y^3}{3} dy</mrow>
-          <mrow>\amp  = \left. \frac{y^4}{6} \right|_{-2}^{2} = \frac{16}{6} - \frac{16}{6} = 0</mrow>
+          <mrow>
+            \int_I f(x,y) dA \amp = \int_{-2}^2 \int_{-1}^1 x^2 y^3 dx
+            dy
+          </mrow>
+          <mrow>
+            \amp = \int_{-2}^2 \left. \frac{x^3y^3}{3} \right|_{-1}^1
+            dy
+          </mrow>
+          <mrow>
+            \amp = \int_{-2}^2 \left( \frac{y^3}{3} + \frac{y^3}{3}
+            \right) dy = \int_{-2}^2 \frac{2y^3}{3} dy
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{y^4}{6} \right|_{-2}^{2} =
+            \frac{16}{6} - \frac{16}{6} = 0
+          </mrow>
         </md>
       </p>
       <p>
         Just to check, we could change the order.
         <md>
-          <mrow>\int_I f(x,y) dA \amp  = \int_{-1}^1 \int_{-2}^2 x^2 y^3 dy dx</mrow>
-          <mrow>\amp  = \int_{-1}^1 \left. \frac{x^2y^4}{4} \right|_{-2}^2 dx</mrow>
-          <mrow>\amp  = \int_{-1}^1 (2x^2 - 2x^2) dx = \int_{-1}^1 0 dx = 0</mrow>
+          <mrow>
+            \int_I f(x,y) dA \amp = \int_{-1}^1 \int_{-2}^2 x^2 y^3 dy
+            dx
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^1 \left. \frac{x^2y^4}{4} \right|_{-2}^2
+            dx
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^1 (2x^2 - 2x^2) dx = \int_{-1}^1 0 dx =
+            0
+          </mrow>
         </md>
       </p>
     </statement>
   </example>
   <p>
     We notice that the second calculation is actually a bit simplier,
-    since we find the zero term earlier in the process.
-    Often, one order of variables leads to an easier calculation.
-    Fubini's theorem lets us chose any order,
-    so we try to chose the order that has the easiest calculations.
-    Of course, the right choice isn't always obvious before we start doing the calculations.
+    since we find the zero term earlier in the process. Often, one
+    order of variables leads to an easier calculation. Fubini's
+    theorem lets us chose any order, so we try to chose the order that
+    has the easiest calculations. Of course, the right choice isn't
+    always obvious before we start doing the calculations.
   </p>
   <example>
     <statement>
       <p>
-        Consider the function <m>f(x,y) = \sin (x+y)</m> on the interval <m>I = [0, \pi] \times [0, \pi/2]</m>.
+        Consider the function <m>f(x,y) = \sin (x+y)</m> on the
+        interval <m>I = [0, \pi] \times [0, \pi/2]</m>. 
         <md>
-          <mrow>\int_I f(x,y) dx dy \amp  = \int_0^{\frac{\pi}{2}} \int_0^{\pi} \sin (x+y) dx dy</mrow>
-          <mrow>\amp  = \int_0^{\frac{\pi}{2}} (-\cos (x+y)) \bigg|_0^{\pi} dy</mrow>
-          <mrow>\amp  = \int_0^{\frac{\pi}{2}} (\cos y - \cos (y+\pi)) dy = \int_0^{\frac{\pi}{2}} 2 \cos y dy</mrow>
-          <mrow>\amp  = 2 \sin y \bigg|_0^{\frac{\pi}{2}} = 2-0 = 2</mrow>
+          <mrow>
+            \int_I f(x,y) dx dy \amp = \int_0^{\frac{\pi}{2}}
+            \int_0^{\pi} \sin (x+y) dx dy
+          </mrow>
+          <mrow>
+            \amp = \int_0^{\frac{\pi}{2}} (-\cos (x+y)) \bigg|_0^{\pi}
+            dy
+          </mrow>
+          <mrow>
+            \amp = \int_0^{\frac{\pi}{2}} (\cos y - \cos (y+\pi)) dy =
+            \int_0^{\frac{\pi}{2}} 2 \cos y dy
+          </mrow>
+          <mrow>
+            \amp = 2 \sin y \bigg|_0^{\frac{\pi}{2}} = 2-0 = 2
+          </mrow>
         </md>
       </p>
     </statement>
@@ -117,52 +170,77 @@
   <example>
     <statement>
       <p>
-        If we have a integrable function on
-        <m>I = [a,b] \times [c,d]</m> with the special form
-        <m>f(x,y) = g(x) h(y)</m> for some single variable functions <m>g</m> and <m>h</m>,
-        then we call <m>f(x,y)</m> seperable.
-        The integral seperates entirely into two single variable integrals.
+        If we have a integrable function on <m>I = [a,b] \times
+        [c,d]</m> with the special form <m>f(x,y) = g(x) h(y)</m> for
+        some single variable functions <m>g</m> and <m>h</m>, then we
+        call <m>f(x,y)</m> seperable. The integral seperates entirely
+        into two single variable integrals.
         <md>
-          <mrow>\int_I f(x,y) dx \amp  = \int_a^b \int_c^d g(x) h(y) dy dx</mrow>
-          <mrow>\amp  = \int_a^b g(x) \left[ \int_c^d h(y) dy \right] dx</mrow>
-          <mrow>\amp  = \left[ \int_c^d h(y) dy \right] \left[ \int_a^b g(x) dx \right]</mrow>
+          <mrow>
+            \int_I f(x,y) dx \amp = \int_a^b \int_c^d g(x) h(y) dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_a^b g(x) \left[ \int_c^d h(y) dy \right] dx
+          </mrow>
+          <mrow>
+            \amp = \left[ \int_c^d h(y) dy \right] \left[ \int_a^b
+            g(x) dx \right]
+          </mrow>
         </md>
       </p>
       <p>
-        The operations above are justified because the pieces which we move in and out of a integral do not involve that variable of integration.
-        In this way,
-        we can seperate the integral into two single variable integrals.
-        This kind of seperation of variables is a very important technique in differential equations.
+        The operations above are justified because the pieces which we
+        move in and out of a integral do not involve that variable of
+        integration. In this way, we can seperate the integral into
+        two single variable integrals. This kind of seperation of
+        variables is a very important technique in differential
+        equations.
       </p>
     </statement>
   </example>
   <example>
     <statement>
       <p>
-        Consider the function <m>f(x,y) = \frac{1}{\sqrt{(x^2 + y^2)^3}}</m> on the interval <m>I = [0,1] \times [0,1]</m>.
-        We would like to try to integrate this function over this interval,
-        but there is a problem.
-        At one corner of the interval,
-        <m>(0,0)</m>, the function is undefined.
-        As we approach that corner, the function diverges to infinity.
-        Is the integral still defined?
-        We can use a limit in the bounds,
+        Consider the function <m>f(x,y) = \frac{1}{\sqrt{(x^2 +
+        y^2)^3}}</m> on the interval <m>I = [0,1] \times [0,1]</m>.
+        We would like to try to integrate this function over this
+        interval, but there is a problem. At one corner of the
+        interval, <m>(0,0)</m>, the function is undefined. As we
+        approach that corner, the function diverges to infinity. Is
+        the integral still defined? We can use a limit in the bounds,
         in the last step, to investigate.
         <md>
-          <mrow>\int_I f(x,y) dx \amp  = \int_0^1 \int_0^1 \frac{1}{\sqrt{(x^2 + y^2)^3}} dx dy</mrow>
-          <mrow>\amp  = \int_0^1 \left. \frac{x}{y^2 \sqrt{x^2 + y^2}} \right|_0^1 dy</mrow>
-          <mrow>\amp  = \int_0^1 \frac{1}{y^2 \sqrt{1 + y^2}} dy</mrow>
-          <mrow>\amp  = \lim_{a \rightarrow 0^+} \int_a^1 \frac{1}{y^2 \sqrt{1 + y^2}} dy</mrow>
-          <mrow>\amp  = \lim_{a \rightarrow 0^+} \left. \frac{-\sqrt{1+y^2}}{y} \right|_a^1 = \frac{-\sqrt{2}}{1} + \lim_{a \rightarrow 0^+} \frac{\sqrt{1+a^2}}{a} = \infty</mrow>
+          <mrow>
+            \int_I f(x,y) dx \amp = \int_0^1 \int_0^1
+            \frac{1}{\sqrt{(x^2 + y^2)^3}} dx dy
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 \left. \frac{x}{y^2 \sqrt{x^2 + y^2}}
+            \right|_0^1 dy
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 \frac{1}{y^2 \sqrt{1 + y^2}} dy
+          </mrow>
+          <mrow>
+            \amp = \lim_{a \rightarrow 0^+} \int_a^1 \frac{1}{y^2
+            \sqrt{1 + y^2}} dy
+          </mrow>
+          <mrow>
+            \amp = \lim_{a \rightarrow 0^+} \left.
+            \frac{-\sqrt{1+y^2}}{y} \right|_a^1 = \frac{-\sqrt{2}}{1}
+            + \lim_{a \rightarrow 0^+} \frac{\sqrt{1+a^2}}{a} =
+            \infty
+          </mrow>
         </md>
       </p>
       <p>
-        This integral diverges;
-        the volume under the curve grows to infinity as we include more and more of the interval approaching the point <m>(0,0)</m>.
-        This is an improper integral,
-        where the function has an asymptote at the edge of the domain of integration.
-        In general, we treat improper integrals as we did before:
-        we use limits approaching the edges of the domain and calculate the limit of the integral.
+        This integral diverges; the volume under the curve grows to
+        infinity as we include more and more of the interval
+        approaching the point <m>(0,0)</m>. This is an improper
+        integral, where the function has an asymptote at the edge of
+        the domain of integration. In general, we treat improper
+        integrals as we did before: we use limits approaching the
+        edges of the domain and calculate the limit of the integral.
       </p>
     </statement>
   </example>

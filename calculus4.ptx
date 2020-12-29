@@ -6,11 +6,22 @@
   <book>
     <title>Course Notes for Calculus IV</title>
     <xi:include href="./frontmatter.ptx" />
-    <xi:include href="./introduction.ptx" />
-    <xi:include href="./integration.ptx" />
-    <xi:include href="./vector-calculus.ptx" />
-    <xi:include href="./differential-geometry.ptx" />
+    <xi:include href="./week1.ptx" />
+    <xi:include href="./week2.ptx" />
+    <xi:include href="./week3.ptx" />
+    <xi:include href="./week4.ptx" />
+    <xi:include href="./week5.ptx" />
+    <xi:include href="./week6.ptx" />
+    <xi:include href="./week7.ptx" />
+    <xi:include href="./week8.ptx" />
+    <xi:include href="./week9.ptx" />
+    <xi:include href="./week10.ptx" />
+    <xi:include href="./week11.ptx" />
+    <xi:include href="./week12.ptx" />
+    <xi:include href="./assignments.ptx" />
     <backmatter>
     </backmatter>
   </book>
 </pretext>
+
+

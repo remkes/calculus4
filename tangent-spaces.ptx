@@ -1,179 +1,236 @@
-<section xml:id="tangent-spaces">
+<section xml:id="section-tangent-spaces">
   <title>Tangent Spaces</title>
-  <subsection xml:id="tangent-spaces-definition">
+  <subsection xml:id="subsection-tangent-spaces-definition">
     <title>Definition</title>
     <p>
-      There are a number of ways to define and access tangent spaces for manifolds.
-      We will start by generalizing tangents of parametric objects.
-      For a parametric curve <m>\gamma</m>,
-      we calculated <m>\gamma^\prime</m>,
-      which was the tangent vector (a local direction vector).
-      All multiples of <m>\gamma^\prime</m> gave the tangent line to the curve.
-      For a parametric surface <m>\sigma</m>,
-      we calculated <m>\sigma_u</m> and <m>\sigma_v</m>
-      (again, two local direction vectors).
-      All linear combinations of <m>\sigma_u</m> and
-      <m>\sigma_v</m> give a plane which is tangent to the surface.
-      The cross product, of course,
-      gave the normal to that tangent plane.
-      In either case,
-      we see that the tangents are given by derivatives of the parametrization functions.
-      For manifolds,
-      parametrization functions are now the coordinate functions,
-      leading to this definition.
+      There are a number of ways to define and access tangent spaces
+      for manifolds. We will start by generalizing tangents of
+      parametric objects. For a parametric curve <m>\gamma</m>, we
+      calculated <m>\gamma^\prime</m>, which was the tangent vector (a
+      local direction vector). All multiples of <m>\gamma^\prime</m>
+      gave the tangent line to the curve. For a parametric surface
+      <m>\sigma</m>, we calculated <m>\sigma_u</m> and <m>\sigma_v</m>
+      (again, two local direction vectors). All linear combinations
+      of <m>\sigma_u</m> and <m>\sigma_v</m> give a plane which is
+      tangent to the surface. The cross product, of course, gave the
+      normal to that tangent plane. In either case, we see that the
+      tangents are given by derivatives of the parametrization
+      functions. For manifolds, parametrization functions are now the
+      coordinate functions, leading to this definition.
     </p>
     <definition>
       <statement>
         <p>
-          Let <m>M</m> be a manifold of dimension <m>k</m>.
-          Let <m>D</m> be a simply connected open set in <m>\RR^k</m> with
-          <m>\phi:D \rightarrow U</m> a coordinate function on <m>M</m>.
-          Let <m>u_i</m> be the variables of <m>\RR^k</m> on the set <m>D</m>.
-          For each <m>u_i</m>,
-          the partial derivative <m>\frac{\del \phi}{\del u_i}</m> is a
-          <term>tangent vector</term>
-          to the manifold (as a local direction vector at a point <m>\phi(u_1, u_2, \ldots,
-          u_k)</m>).
-          The <term>tangent space</term> <m>T_p</m> at a point <m>p \in U</m> is the span all of the tangent vectors
-          <m>\frac{\del \phi}{\del u_i}</m> where <m>i = 1, \ldots, k</m>.
+          Let <m>M</m> be a manifold of dimension <m>k</m>. Let
+          <m>D</m> be a simply connected open set in <m>\RR^k</m> with
+          <m>\phi:D \rightarrow U</m> a coordinate function on
+          <m>M</m>. Let <m>u_i</m> be the variables of <m>\RR^k</m>
+          on the set <m>D</m>. For each <m>u_i</m>, the partial
+          derivative <m>\frac{\del \phi}{\del u_i}</m> is a
+          <term>tangent vector</term> to the manifold (as a local
+          direction vector at a point <m>\phi(u_1, u_2, \ldots,
+          u_k)</m>). The <term>tangent space</term> <m>T_p</m> at a
+          point <m>p \in U</m> is the span all of the tangent vectors
+          <m>\frac{\del \phi}{\del u_i}</m> where <m>i = 1, \ldots,
+          k</m>.
         </p>
       </statement>
     </definition>
   </subsection>
-  <subsection xml:id="tangents-differential-operators">
+  <subsection xml:id="subsection-tangents-differential-operators">
     <title>Tangents as Differential Operators</title>
     <p>
-      There is some strange but conventional notation for tangent vectors to manifolds.
-      Using the conditions of the previous definition,
-      instead of <m>\frac{\del \phi}{\del u_i}</m>,
-      we often simply write <m>\del_i</m> for the tangent vector.
-      If we want to specify the point <m>p</m> on the manifold,
-      we write <m>\del_i(p)</m>.
-      Notice, in this definition,
-      that the subscript <m>i</m> refers to the coordinates defined by the coordinate function <m>\phi</m>:
-      the coordinate function is always implicit in tangent vectors.
+      There is some strange but conventional notation for tangent
+      vectors to manifolds. Using the conditions of the previous
+      definition, instead of <m>\frac{\del \phi}{\del u_i}</m>, we
+      often simply write <m>\del_i</m> for the tangent vector. If we
+      want to specify the point <m>p</m> on the manifold, we write
+      <m>\del_i(p)</m>. Notice, in this definition, that the
+      subscript <m>i</m> refers to the coordinates defined by the
+      coordinate function <m>\phi</m>: the coordinate function is
+      always implicit in tangent vectors.
     </p>
     <p>
       There is something a little deeper going on with this notation.
-      Recall the notion of a directional derivative in Calculus III: for a scalar field on an open set in <m>\RR^n</m>,
-      we can differentiate the scalar field in any local direction.
-      The partial derivatives of a scalar field were nothing more than the directional derivatives in the directions where only one coordinate changed.
-      In this sense, the directional derivative give <em>all</em>
-      the possible derivative of scalar fields.
+      Recall the notion of a directional derivative in Calculus III:
+      for a scalar field on an open set in <m>\RR^n</m>, we can
+      differentiate the scalar field in any local direction. The
+      partial derivatives of a scalar field were nothing more than the
+      directional derivatives in the directions where only one
+      coordinate changed. In this sense, the directional derivative
+      give <em>all</em> the possible derivative of scalar fields.
     </p>
     <p>
-      Now, let <m>f</m> be a differentiable scalar field on a manifold <m>M</m>.
-      According to <xref ref="def-differentiable-scalar-field">definition</xref>,
-      the composition <m>f \circ \phi</m> with any coordinate function must be a differentiable function on <m>D</m>,
-      the domain of <m>\phi</m>.
-      <m>D</m> has coordinate <m>u_i</m>,
-      so we can take the derivative <m>\frac{\del}{\del u_i} f \circ \phi</m>.
-      These are the derivative of the scalar field on the manifold
-      (at least, in this particular chart).
-      Any linear combination of these partials is a
-      <em>directional derivative</em> of <m>f</m>.
+      Now, let <m>f</m> be a differentiable scalar field on a manifold
+      <m>M</m>. According to <xref
+      ref="def-differentiable-scalar-field" />, the
+      composition <m>f \circ \phi</m> with any coordinate function
+      must be a differentiable function on <m>D</m>, the domain of
+      <m>\phi</m>. <m>D</m> has coordinate <m>u_i</m>, so we can take
+      the derivative <m>\frac{\del}{\del u_i} f \circ \phi</m>. These
+      are the derivative of the scalar field on the manifold (at
+      least, in this particular chart). Any linear combination of
+      these partials is a <em>directional derivative</em> of
+      <m>f</m>.
       <me>
         \sum_{i=1}^k a_i \frac{\del}{\del u_i} f \circ \phi
       </me>
     </p>
     <p>
-      This directional derivative is the derivative in the direction <m>\sum_{i=1}^k a_i \frac{\del}{\del u_i} \phi</m> on the manifold,
-      which is a tangent direction.
+      This directional derivative is the derivative in the direction
+      <m>\sum_{i=1}^k a_i \frac{\del}{\del u_i} \phi</m> on the
+      manifold, which is a tangent direction.
     </p>
     <p>
-      In this sense,
-      we can think of tangent directions on the manifold as differential operators on scalar field,
-      using the idea of a directional derivative.
-      (Unlike the directional derivatives in Calculus III, we don't insist that the direction is a unit vector.
-      Any non-zero vector still produces a differential operator.)
-      This is a very common approch to tangents to manifold:
-      instead of thinking of them geometrically as vector,
-      we think of them as differentiable operators.
-      This explains some of the notation:
-      the basis differential operators are the partials <m>\frac{\del}{\del u_i}</m>,
-      which are succinctly written <m>\del_i</m>.
-      This perspective will be very important for our work in future sections on making constructions agree on coordinate chart overlaps,
-      where we can use the chain rule to understand how these differential operators change via transition functions.
+      In this sense, we can think of tangent directions on the
+      manifold as differential operators on scalar field, using the
+      idea of a directional derivative. (Unlike the directional
+      derivatives in Calculus III, we don't insist that the direction
+      is a unit vector. Any non-zero vector still produces a
+      differential operator.) This is a very common approch to
+      tangents to manifold: instead of thinking of them geometrically
+      as vector, we think of them as differentiable operators. This
+      explains some of the notation: the basis differential operators
+      are the partials <m>\frac{\del}{\del u_i}</m>, which are
+      succinctly written <m>\del_i</m>. This perspective will be very
+      important for our work in future sections on making
+      constructions agree on coordinate chart overlaps, where we can
+      use the chain rule to understand how these differential
+      operators change via transition functions.
     </p>
   </subsection>
-  <subsection xml:id="non-singular-manifolds">
+  <subsection xml:id="subsection-non-singular-manifolds">
     <title>Non-Singular Manifolds</title>
     <p>
-      For parametric curves, we insisted that <m>\gamma^\prime(t) \neq 0</m>.
-      Similarly, for parametric surfaces,
-      we insisted on non-zero normals.
-      In either case,
-      we wanted to make sure the tangent spaces to the parametric objects were well defined and had the same dimension as the parametric object.
-      For manifolds, we have a similar restriction.
+      For parametric curves, we insisted that <m>\gamma^\prime(t) \neq
+      0</m>. Similarly, for parametric surfaces, we insisted on
+      non-zero normals. In either case, we wanted to make sure the
+      tangent spaces to the parametric objects were well defined and
+      had the same dimension as the parametric object. For manifolds,
+      we have a similar restriction.
     </p>
     <definition>
       <statement>
         <p>
-          A manifold <m>M</m> of dimension <m>k</m> is called <term>non-singular</term>
-          if all of its tangent spaces <m>T_p</m> are vector spaces of dimension <m>k</m> (i.e., copies of <m>\RR^k</m>).
+          A manifold <m>M</m> of dimension <m>k</m> is called
+          <term>non-singular</term> if all of its tangent spaces
+          <m>T_p</m> are vector spaces of dimension <m>k</m> (i.e.,
+          copies of <m>\RR^k</m>).
         </p>
       </statement>
     </definition>
     <p>
       Many definitions of manifolds assume the non-singular condition.
       Our definition also implicity guarantees non-singular manifolds,
-      becaused we assumed the coordinate functions were <m>C^1</m> functions.
-      Smooth manifolds are also non-singular.
-      (There is some variance in the literature in the terminology here;
-      in some contexts, smooth and non-singular are synonymous.
-      I've chosen a particular convention for these notes where smooth is a stronger condition.)
+      becaused we assumed the coordinate functions were <m>C^1</m>
+      functions. Smooth manifolds are also non-singular. (There is
+      some variance in the literature in the terminology here; in some
+      contexts, smooth and non-singular are synonymous. I've chosen a
+      particular convention for these notes where smooth is a stronger
+      condition.)
     </p>
     <example>
       <statement>
         <p>
-          Consider the second parametrization of the sphere,
-          with these coordinate functions.
+          Consider the second parametrization of the sphere, with
+          these coordinate functions.
           <md>
-            <mrow>\phi_1(u,v) \amp  = \left(u,v,\sqrt{r^2-u^2-v^2} \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
-            <mrow>\phi_2(u,v) \amp  = \left(u,v,-\sqrt{r^2-u^2-v^2} \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
-            <mrow>\phi_3(u,v) \amp  = \left(u,\sqrt{r^2-u^2-v^2},v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
-            <mrow>\phi_4(u,v) \amp  = \left(u,-\sqrt{r^2-u^2-v^2},v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
-            <mrow>\phi_5(u,v) \amp  = \left(\sqrt{r^2-u^2-v^2},u,v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
-            <mrow>\phi_6(u,v) \amp  = \left(-\sqrt{r^2-u^2-v^2},u,v \right) \hspace{1cm} (u,v) \in D(0,r)</mrow>
+            <mrow>
+              \phi_1(u,v) \amp = \left(u,v,\sqrt{r^2-u^2-v^2} \right)
+              (u,v) \in D(0,r)
+            </mrow>
+            <mrow>
+              \phi_2(u,v) \amp = \left(u,v,-\sqrt{r^2-u^2-v^2} \right)
+              (u,v) \in D(0,r)
+            </mrow>
+            <mrow>
+              \phi_3(u,v) \amp = \left(u,\sqrt{r^2-u^2-v^2},v \right)
+              (u,v) \in D(0,r)
+            </mrow>
+            <mrow>
+              \phi_4(u,v) \amp = \left(u,-\sqrt{r^2-u^2-v^2},v \right)
+              (u,v) \in D(0,r)
+            </mrow>
+            <mrow>
+              \phi_5(u,v) \amp = \left(\sqrt{r^2-u^2-v^2},u,v \right)
+              (u,v) \in D(0,r)
+            </mrow>
+            <mrow>
+              \phi_6(u,v) \amp = \left(-\sqrt{r^2-u^2-v^2},u,v \right)
+              (u,v) \in D(0,r)
+            </mrow>
           </md>
         </p>
         <p>
           Here are the derivatives of <m>\phi_1</m>.
           <md>
-            <mrow>\frac{\del}{\del u} \phi_1 \amp  = \left(1,0 \frac{-u}{\sqrt{r^2-u^2-v^2}} \right)</mrow>
-            <mrow>\frac{\del}{\del v} \phi_1 \amp  = \left(0,1 \frac{-v}{\sqrt{r^2-u^2-v^2}} \right)</mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_1 \amp = \left(1,0
+              \frac{-u}{\sqrt{r^2-u^2-v^2}} \right)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del v} \phi_1 \amp = \left(0,1
+              \frac{-v}{\sqrt{r^2-u^2-v^2}} \right)
+            </mrow>
           </md>
         </p>
         <p>
-          Evaluated at an <m>(u,v) \in D(0,r)</m>,
-          these give two local tangent directions to the hemisphere,
-          much like a parametric surface.
-          On the overlap with <m>\phi_3</m>,
-          there would be different local descriptions of the tangent vectors,
-          but the tangent planes that they span would be the same.
-          Here are the derivatives of <m>\phi_3</m>.
+          Evaluated at an <m>(u,v) \in D(0,r)</m>, these give two
+          local tangent directions to the hemisphere, much like a
+          parametric surface. On the overlap with <m>\phi_3</m>,
+          there would be different local descriptions of the tangent
+          vectors, but the tangent planes that they span would be the
+          same. Here are the derivatives of <m>\phi_3</m>.
           <md>
-            <mrow>\frac{\del}{\del u} \phi_3 \amp  = \left(1,\frac{-u}{\sqrt{r^2-u^2-v^2}}, 0 \right)</mrow>
-            <mrow>\frac{\del}{\del v} \phi_3 \amp  = \left(0,\frac{-v}{\sqrt{r^2-u^2-v^2}}, 1 \right)</mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_3 \amp =
+              \left(1,\frac{-u}{\sqrt{r^2-u^2-v^2}}, 0 \right)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del v} \phi_3 \amp =
+              \left(0,\frac{-v}{\sqrt{r^2-u^2-v^2}}, 1 \right)
+            </mrow>
           </md>
         </p>
         <p>
-          Now let's look at a specific point.
-          <m>\phi_1 \left( 0, \frac{r}{\sqrt{2}} \right) = \left( 0, \frac{r}{\sqrt{2}}, \frac{r}{\sqrt{2}} \right)</m>.
-          This the same as the point <m>\phi_3 \left(0, \frac{r}{\sqrt{2}} \right)</m>.
-          Now let's evaluate the tangents at these points.
+          Now let's look at a specific point. <m>\phi_1 \left( 0,
+          \frac{r}{\sqrt{2}} \right) = \left( 0, \frac{r}{\sqrt{2}},
+          \frac{r}{\sqrt{2}} \right)</m>. This the same as the point
+          <m>\phi_3 \left(0, \frac{r}{\sqrt{2}} \right)</m>. Now
+          let's evaluate the tangents at these points.
           <md>
-            <mrow>\frac{\del}{\del u} \phi_1 \left(0, \frac{r}{\sqrt{2}} \right) \amp  = (1,0,0)</mrow>
-            <mrow>\frac{\del}{\del v} \phi_1 \left(0, \frac{r}{\sqrt{2}} \right) \amp  = \left( 0,1,\frac{\frac{-r}{\sqrt{2}}}{\frac{r}{\sqrt{2}}} \right) = (1,0,-1)</mrow>
-            <mrow>\frac{\del}{\del u} \phi_1 \times \frac{\del}{\del v} \phi_1 \amp = (0, -1, 0)</mrow>
-            <mrow>\frac{\del}{\del u} \phi_3 \left(0, \frac{r}{\sqrt{2}} \right) \amp  = (1,0,0)</mrow>
-            <mrow>\frac{\del}{\del v} \phi_3 \left(0, \frac{r}{\sqrt{2}} \right) \amp  = (0,-1,1)</mrow>
-            <mrow>\frac{\del}{\del u} \phi_3 \times \frac{\del}{\del v} \phi_3 \amp  = (0, -1, 0)</mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_1 \left(0, \frac{r}{\sqrt{2}}
+              \right) \amp = (1,0,0)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del v} \phi_1 \left(0, \frac{r}{\sqrt{2}}
+              \right) \amp = \left(
+              0,1,\frac{\frac{-r}{\sqrt{2}}}{\frac{r}{\sqrt{2}}}
+              \right) = (1,0,-1)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_1 \times \frac{\del}{\del v}
+              \phi_1 \amp = (0, -1, 0)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_3 \left(0, \frac{r}{\sqrt{2}}
+              \right) \amp = (1,0,0)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del v} \phi_3 \left(0, \frac{r}{\sqrt{2}}
+              \right) \amp = (0,-1,1)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_3 \times \frac{\del}{\del v}
+              \phi_3 \amp = (0, -1, 0)
+            </mrow>
           </md>
         </p>
         <p>
           We see, even though there is a difference in local tangents,
-          the normal is the same and we get the same local tangent plane.
+          the normal is the same and we get the same local tangent
+          plane.
         </p>
       </statement>
     </example>

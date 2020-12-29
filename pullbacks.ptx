@@ -1,224 +1,246 @@
-<section xml:id="pullbacks">
+<section xml:id="section-pullbacks">
   <title>Pullbacks</title>
   <introduction>
     <p>
       When we worked with parametric curves and parametric surfaces,
-      there were two kinds of coordinates:
-      coordinates in the parameter space (<m>t</m> for curves,
-      <m>u</m> and <m>v</m> for surfaces) and coordinates in the ambient space
-      (<m>x</m>, <m>y</m> and <m>z</m> in <m>\RR^3</m>).
-      We needed to work with both sets of coordinates to property understand these parametric objects.
-      In line and flux integrals, we had to evaluate the vector fields,
-      given in <m>x</m>, <m>y</m> and <m>z</m> ambient coordinates,
-      in terms of the parameters, so that we could integrate in those parameters.
-      We developed an interplay between the ambient coordinates and the parameters.
+      there were two kinds of coordinates: coordinates in the
+      parameter space (<m>t</m> for curves, <m>u</m> and <m>v</m> for
+      surfaces) and coordinates in the ambient space (<m>x</m>,
+      <m>y</m> and <m>z</m> in <m>\RR^3</m>). We needed to work with
+      both sets of coordinates to property understand these parametric
+      objects. In line and flux integrals, we had to evaluate the
+      vector fields, given in <m>x</m>, <m>y</m> and <m>z</m> ambient
+      coordinates, in terms of the parameters, so that we could
+      integrate in those parameters. We developed an interplay
+      between the ambient coordinates and the parameters.
     </p>
     <p>
-      If <m>U</m> is an open set in a dimension <m>k</m> manifold in <m>\RR^n</m>,
-      then we like have two sets of coordinates:
-      local coordaintes (parameters) on the manifold <m>u_i</m> for
-      <m>1 \leq i \leq k</m> coming from the domain <m>D(0,r)</m> of a coordinate function;
-      and the ambient coordinates <m>x_i</m> for <m>1 \leq i \leq n</m> in <m>\RR^n</m>.
-      In this section,
-      we are going to build a general understanding of the interaction between the two sets of coordinates.
+      If <m>U</m> is an open set in a dimension <m>k</m> manifold in
+      <m>\RR^n</m>, then we like have two sets of coordinates: local
+      coordaintes (parameters) on the manifold <m>u_i</m> for <m>1
+      \leq i \leq k</m> coming from the domain <m>D(0,r)</m> of a
+      coordinate function; and the ambient coordinates <m>x_i</m> for
+      <m>1 \leq i \leq n</m> in <m>\RR^n</m>. In this section, we are
+      going to build a general understanding of the interaction
+      between the two sets of coordinates.
     </p>
     <p>
-      If we work on a manifold under with dimensions <m>k</m>,
-      the highest degree differential form on <m>U</m> is a k-form.
-      In the local coordinates <m>u_1, \ldots, u_k</m>,
-      this form is simply <m>f(u_1, \ldots,
-      u_k) du_1 \wedge du_2 \wedge \ldots \wedge du_k</m>.
+      If we work on a manifold under with dimensions <m>k</m>, the
+      highest degree differential form on <m>U</m> is a k-form. In
+      the local coordinates <m>u_1, \ldots, u_k</m>, this form is
+      simply <m>f(u_1, \ldots, u_k) du_1 \wedge du_2 \wedge \ldots
+      \wedge du_k</m>.
     </p>
     <p>
-      However, this form may also be expressed in terms of the ambient coordinates
-      <m>x_1, \ldots,
-      x_n</m>. (Note that <m>n \geq k</m>:
-      there may be more of these coordinates than the parameters!) The form can be expressed in terms of wedges of <m>k</m> different <m>dx_i</m> in the ambient coordinates.
-      For example, if <m>k=2</m> and <m>n=3</m>,
-      then the two form could be
-      <m>\omega = (x^2yz) dy \wedge dz</m> or <m>\omega = (x+y+z) dx \wedge dz</m>.
+      However, this form may also be expressed in terms of the ambient
+      coordinates <m>x_1, \ldots, x_n</m>. (Note that <m>n \geq k</m>:
+      there may be more of these coordinates than the parameters!) The
+      form can be expressed in terms of wedges of <m>k</m> different
+      <m>dx_i</m> in the ambient coordinates. For example, if
+      <m>k=2</m> and <m>n=3</m>, then the two form could be <m>\omega
+      = (x^2yz) dy \wedge dz</m> or <m>\omega = (x+y+z) dx \wedge
+      dz</m>.
     </p>
     <p>
-      In general, a k-form in the ambient coordinates can be a wedge of any subset consisting of exactly <m>k</m> of the <m>x_i</m>.
+      In general, a k-form in the ambient coordinates can be a wedge
+      of any subset consisting of exactly <m>k</m> of the <m>x_i</m>.
       <me>
-        \omega_k = f(x_1, \ldots, x_n) dx_{j_1} \wedge dx_{j_2} \wedge, \ldots \wedge dx_{j_k}
+        \omega_k = f(x_1, \ldots, x_n) dx_{j_1} \wedge dx_{j_2}
+        \wedge, \ldots \wedge dx_{j_k}
       </me>
     </p>
     <p>
-      For parametric curves and surfaces,
-      we replaced the ambient coordinates with the parameters using the definition of the curves and surface.
-      When we went to integrate,
-      we used a Jacobian term to relate the integral of the ambient coordinates to the integral of the parameters.
-      For the curve,
-      that Jacobian was <m>|\gamma^\prime(t)|</m>, and for a surface,
-      that Jacobian was <m>|\sigma_u \times \sigma_v|</m>.
+      For parametric curves and surfaces, we replaced the ambient
+      coordinates with the parameters using the definition of the
+      curves and surface. When we went to integrate, we used a
+      Jacobian term to relate the integral of the ambient coordinates
+      to the integral of the parameters. For the curve, that Jacobian
+      was <m>|\gamma^\prime(t)|</m>, and for a surface, that Jacobian
+      was <m>|\sigma_u \times \sigma_v|</m>.
     </p>
     <p>
-      For a manifold, we will do the same.
-      We will replace the ambient coordinates with the local coordinates using the coordinate functions.
-      This is a change of coordinates:
-      ambient going to local.
-      Since the local coordinates are the <em>domain</em>
-      of the coordinate functions,
-      this is sort-of going backwards with the coordinate functions.
-      For this reason, we call the operation a <em>pullback</em>
-      of the differential form.
-      Like the curve and surface case,
-      we will need a Jacobian for this pullback.
+      For a manifold, we will do the same. We will replace the
+      ambient coordinates with the local coordinates using the
+      coordinate functions. This is a change of coordinates: ambient
+      going to local. Since the local coordinates are the
+      <em>domain</em> of the coordinate functions, this is sort-of
+      going backwards with the coordinate functions. For this reason,
+      we call the operation a <em>pullback</em> of the differential
+      form. Like the curve and surface case, we will need a Jacobian
+      for this pullback.
     </p>
     <definition>
       <statement>
         <p>
-          Let <m>U</m> be an open set on a manifold of dimension <m>k</m> inside <m>\RR^n</m>.
-          Let <m>u_1, \ldots, u_k</m> be its local coordinates and
-          <m>\phi: D \rightarrow U</m> is coordinate function.
-          Let <m>\omega_k</m> be a differential k-form expressed in the ambient coordinates
-          (where the <m>j_i</m> are any subset of exactly <m>k</m> of the ambient coordinates).
+          Let <m>U</m> be an open set on a manifold of dimension
+          <m>k</m> inside <m>\RR^n</m>. Let <m>u_1, \ldots, u_k</m>
+          be its local coordinates and <m>\phi: D \rightarrow U</m> is
+          coordinate function. Let <m>\omega_k</m> be a differential
+          k-form expressed in the ambient coordinates (where the
+          <m>j_i</m> are any subset of exactly <m>k</m> of the ambient
+          coordinates).
           <me>
-            \omega_k = f(x_1, \ldots, x_n) dx_{j_1} \wedge dx_{j_2} \wedge, \ldots \wedge dx_{j_k}
+            \omega_k = f(x_1, \ldots, x_n) dx_{j_1} \wedge dx_{j_2}
+            \wedge, \ldots \wedge dx_{j_k}
           </me>
         </p>
         <p>
-          The <term>pullback</term> of
-          <m>\omega^k</m> is the same form expressed in the local coordinates.
+          The <term>pullback</term> of <m>\omega^k</m> is the same
+          form expressed in the local coordinates.
           <me>
-            \phi^* \omega^k = \left(f \circ \phi(u_1, \ldots u_k) \right) \frac{\del(x_{j_1}, x_{j_2}, \ldots, x_{j_k})}{\del(u_1, u_2, \ldots, u_k)} du_1 \wedge \ldots \wedge du_k
+            \phi^* \omega^k = \left(f \circ \phi(u_1, \ldots u_k)
+            \right) \frac{\del(x_{j_1}, x_{j_2}, \ldots,
+            x_{j_k})}{\del(u_1, u_2, \ldots, u_k)} du_1 \wedge \ldots
+            \wedge du_k
           </me>
         </p>
         <p>
-          The intermediate terms is the <term>Jacobian</term> of the pullback.
-          It is defined as the determinant of a particular matrix of partial derivatives of the coordinate function.
+          The intermediate terms is the <term>Jacobian</term> of the
+          pullback. It is defined as the determinant of a particular
+          matrix of partial derivatives of the coordinate function.
           <me>
-            \frac{\del(x_{j_1}, x_{j_2}, \ldots, x_{j_k})}{\del(u_1, u_2, \ldots, u_k)} = \left| \begin{matrix} \frac{\del \phi_{j_1}}{\del u_1} \amp \frac{\del \phi_{j_1}}{\del u_2} \amp \ldots \amp \frac{\del \phi_{j_1}}{\del u_j} \\ \frac{\del \phi_{j_2}}{\del u_1} \amp \frac{\del \phi_{j_2}}{\del u_2} \amp \ldots \amp \frac{\del \phi_{j_2}}{\del u_k} \\ \vdots \amp  \vdots \amp  \vdots \amp  \vdots \\ \frac{\del \phi_{j_k}}{\del u_1} \amp \frac{\del \phi_{j_k}}{\del u_2} \amp \ldots \amp \frac{\del \phi_{j_k}}{\del x_k} \end{matrix} \right|
+            \frac{\del(x_{j_1}, x_{j_2}, \ldots, x_{j_k})}{\del(u_1,
+            u_2, \ldots, u_k)} = \left| \begin{matrix} \frac{\del
+            \phi_{j_1}}{\del u_1} \amp \frac{\del \phi_{j_1}}{\del
+            u_2} \amp \ldots \amp \frac{\del \phi_{j_1}}{\del u_j} \\
+            \frac{\del \phi_{j_2}}{\del u_1} \amp \frac{\del
+            \phi_{j_2}}{\del u_2} \amp \ldots \amp \frac{\del
+            \phi_{j_2}}{\del u_k} \\ \vdots \amp \vdots \amp \vdots
+            \amp \vdots \\ \frac{\del \phi_{j_k}}{\del u_1} \amp
+            \frac{\del \phi_{j_k}}{\del u_2} \amp \ldots \amp
+            \frac{\del \phi_{j_k}}{\del x_k} \end{matrix} \right|
           </me>
         </p>
       </statement>
     </definition>
     <p>
       Note that these vertical lines indicate the <em>determinant</em>
-      of the matrix, not the absolute value.
-      We <em>do not</em> take absolute values for Jacobians anymore!
+      of the matrix, not the absolute value. We <em>do not</em> take
+      absolute values for Jacobians anymore!
     </p>
   </introduction>
-  <subsection xml:id="jacobians">
-    <title>Jacobians, Orientation, Absolute Values and
-    Differential Forms</title>
+  <subsection xml:id="subsection-jacobians">
+    <title>
+      Jacobians, Orientation, Absolute Values and Differential Forms
+    </title>
     <p>
       The fact that we don't have absolute values of Jacobians now,
-      but we did before, deserves some special attention.
-      This difference gets right to the heart of the use and importance of differential forms.
+      but we did before, deserves some special attention. This
+      difference gets right to the heart of the use and importance of
+      differential forms.
     </p>
     <p>
-      When we defined single,
-      double and triple integrals over intervals in <m>\RR^1</m>,
-      <m>\RR^2</m> and <m>\RR^3</m> (respectively),
-      we essentially did so <em>without regard for orientation</em>.
-      Orientation, for regions of Euclidian space,
-      is determined by the ordering of the variables
-      (or, equivalently,
-      by the relative positions of the positive axes to each other).
+      When we defined single, double and triple integrals over
+      intervals in <m>\RR^1</m>, <m>\RR^2</m> and <m>\RR^3</m>
+      (respectively), we essentially did so <em>without regard for
+      orientation</em>. Orientation, for regions of Euclidian space,
+      is determined by the ordering of the variables (or,
+      equivalently, by the relative positions of the positive axes to
+      each other).
     </p>
     <p>
-      Fubini's theorem
-      (<xref ref="thm-fubini">Theorem</xref>)
-      said that we could interchange the order of integration,
-      under some mild assumptions on the function,
-      and still produce the same result.
-      The reason this works is that our notion of area/volume/hypervolume,
-      encoded in the terms <m>dxdy</m>,
-      <m>dxdydz</m> and similar, didn't care about the order of variables.
-      It makes sense that <m>dxdy</m> and <m>dydx</m> both encode area,
-      the same way that the area of a rectangle of height <m>a</m> and width <m>b</m> can be either
-      <m>a \times b</m> or <m>b \times a</m>.
+      Fubini's theorem (<xref ref="thm-fubini" />) said
+      that we could interchange the order of integration, under some
+      mild assumptions on the function, and still produce the same
+      result. The reason this works is that our notion of
+      area/volume/hypervolume, encoded in the terms <m>dxdy</m>,
+      <m>dxdydz</m> and similar, didn't care about the order of
+      variables. It makes sense that <m>dxdy</m> and <m>dydx</m> both
+      encode area, the same way that the area of a rectangle of height
+      <m>a</m> and width <m>b</m> can be either <m>a \times b</m> or
+      <m>b \times a</m>.
     </p>
     <p>
-      Working in Euclidean space,
-      we could get away with this convention,
-      ignoring the order or variables,
-      and use a naive understanding of area/volume/hypervolume.
-      But, when we used a transformation of Euclidean space to change variables,
-      there was an effect on area/volume/hypervolume.
-      Since these quantities are, by definition,
-      positive, this effect needed to be a positive effect.
-      Therefore, we needed to take the absolute value of Jacobian,
-      so we don't introduce a negative scaling effect.
-      Multiplying area by <m>-2</m> doesn't make sense in this context.
+      Working in Euclidean space, we could get away with this
+      convention, ignoring the order or variables, and use a naive
+      understanding of area/volume/hypervolume. But, when we used a
+      transformation of Euclidean space to change variables, there was
+      an effect on area/volume/hypervolume. Since these quantities
+      are, by definition, positive, this effect needed to be a
+      positive effect. Therefore, we needed to take the absolute
+      value of Jacobian, so we don't introduce a negative scaling
+      effect. Multiplying area by <m>-2</m> doesn't make sense in
+      this context.
     </p>
     <p>
-      For integration on manifolds,
-      we don't have the luxury of ignoring orientation.
-      Since everything is a parametrized object and we can only do calculus on parametrized objects via the coordinate functions,
-      we need to care about orientation.
-      We need to know the directions of curve.
-      We need to know where the normals to surfaces are pointing.
-      If we interchange variables,
-      <m>x \mapsto y</m> and <m>y \mapsto x</m>,
-      then the orientation changes and we should get a negative sign.
+      For integration on manifolds, we don't have the luxury of
+      ignoring orientation. Since everything is a parametrized object
+      and we can only do calculus on parametrized objects via the
+      coordinate functions, we need to care about orientation. We
+      need to know the directions of curve. We need to know where the
+      normals to surfaces are pointing. If we interchange variables,
+      <m>x \mapsto y</m> and <m>y \mapsto x</m>, then the orientation
+      changes and we should get a negative sign.
     </p>
     <p>
-      This work with differential forms.
-      In the way they are constructed,
-      we naturally have <m>dx \wedge dy = -dy \wedge dx</m> instead of <m>dx dy = dy dx</m>.
-      Orientation is <em>built-in</em>
-      to the very roots of differential forms.
-      If we integrate a differential form over an open set in Euclidean space,
-      we need to care around the order of variables.
-      Area/volume/hypervolume become oriented quantities,
-      which change in sign when we change orientation.
-      We also should expect that Jacobians can be positive and negative.
-      Therefore, quite naturally,
-      we never see absolute values of Jacobians when working with differential forms.
+      This work with differential forms. In the way they are
+      constructed, we naturally have <m>dx \wedge dy = -dy \wedge
+      dx</m> instead of <m>dx dy = dy dx</m>. Orientation is
+      <em>built-in</em> to the very roots of differential forms. If
+      we integrate a differential form over an open set in Euclidean
+      space, we need to care around the order of variables.
+      Area/volume/hypervolume become oriented quantities, which change
+      in sign when we change orientation. We also should expect that
+      Jacobians can be positive and negative. Therefore, quite
+      naturally, we never see absolute values of Jacobians when
+      working with differential forms.
     </p>
   </subsection>
-  <subsection xml:id="covariance">
+  <subsection xml:id="subsection-covariance">
     <title>Pullbacks and Covariance</title>
     <p>
-      After that detour on Jacobians,
-      let me restate the pullback definition.
+      After that detour on Jacobians, let me restate the pullback
+      definition.
       <me>
-        \phi^* \omega^k = \left(f \circ \phi(u_1, \ldots u_k) \right) \frac{\del(x_{j_1}, x_{j_2}, \ldots, x_{j_k})}{\del(u_1, u_2, \ldots, u_k)} du_1 \wedge \ldots \wedge du_k
+        \phi^* \omega^k = \left(f \circ \phi(u_1, \ldots u_k) \right)
+        \frac{\del(x_{j_1}, x_{j_2}, \ldots, x_{j_k})}{\del(u_1, u_2,
+        \ldots, u_k)} du_1 \wedge \ldots \wedge du_k
       </me>
     </p>
     <p>
-      These pullbacks are, essentially,
-      changes of variables by the function <m>\phi</m>.
-      The <m>x_{j_i}</m> are the components of the function <m>\phi</m> which gives those coordinates in terms of the new variables <m>u_i</m>.
-      Compare this with the change of variables expression for differential forms via a transition function.
+      These pullbacks are, essentially, changes of variables by the
+      function <m>\phi</m>. The <m>x_{j_i}</m> are the components of
+      the function <m>\phi</m> which gives those coordinates in terms
+      of the new variables <m>u_i</m>. Compare this with the change
+      of variables expression for differential forms via a transition
+      function.
       <me>
-        f_1((T(s,t))) \left[ \frac{\del u}{\del s} du + \frac{\del u}{\del t} dv \right] + f_2((T(s,t))) \left[ \frac{\del v}{\del s} ds + \frac{\del v}{\del t} dt \right]
+        f_1((T(s,t))) \left[ \frac{\del u}{\del s} du + \frac{\del
+        u}{\del t} dv \right] + f_2((T(s,t))) \left[ \frac{\del
+        v}{\del s} ds + \frac{\del v}{\del t} dt \right]
       </me>
     </p>
     <p>
-      The composition in the function is with <m>T</m> and the matrix action that produced the terms in square brackets used the matrix <m>J(T)</m>.
-      It's hard to see directly, but there is a parallel structure here.
-      We compose with a function (<m>\phi</m> or <m>T</m>) and then we use a the Jacobian matrix
-      (or its determinant)
-      to adjust the basis.
-      This differed from the transformation of vector fields,
-      where we composed with <m>T</m> but used the Jacobian of <m>T^{-1}</m>,
-      not <m>T</m>.
-      We called differential forms <em>covariant</em>
-      and vector fields <em>contravariant</em> for these reasons.
+      The composition in the function is with <m>T</m> and the matrix
+      action that produced the terms in square brackets used the
+      matrix <m>J(T)</m>. It's hard to see directly, but there is a
+      parallel structure here. We compose with a function
+      (<m>\phi</m> or <m>T</m>) and then we use a the Jacobian matrix
+      (or its determinant) to adjust the basis. This differed from
+      the transformation of vector fields, where we composed with
+      <m>T</m> but used the Jacobian of <m>T^{-1}</m>, not <m>T</m>.
+      We called differential forms <em>covariant</em> and vector
+      fields <em>contravariant</em> for these reasons.
     </p>
     <p>
-      The pullback is a <em>covariant</em> operation.
-      We can perform pullbacks on differential forms only because they are also covariant.
-      We cannot pullback a vector field,
-      because it is not covariant.
-      If we try, the contravariant nature of the field and the covariant nature of the pullback will mess up the agreement on the overlaps of charts.
+      The pullback is a <em>covariant</em> operation. We can perform
+      pullbacks on differential forms only because they are also
+      covariant. We cannot pullback a vector field, because it is not
+      covariant. If we try, the contravariant nature of the field and
+      the covariant nature of the pullback will mess up the agreement
+      on the overlaps of charts.
     </p>
     <p>
-      For vector fields in Euclidean space,
-      or on parametric curves and surface,
-      we can get around this because we never need to use multiple charts.
-      When we start using manifolds and have multiple charts,
-      this difficulty suddenly arises.
-      And now, to anticipate the next section,
-      we are going to use the pullback operation to define integration of differential forms.
-      Since the pullback doesn't work for a vector field on a general manifold,
-      we can't define their integrals.
-      The natural objects to integrate on a manifold are differential forms,
-      not vector fields.
+      For vector fields in Euclidean space, or on parametric curves
+      and surface, we can get around this because we never need to use
+      multiple charts. When we start using manifolds and have
+      multiple charts, this difficulty suddenly arises. And now, to
+      anticipate the next section, we are going to use the pullback
+      operation to define integration of differential forms. Since
+      the pullback doesn't work for a vector field on a general
+      manifold, we can't define their integrals. The natural objects
+      to integrate on a manifold are differential forms, not vector
+      fields.
     </p>
   </subsection>
 </section>

@@ -1,18 +1,18 @@
-<section xml:id="manifolds-vector-fields">
+<section xml:id="section-manifolds-vector-fields">
   <title>Vector Fields on Manifolds</title>
   <introduction>
     <p>
-      A scalar field on a manifold is pretty similar to a scalar field on an open set in <m>\RR^n</m>.
-      We might think that vector fields on the manifolds will likewise be similar,
-      but we are going to take a very different approach
-      (which will hopefully be justified by the end of the chapter).
+      A scalar field on a manifold is pretty similar to a scalar field
+      on an open set in <m>\RR^n</m>. We might think that vector
+      fields on the manifolds will likewise be similar, but we are
+      going to take a very different approach (which will hopefully be
+      justified by the end of the chapter).
     </p>
     <definition>
       <statement>
         <p>
-          A <term>vector-valued function</term>
-          or <term>vector field</term>
-          on a manifold is defined to be a function
+          A <term>vector-valued function</term> or <term>vector
+          field</term> on a manifold is defined to be a function
           <me>
             F: M \rightarrow \bigcup_{p \in M} T_p
           </me>
@@ -21,53 +21,46 @@
       </statement>
     </definition>
     <p>
-      What does this strange notation mean?
-      Previously, our vector fields had outputs in <m>\RR^n</m> for some <m>n</m>.
-      This definition is quite different.
-      Instead of assigning vectors in <m>\RR^n</m> to each point,
-      we assign vectors in the tangent space to each point.
-      Each <m>T_p</m> is a copy of <m>\RR^k</m>
+      What does this strange notation mean? Previously, our vector
+      fields had outputs in <m>\RR^n</m> for some <m>n</m>. This
+      definition is quite different. Instead of assigning vectors in
+      <m>\RR^n</m> to each point, we assign vectors in the tangent
+      space to each point. Each <m>T_p</m> is a copy of <m>\RR^k</m>
       (since our definition implies all manifolds are non-singular!),
-      so a vector field must assign vectors in <m>\RR^k</m>.
-      In particular,
-      this means that the output dimension can only be <m>k</m>,
-      the dimension of the manifold.
+      so a vector field must assign vectors in <m>\RR^k</m>. In
+      particular, this means that the output dimension can only be
+      <m>k</m>, the dimension of the manifold.
     </p>
     <p>
-      Any vector field <m>F</m> can be decomposed into components
-      <m>F = (f_1, f_2, \ldots,
-      f_k)</m> in terms of the coordinates of each of the <m>T_p</m>.
-      Since the <m>\del_i</m> are a basis for each <m>T_p</m>,
-      we can write vector fields as on that basis.
+      Any vector field <m>F</m> can be decomposed into components <m>F
+      = (f_1, f_2, \ldots, f_k)</m> in terms of the coordinates of
+      each of the <m>T_p</m>. Since the <m>\del_i</m> are a basis for
+      each <m>T_p</m>, we can write vector fields as on that basis.
       <me>
-        F = \sum_{i=1}^k f_i \del_i = (f_1, f_2, \ldots, f_k) \cdot (\del_1, \ldots, \del_k)
+        F = \sum_{i=1}^k f_i \del_i = (f_1, f_2, \ldots, f_k) \cdot
+        (\del_1, \ldots, \del_k)
       </me>
     </p>
     <p>
-      Each <m>f_i</m> is a scalar field.
-      Vector fields are combinations of the <m>\del_i</m> where the coefficients are scalar fields.
+      Each <m>f_i</m> is a scalar field. Vector fields are
+      combinations of the <m>\del_i</m> where the coefficients are
+      scalar fields.
     </p>
     <example>
       <statement>
         <p>
-          Let's make this a little bit more explicit.
-          If <m>u,v</m> are the local coordinates on a 2-dimensional manifold,
-          then the following are all vectors fields on the manifold.
+          Let's make this a little bit more explicit. If <m>u,v</m>
+          are the local coordinates on a 2-dimensional manifold, then
+          the following are all vectors fields on the manifold.
           <ul>
             <li>
-              <p>
-                <m>(u^2 + v^2) \del_u + 3 \del_v</m>
-              </p>
+              <m>(u^2 + v^2) \del_u + 3 \del_v</m>
             </li>
             <li>
-              <p>
-                <m>\sin (v) \del_u + \cos(u) \del v</m>
-              </p>
+              <m>\sin (v) \del_u + \cos(u) \del v</m>
             </li>
             <li>
-              <p>
-                <m>(4u-3v) \del_u + (2u-9v)\del v</m>
-              </p>
+              <m>(4u-3v) \del_u + (2u-9v)\del v</m>
             </li>
           </ul>
         </p>
@@ -76,76 +69,96 @@
     <example>
       <statement>
         <p>
-          Let's return to the sphere with its original description using two charts.
-          Recall these two coordinate functions and their derivatives.
+          Let's return to the sphere with its original description
+          using two charts. Recall these two coordinate functions and
+          their derivatives.
           <md>
-            <mrow>\phi_1 (u,v) \amp  = (\sin u \cos v, \sin u \sin v, \cos u)</mrow>
-            <mrow>\frac{\del}{\del u} \phi_1 (u,v) \amp  = (\cos u \cos v, \cos u \sin v, -\sin u)</mrow>
-            <mrow>\frac{\del}{\del v} \phi_1 (u,v) \amp  = (-\sin u \sin v, \sin u \cos v, 0)</mrow>
-            <mrow>\phi_1 (s,t) \amp  = (\sin s \cos t, \sin s \sin t, \cos s)</mrow>
-            <mrow>\frac{\del}{\del s} \phi_1 (s,t) \amp  = (\cos s \cos t, \cos s \sin t, -\sin s)</mrow>
-            <mrow>\frac{\del}{\del t} \phi_1 (s,t) \amp  = (-\sin s \sin t, \sin s \cos t, 0)</mrow>
+            <mrow>
+              \phi_1 (u,v) \amp = (\sin u \cos v, \sin u \sin v, \cos
+              u)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del u} \phi_1 (u,v) \amp = (\cos u \cos v,
+              \cos u \sin v, -\sin u)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del v} \phi_1 (u,v) \amp = (-\sin u \sin v,
+              \sin u \cos v, 0)
+            </mrow>
+            <mrow>
+              \phi_1 (s,t) \amp = (\sin s \cos t, \sin s \sin t, \cos
+              s)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del s} \phi_1 (s,t) \amp = (\cos s \cos t,
+              \cos s \sin t, -\sin s)
+            </mrow>
+            <mrow>
+              \frac{\del}{\del t} \phi_1 (s,t) \amp = (-\sin s \sin t,
+              \sin s \cos t, 0)
+            </mrow>
           </md>
         </p>
         <p>
-          A point in the first chart of the sphere, <m>U_1</m>,
-          is given by <m>\phi_1(u,v)</m>.
-          Any linear combination of <m>\frac{\del}{\del u} \phi_1</m> and
-          <m>\frac{\del}{\del v} \phi_1</m> above will be a vector field.
-          It will have two scalar components.
-          In the second chart, the same is true.
+          A point in the first chart of the sphere, <m>U_1</m>, is
+          given by <m>\phi_1(u,v)</m>. Any linear combination of
+          <m>\frac{\del}{\del u} \phi_1</m> and <m>\frac{\del}{\del v}
+          \phi_1</m> above will be a vector field. It will have two
+          scalar components. In the second chart, the same is true.
           If we want to construct a vector field for the whole sphere,
-          we would have to prove that the two definitions agreed on <m>U_1 \cap U_2</m>,
-          which is pretty laborious.
-          We'll discuss the general problem of overlap briefly.
+          we would have to prove that the two definitions agreed on
+          <m>U_1 \cap U_2</m>, which is pretty laborious. We'll
+          discuss the general problem of overlap briefly.
         </p>
       </statement>
     </example>
     <p>
-      Even though this new vector field definition is technically strange,
-      conceptually there is a reasonable interpretation.
-      Vector fields are local directions of movement
-      <em>along the surface of the manifold</em>.
-      They still make sense for, say,
-      the wind or ocean currents on the surface of the earth.
-      They point in direction of movement where we must remain on the manifold.
-      In this sense,
-      the are something quite different from our original vector fields.
-      We can't use them, for example,
-      to calculate something like flux,
-      since any dot product with a normal will be zero.
-      We could think of these vector fields as specifically those special field which have zero flux on any piece of the manifold.
-      The key idea is that the vectors in the vector field point in tangent directions to the manifold.
+      Even though this new vector field definition is technically
+      strange, conceptually there is a reasonable interpretation.
+      Vector fields are local directions of movement <em>along the
+      surface of the manifold</em>. They still make sense for, say,
+      the wind or ocean currents on the surface of the earth. They
+      point in direction of movement where we must remain on the
+      manifold. In this sense, the are something quite different from
+      our original vector fields. We can't use them, for example, to
+      calculate something like flux, since any dot product with a
+      normal will be zero. We could think of these vector fields as
+      specifically those special field which have zero flux on any
+      piece of the manifold. The key idea is that the vectors in the
+      vector field point in tangent directions to the manifold.
     </p>
   </introduction>
-  <subsection xml:id="vector-fields-coordinate-charts">
+  <subsection xml:id="subsection-vector-fields-coordinate-charts">
     <title>Vector Fields and Coordinate Charts</title>
     <p>
-      The tangent space to a manifold is intrinsic;
-      it is the same collection of local tangent vectors regardless of which chart we are working in.
-      Since we defined vector fields as function into these tangent space,
-      by definition they are also intrinsic.
-      That said, any specific <em>description</em>
-      of a vector field is given in terms of the coordinate functions
-      (like all piece of the calculus <mdash/> we need the coordinate functions).
-      This leads to a natural question:
-      if we have a local description of a vector field in two different charts,
-      how do we know if the two description overlap? (This is very similar to the question we asked for parametric curves and surface:
-      how do we know when unit tangents and normals are
-      <em>independent of parametrization</em>.)
+      The tangent space to a manifold is intrinsic; it is the same
+      collection of local tangent vectors regardless of which chart we
+      are working in. Since we defined vector fields as function into
+      these tangent space, by definition they are also intrinsic.
+      That said, any specific <em>description</em> of a vector field
+      is given in terms of the coordinate functions (like all piece of
+      the calculus <mdash/> we need the coordinate functions). This
+      leads to a natural question: if we have a local description of a
+      vector field in two different charts, how do we know if the two
+      description overlap? (This is very similar to the question we
+      asked for parametric curves and surface: how do we know when
+      unit tangents and normals are <em>independent of
+      parametrization</em>.)
     </p>
     <p>
-      Let's layout the notation, working just in two variables for simplicity.
-      Let <m>\phi_1(u,v)</m> and
-      <m>\phi_2(s,t)</m> be coordinate functions and
-      <m>D = D_1 \cap D_2</m> the portion of the manifold where they overlap.
-      These two coordinate functions create a transition function
-      <m>T = \phi_1^{-1} \circ \phi_2</m> that starts with <m>(s,t)</m> and outputs <m>(u,v)</m>.
-      Working with this transition function,
-      we think of changing the variables from <m>(s,t)</m> to <m>(u,v)</m> on the region <m>D</m> on the manifold.
-      Before we get going, I'm going to set some new notation for <m>T</m> and look at its Jacobian.
-      Since <m>T</m> outputs the coordinates <m>(u,v)</m>,
-      it is conventional to write the components of <m>T</m> as those coordinates.
+      Let's layout the notation, working just in two variables for
+      simplicity. Let <m>\phi_1(u,v)</m> and <m>\phi_2(s,t)</m> be
+      coordinate functions and <m>D = D_1 \cap D_2</m> the portion of
+      the manifold where they overlap. These two coordinate functions
+      create a transition function <m>T = \phi_1^{-1} \circ \phi_2</m>
+      that starts with <m>(s,t)</m> and outputs <m>(u,v)</m>. Working
+      with this transition function, we think of changing the
+      variables from <m>(s,t)</m> to <m>(u,v)</m> on the region
+      <m>D</m> on the manifold. Before we get going, I'm going to set
+      some new notation for <m>T</m> and look at its Jacobian. Since
+      <m>T</m> outputs the coordinates <m>(u,v)</m>, it is
+      conventional to write the components of <m>T</m> as those
+      coordinates.
       <me>
         T(s,t) = (u(s,t), v(s,t))
       </me>
@@ -153,102 +166,155 @@
     <p>
       The inverse <m>T^{-1}</m> is the opposite coordinate exchange,
       starting with <m>(u,v)</m> and ending with <m>(s,t)</m>.
-      Therefore, we do the same thing with the components of <m>T^{-1}</m>.
+      Therefore, we do the same thing with the components of
+      <m>T^{-1}</m>.
       <me>
         T^{-1}(u,v) = (s(u,v), t(u,v))
       </me>
     </p>
     <p>
-      We're going to need the Jacobian matrix of <m>T</m> and <m>T^{-1}</m>.
+      We're going to need the Jacobian matrix of <m>T</m> and
+      <m>T^{-1}</m>.
       <me>
-        J(T) = \left( \begin{matrix} \dfrac{\del u}{\del s} \amp \dfrac{\del v}{\del s} \\[1em] \dfrac{\del u}{\del t} \amp \dfrac{\del v}{\del t} \end{matrix} \right) \hspace{2cm} J(T^{-1}) = \left( \begin{matrix} \dfrac{\del s}{\del u} \amp \dfrac{\del t}{\del u} \\[1em] \dfrac{\del s}{\del v} \amp \dfrac{\del t}{\del v} \end{matrix} \right)
+        J(T) = \left( \begin{matrix} \dfrac{\del u}{\del s} \amp
+        \dfrac{\del v}{\del s} \\[1em] \dfrac{\del u}{\del t} \amp
+        \dfrac{\del v}{\del t} \end{matrix} \right) \hspace{2cm}
+        J(T^{-1}) = \left( \begin{matrix} \dfrac{\del s}{\del u} \amp
+        \dfrac{\del t}{\del u} \\[1em] \dfrac{\del s}{\del v} \amp
+        \dfrac{\del t}{\del v} \end{matrix} \right)
       </me>
     </p>
     <p>
-      However, <m>J(T^{-1})</m> must also be the inverse matrix of <m>J(T)</m>.
-      Using the standard form of the inverse for a
+      However, <m>J(T^{-1})</m> must also be the inverse matrix of
+      <m>J(T)</m>. Using the standard form of the inverse for a
       <m>2\times 2</m> matrix give this matrix equation.
       <me>
-        \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \left( \begin{matrix} \dfrac{\del v}{\del t} \amp \dfrac{-\del v}{\del s} \\[1em] \dfrac{-\del u}{\del t} \amp \dfrac{\del u}{\del s} \end{matrix} \right) = \left( \begin{matrix} \dfrac{\del s}{\del u} \amp \dfrac{\del t}{\del u} \\[1em] \dfrac{\del s}{\del v} \amp \dfrac{\del t}{\del v} \end{matrix} \right)
+        \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t}
+        - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) }
+        \left( \begin{matrix} \dfrac{\del v}{\del t} \amp \dfrac{-\del
+        v}{\del s} \\[1em] \dfrac{-\del u}{\del t} \amp \dfrac{\del
+        u}{\del s} \end{matrix} \right) = \left( \begin{matrix}
+        \dfrac{\del s}{\del u} \amp \dfrac{\del t}{\del u} \\[1em]
+        \dfrac{\del s}{\del v} \amp \dfrac{\del t}{\del v}
+        \end{matrix} \right)
       </me>
     </p>
     <p>
-      The four components of this matrix equation will be useful later.
+      The four components of this matrix equation will be useful
+      later.
       <md>
-        <mrow>\dfrac{\del s}{\del u} \amp  = \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del v}{\del t} \hspace{1cm} \dfrac{\del t}{\del u} = \frac{-1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del v}{\del s}</mrow>
-        <mrow>[1em] \dfrac{\del s}{\del v} \amp  = \frac{-1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del u}{\del t} \hspace{1cm} \dfrac{\del t}{\del v} = \frac{1}{ \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del u}{\del s}</mrow>
+        <mrow>
+          \dfrac{\del s}{\del u} \amp = \frac{1}{ \left( \dfrac{\del
+          u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del v}{\del s}
+          \dfrac{\del u}{\del t} \right) } \dfrac{\del v}{\del t}
+          \hspace{1cm} \dfrac{\del t}{\del u} = \frac{-1}{ \left(
+          \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del
+          v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del
+          v}{\del s}
+        </mrow>
+        <mrow>
+          \dfrac{\del s}{\del v} \amp = \frac{-1}{ \left(
+          \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} - \dfrac{\del
+          v}{\del s} \dfrac{\del u}{\del t} \right) } \dfrac{\del
+          u}{\del t} \hspace{1cm} \dfrac{\del t}{\del v} = \frac{1}{
+          \left( \dfrac{\del u}{\del s} \dfrac{\del v}{\del t} -
+          \dfrac{\del v}{\del s} \dfrac{\del u}{\del t} \right) }
+          \dfrac{\del u}{\del s}
+        </mrow>
       </md>
     </p>
     <p>
-      Now, let's start with a vector field in <m>(u,v)</m> and see what we need to do to make a description of
-      <em>the same vector field</em>
-      in the new variables <m>(s,t)</m>.
+      Now, let's start with a vector field in <m>(u,v)</m> and see
+      what we need to do to make a description of <em>the same vector
+      field</em> in the new variables <m>(s,t)</m>.
     </p>
     <p>
-      A vector field on <m>D</m> can first be describe in the original coordinates <m>u,v</m> as a linear combination of <m>\del_u</m> and <m>\del_v</m>.
+      A vector field on <m>D</m> can first be describe in the original
+      coordinates <m>u,v</m> as a linear combination of <m>\del_u</m>
+      and <m>\del_v</m>.
       <me>
         f_1(u,v) \del_u + f_2(u,v) \del_v
       </me>
     </p>
     <p>
-      To change the functions<m>f_1</m> and <m>f_2</m>,
-      we simply compose with the transition function <m>T</m>.
-      Note that we need the transition function that goes from <m>(s,t)</m> to <m>(u,v)</m> here,
-      even though we are changing variables from <m>(u,v)</m> to <m>(s,t)</m> becuase of the direction of this composition.
+      To change the functions<m>f_1</m> and <m>f_2</m>, we simply
+      compose with the transition function <m>T</m>. Note that we
+      need the transition function that goes from <m>(s,t)</m> to
+      <m>(u,v)</m> here, even though we are changing variables from
+      <m>(u,v)</m> to <m>(s,t)</m> becuase of the direction of this
+      composition.
       <me>
         f_1(T(s,t)) \del_u + f_2(T(s,t)) \del_v
       </me>
     </p>
     <p>
-      This is only halfway transformed, though,
-      since the basis <m>\del_u</m> and <m>\del_v</m> is still present.
-      We want to also change these into linear combinations of <m>\del_s</m> and <m>\del_t</m>.
-      How do these basis vectors change?
-      They are derivatives, so we use the chain rule.
-      Here we make use of the persepctive that tangent are
-      <em>differential operators</em>
-      and the basis is the partial derivatives in the coordinate functions.
-      We could use a test scalar field to justify these chain rule calculations. (I've written the calcuations twice,
-      first using the full notation to make the chain rule calcuations clear,
-      and second using the conventional abrieviated notation.)
+      This is only halfway transformed, though, since the basis
+      <m>\del_u</m> and <m>\del_v</m> is still present. We want to
+      also change these into linear combinations of <m>\del_s</m> and
+      <m>\del_t</m>. How do these basis vectors change? They are
+      derivatives, so we use the chain rule. Here we make use of the
+      persepctive that tangent are <em>differential operators</em> and
+      the basis is the partial derivatives in the coordinate
+      functions. We could use a test scalar field to justify these
+      chain rule calculations. (I've written the calcuations twice,
+      first using the full notation to make the chain rule calcuations
+      clear, and second using the conventional abrieviated notation.)
       <md>
-        <mrow>\frac{\del}{\del u} \amp  = \frac{\del s}{\del u} \frac{\del}{\del s} + \frac{\del t}{\del u} \frac{\del}{\del t} \hspace{2cm} \del_u = \frac{\del s}{\del u} \del_s + \frac{\del t}{\del u} \del_t</mrow>
-        <mrow>\frac{\del}{\del v} \amp  = \frac{\del s}{\del v} \frac{\del}{\del s} + \frac{\del t}{\del v} \frac{\del}{\del t} \hspace{2cm} \del_v = \frac{\del s}{\del v} \del_s + \frac{\del t}{\del v} \del_t</mrow>
+        <mrow>
+          \frac{\del}{\del u} \amp = \frac{\del s}{\del u}
+          \frac{\del}{\del s} + \frac{\del t}{\del u} \frac{\del}{\del
+          t} \hspace{2cm} \del_u = \frac{\del s}{\del u} \del_s +
+          \frac{\del t}{\del u} \del_t
+        </mrow>
+        <mrow>
+          \frac{\del}{\del v} \amp = \frac{\del s}{\del v}
+          \frac{\del}{\del s} + \frac{\del t}{\del v} \frac{\del}{\del
+          t} \hspace{2cm} \del_v = \frac{\del s}{\del v} \del_s +
+          \frac{\del t}{\del v} \del_t
+        </mrow>
       </md>
     </p>
     <p>
-      We can write this as a matrix equation using the Jacobians we calculated previously.
+      We can write this as a matrix equation using the Jacobians we
+      calculated previously.
       <me>
-        \left( \del_u \ \del_v \right) = \left( \begin{matrix} \dfrac{\del s}{\del u} \amp \dfrac{\del t}{\del u} \\[1em] \dfrac{\del s}{\del v} \amp \dfrac{\del t}{\del v} \end{matrix} \right) \left( \begin{matrix} \del_s \\[1em] \del_t \end{matrix} \right) = J(T^{-1}) \left( \begin{matrix} \del_s \\[1em] \del_t \end{matrix} \right)
+        \left( \del_u \ \del_v \right) = \left( \begin{matrix}
+        \dfrac{\del s}{\del u} \amp \dfrac{\del t}{\del u} \\[1em]
+        \dfrac{\del s}{\del v} \amp \dfrac{\del t}{\del v}
+        \end{matrix} \right) \left( \begin{matrix} \del_s \\[1em]
+        \del_t \end{matrix} \right) = J(T^{-1}) \left( \begin{matrix}
+        \del_s \\[1em] \del_t \end{matrix} \right)
       </me>
     </p>
     <p>
-      The matrix here is the Jacobian of <m>T^{-1}</m>.
-      The fact that there is a Jacobian here hopefully makes some sense,
-      since we are literally changing variables.
-      Now we write the final transformation of the vector field.
+      The matrix here is the Jacobian of <m>T^{-1}</m>. The fact that
+      there is a Jacobian here hopefully makes some sense, since we
+      are literally changing variables. Now we write the final
+      transformation of the vector field.
       <me>
-        f_1(T(s,t)) \left[ \frac{\del s}{\del u} \del_s + \frac{\del t}{\del u} \del_t \right] + f_2((T(s,t)) \left[ \frac{\del s}{\del v} \del_s + \frac{\del t}{\del v} \del_t \right]
+        f_1(T(s,t)) \left[ \frac{\del s}{\del u} \del_s + \frac{\del
+        t}{\del u} \del_t \right] + f_2((T(s,t)) \left[ \frac{\del
+        s}{\del v} \del_s + \frac{\del t}{\del v} \del_t \right]
       </me>
     </p>
     <p>
-      Note that the composition is with <m>T</m> but the Jacobian matrix is for <m>T^{-1}</m>.
-      The Jacobian matrix of <m>T</m> wouldn't have lined up nicely to make these chain rule equivalences.
-      We already saw some of this tension in choosing the diretions of our coordinate transformation.
-      To change from, say, <m>(x,y)</m> to
-      <m>(r, \theta)</m> of polar coordinates,
-      we took the Jacobian of <m>x = r \sin \theta</m> and <m>y = r \cos \theta</m>.
-      This is the transformation <em>from</em>
-      <m>(r,\theta)</m> to <m>(x,y)</m>,
-      which is the opposite of the direction we are going.
-      There was already a kind of inverse in our Jacobians,
-      but we worked around it and didn't point it out.
+      Note that the composition is with <m>T</m> but the Jacobian
+      matrix is for <m>T^{-1}</m>. The Jacobian matrix of <m>T</m>
+      wouldn't have lined up nicely to make these chain rule
+      equivalences. We already saw some of this tension in choosing
+      the diretions of our coordinate transformation. To change from,
+      say, <m>(x,y)</m> to <m>(r, \theta)</m> of polar coordinates, we
+      took the Jacobian of <m>x = r \sin \theta</m> and <m>y = r \cos
+      \theta</m>. This is the transformation <em>from</em>
+      <m>(r,\theta)</m> to <m>(x,y)</m>, which is the opposite of the
+      direction we are going. There was already a kind of inverse in
+      our Jacobians, but we worked around it and didn't point it out.
     </p>
     <p>
-      There is a term for this tension.
-      An object where composition with <m>T</m> needs the Jacobian of <m>T^{-1}</m> (or,
-      equivalently,
-      composition with <m>T^{-1}</m> needs the Jacobian of <m>T</m>) is called <em>contravariant</em>.
+      There is a term for this tension. An object where composition
+      with <m>T</m> needs the Jacobian of <m>T^{-1}</m> (or,
+      equivalently, composition with <m>T^{-1}</m> needs the Jacobian
+      of <m>T</m>) is called <em>contravariant</em>.
     </p>
   </subsection>
 </section>

@@ -1,0 +1,6 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chapter-week4">
+  <title>Week 4</title>
+  <xi:include href="vector-fields.ptx" />
+  <xi:include href="integral-curves.ptx" />
+  <xi:include href="week4-activity.ptx" />
+</chapter>

@@ -1,139 +1,158 @@
-<section xml:id="vector-fields">
+<section xml:id="section-vector-fields">
   <title>Vector Fields</title>
   <p>
     So far, we studies scalar fields <m>f: \RR^n \rightarrow \RR</m>.
-    When defining derivatives of various types,
-    we only considered single-valued functions.
-    In multiple integration,
-    the integrands were functions with a single real output.
+    When defining derivatives of various types, we only considered
+    single-valued functions. In multiple integration, the integrands
+    were functions with a single real output.
   </p>
   <p>
-    We have mentioned functions <m>F: \RR^n \rightarrow \RR^m</m> a few times,
-    but only as transformations of spaces. . Those who have taken Linear Algebra are familiar with linear functions <m>\RR^n \rightarrow \RR^m</m>,
-    which are encoded in <m>m \times n</m> matrices.
-    We used functions <m>F: \RR^n \rightarrow \RR^n</m> as change of variables transformations for integrals.
-    Their Jacobian matrices <m>J(F)</m> were square <m>n \times n</m> matrices,
-    so we could take the determinant to define the Jacobian <m>|J(F)|</m>,
-    which acted as a measure of the change in local size/area/volume for the purposes of integration.
+    We have mentioned functions <m>F: \RR^n \rightarrow \RR^m</m> a
+    few times, but only as transformations of spaces. . Those who have
+    taken Linear Algebra are familiar with linear functions <m>\RR^n
+    \rightarrow \RR^m</m>, which are encoded in <m>m \times n</m>
+    matrices. We used functions <m>F: \RR^n \rightarrow \RR^n</m> as
+    change of variables transformations for integrals. Their Jacobian
+    matrices <m>J(F)</m> were square <m>n \times n</m> matrices, so we
+    could take the determinant to define the Jacobian <m>|J(F)|</m>,
+    which acted as a measure of the change in local size/area/volume
+    for the purposes of integration.
   </p>
   <p>
-    Interpreting functions <m>F: \RR^n \rightarrow \RR^m</m> as transformations of space is very useful and valuable.
-    It connects well with linear algebra,
-    where matrices are thought of as transformations.
-    It serves multiple integration by allowing coordinate transformations.
-    However, it is not the only conceptual way to understand such functions.
-    We are now going to re-interpret these functions <m>F: \RR^n \rightarrow \RR^m</m> as vector fields.
+    Interpreting functions <m>F: \RR^n \rightarrow \RR^m</m> as
+    transformations of space is very useful and valuable. It connects
+    well with linear algebra, where matrices are thought of as
+    transformations. It serves multiple integration by allowing
+    coordinate transformations. However, it is not the only
+    conceptual way to understand such functions. We are now going to
+    re-interpret these functions <m>F: \RR^n \rightarrow \RR^m</m> as
+    vector fields.
   </p>
   <p>
-    The use of the work <sq>field</sq> here refers to a function on subsets of <m>\RR^n</m>.
-    So far, we have worked with <em>scalar fields</em>,
-    functions <m>f: \RR^n \rightarrow \RR</m>.
-    On <m>\RR^n</m>
-    (or a subset),
-    these functions output scalars.
-    Conceptually,
-    any scalar quantity that might differ throughout a three-dimensional region is a scalar fields.
-    Familiar examples are temperature, pressure,
-    concentration of some material in a solution, density,
-    and elevation.
-    Now we define the other type of field.
+    The use of the work <sq>field</sq> here refers to a function on
+    subsets of <m>\RR^n</m>. So far, we have worked with <em>scalar
+    fields</em>, functions <m>f: \RR^n \rightarrow \RR</m>. On
+    <m>\RR^n</m> (or a subset), these functions output scalars.
+    Conceptually, any scalar quantity that might differ throughout a
+    three-dimensional region is a scalar fields. Familiar examples
+    are temperature, pressure, concentration of some material in a
+    solution, density, and elevation. Now we define the other type of
+    field.
   </p>
   <definition>
     <statement>
       <p>
-        A function on a region of <m>S \subset \RR^n</m> which outputs vectors is a
-        <term>vector field</term>.
-        If the output are <m>m</m>-vectors,
-        we write <m>f: S \rightarrow \RR^m</m>.
+        A function on a region of <m>S \subset \RR^n</m> which outputs
+        vectors is a <term>vector field</term>. If the output are
+        <m>m</m>-vectors, we write <m>f: S \rightarrow \RR^m</m>.
       </p>
     </statement>
   </definition>
   <p>
-    Familiar examples are force,
-    movement, acceleration, wind speed,
-    ocean current speed, fluid flow,
-    or the gradient of any differentiable scalar field.
-    All these can vary over a region of space but need to be represented by a vector:
-    by a magnitude and a direction.
+    Familiar examples are force, movement, acceleration, wind speed,
+    ocean current speed, fluid flow, or the gradient of any
+    differentiable scalar field. All these can vary over a region of
+    space but need to be represented by a vector: by a magnitude and a
+    direction.
   </p>
   <p>
-    Vector fields rely on the idea of local coordinates:
-    the vector output is always a direction as if the current location is a local origin.
+    Vector fields rely on the idea of local coordinates: the vector
+    output is always a direction as if the current location is a local
+    origin.
   </p>
   <figure xml:id="figure-vector-field1">
     <caption>The Vector Field <m>F(x,y) = (0,1)</m></caption>
-    <image width="800%" source="images/figure06.png" />
+    <image xml:id="figure06" width="80%">
+      <asymptote>
+        import graph;
+        size(8cm);
+        path vector(pair z) {return
+        (0,0)--(0,1);}
+        add(vectorfield(vector,(-4,-4),(4,4)));
+      </asymptote>
+    </image>
   </figure>
   <example>
     <statement>
       <p>
-        Consider the constant vector field <m>F(x,y) = (0,1)</m> on <m>\RR^3</m>,
-        as seen in <xref ref="figure-vector-field1">figure</xref>.
-        The vector <m>(0,1)</m> is a unit vector in the vertical y-axis direction in <m>\RR^2</m>.
-        This vector fields associates that unit vertical vector to each point in <m>\RR^2</m>
-        (in local coordinates).
-        At each point,
-        the vector points vertically upward from that point.
-        If this field represented a fluid flow,
-        the fluid would be flowing upwards
-        (in <m>y</m>)
-        at a uniform pace everywhere,
-        following these local direction vectors.
+        Consider the constant vector field <m>F(x,y) = (0,1)</m> on
+        <m>\RR^3</m>, as seen in <xref ref="figure-vector-field1" />.
+        The vector <m>(0,1)</m> is a unit vector in the vertical
+        y-axis direction in <m>\RR^2</m>. This vector fields
+        associates that unit vertical vector to each point in
+        <m>\RR^2</m> (in local coordinates). At each point, the vector
+        points vertically upward from that point. If this field
+        represented a fluid flow, the fluid would be flowing upwards
+        (in <m>y</m>) at a uniform pace everywhere, following these
+        local direction vectors.
       </p>
     </statement>
   </example>
   <definition>
     <statement>
       <p>
-        If <m>F: \RR^n \rightarrow \RR^n</m> is a vector field,
-        then we can write <m>F = (F_1, F_2, \ldots, F_n)</m> in terms of its <term>components</term>.
-        Each component <m>F_i</m> is itself a scalar field,
-        has partial derivatives and gradients,
-        and is subject to all the tools we already have for scalar fields.
+        If <m>F: \RR^n \rightarrow \RR^n</m> is a vector field, then
+        we can write <m>F = (F_1, F_2, \ldots, F_n)</m> in terms of
+        its <term>components</term>. Each component <m>F_i</m> is
+        itself a scalar field, has partial derivatives and gradients,
+        and is subject to all the tools we already have for scalar
+        fields.
       </p>
     </statement>
   </definition>
   <p>
-    We can also use all the tools of vector analysis to understand vector fields.
-    If <m>F: \RR^n \rightarrow \RR^n</m> is a vector field,
-    then <m>|F|</m> is the length of each vector.
-    <m>\frac{F}{|F|}</m> is the unit vector in each direction of <m>F</m> as long as <m>|F|</m> is not zero.
-    If <m>G</m> is another vector field,
-    then we can calculate the scalar field <m>F \cdot G</m> at each point.
-    If <m>n=3</m>, we can also calculate <m>F \times G</m>.
-    If <m>f: \RR^n \rightarrow \RR</m> is a scalar field,
-    then the multiplication <m>fF</m> is a scalar multiplication of the vector <m>F</m> on each point in the domain of both functions.
-    <m>F + G</m> and <m>F-G</m> are also vector fields,
-    formed by adding or subtracting vectors.
-    The expression <m>FG</m> doesn't make any sense,
-    since we can't multiply vectors.
+    We can also use all the tools of vector analysis to understand
+    vector fields. If <m>F: \RR^n \rightarrow \RR^n</m> is a vector
+    field, then <m>|F|</m> is the length of each vector.
+    <m>\frac{F}{|F|}</m> is the unit vector in each direction of
+    <m>F</m> as long as <m>|F|</m> is not zero. If <m>G</m> is
+    another vector field, then we can calculate the scalar field <m>F
+    \cdot G</m> at each point. If <m>n=3</m>, we can also calculate
+    <m>F \times G</m>. If <m>f: \RR^n \rightarrow \RR</m> is a scalar
+    field, then the multiplication <m>fF</m> is a scalar
+    multiplication of the vector <m>F</m> on each point in the domain
+    of both functions. <m>F + G</m> and <m>F-G</m> are also vector
+    fields, formed by adding or subtracting vectors. The expression
+    <m>FG</m> doesn't make any sense, since we can't multiply
+    vectors.
   </p>
   <figure xml:id="figure-vector-field2">
     <caption>The Vector Field Describing Gravitational Force</caption>
-    <image width="800%" source="images/figure07.png" />
+    <image xml:id="figure07" width="80%">
+      <asymptote>
+        import graph;
+        size(10cm);
+        path vector(pair z) {return
+        (0,0)--(-z.x/(1+(z.x)^2+(z.y)^2), -z.y/(1+(z.x)^2+(z.y)^2));}
+        add(vectorfield(vector,(-4,-4),(4,4)));
+      </asymptote>
+    </image>
   </figure>
   <example>
     <statement>
       <p>
-        An excellent example of a vectors field is the force of gravity,
-        shown in <xref ref="figure-vector-field2">Figure</xref>.
-        The magnitude of the force of gravity per unit mass due to a mass <m>M</m> at the origin is a scalar field.
-        <m>(x,y,z)</m> is:
+        An excellent example of a vectors field is the force of
+        gravity, shown in <xref ref="figure-vector-field2" />. The
+        magnitude of the force of gravity per unit mass due to a mass
+        <m>M</m> at the origin is a scalar field. <m>(x,y,z)</m> is:
         <me>
           f = \frac{MG}{x^2+y^2+z^2}
         </me>
       </p>
       <p>
-        However, the force itself also includes direction, so it is a vector field.
+        However, the force itself also includes direction, so it is a
+        vector field.
         <me>
           F = \frac{MG}{(x^2+y^2+z^2)^{\frac{3}{2}}} (-x,-y,-z)
         </me>
       </p>
       <p>
         The direction <m>(-x,-y,-z)</m> is back towards the origin.
-        We can recover the magnitude by taking the length of the vector.
+        We can recover the magnitude by taking the length of the
+        vector.
         <me>
-          |F| = \frac{MG}{(x^2 + y^2 + z^2)^\frac{3}{2}} \sqrt{x^2 +y^2+z^2} = \frac{MG}{x^2 +y^2+z^2} = \frac{MG}{r^2}
+          |F| = \frac{MG}{(x^2 + y^2 + z^2)^\frac{3}{2}} \sqrt{x^2
+          +y^2+z^2} = \frac{MG}{x^2 +y^2+z^2} = \frac{MG}{r^2}
         </me>
       </p>
     </statement>
