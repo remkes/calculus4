@@ -3,7 +3,6 @@
   <xi:include href="indefinite-integrals.ptx" />
   <xi:include href="definite-integrals.ptx" />
   <xi:include href="iterated-integrals.ptx" />
-  <xi:include href="arbitrary-sets.ptx" />
   <xi:include href="week1-activity.ptx" />
 </chapter>
 

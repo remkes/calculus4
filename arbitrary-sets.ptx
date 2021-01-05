@@ -1,668 +1,735 @@
 <section xml:id="section-arbitrary-sets">
   <title>Integration over Arbitrary Sets</title>
-  <example>
-    <statement>
-      <p>
-        Consider a geometrically interesting example. The function
-        <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m> over the
-        interval <m>[-b.b] \times [-b,b]</m> describes a square
-        pyramid with height <m>a</m> and side length <m>2b</m>. What
-        is the volume of such a pyramid? Doing the integral directly
-        is difficult with the various evaluations of the absolute
-        value terms. However, we can integrate over one quarter of
-        pyramid with the interval <m>[0,b] \times [0,b]</m>, then
-        multiply by 4 to get the entire area. However, this doesn't
-        solve the problem with the absolute value terms. We need to
-        split the domain into regions where <m>x>y</m> and <m>x\lt
-        y</m>. In the interval <m>[0,b] \times [0,b]</m>, those two
-        regions are triangles, and we don't know how to deal with
-        integration over a triangle.
-      </p>
-    </statement>
-  </example>
-  <p>
-    Integration over intervals isn't sufficient; we need to integrate
-    over any set <m>S \subset \RR^n</m> (at least, any reasonable
-    set). How do we do this? As with many aspects of calculus, there
-    is a formal, proper definition which turns out to be difficult to
-    work with. Afer the definition, we seek set of techniques which
-    allow us to do calculations.
-  </p>
-  <definition>
-    <statement>
-      <p>
-        Let <m>S</m> be a subset of <m>\RR^n</m>. The
-        <term>characteristic function of <m>S</m></term> is defined as
-        follows, where <m>v \in \RR^n</m>.
-        <me>
-          \chi_S (v) : = \left\{ \begin{matrix} 1 \amp v \in S \\ 0
-          \amp v \notin S \end{matrix} \right.
-        </me>
-      </p>
-    </statement>
-  </definition>
-  <p>
-    The characteristic function is very simple: it has value <m>1</m>
-    on the set <m>S</m> and <m>0</m> everywhere else.
-  </p>
-  <definition>
-    <statement>
-      <p>
-        Let <m>S</m> be a subset of <m>\RR^n</m> which is contained in
-        an interval <m>I</m>. <m>S</m> is called a <term>integrable
-        set</term> if the following integral exists.
-        <me>
-          \int_I \chi_S dV
-        </me>
-      </p>
-    </statement>
-  </definition>
-  <p>
-    Almost all sets we will work with are integrable. Sets which are
-    not integrable are very strange sets (at least, for doing anything
-    geometric). The archetypical example is <m>\QQ \subset \RR</m>:
-    <m>\QQ</m> is not an integrable subset of <m>\RR</m>. As we
-    proceed, we won't worry too much about integrability since all
-    reasonable geoemtric sets are integrable. In particular, every
-    open subset of <m>\RR^n</m> is integrable.
-  </p>
-  <definition>
-    <statement>
-      <p>
-        Let <m>S</m> be a integrable subset of <m>\RR^n</m> with <m>S
-        \subset I</m> for some interval <m>I</m>. Let <m>f: S
-        \rightarrow \RR</m> be an function which can be extended to an
-        integrable function <m>\tilde{f}</m> on <m>I</m>. Then the
-        integral of <m>f</m> over <m>S</m> is defined as:
-        <me>
-          \int_S f dV = \int_I \tilde{f} \chi_S dV
-        </me>
-      </p>
-    </statement>
-  </definition>
-  <p>
-    The characteristic function removes all values of <m>f</m> outside
-    the set <m>S</m>, so all that the integral measure are the values
-    of <m>f</m> over <m>S</m>. 
-  </p> 
-  <p> 
-    As we pointed out before, this is almost entirely useless for
-    calculation. We need a better technique; a version of iterated
-    integrals for arbitrary subsets..
-  </p>
-  <example>
-    <statement>
-      <p>
-        Let's return to the square pyramid situation. We wanted to
-        integrate over two triangles in the interval <m>[0,b] \times
-        [0,b]</m>, seperated by the line <m>x=y</m>. We're going to
-        try for a similar strategy as for intervals: we want to
-        interate single variable integrals. However, now we allow the
-        bounds of integration to include the other variables.
-      </p>
-      <p>
-        Specifically, we can describe the first triangle (where
-        <m>y\lt x</m>) by saying that <m>x \in [0,b]</m>, then, once
-        we've set an <m>x</m> value, <m>y \in [0, x]</m>. In this
-        order, the <m>y</m> variable depends on the <m>x</m> for its
-        bounds. The integral over this triangle is now an interated
-        integral.
-        <me>
-          \int_I f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
-        </me>
-      </p>
-      <p>
-        We could have reversed the order. If we have <m>y \in
-        [0,b]</m> then the condition <m>y\lt x</m> means that <m>x \in
-        [y,b]</m>.
-        <me>
-          \int_I f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
-        </me>
-      </p>
-      <p>
-        Let's now evaluate the square pyramid integral. The function
-        was <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m>. On the
-        triangle in <m>[0,b] \times [0,b]</m> where <m>y\lt x</m>, the
-        absolute values are <m>|x-y| = x-y</m> and <m>|x+y| = x+y</m>,
-        so the function is <m>a - \frac{a(x-y+x+y)}{2b} = a -
-        \frac{2ax}{2b} = a - \frac{ax}{b}</m>.
-        <md>
-          <mrow>
-            \int_T f(x,y) dA \amp = \int_0^b \int_0^x a - \frac{ax}{b}
-            dy dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^b \left. ay - \frac{axy}{b} \right|_0^x dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^b ax - \frac{ax^2}{b} dx
-          </mrow>
-          <mrow>
-            \amp = \left. \frac{ax^2}{2} - \frac{ax^3}{3b} \right|_0^b
-          </mrow>
-          <mrow>
-            \amp = \frac{ab^2}{2} - \frac{ab^3}{3b} = \frac{ab^2}{2} -
-            \frac{ab^2}{3} = \frac{ab^2}{6}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        This measures one eighth of the total pyramid, so the total
-        volume is <m>\frac{4ab^2}{3}</m>.
-      </p>
-    </statement>
-  </example>
-  <example>
-    <statement>
-      <p>
-        This technique also allows us to derive the volume of a
-        sphere. We can think of the top half of a sphere as the
-        volume under the graph of <m>f(x,y) = \sqrt{r^2 - x^2 -
-        y^2}</m>. However, it is only the volume over the circle
-        <m>x^2 + y^2 = r^2</m> in the <m>xy</m> plane. It we take the
-        quarter of that circle in the positive quadrant, let <m>D</m>
-        be the region where <m>x \in [0,r]</m> and <m>y \in [0,
-        \sqrt{r^2-x^2}]</m>. One eighth of the sphere is measure by
-        the following iterated integral.
-        <md>
-          <mrow>
-            \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
-            \sqrt{r^2 - x^2 - y^2} dy dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^r \left( \frac{y}{2} \sqrt{r^2 - x^2 - y^2}
-            + \left. \frac{(r^2 - x^2)}{2} \arcsin \left(
-            \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_x^{\sqrt{r^2 -
-            x^2}} \right) dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^r \frac{\sqrt{r^2 - x^2}}{2} \sqrt{ r^2 -
-            x^2 - (r^2 - x^2)} + \frac{(r^2-x^2)}{2} \arcsin \left(
-            \frac{ \sqrt{r^2 - x^2}}{\sqrt{r^2 - x^2}} \right) dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^r \frac{r^2 - x^2}{2} \frac{\pi}{2} dx =
-            \int_0^r \frac{\pi (r^2-x^2)}{4} dx
-          </mrow>
-          <mrow>
-            \amp = \left. \frac{\pi r^2x}{4} - \frac{\pi x^3}{12}
-            \right|_0^r
-          </mrow>
-          <mrow>
-            \amp = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} = \frac{\pi
-            r^3}{6}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        Multiplying by <m>8</m> gives <m>\frac{8\pi r^3}{6} =
-        \frac{4\pi r^3}{3}</m>, which is the familiar expression for
-        the volume of a sphere. Of couse, we could have reversed the
-        order and taken <m>y \in [0,r]</m> and <m>x \in [0, \sqrt{r^2
-        - y^2}]</m> and repeated very similar steps to also get the
-        same answer.
-      </p>
-    </statement>
-  </example>
-  <example>
-    <statement>
-      <p>
-        We can also calcualte the volume of a cone of height <m>h</m>
-        and radius <m>r</m>. We integrate over the same circle of
-        radius <m>r</m>, but the function is <m>f(x,y) = h -
-        \frac{h}{r} \sqrt{x^2 + y^2}</m>. (This function can be
-        derived by looking at similar triangles in vertical sections
-        of the cone.)
-        <md>
-          <mrow>
-            \int_D f(x,y) dA \amp = 4 \int_0^r \int_0^{\sqrt{r^2 -
-            x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy
-            dx
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The cone integral is quite difficult to do directly; for now,
-        we'll leave it. We will return to this integral when we do
-        change of variables.
-      </p>
-    </statement>
-  </example>
-  <p>
-    The general form of an interated integral starts with constant
-    bounds on the outside variable. Then inside bounds can include
-    functions of variables from the outside integrals. If <m>g</m>
-    and <m>h</m> are function, we have two general forms in
-    <m>\RR^3</m>.
-    <md>
-      <mrow>
-        \amp \int_a^b \int_{g(x)}^{h(x)} f(x,y) dy dx
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g(y)}^{h(y)} f(x,y) dx dy
-      </mrow>
-    </md>
-  </p>
-  <p>
-    Likewise, in <m>\RR^3</m> we have three general forms (for
-    functions which satisfy <m>g_1 \leq h_1</m> and <m>g_2 \leq
-    h_2</m>).
-    <md>
-      <mrow>
-        \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,y}^{h_2(x,y)}
-        f(x,y,z) dz dy dx
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,z}^{h_2(x,z)}
-        f(x,y,z) dy dz dx
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(x,y}^{h_2(x,y)}
-        f(x,y,z) dz dx dy
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(y,z}^{h_2(y,z)}
-        f(x,y,z) dx dz dy
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(x,z}^{h_2(x,z)}
-        f(x,y,z) dy dx dz
-      </mrow>
-      <mrow>
-        \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(y,z}^{h_2(y,z)}
-        f(x,y,z) dx dy dz
-      </mrow>
-    </md>
-  </p>
-  <example>
-    <statement>
-      <p>
-        To integrate over an eighth of a solid sphere of radius
-        <m>r</m> in <m>\RR^3</m>, we might take <m>x \in [0,r]</m>,
-        <m>y \in [0, \sqrt{r^2-x^2}]</m> and <m>x \in [0, \sqrt{r^2 -
-        x^2 - y^2}]</m>.
-        <me>
-          V = \int_0^r \int_0^{\sqrt{r^2-x^2}} \int_0^{\sqrt{r^2 - x^2
-          - y^2}} f(x,y,z) dz dy dx
-        </me>
-      </p>
-      <p>
-        This gives another way to calculate the volume of a sphere:
-        just integrate <m>1</m> over this region (them multiply by
-        8)..
-        <md>
-          <mrow>
-            V = \int_D 1 dV \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
-            \int_0^{\sqrt{r^2 - x^2 - y^2}} 1 dz dy dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^r \int_0^{\sqrt{r^2 - x^2 - y^2}}
-            \sqrt{1-x^2 - y^2} dy dx
-          </mrow>
-        </md>
-      </p>
-    </statement>
-  </example>
-  <p>
-    The understanding of volume in the previous example if
-    archetypical.
-  </p>
-  <definition>
-    <statement>
-      <p>
-        Let <m>S</m> be a integrable set in <m>\RR^n</m>. Then the
-        size (area, volume, hypervolume) of <m>S</m> is
-        <term>defined</term> to be
-        <me>
-          \int_S 1 dV
-        </me>.
-      </p>
-    </statement>
-  </definition>
-  <p>
-    Note that this is a <em>definition</em>: we have no other way, in
-    general, to understand the size of sets. This definition is the
-    start of another whole branch of mathematics called measure
-    theory. It deals with various ways of measuring sizes of sets in
-    topological spaces.
-  </p>
-  <p>
-    We mentioned earlier that all open sets are integrable. We have
-    another simplifying theorem that ensure we only need to integrate
-    over open sets.
-  </p>
-  <proposition>
-    <statement>
-      <p>
-        Let <m>S</m> be an integrable set in <m>\RR^n</m>. Let
-        <m>S^0</m> be the set of interior points of <m>S</m>. Let
-        <m>f: S \rightarrow \RR</m> be an integrable function. Then
-        <me>
-          \int_S f dV = \int_{S^0} f dV
-        </me>
-      </p>
-    </statement>
-  </proposition>
-  <p>
-    This proposition means that we can ignore any inconveniences which
-    happen on the boundaries of sets. (Note that we still do need
-    limits for improper integrals, when the value of a function
-    approaches <m>\infty</m> near the boundary of a set). The
-    proposition also means that sets which are essentially of lower
-    dimensions do not matter in integration. If we are integrating
-    over subsets of <m>\RR^3</m>, then integrating over points, line
-    and planes amounts to nothing. Points, lines, and planes don't
-    have any interior points in <m>\RR^3</m>, so we might as well be
-    integrating over the empty set, which gives zero.
-  </p>
-  <p>
-    Other than ignoring boundaries and smaller dimensional pieces, our
-    approach to general sets is to break them up into pieces. It is a
-    general result in topology, which we won't get into here, that any
-    (reasonable) set can be broken up in to pieces (possibly
-    infinitely many) where the previous style of integral applies. We
-    can also be creative: for example, we could integrate over a
-    larger circle and subtract the integral over a small circle to
-    integrate over a ring-shaped domain. In these various ways we can
-    set up integrals over any (reasonable) subset of <m>\RR^n</m>.
-  </p>
-  <figure xml:id="figure-integral-example">
-    <caption>Region of Integration</caption>
-    <image xml:id="figure01" width="80%">
-      <asymptote>
-        size(12cm,12cm);
-        import graph;
-
-        xlimits(-1,5);
-        ylimits(-1,3);
-
-        xaxis("$x$");
-        yaxis("$y$");
-
-        filldraw((0,0)--(1,1){N}..(2,2){E}..(3,1)--(2,1)--(1,0)--cycle,
-          gray);
-
-        dot("$(1,1)$",(1,1),NW);
-        dot("$(0,0)$",(0,0),NW);
-        dot("$(3,1)$",(3,1),E);
-        dot("$(2,1)$",(2,1),SE);
-        dot("$(1,0)$",(1,0),S);
-      </asymptote>
-    </image>
-  </figure>
-  <example>
-    <statement>
-      <p>
-        Say we wanted to integrate the function <m>f(x,y) = xy</m>
-        over the triangle <m>T</m> with vertices <m>(0,0)</m>,
-        <m>(4,5)</m> and <m>(6,2)</m>. There isn't any one system of
-        iterated integrals that covers this region; therefore we have
-        to treat it as two sections. We divide the triangle into two
-        pieces using the line <m>x=4</m>. On the left, the <m>y</m>
-        coordinate is bounded by the lines <m>y=x/3</m> and
-        <m>y=5x/4</m>. On the right, the <m>y</m> coordinate is
-        bounded by <m>y=x/3</m> and <m>y=-3x/2 + 11</m>. We calculate
-        two integrals.
-        <md>
-          <mrow>
-            \int_0^4 \int_{\frac{x}{3}}^{\frac{5x}{4}} xy dy dx \amp =
-            \int_0^4 \left. \frac{xy^2}{2}
-            \right|_{\frac{x}{3}}^{\frac{5x}{4}} dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^4 \frac{x}{2} \left( \frac{25x^2}{16} -
-            \frac{x^2}{9} \right) dx
-          </mrow>
-          <mrow>
-            \amp = \int_0^4 \frac{25x^3}{32} - \frac{x^3}{18} =
-            \int_0^4 \frac{209}{289} x^3 dx
-          </mrow>
-          <mrow>
-            \amp = \left. \frac{209}{288} \frac{x^4}{4} \right|_0^4 =
-            \frac{1196}{9}
-          </mrow>
-          <mrow>
-            \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} - 11} xy dy dx
-            \amp = \int_4^6 \left. \frac{xy^2}{2}
-            \right|_{\frac{x}{3}}^{\frac{-3x}{2} - 11} dx
-          </mrow>
-          <mrow>
-            \amp = \int_4^6 \frac{x}{2} \left( \frac{-3x}{2} + 11
-            \right)^2 - \frac{x}{2} \frac{x^2}{9} dx
-          </mrow>
-          <mrow>
-            \amp = \int_4^6 \frac{x}{2} \left( \frac{9x^2}{4} - 32 x +
-            121 \right) - \frac{x^3}{18} dx
-          </mrow>
-          <mrow>
-            \amp = \int_4^6 \frac{77x^3}{81} - \frac{33x^2}{2} +
-            \frac{121 x}{2} dx
-          </mrow>
-          <mrow>
-            \amp = \left. \frac{77x^4}{324} - \frac{11x^3}{2} +
-            \frac{121 x^2}{4} \right|_4^6
-          </mrow>
-          <mrow>
-            \amp = \frac{77 \cdot 6^4}{324} - \frac{11 \cdot 6^3}{2} +
-            \frac{121 \cdot 6^2}{4} - \frac{77\cdot 4^4}{324} +
-            \frac{11 4^3}{2} - \frac{121 \cdot 4^2}{4} =
-            \frac{86845}{81}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The total is the sum of the two integrals.
-        <me>
-          \int_T f dA = \frac{1196}{9} + \frac{86845}{81} =
-          \frac{97609}{81}
-        </me>
-      </p>
-    </statement>
-  </example>
-  <example>
-    <statement>
-      <p>
-        Say we want to integrate the function <m>f(x) = x^2 + y^2</m>
-        over the region shown in <xref ref="figure-integral-example"
-        />.
-      </p>
-      <p>
-        We should divide the figure up into three pieces. The first
-        piece is the triangle <m>(0,0)</m>, <m>(1,1)</m>, and
-        <m>(1,0)</m>. The second is the half-circle above <m>y=1</m>.
-        The third is the remaining triangle <m>(1,1)</m>, <m>(2,1)</m>
-        and <m>(1,0)</m>.
-      </p>
-      <p>
-        The first integral is a short calculation.
-        <md>
-          <mrow>
-            \int_0^1 \int_0^x x^2 + y^2 dy dx \amp = \int_0^1 \left.
-            x^2y + \frac{y^3}{3} \right|_0^x
-          </mrow>
-          <mrow>
-            \amp = \int_0^1 \frac{4x^3}{3} = \left. \frac{x^4}{3}
-            \right|_0^1 = \frac{1}{3}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The second integral is more involved.
-        <md>
-          <mrow>
-            \amp \int_1^3 \int_1^{1+\sqrt{1-(x-2)^2}} x^2 + y^2 dy dx
-          </mrow>
-          <mrow>
-            \amp = \int_1^3 \left. x^2y + \frac{y^3}{3}
-            \right|_1^{1+\sqrt{1-(x-2)^2}}
-          </mrow>
-          <mrow>
-            \amp = \int_1^3 x^2 (1 + \sqrt{1-(x-2)^2}) +
-            \frac{(1+\sqrt{1-(x-2)^2})^3}{3} dx
-          </mrow>
-          <mrow>
-            u \amp = x-2
-          </mrow>
-          <mrow>
-            \amp = \int_{-1}^1 (u^2 + 4u + 4) (1 + \sqrt{1-u^2}) +
-            \frac{(1 + \sqrt{1-u^2})^3}{3} du
-          </mrow>
-          <mrow>
-            \amp = \int_{-1}^1 u^2 + 4u + 4 + u^2 \sqrt{1-u^2} + 4u
-            \sqrt{1-u^2} + 4 \sqrt{1-u^2}
-          </mrow>
-          <mrow>
-            \amp \hspace{1cm} + \frac{1}{3} + \sqrt{1-u^2} + (1-u^2) -
-            \frac{u^2}{3} \sqrt{1-u^3} du
-          </mrow>
-          <mrow>
-            \amp = \int_{-1}^1 \frac{16}{3} + 4u + 5 \sqrt{1-u^2} + 4u
-            \sqrt{1-u^2} + u^2 \sqrt{1-u^2} + \frac{1}{3}
-            (1-u^2)^{\frac{3}{2}} du
-          </mrow>
-          <mrow>
-            \amp = \frac{16u}{3} + 2u^2 + \left. 4 (1-u^2)^\frac{3}{2}
-            \frac{-2}{3} \right|_{-1}^1 + 5 \int_{-1}{1} \sqrt{1-u^2}
-            du + \int_{-1}^1 u^2 \sqrt{1-u^2} du + \frac{1}{3}
-            \int_{-1}^1 (1-u^2)^{\frac{3}{2}} du
-          </mrow>
-          <mrow>
-            \amp = \frac{32}{5} + 0 + 0 + \left. \frac{1}{8} 2
-            \sqrt{1-u^2}(2u^2-1) + \arcsin u \right|_{-1}^1 + \left. 5
-            (u \sqrt{1-u^2} + \arcsin u) \right|_{-1}^1
-          </mrow>
-          <mrow>
-            \amp \hspace{1cm} + \left. \frac{1}{3} \frac{1}{8}
-            (u(5-2u^2)\sqrt{1-u^2} + 3 \arcsin u ) \right|_{-1}^1
-          </mrow>
-          <mrow>
-            \amp = \frac{32}{3} + \frac{1}{8} \left( \frac{\pi}{2} -
-            \frac{-\pi}{2} \right) + 5 \left( \frac{\pi}{2} -
-            \frac{-\pi}{2} \right) + \frac{1}{8} \left( \frac{\pi}{2}
-            - \frac{-\pi}{2} \right)
-          </mrow>
-          <mrow>
-            \amp = \frac{32}{3} + \frac{\pi}{8} + 5\pi + \frac{\pi}{8}
-            = \frac{32}{3} + \frac{21\pi}{4}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The third integral is not quite as bad as the second.
-        <md>
-          <mrow>
-            \int_1^2 \int_{x-1}^1 x^2 + y^2 dy dx \amp = \int_1^2
-            \left. x^2 y + \frac{y^3}{3} \right|_{x-1}^1 dx
-          </mrow>
-          <mrow>
-            \amp = \int_1^2 x^2 + \frac{1}{3} - x^2(x-1) - \frac{1}{3}
-            (x-1)^3 dx
-          </mrow>
-          <mrow>
-            \amp = \int_1^2 \frac{2}{3} - x + 3x^2 - \frac{4x^3}{3}
-            dx
-          </mrow>
-          <mrow>
-            \amp = \left. \frac{2x}{3} - \frac{x^2}{2} + x^3 -
-            \frac{x^4}{3} \right|_1^2
-          </mrow>
-          <mrow>
-            \amp = \frac{4}{3} - 2 + 8 - \frac{16}{3} - \frac{2}{3} +
-            \frac{1}{2} - 1 + \frac{1}{3}
-          </mrow>
-          <mrow>
-            \amp = \frac{7}{6}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The total is the sum of the three integrals.
-        <me>
-          \frac{1}{3} + \frac{32}{3} + \frac{21\pi}{4} + \frac{7}{6} =
-          \frac{73}{6} + \frac{21\pi}{4}
-        </me>
-      </p>
-    </statement>
-  </example>
-  <example>
-    <statement>
-      <p>
-        Here is an odd application of multiple integration. We know
-        that <m>e^{-x^2}</m> has no elementary antiderivative.
-        Therefore, the intergal
-        <me>
-          A = \int_{-\infty}^\infty e^{-x^2} dx
-        </me>
-        cannot be evaluated directly. However, this is a very
-        important integral: <m>e^{-x^2}</m> is the normal distribution
-        and, in Statistics, we need to integrate it frequently. We'll
-        use integrals over <m>\RR^2</m>, strangely enough, to
-        calculate this integral by squaring the single variable
-        integral.
-        <md>
-          <mrow>
-            A \amp = 2 \int_{0}^\infty e^{-x^2} dx
-          </mrow>
-          <mrow>
-            A^2 \amp = \left( 2 \int_{0}^\infty e^{-x^2} dx \right)
-            \left(2 \int_{0}^\infty e^{-y^2} dy \right)
-          </mrow>
-        </md>
-      </p>
-      <p>
-        The second integral uses a new variables since variables of
-        integration only matter inside the integral. Then we can
-        combine the two integrals.
-        <md>
-          <mrow>
-            A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2}
-            dx dy
-          </mrow>
-          <mrow>
-            \amp = 4 \int_0^\infty \int_0^\infty e^{-(x^2 + y^2)} dx
-            dy
-          </mrow>
-        </md>
-      </p>
-      <p>
-        Now we are going to do a substitution in the <m>y</m>
-        variable. Treating the <m>x</m> variable as a constnat, we
-        replace <m>y</m> with <m>y = xs</m> so that <m>dy = x ds</m>.
-        If <m>y=0</m> then <m>s=0</m> and as <m>y \rightarrow
-        \infty</m>, <m>s \rightarrow \infty</m>, so the bound for
-        <m>s</m> remain the same as the bounds for <m>y</m>.
-        Remember, <m>x</m> is a constant through this whole
-        substitution.
-        <md>
-          <mrow>
-            A^2 \amp = 4 \int_0^\infty \int_0^\infty -e^{-x^2 (1+s^2)}
-            x dx ds
-          </mrow>
-          <mrow>
-            \amp = 4 \int_0^\infty \left. \frac{-1}{2(1+s^2)}
-            e^{-x^2(1+s^2)} \right|_0^\infty ds
-          </mrow>
-          <mrow>
-            \amp = 2 \int_0^\infty \frac{1}{1+s^2} ds
-          </mrow>
-          <mrow>
-            \amp = \lim_{a \rightarrow \infty} 2 \arctan a - \arctan 0
-            = \frac{2\pi}{2} = \pi
-          </mrow>
-          <mrow>
-            A \amp = \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
-          </mrow>
-        </md>
-      </p>
-      <p>
-        We recover the area under the bell curve: <m>\sqrt{\pi}</m>.
-        It's a very strange result. However, if you taken any
-        statistics and worked on normal distributions, likely you will
-        recall the presence of these strange <m>\sqrt{\pi}</m> terms.
-        Now we know they are present to normalize the area (since we
-        want a probability function to have area one under its
-        graph).
-      </p>
-    </statement>
-  </example>
+  <subsection xml:id="subsection-abitrary-sets-formal">
+    <title>Formal Definitions</title>
+    <p>
+      In single variable calculus, integrating over intervals is
+      sufficient for basically any purpose. Even a more complicated
+      subset of <m>\RR</m> for integration is almost certainly
+      something that can be broken down into a number of intervals. 
+    </p>
+    <p>
+      For multivariable integrals, the situation is very different.
+      The domain of a scalar field can be any kind of strange subset
+      of <m>\RR^n</m>, not necessarily the nice rectangles or
+      rectangular prisms that are intervals. We may want to integrate
+      over circular domains, or any kind of more complicated shapes.
+      This section builds up the theory to understand such integrals:
+      how to move from integration over intervals to integration over
+      arbitrary domain in <m>\RR^n</m>.
+    </p>
+    <p>
+      First, not all domains are possible. I said <sq>arbitrary</sq>
+      domains, but there are some restrictions. Some formal definition
+      are needed here.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S</m> be a subset of <m>\RR^n</m>. The
+          <term>characteristic function of <m>S</m></term> is defined as
+          follows, where <m>v \in \RR^n</m>.
+          <me>
+            \chi_S (v) : = \left\{ \begin{matrix} 1 \amp v \in S \\ 0
+            \amp v \notin S \end{matrix} \right.
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The characteristic function is very simple: it has value <m>1</m>
+      on the set <m>S</m> and <m>0</m> everywhere else. The
+      characteristic function lets us make another formal definition. 
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S</m> be a subset of <m>\RR^n</m> which is contained in
+          an interval <m>I</m>. <m>S</m> is called a <term>integrable
+          set</term> if the following integral exists.
+          <me>
+            \int_I \chi_S dV
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Almost all sets we will work with are integrable. Sets which are
+      not integrable are very strange sets (at least, for doing anything
+      geometric). The archetypical example is <m>\QQ \subset \RR</m>:
+      <m>\QQ</m> is not an integrable subset of <m>\RR</m>. What does
+      is mean, for a single variable function, to integrate over all
+      rational points but not over the irrational points. Since the
+      rational and irrational points are everywhere in <m>\RR</m>,
+      there is no notion of <sq>area under a curve</sq> here at all.
+      This integral doesn't make any sense; the set it not an
+      integrable set. 
+    </p>
+    <p>
+      As I said, this is a formal definition. It won't be necessary to
+      check integrability of the domain each time I do an integral.
+      All reasonably geometric sets will be integrable. But the formal
+      definition of an integrable set is necessary to give the the
+      next formal definition. As with most formal definition in
+      calculus, these are very useful to set the subject on firm
+      logical foundations, but pretty useless for actual calculations.
+      We'll move on to calculations in the next section after we make
+      the proper, formal definitions. Formally, let me now define how
+      to integrate an integrable function over any integrable set.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S</m> be a integrable subset of <m>\RR^n</m> with <m>S
+          \subset I</m> for some interval <m>I</m>. Let <m>f: S
+          \rightarrow \RR</m> be an integrable function which can be
+          extended to an integrable function <m>\tilde{f}</m> on
+          <m>I</m>. Then the integral of <m>f</m> over <m>S</m> is
+          defined as:
+          <me>
+            \int_S f dV = \int_I \tilde{f} \chi_S dV
+          </me>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      The characteristic function removes all values of <m>f</m> outside
+      the set <m>S</m>, so all that the integral measure are the values
+      of <m>f</m> over <m>S</m>. 
+    </p> 
+    <p>
+      I mentioned earlier that all open sets are integrable. I have
+      another simplifying theorem that ensure we only need to integrate
+      over open sets.
+    </p>
+    <proposition>
+      <statement>
+        <p>
+          Let <m>S</m> be an integrable set in <m>\RR^n</m>. Let
+          <m>S^0</m> be the set of interior points of <m>S</m>. Let
+          <m>f: S \rightarrow \RR</m> be an integrable function. Then
+          <me>
+            \int_S f dV = \int_{S^0} f dV
+          </me>
+        </p>
+      </statement>
+    </proposition>
+    <p>
+      This proposition means that we can ignore any inconveniences which
+      happen on the boundaries of sets. (Note that we still do need
+      limits for improper integrals, when the value of a function
+      approaches <m>\infty</m> near the boundary of a set). The
+      proposition also means that sets which are essentially of lower
+      dimensions do not matter in integration. If we are integrating
+      over subsets of <m>\RR^3</m>, then integrating over points, line
+      and planes amounts to nothing. Points, lines, and planes don't
+      have any interior points in <m>\RR^3</m>, so we might as well be
+      integrating over the empty set, which gives zero.
+    </p>
+    <p>
+      Other than ignoring boundaries and smaller dimensional pieces, our
+      approach to general sets is to break them up into pieces. It is a
+      general result in topology, which we won't get into here, that any
+      (reasonable) set can be broken up in to pieces (possibly
+      infinitely many) where the previous style of integral applies. We
+      can also be creative: for example, we could integrate over a
+      larger circle and subtract the integral over a small circle to
+      integrate over a ring-shaped domain. In these various ways we can
+      set up integrals over any (reasonable) subset of <m>\RR^n</m>.
+    </p>
+  </subsection>
+  <subsection xml:id="subsection-arbitrary-sets-calculation">
+    <title>Integration with Variable Bounds</title>
+    <p> 
+      As we pointed out before, the formal definition of an integral
+      over an arbitrary set is almost entirely useless for
+      calculation. For calculation, I will constructure a techinque
+      that doesn't easly apply to all possible integrable sets, but it
+      useful for most sets that will likely show up in the course (and
+      in the reasonable applications of the theory). To motivate this
+      techique, I'll start with an interesting geometric example.
+    </p>
+    <example>
+      <statement>
+        <p>
+          The function <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m>
+          over the interval <m>[-b.b] \times [-b,b]</m> describes a
+          square pyramid with height <m>a</m> and side length
+          <m>2b</m>. What is the volume of such a pyramid? Doing the
+          integral directly is difficult with the various evaluations
+          of the absolute value terms. I could try to simplify by
+          integrating over one quarter of pyramid with the interval
+          <m>[0,b] \times [0,b]</m>, then multiply by 4 to get the
+          entire area.  However, this doesn't solve the problem with
+          the absolute value terms; over this quarter, there are still
+          essentially two pieces of the function. I need to split the
+          domain further into two regions: one where <m>x>y</m> and
+          one where <m>x\lt y</m>. In those regions, I can drop the
+          abosolute value in the function and do a reasonable
+          integral. In the interval <m>[0,b] \times [0,b]</m>, those
+          two regions are triangles, so I need to integrate over
+          triangles. Triangles are not intervals, so I need a new
+          technique. 
+        </p>
+        <p>
+          I can describe the first triangle (where <m>y\lt x</m>) by
+          saying that <m>x \in [0,b]</m>, then, once we've set an
+          <m>x</m> value, <m>y \in [0, x]</m>. In this order, the
+          <m>y</m> variable depends on the <m>x</m> for its bounds.
+          The integral over this triangle is now an interated
+          integral.
+          <me>
+            \int_I f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
+          </me>
+        </p>
+        <p>
+          I could have reversed the order. If I have <m>y \in
+          [0,b]</m> then the condition <m>y\lt x</m> means that <m>x \in
+          [y,b]</m>.
+          <me>
+            \int_I f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
+          </me>
+        </p>
+        <p>
+          Now I will evaluate the square pyramid integral. The function
+          was <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m>. On the
+          triangle in <m>[0,b] \times [0,b]</m> where <m>y\lt x</m>, the
+          absolute values are <m>|x-y| = x-y</m> and <m>|x+y| = x+y</m>,
+          so the function is <m>a - \frac{a(x-y+x+y)}{2b} = a -
+          \frac{2ax}{2b} = a - \frac{ax}{b}</m>.
+          <md>
+            <mrow>
+              \int_T f(x,y) dA \amp = \int_0^b \int_0^x a - \frac{ax}{b}
+              dy dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^b \left. ay - \frac{axy}{b} \right|_0^x dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^b ax - \frac{ax^2}{b} dx
+            </mrow>
+            <mrow>
+              \amp = \left. \frac{ax^2}{2} - \frac{ax^3}{3b} \right|_0^b
+            </mrow>
+            <mrow>
+              \amp = \frac{ab^2}{2} - \frac{ab^3}{3b} = \frac{ab^2}{2} -
+              \frac{ab^2}{3} = \frac{ab^2}{6}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          This measures one eighth of the total pyramid, so the total
+          volume is <m>\frac{4ab^2}{3}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      In the example, instead of having fixed bounds, I let one of the
+      bounds include the other variable. In this way, I could describe
+      the triangle. This is the general technique I will use for
+      describing non-interval domains of integral. 
+    </p>
+    <p>
+      The key point in this is that I can only include a variable in
+      the bounds if integration in that variable happens outside. Once
+      I do a definite integral, the variable disappears entirey. It
+      can't show up again. Therefore, variable bounds only happen on
+      the inside integrals.  If <m>g</m>
+      and <m>h</m> are function, we have two general forms for
+      integration of two-variable scalar fields.
+      <md>
+        <mrow>
+          \amp \int_a^b \int_{g(x)}^{h(x)} f(x,y) dy dx
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g(y)}^{h(y)} f(x,y) dx dy
+        </mrow>
+      </md>
+      If I reverse the first of these two, I get 
+        <mrow>
+          \amp \int_{g(x)}^{h(x)} \int_a^b f(x,y) dx dy
+        </mrow>
+      This makes no sense, since the bounds that involve <m>x</m> are
+      outside the integral in <m>x</m>; outside that integral, the
+      variable <m>x</m> should never appear. 
+    </p>
+    <p>
+      I won't describe the pattern in full generality for all of
+      <m>\RR^n</m>, but let me briefly look at functions of three
+      variables.  Consider boundings function which satisfy <m>g_1
+      \leq h_1</m> and <m>g_2 \leq h_2</m>. Then any of the following
+      six patterns are reasonable, since the bounds include variables
+      which are integrate outside the bounds in question. 
+      <md>
+        <mrow>
+          \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,y)}^{h_2(x,y)}
+          f(x,y,z) dz dy dx
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,z)}^{h_2(x,z)}
+          f(x,y,z) dy dz dx
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(x,y)}^{h_2(x,y)}
+          f(x,y,z) dz dx dy
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(y,z)}^{h_2(y,z)}
+          f(x,y,z) dx dz dy
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(x,z)}^{h_2(x,z)}
+          f(x,y,z) dy dx dz
+        </mrow>
+        <mrow>
+          \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(y,z)}^{h_2(y,z)}
+          f(x,y,z) dx dy dz
+        </mrow>
+      </md>
+    </p>
+  </subsection>
+  <subsection xml:id="subsection-volumes">
+    <title>Volume</title>
+    <p>
+      The volume problem of the pyramid is a nice example, since
+      integrals of two-variable scalar fields are volumes under the
+      graphs in <m>\RR^3</m>. I'm going to do a couple more volume
+      problems using these iterated integrals with variable bounds. 
+    </p>
+    <example>
+      <statement>
+        <p>
+          This technique also allows us to derive the volume of a
+          sphere. We can think of the top half of a sphere as the
+          volume under the graph of <m>f(x,y) = \sqrt{r^2 - x^2 -
+          y^2}</m>. However, it is only the volume over the circle
+          <m>x^2 + y^2 = r^2</m> in the <m>xy</m> plane. It we take the
+          quarter of that circle in the positive quadrant, let <m>D</m>
+          be the region where <m>x \in [0,r]</m> and <m>y \in [0,
+          \sqrt{r^2-x^2}]</m>. One eighth of the sphere is measure by
+          the following iterated integral.
+          <md>
+            <mrow>
+              \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
+              \sqrt{r^2 - x^2 - y^2} dy dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^r \left( \frac{y}{2} \sqrt{r^2 - x^2 - y^2}
+              + \left. \frac{(r^2 - x^2)}{2} \arcsin \left(
+              \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_x^{\sqrt{r^2 -
+              x^2}} \right) dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^r \frac{\sqrt{r^2 - x^2}}{2} \sqrt{ r^2 -
+              x^2 - (r^2 - x^2)} + \frac{(r^2-x^2)}{2} \arcsin \left(
+              \frac{ \sqrt{r^2 - x^2}}{\sqrt{r^2 - x^2}} \right) dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^r \frac{r^2 - x^2}{2} \frac{\pi}{2} dx =
+              \int_0^r \frac{\pi (r^2-x^2)}{4} dx
+            </mrow>
+            <mrow>
+              \amp = \left. \frac{\pi r^2x}{4} - \frac{\pi x^3}{12}
+              \right|_0^r
+            </mrow>
+            <mrow>
+              \amp = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} = \frac{\pi
+              r^3}{6}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          Multiplying by <m>8</m> gives <m>\frac{8\pi r^3}{6} =
+          \frac{4\pi r^3}{3}</m>, which is the familiar expression for
+          the volume of a sphere. Of couse, we could have reversed the
+          order and taken <m>y \in [0,r]</m> and <m>x \in [0, \sqrt{r^2
+          - y^2}]</m> and repeated very similar steps to also get the
+          same answer.
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          We can also calcuate the volume of a cone of height <m>h</m>
+          and radius <m>r</m>. We integrate over the same circle of
+          radius <m>r</m>, but the function is <m>f(x,y) = h -
+          \frac{h}{r} \sqrt{x^2 + y^2}</m>. (This function can be
+          derived by looking at similar triangles in vertical sections
+          of the cone.)
+          <md>
+            <mrow>
+              \int_D f(x,y) dA \amp = 4 \int_0^r \int_0^{\sqrt{r^2 -
+              x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy
+              dx
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The cone integral is quite difficult to do directly; for now,
+          we'll leave it. We will return to this integral when we do
+          change of variables.
+        </p>
+      </statement>
+    </example>
+    <p>
+      The two previous examples found volume of a three-dimension
+      object by integrating a two-variable function. This works
+      because the graph of a two-variable function is an object in
+      <m>\RR^3</m>, and the volume above the domain (in the <m>z=0</m>
+      plane) and below the graph is a normal volume in <m>\RR^3</m>.
+      However, there is another approach, one that is more
+      conceptually interesting for formal mathematics. 
+    </p>
+    <definition>
+      <statement>
+        <p>
+          Let <m>S</m> be a integrable set in <m>\RR^n</m>. Then the
+          size (area, volume, hypervolume) of <m>S</m> is
+          <term>defined</term> to be
+          <me>
+            \int_S 1 dV
+          </me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Note that this is a <em>definition</em>: there have no other way, in
+      general, to understand the size of (integrable) sets in higher
+      dimensions. This definition is the start of another whole branch
+      of mathematics called measure theory. It deals with various ways
+      of measuring sizes of sets in topological spaces.
+    </p>
+    <example>
+      <statement>
+        <p>
+          I want to use this definition of volume to calculate the
+          volume of a sphere or radius <m>r</m> in <m>\RR^3</m>. I ned
+          to describe the sphere (or a portion of it) as a domain in
+          <m>\RR^3</m> and then integrate the constant function
+          <m>f(x,y,z) = 1</m> over that domain. 
+        </p>
+        <p>
+          I will work with an eight of the sphere (and them multiply
+          the result by eight). I'd like to describe the portion of
+          the sphere where all three variables are positive. To
+          describe this shape, I  take <m>x \in [0,r]</m>, <m>y \in
+          [0, \sqrt{r^2-x^2}]</m> and <m>x \in [0, \sqrt{r^2 - x^2 -
+          y^2}]</m>. Then I calculate the volume. 
+          <md>
+            <mrow>
+              V = \int_D 1 dV \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
+              \int_0^{\sqrt{r^2 - x^2 - y^2}} 1 dz dy dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^r \int_0^{\sqrt{r^2 - x^2 - y^2}}
+              \sqrt{1-x^2 - y^2} dy dx
+            </mrow>
+          </md>
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="subsection-variable-bounds-more-examples">
+    <title>More Examples of Integrals with Variable Bounds</title>
+    <example>
+      <statement>
+        <p>
+          Say we wanted to integrate the function <m>f(x,y) = xy</m>
+          over the triangle <m>T</m> with vertices <m>(0,0)</m>,
+          <m>(4,5)</m> and <m>(6,2)</m>. There isn't any one system of
+          iterated integrals that covers this region; therefore we have
+          to treat it as two sections. We divide the triangle into two
+          pieces using the line <m>x=4</m>. On the left, the <m>y</m>
+          coordinate is bounded by the lines <m>y=x/3</m> and
+          <m>y=5x/4</m>. On the right, the <m>y</m> coordinate is
+          bounded by <m>y=x/3</m> and <m>y=-3x/2 + 11</m>. We calculate
+          two integrals.
+          <md>
+            <mrow>
+              \int_0^4 \int_{\frac{x}{3}}^{\frac{5x}{4}} xy dy dx \amp =
+              \int_0^4 \left. \frac{xy^2}{2}
+              \right|_{\frac{x}{3}}^{\frac{5x}{4}} dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^4 \frac{x}{2} \left( \frac{25x^2}{16} -
+              \frac{x^2}{9} \right) dx
+            </mrow>
+            <mrow>
+              \amp = \int_0^4 \frac{25x^3}{32} - \frac{x^3}{18} =
+              \int_0^4 \frac{209}{289} x^3 dx
+            </mrow>
+            <mrow>
+              \amp = \left. \frac{209}{288} \frac{x^4}{4} \right|_0^4 =
+              \frac{1196}{9}
+            </mrow>
+            <mrow>
+              \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} - 11} xy dy dx
+              \amp = \int_4^6 \left. \frac{xy^2}{2}
+              \right|_{\frac{x}{3}}^{\frac{-3x}{2} - 11} dx
+            </mrow>
+            <mrow>
+              \amp = \int_4^6 \frac{x}{2} \left( \frac{-3x}{2} + 11
+              \right)^2 - \frac{x}{2} \frac{x^2}{9} dx
+            </mrow>
+            <mrow>
+              \amp = \int_4^6 \frac{x}{2} \left( \frac{9x^2}{4} - 32 x +
+              121 \right) - \frac{x^3}{18} dx
+            </mrow>
+            <mrow>
+              \amp = \int_4^6 \frac{77x^3}{81} - \frac{33x^2}{2} +
+              \frac{121 x}{2} dx
+            </mrow>
+            <mrow>
+              \amp = \left. \frac{77x^4}{324} - \frac{11x^3}{2} +
+              \frac{121 x^2}{4} \right|_4^6
+            </mrow>
+            <mrow>
+              \amp = \frac{77 \cdot 6^4}{324} - \frac{11 \cdot 6^3}{2} +
+              \frac{121 \cdot 6^2}{4} - \frac{77\cdot 4^4}{324} +
+              \frac{11 4^3}{2} - \frac{121 \cdot 4^2}{4} =
+              \frac{86845}{81}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The total is the sum of the two integrals.
+          <me>
+            \int_T f dA = \frac{1196}{9} + \frac{86845}{81} =
+            \frac{97609}{81}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <figure xml:id="figure-integral-example">
+        <caption>Region of Integration</caption>
+        <image xml:id="figure01" width="80%">
+          <asymptote>
+            size(12cm,12cm);
+            import graph;
+    
+            xlimits(-1,5);
+            ylimits(-1,3);
+    
+            xaxis("$x$");
+            yaxis("$y$");
+    
+            filldraw((0,0)--(1,1){N}..(2,2){E}..(3,1)--(2,1)--(1,0)--cycle,
+            gray);
+  
+            dot("$(1,1)$",(1,1),NW);
+            dot("$(0,0)$",(0,0),NW);
+            dot("$(3,1)$",(3,1),E);
+            dot("$(2,1)$",(2,1),SE);
+            dot("$(1,0)$",(1,0),S);
+          </asymptote>
+        </image>
+      </figure>
+      <statement>
+        <p>
+          Say we want to integrate the function <m>f(x) = x^2 + y^2</m>
+          over the region shown in <xref ref="figure-integral-example"
+          />.
+        </p>
+        <p>
+          We should divide the figure up into three pieces. The first
+          piece is the triangle <m>(0,0)</m>, <m>(1,1)</m>, and
+          <m>(1,0)</m>. The second is the half-circle above <m>y=1</m>.
+          The third is the remaining triangle <m>(1,1)</m>, <m>(2,1)</m>
+          and <m>(1,0)</m>.
+        </p>
+        <p>
+          The first integral is a short calculation.
+          <md>
+            <mrow>
+              \int_0^1 \int_0^x x^2 + y^2 dy dx \amp = \int_0^1 \left.
+              x^2y + \frac{y^3}{3} \right|_0^x
+            </mrow>
+            <mrow>
+              \amp = \int_0^1 \frac{4x^3}{3} = \left. \frac{x^4}{3}
+              \right|_0^1 = \frac{1}{3}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The second integral is more involved.
+          <md>
+            <mrow>
+              \amp \int_1^3 \int_1^{1+\sqrt{1-(x-2)^2}} x^2 + y^2 dy dx
+            </mrow>
+            <mrow>
+              \amp = \int_1^3 \left. x^2y + \frac{y^3}{3}
+              \right|_1^{1+\sqrt{1-(x-2)^2}}
+            </mrow>
+            <mrow>
+              \amp = \int_1^3 x^2 (1 + \sqrt{1-(x-2)^2}) +
+              \frac{(1+\sqrt{1-(x-2)^2})^3}{3} dx
+            </mrow>
+            <mrow>
+              u \amp = x-2
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^1 (u^2 + 4u + 4) (1 + \sqrt{1-u^2}) +
+              \frac{(1 + \sqrt{1-u^2})^3}{3} du
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^1 u^2 + 4u + 4 + u^2 \sqrt{1-u^2} + 4u
+              \sqrt{1-u^2} + 4 \sqrt{1-u^2}
+            </mrow>
+            <mrow>
+              \amp \hspace{1cm} + \frac{1}{3} + \sqrt{1-u^2} + (1-u^2) -
+              \frac{u^2}{3} \sqrt{1-u^3} du
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^1 \frac{16}{3} + 4u + 5 \sqrt{1-u^2} + 4u
+              \sqrt{1-u^2} + u^2 \sqrt{1-u^2} + \frac{1}{3}
+              (1-u^2)^{\frac{3}{2}} du
+            </mrow>
+            <mrow>
+              \amp = \frac{16u}{3} + 2u^2 + \left. 4 (1-u^2)^\frac{3}{2}
+              \frac{-2}{3} \right|_{-1}^1 + 5 \int_{-1}{1} \sqrt{1-u^2}
+              du + \int_{-1}^1 u^2 \sqrt{1-u^2} du + \frac{1}{3}
+              \int_{-1}^1 (1-u^2)^{\frac{3}{2}} du
+            </mrow>
+            <mrow>
+              \amp = \frac{32}{5} + 0 + 0 + \left. \frac{1}{8} 2
+              \sqrt{1-u^2}(2u^2-1) + \arcsin u \right|_{-1}^1 + \left. 5
+              (u \sqrt{1-u^2} + \arcsin u) \right|_{-1}^1
+            </mrow>
+            <mrow>
+              \amp \hspace{1cm} + \left. \frac{1}{3} \frac{1}{8}
+              (u(5-2u^2)\sqrt{1-u^2} + 3 \arcsin u ) \right|_{-1}^1
+            </mrow>
+            <mrow>
+              \amp = \frac{32}{3} + \frac{1}{8} \left( \frac{\pi}{2} -
+              \frac{-\pi}{2} \right) + 5 \left( \frac{\pi}{2} -
+              \frac{-\pi}{2} \right) + \frac{1}{8} \left( \frac{\pi}{2}
+              - \frac{-\pi}{2} \right)
+            </mrow>
+            <mrow>
+              \amp = \frac{32}{3} + \frac{\pi}{8} + 5\pi + \frac{\pi}{8}
+              = \frac{32}{3} + \frac{21\pi}{4}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The third integral is not quite as bad as the second.
+          <md>
+            <mrow>
+              \int_1^2 \int_{x-1}^1 x^2 + y^2 dy dx \amp = \int_1^2
+              \left. x^2 y + \frac{y^3}{3} \right|_{x-1}^1 dx
+            </mrow>
+            <mrow>
+              \amp = \int_1^2 x^2 + \frac{1}{3} - x^2(x-1) - \frac{1}{3}
+              (x-1)^3 dx
+            </mrow>
+            <mrow>
+              \amp = \int_1^2 \frac{2}{3} - x + 3x^2 - \frac{4x^3}{3}
+              dx
+            </mrow>
+            <mrow>
+              \amp = \left. \frac{2x}{3} - \frac{x^2}{2} + x^3 -
+              \frac{x^4}{3} \right|_1^2
+            </mrow>
+            <mrow>
+              \amp = \frac{4}{3} - 2 + 8 - \frac{16}{3} - \frac{2}{3} +
+              \frac{1}{2} - 1 + \frac{1}{3}
+            </mrow>
+            <mrow>
+              \amp = \frac{7}{6}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The total is the sum of the three integrals.
+          <me>
+            \frac{1}{3} + \frac{32}{3} + \frac{21\pi}{4} + \frac{7}{6} =
+            \frac{73}{6} + \frac{21\pi}{4}
+          </me>
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Here is an odd application of multiple integration. We know
+          that <m>e^{-x^2}</m> has no elementary antiderivative.
+          Therefore, the intergal
+          <me>
+            A = \int_{-\infty}^\infty e^{-x^2} dx
+          </me>
+          cannot be evaluated directly. However, this is a very
+          important integral: <m>e^{-x^2}</m> is the normal distribution
+          and, in Statistics, we need to integrate it frequently. We'll
+          use integrals over <m>\RR^2</m>, strangely enough, to
+          calculate this integral by squaring the single variable
+          integral.
+          <md>
+            <mrow>
+              A \amp = 2 \int_{0}^\infty e^{-x^2} dx
+            </mrow>
+            <mrow>
+              A^2 \amp = \left( 2 \int_{0}^\infty e^{-x^2} dx \right)
+              \left(2 \int_{0}^\infty e^{-y^2} dy \right)
+            </mrow>
+          </md>
+        </p>
+        <p>
+          The second integral uses a new variables since variables of
+          integration only matter inside the integral. Then we can
+          combine the two integrals.
+          <md>
+            <mrow>
+              A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2}
+              dx dy
+            </mrow>
+            <mrow>
+              \amp = 4 \int_0^\infty \int_0^\infty e^{-(x^2 + y^2)} dx
+              dy
+            </mrow>
+          </md>
+        </p>
+        <p>
+          Now we are going to do a substitution in the <m>y</m>
+          variable. Treating the <m>x</m> variable as a constnat, we
+          replace <m>y</m> with <m>y = xs</m> so that <m>dy = x ds</m>.
+          If <m>y=0</m> then <m>s=0</m> and as <m>y \rightarrow
+          \infty</m>, <m>s \rightarrow \infty</m>, so the bound for
+          <m>s</m> remain the same as the bounds for <m>y</m>.
+          Remember, <m>x</m> is a constant through this whole
+          substitution.
+          <md>
+            <mrow>
+              A^2 \amp = 4 \int_0^\infty \int_0^\infty -e^{-x^2 (1+s^2)}
+              x dx ds
+            </mrow>
+            <mrow>
+              \amp = 4 \int_0^\infty \left. \frac{-1}{2(1+s^2)}
+              e^{-x^2(1+s^2)} \right|_0^\infty ds
+            </mrow>
+            <mrow>
+              \amp = 2 \int_0^\infty \frac{1}{1+s^2} ds
+            </mrow>
+            <mrow>
+              \amp = \lim_{a \rightarrow \infty} 2 \arctan a - \arctan 0
+              = \frac{2\pi}{2} = \pi
+            </mrow>
+            <mrow>
+              A \amp = \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
+            </mrow>
+          </md>
+        </p>
+        <p>
+          We recover the area under the bell curve: <m>\sqrt{\pi}</m>.
+          It's a very strange result. However, if you taken any
+          statistics and worked on normal distributions, likely you will
+          recall the presence of these strange <m>\sqrt{\pi}</m> terms.
+          Now we know they are present to normalize the area (since we
+          want a probability function to have area one under its
+          graph).
+        </p>
+      </statement>
+    </example>
+  </subsection>
 </section>
