@@ -6,7 +6,76 @@
   <p><ol>
     <li>
       <p>
-        Question
+        Evaluate the following integrals. You don't need to show all
+        the steps of the individual single integrals, but make sure
+        the steps to setup and work through the iterated integral are
+        clealry shown and explained. (12) 
+      </p>
+      <ol>
+        <li><me>
+          \int_{[0,1] \times [0,1]} (x^3 + y^3 - (xy)^2) dA 
+        </me></li>
+        <li><me>
+          \int_{[0,3] \times [0,2]} \frac{xy^2}{x^2+4} dA 
+        </me></li>
+        <li><me>
+          \int_{[0,1] \times [0,\pi]} x \sec^2 (xy) dA 
+        </me></li>
+      </ol>
+    </li>
+    <li>
+      <p>
+        Evaluate the following integrals. You may need to switch the
+        order of integration. Describe the region of integration
+        (either in words or by drawing). As before, show all the setup
+        work but you don't need to show all the steps of the single
+        variable integration. (16) 
+      </p>
+      <ol>
+        <li><me>
+          \int_0^2 \int_0^{4-y^2} \frac{2}{\sqrt{4-y^2}} dx dy 
+        </me></li>
+        <li><me>
+          \int_0^1 \int_0^{1-y^2} (x+y) dx dy 
+        </me></li>
+        <li><me>
+          \int_0^1 \int_y^1 \sin (\pi x^2) dx xy 
+        </me></li>
+        <li><me>
+          \int_0^2 \int_{y^2}^4 \sqrt{x} \sin (\pi x) dx dy   
+        </me></li>
+      </ol>
+    </li>
+    <li>
+      <p>
+        Find the areas between each set of two loci. (8) 
+      </p>
+      <ol>
+        <li><me>
+          y = -x^2 \text{ and } 3x + y = 2 
+        </me></li>
+        <li><me>
+          xy = 3 \text{ and } x^2 + y^2 = 10 
+        </me></li>
+      </ol>
+    </li>
+    <li>
+      <p>
+        Find the volume of the tetrahedron with vertices
+        <m>(0,0,0</m>, <m>(0,0,3)</m>, <m>(0,2,0</m> and
+        <m>(0,0,1</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>f</m> and <m>g</m> be two piecewise continuous
+        functions defined on <m>I = [0,1] \times [0,1]</m>. Assume
+        that <m>f = g</m> everywhere except on the line <m>x=y</m>.
+        Using the Riemann definition of the integral, argue that the
+        following equality must be true. (4) 
+        <me>
+          \int_I f dA = \int_I g dA
+        </me>
       </p>
     </li>
   </ol></p>
