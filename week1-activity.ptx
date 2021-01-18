@@ -112,11 +112,11 @@
           </mrow>
           <mrow>
             \amp = 64 \ln (16) - 4 \ln 4 - \int_1^4 4y dy - 1 \ln 4 + 0 +
-            \int_1^4 \frac{y}{4} dy - \frac{255}{8}
+            \int_1^4 \frac{y}{4} dy - \frac{225}{8}
           </mrow>
           <mrow>
             \amp = 128 \ln 4 - 4 \ln 4 - 2(15) - \ln 4 + \frac{15}{8}
-            - \frac{255}{8} = 125 \ln 4 - 60
+            - \frac{225}{8} = 123 \ln 4 - \frac{15}{4}
           </mrow>
         </md>
       </solution>

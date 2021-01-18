@@ -39,7 +39,7 @@
           \int_0^1 \int_0^{1-y^2} (x+y) dx dy 
         </me></li>
         <li><me>
-          \int_0^1 \int_y^1 \sin (\pi x^2) dx xy 
+          \int_0^1 \int_y^1 \sin (\pi x^2) dx dy 
         </me></li>
         <li><me>
           \int_0^2 \int_{y^2}^4 \sqrt{x} \sin (\pi x) dx dy   
@@ -62,8 +62,8 @@
     <li>
       <p>
         Find the volume of the tetrahedron with vertices
-        <m>(0,0,0</m>, <m>(0,0,3)</m>, <m>(0,2,0</m> and
-        <m>(0,0,1</m>. (6) 
+        <m>(0,0,0)</m>, <m>(0,0,3)</m>, <m>(0,2,0)</m> and
+        <m>(1,0,0)</m>. (6) 
       </p>
     </li>
     <li>

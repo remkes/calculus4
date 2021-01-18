@@ -14,6 +14,71 @@
     </p>
     <example>
       <statement>
+        <figure xml:id="figure-triangle-variable-bounds">
+          <image xml:id="figure09" width="90%">
+            <asymptote>
+              size(10cm);
+              import graph;
+              
+              xaxis("$x$");
+              yaxis("$y$");
+
+              draw((0,0)--(2,2)--(2,0)--(0,0));
+              label("$y=x$",(1.5,1.5),NW); 
+
+              dot((2,2));
+              label("$(b,b)$",(2,2),N);
+
+              draw((3,0)--(5,2)--(5,0)--(3,0));
+              draw((3.1,0.1)--(5,0.1));
+              draw((3.2,0.2)--(5,0.2));
+              draw((3.3,0.3)--(5,0.3));
+              draw((3.4,0.4)--(5,0.4));
+              draw((3.5,0.5)--(5,0.5));
+              draw((3.6,0.6)--(5,0.6));
+              draw((3.7,0.7)--(5,0.7));
+              draw((3.8,0.8)--(5,0.8));
+              draw((3.9,0.9)--(5,0.9));
+              draw((4.0,1.0)--(5,1.0));
+              draw((4.1,1.1)--(5,1.1));
+              draw((4.2,1.2)--(5,1.2));
+              draw((4.3,1.3)--(5,1.3));
+              draw((4.4,1.4)--(5,1.4));
+              draw((4.5,1.5)--(5,1.5));
+              draw((4.6,1.6)--(5,1.6));
+              draw((4.7,1.7)--(5,1.7));
+              draw((4.8,1.8)--(5,1.8));
+              draw((4.9,1.9)--(5,1.9));
+
+              label("$x \in [0,y]$",(4,0),S);
+              label("$y \in [0,b]$",(5,1),E);
+
+              draw((8,0)--(10,2)--(10,0)--(8,0));
+              draw((8.1,0)--(8.1,0.1));
+              draw((8.2,0)--(8.2,0.2));
+              draw((8.3,0)--(8.3,0.3));
+              draw((8.4,0)--(8.4,0.4));
+              draw((8.5,0)--(8.5,0.5));
+              draw((8.6,0)--(8.6,0.6));
+              draw((8.7,0)--(8.7,0.7));
+              draw((8.8,0)--(8.8,0.8));
+              draw((8.9,0)--(8.9,0.9));
+              draw((9.0,0)--(9.0,1.0));
+              draw((9.1,0)--(9.1,1.1));
+              draw((9.2,0)--(9.2,1.2));
+              draw((9.3,0)--(9.3,1.3));
+              draw((9.4,0)--(9.4,1.4));
+              draw((9.5,0)--(9.5,1.5));
+              draw((9.6,0)--(9.6,1.6));
+              draw((9.7,0)--(9.7,1.7));
+              draw((9.8,0)--(9.8,1.8));
+              draw((9.9,0)--(9.9,1.9));
+
+              label("$y \in [x,b]$",(10,1),E);
+              label("$x \in [0,b]$",(9,0),S);
+            </asymptote>
+          </image>
+        </figure>
         <p>
           The function <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m>
           over the interval <m>[-b.b] \times [-b,b]</m> describes a
@@ -23,7 +88,7 @@
           of the absolute value terms. I could try to simplify by
           integrating over one quarter of pyramid with the interval
           <m>[0,b] \times [0,b]</m>, then multiply by 4 to get the
-          entire area.  However, this doesn't solve the problem with
+          entire area. However, this doesn't solve the problem with
           the absolute value terms; over this quarter, there are still
           essentially two pieces of the function. I need to split the
           domain further into two regions: one where <m>x>y</m> and
@@ -37,20 +102,24 @@
         <p>
           I can describe the first triangle (where <m>y\lt x</m>) by
           saying that <m>x \in [0,b]</m>, then, once we've set an
-          <m>x</m> value, <m>y \in [0, x]</m>. In this order, the
-          <m>y</m> variable depends on the <m>x</m> for its bounds.
-          The integral over this triangle is now an interated
-          integral.
+          <m>x</m> value, <m>y \in [0, x]</m>. This is indicated in
+          the triangle with vertical lines in <xref
+          ref="figure-triangle-variable-bounds" />, showing that for
+          each set <m>x</m> value, the <m>y</m> value has a bound
+          based on the matching <m>x</m> coordinate. I can use this
+          variable bound in an iterate integral. 
+          Let <m>T</m> represent the triangle.
           <me>
-            \int_I f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
+            \int_T f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
           </me>
         </p>
         <p>
           I could have reversed the order. If I have <m>y \in
           [0,b]</m> then the condition <m>y\lt x</m> means that <m>x \in
-          [y,b]</m>.
+          [y,b]</m>. This is indicated by the triangle with horizontal
+          lines in <xref ref="figure-triangle-variable-bounds" />.
           <me>
-            \int_I f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
+            \int_T f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
           </me>
         </p>
         <p>
@@ -98,20 +167,24 @@
       I do a definite integral, the variable disappears entirey. It
       can't show up again. Therefore, variable bounds only happen on
       the inside integrals.  If <m>g</m>
-      and <m>h</m> are function, we have two general forms for
+      and <m>h</m> are function, I have two general forms for
       integration of two-variable scalar fields.
-      <md>
-        <mrow>
-          \amp \int_a^b \int_{g(x)}^{h(x)} f(x,y) dy dx
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g(y)}^{h(y)} f(x,y) dx dy
-        </mrow>
-      </md>
+    </p>
+    <md>
+      <mrow>
+        \amp \int_a^b \int_{g(x)}^{h(x)} f(x,y) dy dx
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g(y)}^{h(y)} f(x,y) dx dy
+      </mrow>
+    </md>
+    <p>
       If I reverse the first of these two, I get 
-        <mrow>
-          \amp \int_{g(x)}^{h(x)} \int_a^b f(x,y) dx dy
-        </mrow>
+    </p>
+    <me>
+        \int_{g(x)}^{h(x)} \int_a^b f(x,y) dx dy
+    </me>
+    <p>
       This makes no sense, since the bounds that involve <m>x</m> are
       outside the integral in <m>x</m>; outside that integral, the
       variable <m>x</m> should never appear. 
@@ -162,11 +235,11 @@
     <example>
       <statement>
         <p>
-          This technique also allows us to derive the volume of a
-          sphere. We can think of the top half of a sphere as the
+          This technique also allows me to derive the volume of a
+          sphere. I can think of the top half of a sphere as the
           volume under the graph of <m>f(x,y) = \sqrt{r^2 - x^2 -
           y^2}</m>. However, it is only the volume over the circle
-          <m>x^2 + y^2 = r^2</m> in the <m>xy</m> plane. It we take the
+          <m>x^2 + y^2 = r^2</m> in the <m>xy</m> plane. If I take the
           quarter of that circle in the positive quadrant, let <m>D</m>
           be the region where <m>x \in [0,r]</m> and <m>y \in [0,
           \sqrt{r^2-x^2}]</m>. One eighth of the sphere is measure by
@@ -179,7 +252,7 @@
             <mrow>
               \amp = \int_0^r \left( \frac{y}{2} \sqrt{r^2 - x^2 - y^2}
               + \left. \frac{(r^2 - x^2)}{2} \arcsin \left(
-              \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_x^{\sqrt{r^2 -
+              \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_0^{\sqrt{r^2 -
               x^2}} \right) dx
             </mrow>
             <mrow>
@@ -193,18 +266,15 @@
             </mrow>
             <mrow>
               \amp = \left. \frac{\pi r^2x}{4} - \frac{\pi x^3}{12}
-              \right|_0^r
-            </mrow>
-            <mrow>
-              \amp = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} = \frac{\pi
-              r^3}{6}
+              \right|_0^r = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} =
+              \frac{\pi r^3}{6}
             </mrow>
           </md>
         </p>
         <p>
           Multiplying by <m>8</m> gives <m>\frac{8\pi r^3}{6} =
           \frac{4\pi r^3}{3}</m>, which is the familiar expression for
-          the volume of a sphere. Of couse, we could have reversed the
+          the volume of a sphere. Of couse, I could have reversed the
           order and taken <m>y \in [0,r]</m> and <m>x \in [0, \sqrt{r^2
           - y^2}]</m> and repeated very similar steps to also get the
           same answer.
@@ -214,15 +284,17 @@
     <example>
       <statement>
         <p>
-          We can also calcuate the volume of a cone of height <m>h</m>
-          and radius <m>r</m>. We integrate over the same circle of
+          I can also calcuate the volume of a cone of height <m>h</m>
+          and radius <m>r</m>. I integrate over the same circle of
           radius <m>r</m>, but the function is <m>f(x,y) = h -
           \frac{h}{r} \sqrt{x^2 + y^2}</m>. (This function can be
           derived by looking at similar triangles in vertical sections
-          of the cone.)
+          of the cone.) The region <m>D</m> is one quarter of the
+          cirlce, so this integral will give me one quarter of the
+          volume of the cone. 
           <md>
             <mrow>
-              \int_D f(x,y) dA \amp = 4 \int_0^r \int_0^{\sqrt{r^2 -
+              \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2 -
               x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy
               dx
             </mrow>
@@ -230,7 +302,7 @@
         </p>
         <p>
           The cone integral is quite difficult to do directly; for now,
-          we'll leave it. We will return to this integral when we do
+          we'll leave it. I will return to this integral when I do
           change of variables.
         </p>
       </statement>
@@ -297,17 +369,51 @@
     <title>More Examples of Integrals with Variable Bounds</title>
     <example>
       <statement>
+        <figure xml:id="figure-variable-bounds1">>
+          <caption>
+            The triangle with vertices <m>(0,0)</m>, <m>(4,5)</m> and
+            <m>(6,2)</m>
+          </caption>
+          <image xml:id="figure08" width="80%">
+            <asymptote>
+              size(10cm);
+              import graph;
+
+              xaxis("$x$");
+              yaxis("$y$");
+
+              draw((0,0)--(4,5)--(6,2)--(0,0));
+              
+              dot((0,0));
+              dot((4,5));
+              dot((6,2));
+
+              label("$(0,0)$",(0,0),NW);
+              label("$(4,5)$",(4,5),NW);
+              label("$(6,2)$",(6,2),SE);
+
+              draw((4,1.33)--(4,5));
+
+              label("$y = \frac{x}{3}$",(3,1),SE);
+              label("$y = \frac{5x}{4}$",(2,2.5),NW);
+              label("$y = \frac{-3x}{2} + 11$",(5,3.5),NE);
+            </asymptote>
+          </image>
+        </figure>
         <p>
-          Say we wanted to integrate the function <m>f(x,y) = xy</m>
+          Say I wanted to integrate the function <m>f(x,y) = xy</m>
           over the triangle <m>T</m> with vertices <m>(0,0)</m>,
           <m>(4,5)</m> and <m>(6,2)</m>. There isn't any one system of
-          iterated integrals that covers this region; therefore we have
-          to treat it as two sections. We divide the triangle into two
+          iterated integrals that covers this region; therefore I have
+          to treat it as two sections. I divide the triangle into two
           pieces using the line <m>x=4</m>. On the left, the <m>y</m>
-          coordinate is bounded by the lines <m>y=x/3</m> and
-          <m>y=5x/4</m>. On the right, the <m>y</m> coordinate is
-          bounded by <m>y=x/3</m> and <m>y=-3x/2 + 11</m>. We calculate
-          two integrals.
+          coordinate is bounded by the lines <m>y=\frac{x}{3}</m> and
+          <m>y=\frac{5x}{4}</m>. On the right, the <m>y</m> coordinate is
+          bounded by <m>y=\frac{x}{3}</m> and <m>y=-\frac{3x}{2} +
+          11</m>. This division of the triangle and the bounding
+          lines, above and below each piece, is shown in <xref
+          ref="figure-variable-bounds1" />. I calculate two integrals
+          using these variables bounds for <m>y</m>.
           <md>
             <mrow>
               \int_0^4 \int_{\frac{x}{3}}^{\frac{5x}{4}} xy dy dx \amp =
@@ -327,9 +433,9 @@
               \frac{1196}{9}
             </mrow>
             <mrow>
-              \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} - 11} xy dy dx
+              \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} + 11} xy dy dx
               \amp = \int_4^6 \left. \frac{xy^2}{2}
-              \right|_{\frac{x}{3}}^{\frac{-3x}{2} - 11} dx
+              \right|_{\frac{x}{3}}^{\frac{-3x}{2} + 11} dx
             </mrow>
             <mrow>
               \amp = \int_4^6 \frac{x}{2} \left( \frac{-3x}{2} + 11
@@ -349,7 +455,10 @@
             </mrow>
             <mrow>
               \amp = \frac{77 \cdot 6^4}{324} - \frac{11 \cdot 6^3}{2} +
-              \frac{121 \cdot 6^2}{4} - \frac{77\cdot 4^4}{324} +
+              \frac{121 \cdot 6^2}{4} 
+            </mrow>
+            <mrow>
+              \amp - \frac{77\cdot 4^4}{324} +
               \frac{11 4^3}{2} - \frac{121 \cdot 4^2}{4} 
             </mrow>
             <mrow>
@@ -367,38 +476,38 @@
       </statement>
     </example>
     <example>
-      <figure xml:id="figure-integral-example">
-        <caption>Region of Integration</caption>
-        <image xml:id="figure01" width="80%">
-          <asymptote>
-            size(12cm,12cm);
-            import graph;
-    
-            xlimits(-1,5);
-            ylimits(-1,3);
-    
-            xaxis("$x$");
-            yaxis("$y$");
-    
-            filldraw((0,0)--(1,1){N}..(2,2){E}..(3,1)--(2,1)--(1,0)--cycle,
-            gray);
-  
-            dot("$(1,1)$",(1,1),NW);
-            dot("$(0,0)$",(0,0),NW);
-            dot("$(3,1)$",(3,1),E);
-            dot("$(2,1)$",(2,1),SE);
-            dot("$(1,0)$",(1,0),S);
-          </asymptote>
-        </image>
-      </figure>
       <statement>
+        <figure xml:id="figure-variable-bounds2">
+          <caption>Region of Integration</caption>
+          <image xml:id="figure01" width="80%">
+            <asymptote>
+              size(12cm,12cm);
+              import graph;
+      
+              xlimits(-1,5);
+              ylimits(-1,3);
+      
+              xaxis("$x$");
+              yaxis("$y$");
+      
+              filldraw((0,0)--(1,1){N}..(2,2){E}..(3,1)--
+                (2,1)--(1,0)--cycle, gray);
+  
+              dot("$(1,1)$",(1,1),NW);
+              dot("$(0,0)$",(0,0),NW);
+              dot("$(3,1)$",(3,1),E);
+              dot("$(2,1)$",(2,1),SE);
+              dot("$(1,0)$",(1,0),S);
+            </asymptote>
+          </image>
+        </figure>
         <p>
-          Say we want to integrate the function <m>f(x) = x^2 + y^2</m>
-          over the region shown in <xref ref="figure-integral-example"
+          Say I want to integrate the function <m>f(x) = x^2 + y^2</m>
+          over the region shown in <xref ref="figure-variable-bounds2"
           />.
         </p>
         <p>
-          We should divide the figure up into three pieces. The first
+          I should divide the figure up into three pieces. The first
           piece is the triangle <m>(0,0)</m>, <m>(1,1)</m>, and
           <m>(1,0)</m>. The second is the half-circle above <m>y=1</m>.
           The third is the remaining triangle <m>(1,1)</m>, <m>(2,1)</m>
@@ -524,7 +633,7 @@
     <example>
       <statement>
         <p>
-          Here is an odd application of multiple integration. We know
+          Here is an odd application of multiple integration. I know
           that <m>e^{-x^2}</m> has no elementary antiderivative.
           Therefore, the intergal
           <me>
@@ -532,7 +641,7 @@
           </me>
           cannot be evaluated directly. However, this is a very
           important integral: <m>e^{-x^2}</m> is the normal distribution
-          and, in Statistics, we need to integrate it frequently. We'll
+          and, in Statistics, I need to integrate it frequently. I'll
           use integrals over <m>\RR^2</m>, strangely enough, to
           calculate this integral by squaring the single variable
           integral.
@@ -548,7 +657,7 @@
         </p>
         <p>
           The second integral uses a new variables since variables of
-          integration only matter inside the integral. Then we can
+          integration only matter inside the integral. Then I can
           combine the two integrals.
           <md>
             <mrow>
@@ -562,17 +671,20 @@
           </md>
         </p>
         <p>
-          Now we are going to do a substitution in the <m>y</m>
-          variable. Treating the <m>x</m> variable as a constnat, we
+          Now I am going to do a substitution in the <m>y</m>
+          variable. Treating the <m>x</m> variable as a constant, I
           replace <m>y</m> with <m>y = xs</m> so that <m>dy = x ds</m>.
           If <m>y=0</m> then <m>s=0</m> and as <m>y \rightarrow
-          \infty</m>, <m>s \rightarrow \infty</m>, so the bound for
+          \infty</m>, <m>s \rightarrow \infty</m>, so the bounds for
           <m>s</m> remain the same as the bounds for <m>y</m>.
           Remember, <m>x</m> is a constant through this whole
-          substitution.
+          substitution. (Using Fubini's Theorem, I could think of
+          <m>y</m> as the inside integral for this substitution, and
+          then switch back to thinking of <m>x</m> as the inside
+          integral after the substitution.)
           <md>
             <mrow>
-              A^2 \amp = 4 \int_0^\infty \int_0^\infty -e^{-x^2 (1+s^2)}
+              A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2 (1+s^2)}
               x dx ds
             </mrow>
             <mrow>
@@ -592,11 +704,11 @@
           </md>
         </p>
         <p>
-          We recover the area under the bell curve: <m>\sqrt{\pi}</m>.
+          I recover the area under the bell curve: <m>\sqrt{\pi}</m>.
           It's a very strange result. However, if you taken any
           statistics and worked on normal distributions, likely you will
           recall the presence of these strange <m>\sqrt{\pi}</m> terms.
-          Now we know they are present to normalize the area (since we
+          Now I know they are present to normalize the area (since we
           want a probability function to have area one under its
           graph).
         </p>

@@ -102,7 +102,7 @@
           <m>I</m>. Then the integral of <m>f</m> over <m>S</m> is
           defined as:
           <me>
-            \int_S f dV = \int_I \tilde{f} \chi_S dV
+            \int_S f dV \defeq \int_I \tilde{f} \chi_S dV
           </me>
         </p>
       </statement>
