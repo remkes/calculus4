@@ -232,7 +232,7 @@
       graphs in <m>\RR^3</m>. I'm going to do a couple more volume
       problems using these iterated integrals with variable bounds. 
     </p>
-    <example>
+    <example xml:id="example-sphere-volume">
       <statement>
         <p>
           This technique also allows me to derive the volume of a
@@ -281,7 +281,7 @@
         </p>
       </statement>
     </example>
-    <example>
+    <example xml:id="example-cone-volume">
       <statement>
         <p>
           I can also calcuate the volume of a cone of height <m>h</m>
@@ -630,7 +630,7 @@
         </p>
       </statement>
     </example>
-    <example>
+    <example xml:id="example-area-bell-curve">
       <statement>
         <p>
           Here is an odd application of multiple integration. I know

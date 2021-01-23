@@ -394,7 +394,7 @@
       to mention that a particular class of integrable functions have
       a very nice integration property. 
     </p>
-    <definition>
+    <definition xml:id="definition-separable-integral">
       <statement>
         <p>
           If an integrable function on <m>I = [a,b] \times
