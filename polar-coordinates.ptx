@@ -179,7 +179,7 @@
       and an angle has no natural unit.). Therefore, the differential
       <m>dr d\theta</m> has units only of distance. This doesn't make
       sense for integration, since this should be an infinitesimal
-      area. The term with the Jacobian determinant is <m>r dt
+      area. The term with the Jacobian determinant is <m>r dr
       d\theta</m>; the additional <m>r</m> gives this units of area. 
     </p>
   </subsection>
@@ -297,7 +297,7 @@
           Consider the function <m>f(x,y) = x + y</m> on the arc in the
           first quadrant between radii <m>2</m> and <m>4</m>. I set up
           the integral over the arc with <m>r \in [2,4]</m> and
-          <m>\theta in \left[ 0, \frac{\pi}{2} \right]</m>. Then I
+          <m>\theta \in \left[ 0, \frac{\pi}{2} \right]</m>. Then I
           proceed to setup an calculate the iterated integral. Note
           that I must remember to include the Jacobian <m>r</m> in <m>r
           dr d \theta</m> in the setup of the integral. 
@@ -369,9 +369,8 @@
           ref="example-sphere-volume" />. 
         </p>
         <me>
-          8 \int_0^{R} \int_0^{R^2 - x^2} \sqrt{R^2 - x^2 - y^2} dy
-          dx
-        </me>
+          8 \int_0^{R} \int_0^{\sqrt{R^2 - x^2}} \sqrt{R^2 - x^2 -
+          y^2} dy dx </me>
         <p>
           This was a trickly integral. However, if I change to polar
           coordinates and integrate over the whole circle instead of
@@ -386,7 +385,7 @@
         </p>
         <md>
           <mrow>
-            A \amp = 2 \int_0^{2\pi} \int_0^R \sqrt{R^2 - r^2} r dr
+            \amp = 2 \int_0^{2\pi} \int_0^R \sqrt{R^2 - r^2} r dr
             d\theta
           </mrow>
           <mrow>
@@ -414,7 +413,7 @@
           substitution which would have been required. 
         </p>
         <me>
-          \int_D f(x,y) dA = 4 \int_0^r \int_0^{\sqrt{r^2 - x^2}}
+          \int_D f(x,y) dA = 4 \int_0^R \int_0^{\sqrt{R^2 - x^2}}
           \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy dx
         </me>
         <p>
@@ -424,7 +423,7 @@
         </p>
         <md>
           <mrow>
-            A \amp = \int_0^{2\pi} \int_0^R \left( h - \frac{hr}{R}
+            \amp = \int_0^{2\pi} \int_0^R \left( h - \frac{hr}{R}
             \right) r dr d\theta
           </mrow>
           <mrow>
@@ -568,7 +567,7 @@
         <md>
           <mrow>
             \int_D f(x,y) dA \amp = \int_{-\pi/2}^{\pi/2}
-            \int_0^{2\cos \theta} \frac{1}{r^2} r dr d\theta
+            \int_0^{2\cos \theta} r^2 r dr d\theta
           </mrow>
           <mrow>
             \amp = \int_{-\pi/2}^{\pi/2} \left. \frac{r^4}{4}
