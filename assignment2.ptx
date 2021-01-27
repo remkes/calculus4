@@ -3,11 +3,98 @@
 -->
 <section xml:id="section-assignment2">
   <title>Assignment 2</title>
-  <p><ol>
+  <ol>
     <li>
       <p>
-        Question
+        Let <m>D</m> be all of <m>\RR^2</m> excluding the unit disc.
+        Integrate the function <m>f(x,y) = \frac{1}{(x^2+y^2)^4}</m> over
+        thie region. (4) 
       </p>
     </li>
-  </ol></p>
+    <li>
+      <p>
+        Consider a cylinder in <m>\RR^3</m>, centred around the
+        <m>z</m> axis with height <m>z \in [0,5]</m> and radius
+        <m>3</m>. Let <m>D</m> be exactly half of this cylinder where
+        the <m>y</m> coordinate is positive. Integrate the function
+        <m>f(x,y,z) = \sqrt{x^2 + y^2}</m> over this region. (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>D</m> be the region in <m>\RR^3</m> above the <m>xy</m>
+        plane and below the parabaloid <m>z = 1 - x^2 - y^2</m>.
+        Integrate the function <m>f(x,y,z) = x^4 - y^4</m> over this
+        region. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the volume of the portion of the solid sphere <m>x^2 +
+        y^2 + z^2 = 16</m> which remains after removing the cylinder
+        <m>x^2 + y^2 = 4</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the volume of the portion of the ellipsoid <m>4x^2 + 4y^2
+        + z^2 = 64</m> which is below the plane <m>z=4</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Find a transformation of <m>\RR^2</m> that tranforms parabolae
+        through <m>(0,0)</m> into straight lines. What is the Jacobian
+        of the transformation? (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        The cylindrical coordinates changes cylinders in <m>\RR^3</m>
+        into equations of the form <m>r =</m> constant. Devise a
+        coordinate system which changes cones with flare angle
+        <m>\frac{\pi}{4}</m> into equations <m>r =</m> constant. It is
+        fine if you coordinate system only applies to the half of
+        <m>\RR^3</m> where <m>z \geq 0</m>. Calculate the Jacobian of
+        your transformation. (The flare angle of a cone is the angle
+        between the slope of the cone and the vertical axis of the
+        cone.) (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the mass of the lamina with elliptical shape
+        <m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m> and density
+        <m>\rho(x,y) = \frac{1}{1 + b^2 x^2 + a^2 y^2}</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the mass of the cone with height <m>10</m>, radius
+        <m>5</m> and density <m>\rho = \frac{1}{h+1}</m> where <m>h</m>
+        is the height above the base of the cone. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate he mass of the sphere of radisu <m>6</m> with
+        density <m>\rho(x,y,z) = x^2 + y^2 + z^2</m>. (4) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the moments of intertia around the three axes for the
+        uniformly dense solid surface of revolution formed by rotation
+        <m>y(z) = \cos z</m> on <m>\left[ \frac{-\pi}{2},
+        \frac{\pi}{2} \right]</m> about the <m>z</m> axis. (8) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the centre of mass of a uniformly dense truncated sphere
+        of radius <m>7</m> where the part of the sphere above the
+        plane <m>z = 3</m> has been removed. (8)
+      </p>
+    </li>
+  </ol>
 </section>
