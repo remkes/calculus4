@@ -23,11 +23,13 @@
           lying over <m>U</m> (thought of as a subset of the copy of
           <m>\RR^n</m> which is the <m>x_{n+1} = 0</m> hyperplane.
           Then the integral
-          <md>
-            <mrow>
-              \int_U f dV \amp \amp \amp \int_U f(x,y) dA 
-            </mrow>
-          </md>
+        </p>
+        <md>
+          <mrow>
+            \int_U f dV \amp \amp \amp \int_U f(x,y) dA 
+          </mrow>
+        </md>
+        <p>
           is the volume or hypervolume under the graph of <m>f</m> in
           <m>\RR^{n+1}</m> (if such a volume or hypervolume can be
           defined). Like the single variable integral, (hyper)volume
@@ -82,10 +84,10 @@
         <p>
           An closed interval <m>I</m> in <m>\RR^n</m> is the (geometric)
           product of single-variable closed intervals.
-          <me>
-            I = [a_1,b_1] \times [a_2,b_2] \times \ldots \times [a_n,b_n]
-          </me>
         </p>
+        <me>
+          I = [a_1,b_1] \times [a_2,b_2] \times \ldots \times [a_n,b_n]
+        </me>
         <p>
           This (geometric) product is defined to be the subset of
           <m>\RR^n</m> consisting of all <m>(x_1, x_2, \ldots, x_n)</m>
@@ -119,10 +121,12 @@
           <m>[a,b]</m> is the following limit (if it exists), where in
           the sum the interval is divided into <m>n</m> equal pieces and
           <m>x_k^*</m> is any point in the <m>k</m>th subinterval.
-          <me>
-            \int_a^b f(x) dx = \lim_{n \rightarrow 0} \sum_{k=1}^n
-            f(x_k^*) \frac{b-a}{n} 
-          </me>
+        </p>
+        <me>
+          \int_a^b f(x) dx = \lim_{n \rightarrow 0} \sum_{k=1}^n
+          f(x_k^*) \frac{b-a}{n} 
+        </me>
+        <p>
           If the limit exists, the function is called
           <term>integrable</term>. 
         </p>
@@ -164,10 +168,12 @@
           subdivision of the interval and <m>x_l^*</m> is any point in
           the <m>l</m>th subinterval, and <m>\Delta V</m> is the
           (hyper)volume of the subinterval.
-          <me>
-            \int_{I} f(x_1, x_2, \ldots, x_n) dV = \lim_{k \rightarrow
-            \infty} \sum_{l=0}^{k^n} f(x_l^*) \Delta V
-          </me>
+        </p>
+        <me>
+          \int_{I} f(x_1, x_2, \ldots, x_n) dV = \lim_{k \rightarrow
+          \infty} \sum_{l=0}^{k^n} f(x_l^*) \Delta V
+        </me>
+        <p>
           If the limit exists, the function <m>f</m> is called 
           <term>(Riemann) integrable</term> on the interval <m>I</m>.
         </p>
@@ -264,31 +270,31 @@
           \rightarrow \RR</m> and <m>g: I \rightarrow \RR</m> integrable
           functions on I, and <m>c \in \RR</m>. First, the integral is
           linear.
-          <md>
-            <mrow>
-              \int_I c f dV \amp = c \int_I f dV
-            </mrow>
-            <mrow>
-              \int_I (f \pm g) dV \amp = \int_I f dV \pm \int_I g
-              dV
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_I c f dV \amp = c \int_I f dV
+          </mrow>
+          <mrow>
+            \int_I (f \pm g) dV \amp = \int_I f dV \pm \int_I g
+            dV
+          </mrow>
+        </md>
         <p>
           Assume, in addition, that <m>f \leq g</m> on all of <m>I</m>.
-          <me>
-            \int_I f dV \leq \int_I g dV
-          </me>
         </p>
+        <me>
+          \int_I f dV \leq \int_I g dV
+        </me>
         <p>
           Let <m>J</m> be another interval where <m>f</m> is integrable
           and assume <m>J</m> is of matching size and adjacent to
           <m>I</m> (such that they have no open intersection and their
           union <m>I \cup J</m> is also also an interval).
-          <me>
-            \int_{I \cup J} f dV = \int_I f dV + \int_I f dV
-          </me>
         </p>
+        <me>
+          \int_{I \cup J} f dV = \int_I f dV + \int_I f dV
+        </me>
       </statement>
     </proposition>
   </subsection>

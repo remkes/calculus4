@@ -109,19 +109,19 @@
           based on the matching <m>x</m> coordinate. I can use this
           variable bound in an iterate integral. 
           Let <m>T</m> represent the triangle.
-          <me>
-            \int_T f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
-          </me>
         </p>
+        <me>
+          \int_T f(x,y) dA = \int_0^b \int_0^x f(x,y) dy dx
+        </me>
         <p>
           I could have reversed the order. If I have <m>y \in
           [0,b]</m> then the condition <m>y\lt x</m> means that <m>x \in
           [y,b]</m>. This is indicated by the triangle with horizontal
           lines in <xref ref="figure-triangle-variable-bounds" />.
-          <me>
-            \int_T f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
-          </me>
         </p>
+        <me>
+          \int_T f(x,y) dA = \int_0^b \int_y^b f(x,y) dx dy
+        </me>
         <p>
           Now I will evaluate the square pyramid integral. The function
           was <m>f(x,y) = a - \frac{a(|x-y| + |x+y|)}{2b}</m>. On the
@@ -129,26 +129,26 @@
           absolute values are <m>|x-y| = x-y</m> and <m>|x+y| = x+y</m>,
           so the function is <m>a - \frac{a(x-y+x+y)}{2b} = a -
           \frac{2ax}{2b} = a - \frac{ax}{b}</m>.
-          <md>
-            <mrow>
-              \int_T f(x,y) dA \amp = \int_0^b \int_0^x a - \frac{ax}{b}
-              dy dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^b \left. ay - \frac{axy}{b} \right|_0^x dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^b ax - \frac{ax^2}{b} dx
-            </mrow>
-            <mrow>
-              \amp = \left. \frac{ax^2}{2} - \frac{ax^3}{3b} \right|_0^b
-            </mrow>
-            <mrow>
-              \amp = \frac{ab^2}{2} - \frac{ab^3}{3b} = \frac{ab^2}{2} -
-              \frac{ab^2}{3} = \frac{ab^2}{6}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_T f(x,y) dA \amp = \int_0^b \int_0^x a - \frac{ax}{b}
+            dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^b \left. ay - \frac{axy}{b} \right|_0^x dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^b ax - \frac{ax^2}{b} dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{ax^2}{2} - \frac{ax^3}{3b} \right|_0^b
+          </mrow>
+          <mrow>
+            \amp = \frac{ab^2}{2} - \frac{ab^3}{3b} = \frac{ab^2}{2} -
+            \frac{ab^2}{3} = \frac{ab^2}{6}
+          </mrow>
+        </md>
         <p>
           This measures one eighth of the total pyramid, so the total
           volume is <m>\frac{4ab^2}{3}</m>.
@@ -196,33 +196,33 @@
       \leq h_1</m> and <m>g_2 \leq h_2</m>. Then any of the following
       six patterns are reasonable, since the bounds include variables
       which are integrate outside the bounds in question. 
-      <md>
-        <mrow>
-          \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,y)}^{h_2(x,y)}
-          f(x,y,z) dz dy dx
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,z)}^{h_2(x,z)}
-          f(x,y,z) dy dz dx
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(x,y)}^{h_2(x,y)}
-          f(x,y,z) dz dx dy
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(y,z)}^{h_2(y,z)}
-          f(x,y,z) dx dz dy
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(x,z)}^{h_2(x,z)}
-          f(x,y,z) dy dx dz
-        </mrow>
-        <mrow>
-          \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(y,z)}^{h_2(y,z)}
-          f(x,y,z) dx dy dz
-        </mrow>
-      </md>
     </p>
+    <md>
+      <mrow>
+        \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,y)}^{h_2(x,y)}
+        f(x,y,z) dz dy dx
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g_1(x)}^{h_2(x)} \int_{g_2(x,z)}^{h_2(x,z)}
+        f(x,y,z) dy dz dx
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(x,y)}^{h_2(x,y)}
+        f(x,y,z) dz dx dy
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g_1(y)}^{h_2(y)} \int_{g_2(y,z)}^{h_2(y,z)}
+        f(x,y,z) dx dz dy
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(x,z)}^{h_2(x,z)}
+        f(x,y,z) dy dx dz
+      </mrow>
+      <mrow>
+        \amp \int_a^b \int_{g_1(z)}^{h_2(z)} \int_{g_2(y,z)}^{h_2(y,z)}
+        f(x,y,z) dx dy dz
+      </mrow>
+    </md>
   </subsection>
   <subsection xml:id="subsection-volumes">
     <title>Volume</title>
@@ -244,33 +244,33 @@
           be the region where <m>x \in [0,r]</m> and <m>y \in [0,
           \sqrt{r^2-x^2}]</m>. One eighth of the sphere is measure by
           the following iterated integral.
-          <md>
-            <mrow>
-              \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
-              \sqrt{r^2 - x^2 - y^2} dy dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^r \left( \frac{y}{2} \sqrt{r^2 - x^2 - y^2}
-              + \left. \frac{(r^2 - x^2)}{2} \arcsin \left(
-              \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_0^{\sqrt{r^2 -
-              x^2}} \right) dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^r \frac{\sqrt{r^2 - x^2}}{2} \sqrt{ r^2 -
-              x^2 - (r^2 - x^2)} + \frac{(r^2-x^2)}{2} \arcsin \left(
-              \frac{ \sqrt{r^2 - x^2}}{\sqrt{r^2 - x^2}} \right) dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^r \frac{r^2 - x^2}{2} \frac{\pi}{2} dx =
-              \int_0^r \frac{\pi (r^2-x^2)}{4} dx
-            </mrow>
-            <mrow>
-              \amp = \left. \frac{\pi r^2x}{4} - \frac{\pi x^3}{12}
-              \right|_0^r = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} =
-              \frac{\pi r^3}{6}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
+            \sqrt{r^2 - x^2 - y^2} dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^r \left( \frac{y}{2} \sqrt{r^2 - x^2 - y^2}
+            + \left. \frac{(r^2 - x^2)}{2} \arcsin \left(
+            \frac{y}{\sqrt{r^2 - x^2}} \right) \right|_0^{\sqrt{r^2 -
+            x^2}} \right) dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^r \frac{\sqrt{r^2 - x^2}}{2} \sqrt{ r^2 -
+            x^2 - (r^2 - x^2)} + \frac{(r^2-x^2)}{2} \arcsin \left(
+            \frac{ \sqrt{r^2 - x^2}}{\sqrt{r^2 - x^2}} \right) dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^r \frac{r^2 - x^2}{2} \frac{\pi}{2} dx =
+            \int_0^r \frac{\pi (r^2-x^2)}{4} dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{\pi r^2x}{4} - \frac{\pi x^3}{12}
+            \right|_0^r = \frac{\pi r^3}{4} - \frac{\pi r^3}{12} =
+            \frac{\pi r^3}{6}
+          </mrow>
+        </md>
         <p>
           Multiplying by <m>8</m> gives <m>\frac{8\pi r^3}{6} =
           \frac{4\pi r^3}{3}</m>, which is the familiar expression for
@@ -292,14 +292,14 @@
           of the cone.) The region <m>D</m> is one quarter of the
           cirlce, so this integral will give me one quarter of the
           volume of the cone. 
-          <md>
-            <mrow>
-              \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2 -
-              x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy
-              dx
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_D f(x,y) dA \amp = \int_0^r \int_0^{\sqrt{r^2 -
+            x^2}} \left( h - \frac{h}{r} \sqrt{x^2 + y^2} \right) dy
+            dx
+          </mrow>
+        </md>
         <p>
           The cone integral is quite difficult to do directly; for now,
           we'll leave it. I will return to this integral when I do
@@ -316,16 +316,16 @@
       However, there is another approach, one that is more
       conceptually interesting for formal mathematics. 
     </p>
-    <definition>
+    <definition xml:id="def-volume">>
       <statement>
         <p>
           Let <m>S</m> be a integrable set in <m>\RR^n</m>. Then the
-          size (area, volume, hypervolume) of <m>S</m> is
-          <term>defined</term> to be
-          <me>
-            \int_S 1 dV
-          </me>.
+          <term> size (area, volume, hypervolume)</term> of <m>S</m>
+          is defined to be
         </p>
+        <me>
+          \int_S 1 dV
+        </me>.
       </statement>
     </definition>
     <p>
@@ -351,17 +351,17 @@
           describe this shape, I  take <m>x \in [0,r]</m>, <m>y \in
           [0, \sqrt{r^2-x^2}]</m> and <m>x \in [0, \sqrt{r^2 - x^2 -
           y^2}]</m>. Then I calculate the volume. 
-          <md>
-            <mrow>
-              V = \int_D 1 dV \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
-              \int_0^{\sqrt{r^2 - x^2 - y^2}} 1 dz dy dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^r \int_0^{\sqrt{r^2 - x^2 - y^2}}
-              \sqrt{1-x^2 - y^2} dy dx
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            V = \int_D 1 dV \amp = \int_0^r \int_0^{\sqrt{r^2-x^2}}
+            \int_0^{\sqrt{r^2 - x^2 - y^2}} 1 dz dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^r \int_0^{\sqrt{r^2 - x^2 - y^2}}
+            \sqrt{1-x^2 - y^2} dy dx
+          </mrow>
+        </md>
       </statement>
     </example>
   </subsection>
@@ -414,65 +414,65 @@
           lines, above and below each piece, is shown in <xref
           ref="figure-variable-bounds1" />. I calculate two integrals
           using these variables bounds for <m>y</m>.
-          <md>
-            <mrow>
-              \int_0^4 \int_{\frac{x}{3}}^{\frac{5x}{4}} xy dy dx \amp =
-              \int_0^4 \left. \frac{xy^2}{2}
-              \right|_{\frac{x}{3}}^{\frac{5x}{4}} dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^4 \frac{x}{2} \left( \frac{25x^2}{16} -
-              \frac{x^2}{9} \right) dx
-            </mrow>
-            <mrow>
-              \amp = \int_0^4 \frac{25x^3}{32} - \frac{x^3}{18} =
-              \int_0^4 \frac{209}{289} x^3 dx
-            </mrow>
-            <mrow>
-              \amp = \left. \frac{209}{288} \frac{x^4}{4} \right|_0^4 =
-              \frac{1196}{9}
-            </mrow>
-            <mrow>
-              \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} + 11} xy dy dx
-              \amp = \int_4^6 \left. \frac{xy^2}{2}
-              \right|_{\frac{x}{3}}^{\frac{-3x}{2} + 11} dx
-            </mrow>
-            <mrow>
-              \amp = \int_4^6 \frac{x}{2} \left( \frac{-3x}{2} + 11
-              \right)^2 - \frac{x}{2} \frac{x^2}{9} dx
-            </mrow>
-            <mrow>
-              \amp = \int_4^6 \frac{x}{2} \left( \frac{9x^2}{4} - 32 x +
-              121 \right) - \frac{x^3}{18} dx
-            </mrow>
-            <mrow>
-              \amp = \int_4^6 \frac{77x^3}{81} - \frac{33x^2}{2} +
-              \frac{121 x}{2} dx
-            </mrow>
-            <mrow>
-              \amp = \left. \frac{77x^4}{324} - \frac{11x^3}{2} +
-              \frac{121 x^2}{4} \right|_4^6
-            </mrow>
-            <mrow>
-              \amp = \frac{77 \cdot 6^4}{324} - \frac{11 \cdot 6^3}{2} +
-              \frac{121 \cdot 6^2}{4} 
-            </mrow>
-            <mrow>
-              \amp - \frac{77\cdot 4^4}{324} +
-              \frac{11 4^3}{2} - \frac{121 \cdot 4^2}{4} 
-            </mrow>
-            <mrow>
-              \amp = \frac{86845}{81}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_0^4 \int_{\frac{x}{3}}^{\frac{5x}{4}} xy dy dx \amp =
+            \int_0^4 \left. \frac{xy^2}{2}
+            \right|_{\frac{x}{3}}^{\frac{5x}{4}} dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^4 \frac{x}{2} \left( \frac{25x^2}{16} -
+            \frac{x^2}{9} \right) dx
+          </mrow>
+          <mrow>
+            \amp = \int_0^4 \frac{25x^3}{32} - \frac{x^3}{18} =
+            \int_0^4 \frac{209}{289} x^3 dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{209}{288} \frac{x^4}{4} \right|_0^4 =
+            \frac{1196}{9}
+          </mrow>
+          <mrow>
+            \int_4^6 \int_{\frac{x}{3}}^{\frac{-3x}{2} + 11} xy dy dx
+            \amp = \int_4^6 \left. \frac{xy^2}{2}
+            \right|_{\frac{x}{3}}^{\frac{-3x}{2} + 11} dx
+          </mrow>
+          <mrow>
+            \amp = \int_4^6 \frac{x}{2} \left( \frac{-3x}{2} + 11
+            \right)^2 - \frac{x}{2} \frac{x^2}{9} dx
+          </mrow>
+          <mrow>
+            \amp = \int_4^6 \frac{x}{2} \left( \frac{9x^2}{4} - 32 x +
+            121 \right) - \frac{x^3}{18} dx
+          </mrow>
+          <mrow>
+            \amp = \int_4^6 \frac{77x^3}{81} - \frac{33x^2}{2} +
+            \frac{121 x}{2} dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{77x^4}{324} - \frac{11x^3}{2} +
+            \frac{121 x^2}{4} \right|_4^6
+          </mrow>
+          <mrow>
+            \amp = \frac{77 \cdot 6^4}{324} - \frac{11 \cdot 6^3}{2} +
+            \frac{121 \cdot 6^2}{4} 
+          </mrow>
+          <mrow>
+            \amp - \frac{77\cdot 4^4}{324} +
+            \frac{11 4^3}{2} - \frac{121 \cdot 4^2}{4} 
+          </mrow>
+          <mrow>
+            \amp = \frac{86845}{81}
+          </mrow>
+        </md>
         <p>
           The total is the sum of the two integrals.
-          <me>
-            \int_T f dA = \frac{1196}{9} + \frac{86845}{81} =
-            \frac{97609}{81}
-          </me>
         </p>
+        <me>
+          \int_T f dA = \frac{1196}{9} + \frac{86845}{81} =
+          \frac{97609}{81}
+        </me>
       </statement>
     </example>
     <example>
@@ -515,119 +515,119 @@
         </p>
         <p>
           The first integral is a short calculation.
-          <md>
-            <mrow>
-              \int_0^1 \int_0^x x^2 + y^2 dy dx \amp = \int_0^1 \left.
-              x^2y + \frac{y^3}{3} \right|_0^x
-            </mrow>
-            <mrow>
-              \amp = \int_0^1 \frac{4x^3}{3} = \left. \frac{x^4}{3}
-              \right|_0^1 = \frac{1}{3}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_0^1 \int_0^x x^2 + y^2 dy dx \amp = \int_0^1 \left.
+            x^2y + \frac{y^3}{3} \right|_0^x
+          </mrow>
+          <mrow>
+            \amp = \int_0^1 \frac{4x^3}{3} = \left. \frac{x^4}{3}
+            \right|_0^1 = \frac{1}{3}
+          </mrow>
+        </md>
         <p>
           The second integral is more involved.
-          <md>
-            <mrow>
-              \amp \int_1^3 \int_1^{1+\sqrt{1-(x-2)^2}} x^2 + y^2 dy dx
-            </mrow>
-            <mrow>
-              \amp = \int_1^3 \left. x^2y + \frac{y^3}{3}
-              \right|_1^{1+\sqrt{1-(x-2)^2}}
-            </mrow>
-            <mrow>
-              \amp = \int_1^3 x^2 (1 + \sqrt{1-(x-2)^2}) +
-              \frac{(1+\sqrt{1-(x-2)^2})^3}{3} dx
-            </mrow>
-            <mrow>
-              u \amp = x-2
-            </mrow>
-            <mrow>
-              \amp = \int_{-1}^1 (u^2 + 4u + 4) (1 + \sqrt{1-u^2}) +
-              \frac{(1 + \sqrt{1-u^2})^3}{3} du
-            </mrow>
-            <mrow>
-              \amp = \int_{-1}^1 u^2 + 4u + 4 + u^2 \sqrt{1-u^2} + 4u
-              \sqrt{1-u^2} + 4 \sqrt{1-u^2}
-            </mrow>
-            <mrow>
-              \amp \hspace{1cm} + \frac{1}{3} + \sqrt{1-u^2} + (1-u^2) -
-              \frac{u^2}{3} \sqrt{1-u^3} du
-            </mrow>
-            <mrow>
-              \amp = \int_{-1}^1 \frac{16}{3} + 4u + 5 \sqrt{1-u^2} + 4u
-              \sqrt{1-u^2} + u^2 \sqrt{1-u^2} + \frac{1}{3}
-              (1-u^2)^{\frac{3}{2}} du
-            </mrow>
-            <mrow>
-              \amp = \frac{16u}{3} + 2u^2 + \left. 4 (1-u^2)^\frac{3}{2}
-              \frac{-2}{3} \right|_{-1}^1 + 5 \int_{-1}{1} \sqrt{1-u^2}
-              du 
-            </mrow>
-            <mrow>
-              \amp + \int_{-1}^1 u^2 \sqrt{1-u^2} du + \frac{1}{3}
-              \int_{-1}^1 (1-u^2)^{\frac{3}{2}} du
-            </mrow>
-            <mrow>
-              \amp = \frac{32}{5} + 0 + 0 + \left. \frac{1}{8} 2
-              \sqrt{1-u^2}(2u^2-1) + \arcsin u \right|_{-1}^1 
-            </mrow>
-            <mrow>
-              \amp + \left. 5
-              (u \sqrt{1-u^2} + \arcsin u) \right|_{-1}^1
-            </mrow>
-            <mrow>
-              \amp \hspace{1cm} + \left. \frac{1}{3} \frac{1}{8}
-              (u(5-2u^2)\sqrt{1-u^2} + 3 \arcsin u ) \right|_{-1}^1
-            </mrow>
-            <mrow>
-              \amp = \frac{32}{3} + \frac{1}{8} \left( \frac{\pi}{2} -
-              \frac{-\pi}{2} \right) + 5 \left( \frac{\pi}{2} -
-              \frac{-\pi}{2} \right) + \frac{1}{8} \left( \frac{\pi}{2}
-              - \frac{-\pi}{2} \right)
-            </mrow>
-            <mrow>
-              \amp = \frac{32}{3} + \frac{\pi}{8} + 5\pi + \frac{\pi}{8}
-              = \frac{32}{3} + \frac{21\pi}{4}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \amp \int_1^3 \int_1^{1+\sqrt{1-(x-2)^2}} x^2 + y^2 dy dx
+          </mrow>
+          <mrow>
+            \amp = \int_1^3 \left. x^2y + \frac{y^3}{3}
+            \right|_1^{1+\sqrt{1-(x-2)^2}}
+          </mrow>
+          <mrow>
+            \amp = \int_1^3 x^2 (1 + \sqrt{1-(x-2)^2}) +
+            \frac{(1+\sqrt{1-(x-2)^2})^3}{3} dx
+          </mrow>
+          <mrow>
+            u \amp = x-2
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^1 (u^2 + 4u + 4) (1 + \sqrt{1-u^2}) +
+            \frac{(1 + \sqrt{1-u^2})^3}{3} du
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^1 u^2 + 4u + 4 + u^2 \sqrt{1-u^2} + 4u
+            \sqrt{1-u^2} + 4 \sqrt{1-u^2}
+          </mrow>
+          <mrow>
+            \amp \hspace{1cm} + \frac{1}{3} + \sqrt{1-u^2} + (1-u^2) -
+            \frac{u^2}{3} \sqrt{1-u^3} du
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^1 \frac{16}{3} + 4u + 5 \sqrt{1-u^2} + 4u
+            \sqrt{1-u^2} + u^2 \sqrt{1-u^2} + \frac{1}{3}
+            (1-u^2)^{\frac{3}{2}} du
+          </mrow>
+          <mrow>
+            \amp = \frac{16u}{3} + 2u^2 + \left. 4 (1-u^2)^\frac{3}{2}
+            \frac{-2}{3} \right|_{-1}^1 + 5 \int_{-1}{1} \sqrt{1-u^2}
+            du 
+          </mrow>
+          <mrow>
+            \amp + \int_{-1}^1 u^2 \sqrt{1-u^2} du + \frac{1}{3}
+            \int_{-1}^1 (1-u^2)^{\frac{3}{2}} du
+          </mrow>
+          <mrow>
+            \amp = \frac{32}{5} + 0 + 0 + \left. \frac{1}{8} 2
+            \sqrt{1-u^2}(2u^2-1) + \arcsin u \right|_{-1}^1 
+          </mrow>
+          <mrow>
+            \amp + \left. 5
+            (u \sqrt{1-u^2} + \arcsin u) \right|_{-1}^1
+          </mrow>
+          <mrow>
+            \amp \hspace{1cm} + \left. \frac{1}{3} \frac{1}{8}
+            (u(5-2u^2)\sqrt{1-u^2} + 3 \arcsin u ) \right|_{-1}^1
+          </mrow>
+          <mrow>
+            \amp = \frac{32}{3} + \frac{1}{8} \left( \frac{\pi}{2} -
+            \frac{-\pi}{2} \right) + 5 \left( \frac{\pi}{2} -
+            \frac{-\pi}{2} \right) + \frac{1}{8} \left( \frac{\pi}{2}
+            - \frac{-\pi}{2} \right)
+          </mrow>
+          <mrow>
+            \amp = \frac{32}{3} + \frac{\pi}{8} + 5\pi + \frac{\pi}{8}
+            = \frac{32}{3} + \frac{21\pi}{4}
+          </mrow>
+        </md>
         <p>
           The third integral is not quite as bad as the second.
-          <md>
-            <mrow>
-              \int_1^2 \int_{x-1}^1 x^2 + y^2 dy dx \amp = \int_1^2
-              \left. x^2 y + \frac{y^3}{3} \right|_{x-1}^1 dx
-            </mrow>
-            <mrow>
-              \amp = \int_1^2 x^2 + \frac{1}{3} - x^2(x-1) - \frac{1}{3}
-              (x-1)^3 dx
-            </mrow>
-            <mrow>
-              \amp = \int_1^2 \frac{2}{3} - x + 3x^2 - \frac{4x^3}{3}
-              dx
-            </mrow>
-            <mrow>
-              \amp = \left. \frac{2x}{3} - \frac{x^2}{2} + x^3 -
-              \frac{x^4}{3} \right|_1^2
-            </mrow>
-            <mrow>
-              \amp = \frac{4}{3} - 2 + 8 - \frac{16}{3} - \frac{2}{3} +
-              \frac{1}{2} - 1 + \frac{1}{3}
-            </mrow>
-            <mrow>
-              \amp = \frac{7}{6}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_1^2 \int_{x-1}^1 x^2 + y^2 dy dx \amp = \int_1^2
+            \left. x^2 y + \frac{y^3}{3} \right|_{x-1}^1 dx
+          </mrow>
+          <mrow>
+            \amp = \int_1^2 x^2 + \frac{1}{3} - x^2(x-1) - \frac{1}{3}
+            (x-1)^3 dx
+          </mrow>
+          <mrow>
+            \amp = \int_1^2 \frac{2}{3} - x + 3x^2 - \frac{4x^3}{3}
+            dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{2x}{3} - \frac{x^2}{2} + x^3 -
+            \frac{x^4}{3} \right|_1^2
+          </mrow>
+          <mrow>
+            \amp = \frac{4}{3} - 2 + 8 - \frac{16}{3} - \frac{2}{3} +
+            \frac{1}{2} - 1 + \frac{1}{3}
+          </mrow>
+          <mrow>
+            \amp = \frac{7}{6}
+          </mrow>
+        </md>
         <p>
           The total is the sum of the three integrals.
-          <me>
-            \frac{1}{3} + \frac{32}{3} + \frac{21\pi}{4} + \frac{7}{6} =
-            \frac{73}{6} + \frac{21\pi}{4}
-          </me>
         </p>
+        <me>
+          \frac{1}{3} + \frac{32}{3} + \frac{21\pi}{4} + \frac{7}{6} =
+          \frac{73}{6} + \frac{21\pi}{4}
+        </me>
       </statement>
     </example>
     <example xml:id="example-area-bell-curve">
@@ -636,40 +636,42 @@
           Here is an odd application of multiple integration. I know
           that <m>e^{-x^2}</m> has no elementary antiderivative.
           Therefore, the intergal
-          <me>
-            A = \int_{-\infty}^\infty e^{-x^2} dx
-          </me>
+        </p>
+        <me>
+          A = \int_{-\infty}^\infty e^{-x^2} dx
+        </me>
+        <p>
           cannot be evaluated directly. However, this is a very
           important integral: <m>e^{-x^2}</m> is the normal distribution
           and, in Statistics, I need to integrate it frequently. I'll
           use integrals over <m>\RR^2</m>, strangely enough, to
           calculate this integral by squaring the single variable
           integral.
-          <md>
-            <mrow>
-              A \amp = 2 \int_{0}^\infty e^{-x^2} dx
-            </mrow>
-            <mrow>
-              A^2 \amp = \left( 2 \int_{0}^\infty e^{-x^2} dx \right)
-              \left(2 \int_{0}^\infty e^{-y^2} dy \right)
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            A \amp = 2 \int_{0}^\infty e^{-x^2} dx
+          </mrow>
+          <mrow>
+            A^2 \amp = \left( 2 \int_{0}^\infty e^{-x^2} dx \right)
+            \left(2 \int_{0}^\infty e^{-y^2} dy \right)
+          </mrow>
+        </md>
         <p>
           The second integral uses a new variables since variables of
           integration only matter inside the integral. Then I can
           combine the two integrals.
-          <md>
-            <mrow>
-              A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2}
-              dx dy
-            </mrow>
-            <mrow>
-              \amp = 4 \int_0^\infty \int_0^\infty e^{-(x^2 + y^2)} dx
-              dy
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2} e^{-y^2}
+            dx dy
+          </mrow>
+          <mrow>
+            \amp = 4 \int_0^\infty \int_0^\infty e^{-(x^2 + y^2)} dx
+            dy
+          </mrow>
+        </md>
         <p>
           Now I am going to do a substitution in the <m>y</m>
           variable. Treating the <m>x</m> variable as a constant, I
@@ -682,27 +684,27 @@
           <m>y</m> as the inside integral for this substitution, and
           then switch back to thinking of <m>x</m> as the inside
           integral after the substitution.)
-          <md>
-            <mrow>
-              A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2 (1+s^2)}
-              x dx ds
-            </mrow>
-            <mrow>
-              \amp = 4 \int_0^\infty \left. \frac{-1}{2(1+s^2)}
-              e^{-x^2(1+s^2)} \right|_0^\infty ds
-            </mrow>
-            <mrow>
-              \amp = 2 \int_0^\infty \frac{1}{1+s^2} ds
-            </mrow>
-            <mrow>
-              \amp = \lim_{a \rightarrow \infty} 2 \arctan a - \arctan 0
-              = \frac{2\pi}{2} = \pi
-            </mrow>
-            <mrow>
-              A \amp = \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            A^2 \amp = 4 \int_0^\infty \int_0^\infty e^{-x^2 (1+s^2)}
+            x dx ds
+          </mrow>
+          <mrow>
+            \amp = 4 \int_0^\infty \left. \frac{-1}{2(1+s^2)}
+            e^{-x^2(1+s^2)} \right|_0^\infty ds
+          </mrow>
+          <mrow>
+            \amp = 2 \int_0^\infty \frac{1}{1+s^2} ds
+          </mrow>
+          <mrow>
+            \amp = \lim_{a \rightarrow \infty} 2 \arctan a - \arctan 0
+            = \frac{2\pi}{2} = \pi
+          </mrow>
+          <mrow>
+            A \amp = \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi}
+          </mrow>
+        </md>
         <p>
           I recover the area under the bell curve: <m>\sqrt{\pi}</m>.
           It's a very strange result. However, if you taken any

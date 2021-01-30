@@ -34,18 +34,18 @@
     counterparts of partial differentiation. In each of the following,
     I pretend the other two variables are constant; only the variable
     indicated by the infintesimal term is non-constant.
-    <md>
-      <mrow>
-        \int f(x,y,z) dx \amp
-      </mrow>
-      <mrow>
-        \int f(x,y,z) dy \amp
-      </mrow>
-      <mrow>
-        \int f(x,y,z) dz \amp
-      </mrow>
-    </md>
   </p>
+  <md>
+    <mrow>
+      \int f(x,y,z) dx \amp
+    </mrow>
+    <mrow>
+      \int f(x,y,z) dy \amp
+    </mrow>
+    <mrow>
+      \int f(x,y,z) dz \amp
+    </mrow>
+  </md>
   <p>
     In addition to extending the integral, a major theme of this
     course will be extensions of the fundamental theorem. Let me
@@ -59,20 +59,22 @@
         <m>F^\prime(x) = f(x)</m>). Any of the following
         expressions are versions of the Fundamental Theorem of
         Calculus.
-        <md>
-          <mrow>
-            \int_a^b f(x) dx = F(b) - F(a)
-          </mrow>
-          <mrow>
-            \int_a^b F^\prime(x) dx = F(b) - F(a)
-          </mrow>
-          <mrow>
-            \int f(x) dx = F(x) + c 
-          </mrow>
-          <mrow>
-            \int F^\prime(x) dx = F(x) + c 
-          </mrow>
-        </md>
+      </p>
+      <md>
+        <mrow>
+          \int_a^b f(x) dx = F(b) - F(a)
+        </mrow>
+        <mrow>
+          \int_a^b F^\prime(x) dx = F(b) - F(a)
+        </mrow>
+        <mrow>
+          \int f(x) dx = F(x) + c 
+        </mrow>
+        <mrow>
+          \int F^\prime(x) dx = F(x) + c 
+        </mrow>
+      </md>
+      <p>
         All these equations essentially encode the same concept: that
         integration and differentiation are inverse processes. 
       </p>
@@ -97,18 +99,18 @@
     applies. Here is how I would write the fundamental theorem for a
     function of three varialbes, using partial derivatives and
     indefinite integrals in one variable. 
-    <md>
-      <mrow>
-        \int \frac{\del}{\del x} f(x,y,z) dx \amp = f(x,y,z) + g(y,z)
-      </mrow>
-      <mrow>
-        \int \frac{\del}{\del y} f(x,y,z) dy \amp = f(x,y,z) + g(x,z)
-      </mrow>
-      <mrow>
-        \int \frac{\del}{\del z} f(x,y,z) dz \amp = f(x,y,z) + g(x,y)
-      </mrow>
-    </md>
   </p>
+  <md>
+    <mrow>
+      \int \frac{\del}{\del x} f(x,y,z) dx \amp = f(x,y,z) + g(y,z)
+    </mrow>
+    <mrow>
+      \int \frac{\del}{\del y} f(x,y,z) dy \amp = f(x,y,z) + g(x,z)
+    </mrow>
+    <mrow>
+      \int \frac{\del}{\del z} f(x,y,z) dz \amp = f(x,y,z) + g(x,y)
+    </mrow>
+  </md>
   <p>
     Note that the <sq>constants of integration</sq> <m>g</m> now may
     involve the other variables. When I do single variable integration

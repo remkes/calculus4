@@ -14,10 +14,10 @@
     Let me review single variable substitution, formalizing the
     language and showing the way forward for higher dimensions.
     Consider a single variable integral.
-    <me>
-      \int_a^b f(x) dx
-    </me>
   </p>
+  <me>
+    \int_a^b f(x) dx
+  </me>
   <p>
     Typically, I substitute <m>u = g(x)</m> using some
     <em>invertible</em> function <m>g</m>. Then I calculate <m>du =
@@ -61,10 +61,10 @@
     <m>h</m>. Then <m>dx = h^\prime(u) du</m> and the bounds become
     <m>h^{-1}(a)</m> and <m>h^{-1}(b)</m>. We get a new integral in
     the variable <m>u</m>.
-    <me>
-      \int_{u=h^{-1}(a)}^{u=h^{-1}(b)} f(h(u)) h^\prime(u) du
-    </me>
   </p>
+  <me>
+    \int_{u=h^{-1}(a)}^{u=h^{-1}(b)} f(h(u)) h^\prime(u) du
+  </me>
   <p>
     The key relationship here is <m>dx = h^\prime(u) du</m>: the
     derivative tells us the relationships between the differential
@@ -115,10 +115,10 @@
     \ldots, u_n)</m> up to <m>x_n = F_n(u_1, \ldots, u_n)</m>. The
     Jacobian determines the relationship between the differential in
     these variables.
-    <me>
-      dx_1 dx_2 \ldots dx_n = (\det J(F)) du_1 du_2 \ldots du_n
-    </me>
   </p>
+  <me>
+    dx_1 dx_2 \ldots dx_n = (\det J(F)) du_1 du_2 \ldots du_n
+  </me>
   <p>
     I can interpret the Jacobian as the change in
     area/volume/hyper-volume due to the change in variables. Its
@@ -133,33 +133,33 @@
         Let <m>(x,y) = F(u,v) = (3u, 4v)</m>. Here are the partial
         derivatives, the Jacobian matrix, and the Jacobian
         determinant.
-        <md>
-          <mrow>
-            \frac{\del F_1}{\del u} \amp = 3
-          </mrow>
-          <mrow>
-            \frac{\del F_1}{\del v} \amp = 0
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del u} \amp = 0
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del v} \amp = 4
-          </mrow>
-          <mrow>
-            J(F) \amp = \begin{pmatrix} 
-              3 \amp 0 \\
-              0 \amp 4 
-            \end{pmatrix}
-          </mrow>
-          <mrow>
-            \det J(F) \amp = (3)(4) - (0)(0) = 12
-          </mrow>
-          <mrow>
-            dx dy \amp = 12 du dv
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          \frac{\del F_1}{\del u} \amp = 3
+        </mrow>
+        <mrow>
+          \frac{\del F_1}{\del v} \amp = 0
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del u} \amp = 0
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del v} \amp = 4
+        </mrow>
+        <mrow>
+          J(F) \amp = \begin{pmatrix} 
+            3 \amp 0 \\
+            0 \amp 4 
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \det J(F) \amp = (3)(4) - (0)(0) = 12
+        </mrow>
+        <mrow>
+          dx dy \amp = 12 du dv
+        </mrow>
+      </md>
       <p>
         The function is a dialation by <m>3</m> in <m>u</m> and by
         <m>4</m> in <m>v</m>, so the effect on area is multiplication
@@ -175,33 +175,33 @@
         Let <m>(x,y) = F(u,v) = (u^2, v)</m>. Here are the partial
         derivatives, the Jacoabian matrix, and the Jacobian
         determinant.
-        <md>
-          <mrow>
-            \frac{\del F_1}{\del u} \amp = 2u
-          </mrow>
-          <mrow>
-            \frac{\del F_1}{\del v} \amp = 0
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del u} \amp = 0
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del v} \amp = 1
-          </mrow>
-          <mrow>
-            J(F) \amp = \begin{pmatrix} 
-              2u \amp 0 \\
-              0 \amp 1 
-            \end{pmatrix} 
-          </mrow>
-          <mrow>
-            \det J(F) \amp = 2u
-          </mrow>
-          <mrow>
-            dx dy \amp = 2u du dv
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          \frac{\del F_1}{\del u} \amp = 2u
+        </mrow>
+        <mrow>
+          \frac{\del F_1}{\del v} \amp = 0
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del u} \amp = 0
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del v} \amp = 1
+        </mrow>
+        <mrow>
+          J(F) \amp = \begin{pmatrix} 
+            2u \amp 0 \\
+            0 \amp 1 
+          \end{pmatrix} 
+        </mrow>
+        <mrow>
+          \det J(F) \amp = 2u
+        </mrow>
+        <mrow>
+          dx dy \amp = 2u du dv
+        </mrow>
+      </md>
       <p>
         This Jacobian isn't constant. This is a stretch in <m>u</m>,
         the but effect is exagerated away from the origin due to the
@@ -218,33 +218,33 @@
         discuss at length in <xref ref="section-polar-coordinates"
         />.) Here are the partial derivatives, the Jacobian matrix and
         the Jacobian determinant.
-        <md>
-          <mrow>
-            \frac{\del F_1}{\del r} \amp = \cos \theta
-          </mrow>
-          <mrow>
-            \frac{\del F_1}{\del \theta} \amp = -r\sin \theta
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del r} \amp = \sin \theta
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del \theta} \amp = r \cos \theta
-          </mrow>
-          <mrow>
-            J(F) \amp = \begin{pmatrix} 
-              \cos \theta \amp - r \sin \theta \\
-              \sin \theta \amp r \cos \theta 
-            \end{pmatrix} 
-          </mrow>
-          <mrow>
-            \det J(F) \amp = r
-          </mrow>
-          <mrow>
-            dx dy \amp = r dr d\theta
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          \frac{\del F_1}{\del r} \amp = \cos \theta
+        </mrow>
+        <mrow>
+          \frac{\del F_1}{\del \theta} \amp = -r\sin \theta
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del r} \amp = \sin \theta
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del \theta} \amp = r \cos \theta
+        </mrow>
+        <mrow>
+          J(F) \amp = \begin{pmatrix} 
+            \cos \theta \amp - r \sin \theta \\
+            \sin \theta \amp r \cos \theta 
+          \end{pmatrix} 
+        </mrow>
+        <mrow>
+          \det J(F) \amp = r
+        </mrow>
+        <mrow>
+          dx dy \amp = r dr d\theta
+        </mrow>
+      </md>
       <p>
         This Jacobian shows that the radius term gives the effect on
         area. This make sense: for larger circles, the differential
@@ -326,33 +326,33 @@
         instead of a one variable substitution. Here are the partial
         derivatives, the Jacobian matrix, and the Jacobian
         determinant.
-        <md>
-          <mrow>
-            \frac{\del F_1}{\del u} \amp = 1
-          </mrow>
-          <mrow>
-            \frac{\del F_1}{\del v} \amp = 0
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del u} \amp = v
-          </mrow>
-          <mrow>
-            \frac{\del F_2}{\del v} \amp = u
-          </mrow>
-          <mrow>
-            J(F) \amp = \begin{pmatrix} 
-              1 \amp 0 \\
-              v \amp u 
-            \end{pmatrix} 
-          </mrow>
-          <mrow>
-            \det J(F) \amp = u
-          </mrow>
-          <mrow>
-            dx dy \amp = u du dv
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          \frac{\del F_1}{\del u} \amp = 1
+        </mrow>
+        <mrow>
+          \frac{\del F_1}{\del v} \amp = 0
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del u} \amp = v
+        </mrow>
+        <mrow>
+          \frac{\del F_2}{\del v} \amp = u
+        </mrow>
+        <mrow>
+          J(F) \amp = \begin{pmatrix} 
+            1 \amp 0 \\
+            v \amp u 
+          \end{pmatrix} 
+        </mrow>
+        <mrow>
+          \det J(F) \amp = u
+        </mrow>
+        <mrow>
+          dx dy \amp = u du dv
+        </mrow>
+      </md>
     </statement>
   </example>
   <p>
@@ -399,10 +399,10 @@
         <xref ref="figure-cov1" />. In the following integral, I want
         to simply the integrand and integrate over a simpler region if
         possible.
-        <me>
-          \int_D \cos \left( \frac{y-x}{y+x} \right) dA
-        </me>
       </p>
+      <me>
+        \int_D \cos \left( \frac{y-x}{y+x} \right) dA
+      </me>
       <p>
         To simplify the integrand, I can look for transformations
         where <m>u = x+y</m> and <m>v = x-y</m>. Inverting these
@@ -423,51 +423,51 @@
       </p>
       <p>
         Finally, we calculate the Jacobian.
-        <md>
-          <mrow>
-            x_u \amp = \frac{1}{2}
-          </mrow>
-          <mrow>
-            x_v \amp = \frac{1}{2}
-          </mrow>
-          <mrow>
-            y_u \amp = \frac{1}{2}
-          </mrow>
-          <mrow>
-            y_v \amp = -\frac{1}{2}
-          </mrow>
-          <mrow>
-            \det J \amp = -\frac{1}{2}
-          </mrow>
-          <mrow>
-            dx dy \amp = \frac{1}{-2} du dv
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          x_u \amp = \frac{1}{2}
+        </mrow>
+        <mrow>
+          x_v \amp = \frac{1}{2}
+        </mrow>
+        <mrow>
+          y_u \amp = \frac{1}{2}
+        </mrow>
+        <mrow>
+          y_v \amp = -\frac{1}{2}
+        </mrow>
+        <mrow>
+          \det J \amp = -\frac{1}{2}
+        </mrow>
+        <mrow>
+          dx dy \amp = \frac{1}{-2} du dv
+        </mrow>
+      </md>
       <p>
         We have the new integrand, the new bounds and the Jacobian.
         We can proceed to the new integral.
-        <md>
-          <mrow>
-            \int_D \cos \left( \frac{y-x}{y+x} \right) dA \amp =
-            \int_1^2 \int_{-u}^u \cos \left( \frac{-v}{u} \right)
-            \frac{-1}{2} dv du
-          </mrow>
-          <mrow>
-            \amp = \frac{-1}{2} \int_1^2 \left. -\sin \left(
-            \frac{-v}{u} \right) (-u) \right|_{-u}^{u} du
-          </mrow>
-          <mrow>
-            \amp = \frac{-1}{2} \int_1^2 u (\sin (-1) - \sin(1)) du
-          </mrow>
-          <mrow>
-            \amp = \sin (1) \left. \frac{u^2}{2} \right|_1^2
-          </mrow>
-          <mrow>
-            \amp = \sin (1) (2 - \frac{1}{2}) = \frac{3\sin(1)}{2}
-          </mrow>
-        </md>
       </p>
+      <md>
+        <mrow>
+          \int_D \cos \left( \frac{y-x}{y+x} \right) dA \amp =
+          \int_1^2 \int_{-u}^u \cos \left( \frac{-v}{u} \right)
+          \frac{-1}{2} dv du
+        </mrow>
+        <mrow>
+          \amp = \frac{-1}{2} \int_1^2 \left. -\sin \left(
+          \frac{-v}{u} \right) (-u) \right|_{-u}^{u} du
+        </mrow>
+        <mrow>
+          \amp = \frac{-1}{2} \int_1^2 u (\sin (-1) - \sin(1)) du
+        </mrow>
+        <mrow>
+          \amp = \sin (1) \left. \frac{u^2}{2} \right|_1^2
+        </mrow>
+        <mrow>
+          \amp = \sin (1) (2 - \frac{1}{2}) = \frac{3\sin(1)}{2}
+        </mrow>
+      </md>
     </statement>
   </example>
   <example>
@@ -512,10 +512,10 @@
         curves <m>y = \frac{1}{x}</m>, <m>y = \frac{3}{x}</m>, <m>y =
         3x</m> and <m>y = x</m>, as shown in <xref
         ref="figure-cov2" />. Consider the following integral.  
-        <me>
-          \int_D xy dA
-        </me>
       </p>
+      <me>
+        \int_D xy dA
+      </me>
       <p>
         The integrand is reasonable, so I will look for a substitution
         to changes the bounds. I would like to produce  constant

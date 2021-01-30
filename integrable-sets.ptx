@@ -29,11 +29,11 @@
           Let <m>S</m> be a subset of <m>\RR^n</m>. The
           <term>characteristic function of <m>S</m></term> is defined as
           follows, where <m>v \in \RR^n</m>.
-          <me>
-            \chi_S (v) : = \left\{ \begin{matrix} 1 \amp v \in S \\ 0
-            \amp v \notin S \end{matrix} \right.
-          </me>
         </p>
+        <me>
+          \chi_S (v) : = \left\{ \begin{matrix} 1 \amp v \in S \\ 0
+          \amp v \notin S \end{matrix} \right.
+        </me>
       </statement>
     </definition>
     <p>
@@ -53,10 +53,10 @@
           Let <m>S</m> be a subset of <m>\RR^n</m> which is contained in
           an interval <m>I</m>. <m>S</m> is called a <term>integrable
           set</term> if the following integral exists.
-          <me>
-            \int_I \chi_S dV
-          </me>
         </p>
+        <me>
+          \int_I \chi_S dV
+        </me>
       </statement>
     </definition>
     <p>
@@ -101,10 +101,10 @@
           extended to an integrable function <m>\tilde{f}</m> on
           <m>I</m>. Then the integral of <m>f</m> over <m>S</m> is
           defined as:
-          <me>
-            \int_S f dV \defeq \int_I \tilde{f} \chi_S dV
-          </me>
         </p>
+        <me>
+          \int_S f dV \defeq \int_I \tilde{f} \chi_S dV
+        </me>
       </statement>
     </definition>
     <p>
@@ -123,10 +123,10 @@
           Let <m>S</m> be an integrable set in <m>\RR^n</m>. Let
           <m>S^0</m> be the set of interior points of <m>S</m>. Let
           <m>f: S \rightarrow \RR</m> be an integrable function. Then
-          <me>
-            \int_S f dV = \int_{S^0} f dV
-          </me>
         </p>
+        <me>
+          \int_S f dV = \int_{S^0} f dV
+        </me>
       </statement>
     </proposition>
     <p>

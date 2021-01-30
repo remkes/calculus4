@@ -642,37 +642,37 @@
         </md>
         <p>
           The second part is an integral over <m>D_2</m>.
-          <md>
-            <mrow>
-              \int_{D_2} \sqrt{x^2 + y^2} dA \amp =
-              \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \int_0^{2 \cos
-              \theta} r^2 dr d\theta
-            </mrow>
-            <mrow>
-              \amp = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left.
-              \frac{r^3}{3} \right|_0^{2 \cos \theta} d\theta
-            </mrow>
-            <mrow>
-              \amp = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left(
-              \frac{8 \cos^3 \theta}{3} \right) = \frac{8}{3}
-              \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \cos^3 \theta d
-              \theta
-            </mrow>
-            <mrow>
-              \amp = \frac{8}{3} \left. \left( \frac{1}{3} (2 + \cos^2 +
-              \theta) \sin \theta \right)
-              \right|_{\frac{-\pi}{2}}^{\frac{\pi}{2}} = \frac{32}{9}
-            </mrow>
-          </md>
         </p>
+        <md>
+          <mrow>
+            \int_{D_2} \sqrt{x^2 + y^2} dA \amp =
+            \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \int_0^{2 \cos
+            \theta} r^2 dr d\theta
+          </mrow>
+          <mrow>
+            \amp = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left.
+            \frac{r^3}{3} \right|_0^{2 \cos \theta} d\theta
+          </mrow>
+          <mrow>
+            \amp = \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \left(
+            \frac{8 \cos^3 \theta}{3} \right) = \frac{8}{3}
+            \int_{\frac{-\pi}{2}}^{\frac{\pi}{2}} \cos^3 \theta d
+            \theta
+          </mrow>
+          <mrow>
+            \amp = \frac{8}{3} \left. \left( \frac{1}{3} (2 + \cos^2 +
+            \theta) \sin \theta \right)
+            \right|_{\frac{-\pi}{2}}^{\frac{\pi}{2}} = \frac{32}{9}
+          </mrow>
+        </md>
         <p>
           The result of the original integral is the difference of the
           two parts.
-          <me>
-            \int_{D_1 \backslash D_2} \sqrt{x^2 + y^2} dA =
-            \frac{16\pi}{3} - \frac{32}{9} = \frac{48\pi - 32}{9}
-          </me>
         </p>
+        <me>
+          \int_{D_1 \backslash D_2} \sqrt{x^2 + y^2} dA =
+          \frac{16\pi}{3} - \frac{32}{9} = \frac{48\pi - 32}{9}
+        </me>
       </statement>
     </example>
   </subsection>
