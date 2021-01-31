@@ -11,8 +11,35 @@
       </statement>
       <solution>
         <p>
-          Solution
+          The sphere is described nicely in spherical coordinates as
+          <m>r \in [0,2]</m>, <m>\theta \in [0, 2\pi]</m> and <m>\phi
+          \in [0, \pi]</m>. The integrand can be seperated as <m>x^2
+          + (x^2 + y^2 + z^2)</m> and written as <m>r^2 \sin^2 \phi
+          \cos^2 \theta + r^2</m>. I can write the integral in
+          spherical coordinates and split it up into two integrals.
+          The Jacobian is <m>r^2 \sin \phi</m>.
         </p>
+        <md>
+          <mrow>
+            \amp \int_0^2 \int_0^{2\pi} \int_0^{\pi} (r^2 \sin^2 \phi
+            \cos^2 \theta + r^2) r^2 \sin \phi d\phi d\theta dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{2\pi} \int_0^{\pi} r^3 \sin^3 \phi
+            \cos^2 \theta d\phi d\theta dr + \int_0^2 \int_0^{2\pi}
+            \int_0^{\pi} r^4 \sin \phi d\phi d\theta dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r^4 dr \int_0^{2\pi} \cos^2 \theta d
+            \theta \int_0^{\pi} \sin^3 \phi d\phi + \int_0^2 r^4 dr
+            \int_0^{2\pi} d\theta \int_0^{\pi} \sin \phi d\phi 
+          </mrow>
+          <mrow>
+            \amp = \left( \frac{32}{5} \right) (\pi)\left( \frac{4}{3}
+            \right) + \left( \frac{32}{5} \right) (2\pi) (2) =
+            \frac{128\pi}{15} + \frac{128\pi}{5} = \frac{512 \pi}{15}
+          </mrow>
+        </md>
       </solution>
     </activity>
     <activity>
@@ -25,8 +52,28 @@
       </statement>
       <solution>
         <p>
-          Solution
+          The cylinder is described nicely in cylindrical coordinates
+          as <m>r \in [0,4]</m>, <m>\theta \in [0, 2\pi]</m> and <m>z
+          \in [-1,3]</m>. The integrand becomes <m>r^2 - 4z</m>. The
+          Jacobian is <m>r</m>.
         </p>
+        <md>
+          <mrow>
+            \amp \int_0^4 \int_0^{2\pi} \int_{-1}^3 (r^2 - 4z) r dz
+            d\theta dr = \int_0^4 \int_0^{2\pi} \int_{-1}^3 r^3 dz
+            d\theta dr - \int_0^4 \int_0^{2\pi} \int_{-1}^3 4rz dz
+            d\theta dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^4 r^3 dr \int_0^{2\pi} d\theta \int_{-1}^3
+            dz - 4 \int_0^4 r dr \int_0^{2\pi} d\theta \int_{-1}^3 z
+            dz 
+          </mrow>
+          <mrow>
+            \amp = (16)(2\pi)(4) - 4 (8)(2\pi)(4) = 128 \pi - 256 \pi
+            = 128 \pi
+          </mrow>
+        </md>
       </solution>
     </activity>
     <activity>
@@ -38,8 +85,36 @@
       </statement>
       <solution>
         <p>
-          Solution
+          Even though the region is a sphere, the integrand looks
+          better in cylindrical coordinates, so I'll try that. The
+          integrand simply becomes <m>r^2</m>. The sphere has
+          cartesian equation <m>x^2 + y^2 + (z-1)^2 = 1</m>. In
+          cylindrical coordinates, this becomes <m>r^2 + (z-1)^2 =
+          1</m>. I can take <m>z \in [0,2]</m> and <m>r</m> ranging
+          from <m>0</m> to  <m>r = \sqrt{1-(z-1)^2} =
+          \sqrt{2z-z^2}</m>. The Jacobian is <m>r</m>.
         </p>
+        <md>
+          <mrow>
+            \amp \int_0^{2\pi} \int_0^2 \int_0^{\sqrt{2z-z^2}} r^2 r dr dz
+            d\theta = \int_0^{2\pi} d\theta \int_0^2
+            \int_0^{\sqrt{2z-z^2}} r^3 dr dz 
+          </mrow>
+          <mrow>
+            \amp = (2\pi) \int_0^2 \frac{r^4}{4}
+            \Bigg|_0^{\sqrt{2z-z^2}} dz = \frac{\pi}{2} \int_0^2
+            (2z-z^2)^2 dz 
+          </mrow>
+          <mrow>
+            \amp = \frac{\pi}{2} \int_0^2 z^4 - 4z^3 + 4z^2 dz =
+            \frac{\pi}{2} \left( \frac{z^5}{5} - z^4 + \frac{4z^3}{3}
+            \right) \Bigg|_0^2 
+          </mrow>
+          <mrow>
+            \amp = \frac{\pi}{2} \left( \frac{32}{5} - 16 +
+            \frac{64}{3} \right) = \frac{88\pi}{15} 
+          </mrow>
+        </md>
       </solution>
     </activity>
     <activity>
@@ -51,8 +126,51 @@
       </statement>
       <solution>
         <p>
-          Solution
+          Though I am dealing with a sphere, the parabaloid is
+          easier to describe in cylindrical coordinates, so I will
+          use that system. The whole system is symetrical about the
+          <m>z</m> axis, so <m>\theta</m> can simply range from
+          <m>0</m> to <m>2\pi</m>. The sphere is the outside range of
+          <m>r</m> and the paraboloid is the inside range of <m>r</m>,
+          but both depend on <m>z</m>. I need equations for both. The
+          sphere is <m>x^2 + y^2 +z^2 = 9</m>, which changes to <m>r^2
+          + z^2 = 9</m>. Solving for <m>r</m> gives <m>r =
+          \sqrt{9-z^2}</m>. The parabaloid is <m>z = r^2 - 3</m>,
+          which simplifies to <m>r = \sqrt{z+3}</m>. The range on
+          <m>z</m> starts at <m>-3</m> and ends at the point where the
+          paraboloid and the sphere meet. In the two equations, I can
+          isolate the replace <m>r^2</m> to get <m>z+3+z^2 = 9</m>,
+          which is the quadratic <m>z^2 + z - 6 = (z-3)(z+2)</m>.
+          Therefore, the parabaloid and sphere meet at the <m>z=2</m>
+          plane and <m>z=2</m> is the upper bound for <m>z</m>. The
+          Jacobian is <m>r</m>.
         </p>
+        <md>
+          <mrow>
+            \amp \int_0^{2\pi} \int_{-3}^2
+            \int_{\sqrt{z+3}}^{\sqrt{9-z^2}} r dr dz d\theta 
+          </mrow>
+          <mrow>
+            \amp = \int_0^{2\pi} d\theta \int_{-3}^2 \frac{r^2}{2}
+            \Bigg|_{\sqrt{z+3}}^{\sqrt{9-z^2}} dz 
+          </mrow>
+          <mrow>
+            \amp = 2\pi \int_{-3}^2 \frac{1}{2} \left( 9-z^2 - (z+3)
+            \right) dz
+          </mrow>
+          <mrow>
+            \amp = \pi \int_{-3}^2  6 - z - z^2 dz 
+          </mrow>
+          <mrow>
+            \amp = \pi \left( 6z - \frac{z^2}{2} - \frac{z^3}{3}
+            \right) \Bigg|_{-3}^2
+          </mrow>
+          <mrow>
+            \amp = \pi \left( 6(2-(-3)) - \frac{4 - 9}{2} - \frac{8 -
+            (-27)}{3} \right) = \pi \left(30 + \frac{5}{2} -
+            \frac{35}{3} \right) = \frac{125\pi}{6}
+          </mrow>
+        </md>
       </solution>
     </activity>
     <activity>
@@ -65,7 +183,65 @@
       </statement>
       <solution>
         <p>
-          Solution
+          I can work in cylindrical coordinates. The planes <m>z =
+          -1</m> remains <m>z=-1</m>. The plane <m>x + y + z = 5</m>
+          is trickier. In changed into <m>r \cos \theta + r \sin
+          \theta + z = 5 = r (\cos \theta + \sin \theta) + z = 5</m>.
+          I can use a trig identity to write this as <m>r \left(
+          \sqrt{2} \sin \left( \theta + \frac{\pi}{4} \right) \right)
+          + z = 5</m>. This is tricky, since the equation involves all
+          of the variables. I choose to set <m>z</m> first, then
+          <m>\theta</m>, then <m>r</m>. For <m>z</m>, I need to
+          calculate the maximum value; the highest point where the
+          cylinder meets the plane. This happens when <m>x = y =
+          -3</m>, so <m>z=11</m> is the highest value and I can take
+          <m>z \in [-1,11]</m>. Then at each value of <m>z</m>, 
+          I have the relationship <m>r \left( \sqrt{2} \sin \left(
+          \theta + \frac{\pi}{4} \right) \right) + z = 5</m> between
+          <m>r</m> and <m>\theta</m>. If I solve for <m>r</m>, I get
+        </p>
+        <me>
+          r = \frac{5-z}{\left( \sqrt{2} \sin \left( \theta +
+          \frac{\pi}{4} \right) \right)} 
+        </me>
+        <p>
+          This gets particularly tricky. I can't choose either
+          <m>r</m> or <m>\theta</m> to be the outside variable for the
+          whole cylinder; I need two different cases for <m>z \lt
+          5</m> and <m>z \gt 5</m>. On the bottom half of the
+          cylinder, I can use the previous equation to bound <m>r</m>
+          for <m>\theta \in \left[\frac{-\pi}{4} \frac{3\pi}{4}
+          \right]</m>, but <m>r</m> goes from <m>0</m> to <m>3</m> for
+          the rest of the range. For the tope half of the cylinder,
+          the bound of <m>r</m> in terms of <m>\theta</m> works for
+          <m>\theta in \left[ \frac{3\pi}{4}, \frac{7\pi}{4}
+          \right]</m>. For the rest of the range of <m>\theta</m>,
+          there isn't anything at all. This gives three integrals.
+        </p>
+        <md>
+          <mrow>
+            V \amp = \int_{-1}^5
+            \int_{\frac{-\pi}{4}}^{\frac{3\pi}{4}}
+            \int_0^{\frac{5-z}{\left( \sqrt{2} \sin \left( \theta +
+            \frac{\pi}{4} \right) \right)}} r dr d\theta dz +
+            \int_{-1}^5 \int_{\frac{3\pi}{4}}^{\frac{7\pi}{4}}
+            \int_0^3 r dr d\theta dz
+          </mrow>
+          <mrow>
+            \amp \hspace{2cm} +
+            \int_5^{11}\int_{\frac{3\pi}{4}}^{\frac{7\pi}{4}}
+            \int_0^{\frac{5-z}{\left( \sqrt{2} \sin \left( \theta +
+            \frac{\pi}{4} \right) \right)} }r dr d\theta dz
+          </mrow>
+        </md>
+        <p>
+          This is a miserable set of integrals, to be sure. Luckly for
+          us, there is another way to approach this entire question.
+          If we look at the full cylinder for <m>z \in [-1,11]</m>,
+          the plane cuts this cylinder into two equal pieces.
+          Therefore, the desired volume should be one half of the
+          volume of the cylinder of height <m>12</m> and radius
+          <m>3</m>, which is <m>72\pi</m>.
         </p>
       </solution>
     </activity>
@@ -75,32 +251,376 @@
       <statement>
         <p>
           Let <m>S</m> be the solid cone about the <m>z</m> axis with
-          height <m>5</m> and base radius <m>1</m>. Let <m>\rho(x,y,z)
+          height <m>5</m> and base radius <m>1</m>. The point of the
+          cone is at the origin and it opens upwards, readhing ther
+          radius of <m>1</m> at <m>z = 5</m>. Let <m>\rho(x,y,z)
           = \frac{z^2}{10}</m> be the density of <m>S</m>. Calculate
-          the mass, centre of mass, and the moments of intertia. 
+          the mass, centre of mass, the moments of intertia, and the
+          raddi of gyration.
         </p>
       </statement>
       <solution>
         <p>
-          Solution
+          Cylindrical coordiantes are the best system to describe this
+          cone, since it is about the <m>z</m> axis. I can set
+          constant bounds <m>\theta \in [0,2\pi]</m> and <m>r \in
+          [0,1]</m>. Then the boundary of the cone can be described as
+          <m>z \in \left[ 5r,5 \right]</m>. With these bounds, I can
+          move on to do the many integrals to calculate mass, first
+          moments, centre of mass, and second moments. 
         </p>
+        <md>
+          <mrow>
+            m \amp = \int_S \rho dV = \int_0^1 \int_0^{2\pi}
+            \int_{5r}^5 \frac{z^2}{10} rdz d\theta dr 
+          </mrow>
+          <mrow>
+            \amp = 2\pi \int_0^1 r\frac{z^3}{30} \Bigg|_{5r}^5 dr =
+            \frac{\pi}{15} \int_0^1 r (125 - 125 r^3) dr 
+          </mrow>
+          <mrow>
+            \amp = \frac{125\pi}{15} \int_0^1 r - r^4 dr =
+            \frac{25\pi}{3} \left( \frac{r^2}{2} - \frac{r^5}{5}
+            \right) \Bigg|_0^1 = \frac{25\pi}{3} \left( \frac{1}{2} -
+            \frac{1}{5} \right) = \frac{25\pi}{3} \frac{3}{10} =
+            \frac{5\pi}{2} 
+          </mrow>
+        </md>
+        <p>
+          I do not need to calculate the first moments <m>M_{yz}</m>
+          and <m>M_{xz}</m>. These moments measure the balance of the
+          object in the <m>x</m> and <m>y</m> axes. The cone is
+          completely symmetric in these axes, and the density function
+          is also symmetric. Therefore, the mass is perfectly balances
+          in the <m>x</m> and <m>y</m> axes and the moments must be
+          zero. I only need to calculate the moment <m>M_{xy}</m>.
+        </p>
+        <md>
+          <mrow>
+            M_{xy} \amp = \int_S z\rho dV  = \int_0^1 \int_0^{2\pi}
+            \int_{5r}^5 z\frac{z^2}{10} r dz d\theta dr = \frac{1}{10}
+            2\pi \int_0^1 \frac{z^4}{4} \Bigg|_{5r}^5 rdr 
+          </mrow>
+          <mrow>
+            \amp = \frac{\pi}{5} \frac{1}{4} \int_0^1 (625r - 625r^5)
+            rdr = \frac{625\pi}{20} \left( \frac{r^2}{2} -
+            \frac{r^6}{6} \right) \Bigg|_0^1 
+          </mrow>
+          <mrow>
+            \amp = \frac{125\pi}{4} \left( \frac{1}{2} - \frac{1}{6}
+            \right) = \frac{125\pi}{4} \frac{1}{3} = \frac{125\pi}{12} 
+          </mrow>
+        </md>
+        <p>
+          With the mass and first momemnts calculated, I can calculate
+          the coordinates of the centre of mass. 
+        </p>
+        <md>
+          <mrow>
+            \bar{x} \amp = \frac{M_{yz}}{m} = 0 
+          </mrow>
+          <mrow>
+            \bar{y} \amp = \frac{M_{xz}}{m} = 0 
+          </mrow>
+          <mrow>
+            \bar{z} \amp = \frac{M_{xy}}{m} =
+            \frac{\frac{125\pi}{12}}{\frac{5\pi}{2}} = \frac{25}{6}
+          </mrow>
+        </md>
+        <p>
+          Note that this is a reasonable answer. The cone is located
+          in the range <m>z \in [0,5]</m>. This <m>z</m> coordinate
+          for the centre of mass is in that range, as should be
+          expected. Now I continue with the moments of intertia. 
+        </p>
+        <md>
+          <mrow>
+            I_x \amp = \int_S (y^2 + z^2) \rho dV  = \int_0^1
+            \int_0^{2\pi} \int_{5r}^5 (r^2 \sin^2 \theta + z^2)
+            \frac{z^2}{10} dz rd\theta dr = 
+          </mrow>
+          <mrow>
+            \amp = \frac{1}{10} \int_0^1 \int_0^{2\pi} \int_{5r}^5 r^3
+            \sin^2 \theta z^2dz d\theta dr + \frac{1}{10} \int_0^1
+            \int_0^{2\pi} \int_{5r}^5 z^4 rdz d\theta dr
+          </mrow>
+          <mrow>
+            \amp = \frac{1}{10} \int_0^{2\pi} \sin^2 \theta d\theta
+            \int_0^1 r^3 \frac{z^3}{3} \Bigg|_{5r}^5 dr + \frac{1}{10}
+            2\pi \int_0^1 \frac{z^5}{5} \Bigg|_{5r}^5 rdr
+          </mrow>
+          <mrow>
+            \amp = \frac{1}{30} \pi \int_0^1 (125) (r^3 -  r^6) dr +
+            \frac{\pi}{25} \int_0^1 (3125) (r-r^6) dr
+          </mrow>
+          <mrow>
+            \amp = \frac{25\pi}{6} \left( \frac{r^4}{4} -
+            \frac{r^7}{7} \right)  \Bigg|_0^1 + 125\pi \left(
+            \frac{r^2}{2} -  \frac{r^7}{7} \right) \Bigg|_0^1 
+          </mrow>
+          <mrow>
+            \amp = \frac{25\pi}{6} \left( \frac{1}{4} - \frac{1}{7}
+            \right) + 125\pi \left( \frac{1}{2} - \frac{1}{7} \right)
+          </mrow>
+          <mrow>
+            \amp = \frac{25\pi}{6} \frac{3}{14} + 125\pi \frac{5}{14}
+            = \frac{2875\pi}{84}
+          </mrow>
+        </md>
+        <p>
+          By symmetry, the moments about the <m>x</m> and <m>y</m>
+          axis are the same. 
+        </p>
+        <md>
+          <mrow>
+            I_y \amp = I_x = \frac{2875\pi}{84} 
+          </mrow>
+          <mrow>
+            I_z \amp = \int_S (x^2 + y^2) \rho dV  = \int_0^1
+            \int_0^{2\pi} \int_{5r}^5 r^2 \frac{z^2}{10} rdz d\theta
+            dr
+          </mrow>
+          <mrow>
+            \amp = \frac{1}{10} 2\pi \int_0^1 r^3 \frac{z^3}{3}
+            \Bigg|_{5r}^5 dr = \frac{\pi}{15} \int_0^1 125(r^3-r^6) dr
+            = \frac{25\pi}{3} \left( \frac{r^4}{4} - \frac{r^7}{7}
+            \right) \Bigg|_0^1
+          </mrow>
+          <mrow>
+            \amp = \frac{25\pi}{3} \left (\frac{1}{4} - \frac{1}{7}
+            \right) = \frac{25\pi}{28}
+          </mrow>
+        <md>
+        <p>
+          Now that I have the moments of intertia, I can also
+          calculate the radii of gyration. By the same symmetry as
+          before, I know the radii of gyration around the <m>x</m> and
+          <m>y</m> axes will be the same.
+        </p>
+        </md>
+          <mrow>
+            \bar{\bar{x}}^2 \amp = \frac{I_{x}}{m} =
+            \frac{\frac{2875\pi}{84}}{\frac{5\pi}{2}} =
+            \frac{(2875)(2)}{(84)(5)} = \frac{575}{42} \implies
+            \bar{\bar{x}} = \sqrt{\frac{575}{42}}
+          </mrow>
+          <mrow>
+            \bar{\bar{y}} \amp = \bar{\bar{x}} = \sqrt{\frac{575}{42}} 
+          </mrow>
+          <mrow>
+            \bar{\bar{z}}^2 \amp = \frac{I_{z}}{m} =
+            \frac{\frac{25\pi}{28}}{\frac{5\pi}{2}} = \frac{50}{140} =
+            \frac{5}{14} \implies \bar{\bar{z}} = \sqrt{\frac{5}{14}}
+          </mrow>
+        </md> 
       </solution>
     </activity>
     <activity>
       <statement>
         <p>
-          Let <m>S</m> be the solid sphere of radius <m>2</m>
-          excluding the ocstant where all the variables are positive
-          and the octant where all variables are negative. Let
-          <m>\rho(x,y,z) = \frac{1}{\sqrt{x^2 + y^2 + z^2}}</m> be the
-          density function on the sphere. Calculate the the mass,
-          centre of mass, and the moments of intertia. 
+          Let <m>S</m> be the solid hemisphersphere of radius <m>2</m>
+          above the <m>xy</m> plane excluding the ocstant where all
+          the variables are positive Let <m>\rho(x,y,z) =
+          \frac{1}{\sqrt{x^2 + y^2 + z^2}}</m> be the density function
+          on the sphere. Calculate the the mass, centre of mass, 
+          the moments of intertia, and the radii of gyration.
         </p>
       </statement>
       <solution>
         <p>
-          Solution
+          This object is a portion of the sphere, so spherical
+          coordinates are obviously appropriate. The hemisphere about
+          the <m>xy</m> is the hemisphere where the colatitude
+          <m>\phi</m> is limited to <m>\left[ 0, \frac{\pi}{2}
+          \right]</m>. Then, to exclude the octants where all
+          variables are positive, I restrict the longitute to
+          <m>\theta \in \left[ \frac{\pi}{2}, 2\pi \right]</m>. The
+          radius bounds are still <m>r \in [0,2]</m>. Those bound
+          describe the region, so I can progress to do all the
+          integrals in spherical coordinates.
         </p>
+        <md>
+          <mrow>
+            m \amp = \int_S \rho dV 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} \frac{1}{r} r^2 \sin \phi
+            d\theta d\phi dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r dr \int_0^{\frac{\pi}{2}} \sin \phi
+            d\phi \int_{\frac{\pi}{2}}^{2\pi} d \theta = (2)(1)\left(
+            \frac{3\pi}{2} \right) = 3\pi
+          </mrow>
+        </md> 
+        <p>
+          Now I calculate the centre of mass. By symmetry, I expect
+          <m>M_{yz}</m> and <m>M_{xz}</m> to be the same; I only need
+          to calculate one of them.
+        </p>
+        <md>
+          <mrow>
+            M_{yz} \amp = \int_S x\rho dV = 0 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r \sin \phi \cos \theta
+            \frac{1}{r} r^2 \sin \phi d\theta d\phi dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r^2 dr \int_0^{\frac{\pi}{2}} \sin^2 \phi
+            d\phi \int_{\frac{\pi}{2}}^{2\pi} \cos \theta d\theta 
+          </mrow>
+          <mrow>
+            \amp = \left( \frac{r^3}{3} \Bigg|_0^2 \right) \left( 
+            \frac{x}{2} - \frac{\sin 2x}{4} \Bigg|_0^{\frac{\pi}{2}}
+            \right) \left( \sin \theta \Bigg|_{\frac{\pi}{2}}^{2\pi}
+            \right) 
+          </mrow>
+          <mrow>
+            \amp = \frac{8}{3} \left( \frac{\pi}{4} - 0 - 0 + 0
+            \right) \left( 0  - 1 \right) = \frac{-\pi}{6} 
+          </mrow>
+          <mrow>
+            M_{xz} \amp = \frac{-\pi}{6} 
+          </mrow>
+          <mrow>
+            M_{xy} \amp = \int_S z\rho dV = 0 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r \cos \phi 
+            \frac{1}{r} r^2 \sin \phi d\theta d\phi dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r^2 dr \int_0^{\frac{\pi}{2}} \cos \phi
+            \sin \phi d \phi \int_{\frac{\pi}{2}}^{2\pi} d\theta 
+          </mrow>
+          <mrow>
+            \amp = \left( \frac{r^3}{3} \Bigg|_0^2 \right) \left(
+            \frac{-\cos 2x}{4} - \frac{1}{4} \Bigg|_0^{\frac{\pi}{2}}
+            \right) \left( \theta \Bigg|_{\frac{\pi}{2}}^{2\pi}
+            \right) 
+          </mrow>
+          <mrow>
+            \amp = \left( \frac{8}{3} - 0 \right) \left( \frac{1}{4} -
+            \frac{1}{4} + \frac{1}{4} + \frac{1}{4} \right) \left(
+            \frac{3\pi}{2} \right) 
+          </mrow>
+          <mrow>
+            \amp = \frac{8}{3} \frac{1}{2} \frac{3\pi}{2} =
+            \frac{\pi}{32} 
+          </mrow>
+        </md>
+        <p>
+          Then I can calculate the coordinates of the centre of mass. 
+        </p>
+        <md>
+          <mrow>
+            \bar{x} \amp = \frac{M_{yz}}{m} =
+            \frac{\frac{-\pi}{6}}{3\pi} = \frac{-1}{18} 
+          </mrow>
+          <mrow>
+            \bar{y} \amp = \frac{M_{xz}}{m} = 
+            \frac{\frac{-\pi}{6}}{3\pi} = \frac{-1}{18} 
+          </mrow>
+          <mrow>
+            \bar{z} \amp = \frac{M_{xy}}{m} =
+            \frac{\frac{\pi}{32}}{3\pi} = \frac{1}{96} 
+          </mrow>
+        </md> 
+        <p>
+          Now I proceed with calculating the moments of inertia.
+        </p>
+        <md>
+          <mrow>
+            I_x \amp = \int_S (y^2 + z^2) \rho dV 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} (r^2 \sin^2 \phi \sin^2 \theta
+            + r^2 \cos^2 \phi) \frac{1}{r} r^2 \sin \phi d\theta d\phi
+            dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r^3 \sin^3 \phi \sin^2 \theta
+            d\theta d\phi dr + \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r^3 \cos^2 \phi \sin \phi
+            d\theta d\phi dr
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r^3 dr \int_0^{\frac{\pi}{2}} \sin^3 \phi
+            d\phi \int_{\frac{\pi}{2}}^{2\pi} \sin^2 \theta d\theta +
+            \int_0^2 r^3 dr \int_0^{\frac{\pi}{2}} \cos^2 \phi \sin
+            \phi d \phi \int_{\frac{\pi}{2}}^{2\pi} d\theta
+          </mrow>
+          <mrow>
+            \amp = (4) \left( \frac{2}{3} \right) \left(
+            \frac{3\pi}{4} \right) + (4)\left( \frac{1}{3} \right)
+            \left( \frac{3\pi}{4}\right)  = 2\pi + \pi = 3\pi
+          </mrow>
+        </md>
+        <p>
+          By symmetry, I expect <m>I_y</m> to be the same as
+          <m>I_x</m>. 
+        </p>
+        <md>
+          <mrow>
+            I_y \amp = 3\pi 
+          </mrow>
+        </md>
+        <p>
+          Finally, I need to calculate the last moment of inertia.
+        </p>
+        <md>
+          <mrow>
+            I_z \amp = \int_S (x^2 + y^2) \rho dV 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} (r^2 \sin^2 \phi \cos^2 \theta
+            + r^2 \sin^2 \phi \sin^2 \theta) \frac{1}{r} r^2 \sin \phi
+            d\theta d\phi dr 
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r^3 \sin^3 \phi \cos^2 \theta
+            d\theta d\phi dr + \int_0^2 \int_0^{\frac{\pi}{2}}
+            \int_{\frac{\pi}{2}}^{2\pi} r^3 \sin^3 \phi \sin^2 \theta
+            d\theta d\phi dr
+          </mrow>
+          <mrow>
+            \amp = \int_0^2 r^3 dr \int_0^{\frac{\pi}{2}} \sin^3 \phi
+            d\phi \int_{\frac{\pi}{2}}^{2\pi} \cos^2 \theta d\theta +
+            \int_0^2 r^3 dr \int_0^{\frac{\pi}{2}} \sin^3 \phi d \phi
+            \int_{\frac{\pi}{2}}^{2\pi} \sin^2 d\theta
+          </mrow>
+          <mrow>
+            \amp = (4) \left( \frac{2}{3} \right) \left(
+            \frac{3\pi}{4} \right) + (4)\left( \frac{2}{3} \right)
+            \left( \frac{3\pi}{4}\right) = 2\pi  + 2\pi = 4\pi
+          </mrow>
+        </md>
+        <p>
+          Now I can calculate the radii of gyration.
+        </p>
+        <md>
+          <mrow>
+            \bar{\bar{x}}^2 \amp = \frac{I_{x}}{m} = \frac{3\pi}{3\pi}
+            = 1 \implies
+            \bar{\bar{x}} = 1 
+          </mrow>
+          <mrow>
+            \bar{\bar{y}}^2 \amp = \frac{I_{y}}{m} = \frac{3\pi}{3\pi}
+            \implies \bar{\bar{y}} = 1 
+          </mrow>
+          <mrow>
+            \bar{\bar{z}}^2 \amp = \frac{I_{z}}{m} = \frac{4\pi}{3\pi}
+            \implies \bar{\bar{z}} = \frac{2}{\sqrt{3}} 
+          </mrow>
+        </md> 
       </solution>
     </activity>
   </subsection>

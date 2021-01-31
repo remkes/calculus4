@@ -139,13 +139,13 @@
         </p>
         <md>
           <mrow>
-            \bar{\bar{R}}^2 \amp = \frac{I_0}{m}
-          </mrow>
-          <mrow>
             \bar{\bar{x}}^2 \amp = \frac{I_x}{m}
           </mrow>
           <mrow>
             \bar{\bar{y}}^2 \amp = \frac{I_y}{m}
+          </mrow>
+          <mrow>
+            \bar{\bar{R}}^2 \amp = \frac{I_0}{m}
           </mrow>
         </md>
         <p>
@@ -188,12 +188,9 @@
           </mrow>
         </md>
         <p>
-          The object acts like a point mass at <m>(\bar{\bar{x}},
-          \bar{\bar{y}}, \bar{\bar{z}})</m> for purposes of rotational
-          physics. More specifically, for about the <m>z</m> axis, the
-          particular acts as a point mass at radius
-          <m>\sqrt{\bar{\bar{x}}^2 + \bar{\bar{y}}^2}</m>, with
-          parallel constructions for the other two axes.
+          The object acts like a point mass at radius
+          <m>(\bar{\bar{x}}</m> for purposes of rotation around the
+          <m>x</m> axis, and similarly for the other two axes.
         </p>
       </statement>
     </definition>
@@ -217,7 +214,7 @@
             m \amp = \int_0^{\frac{\pi}{2}} \int_0^a krrdr d\theta
           </mrow>
           <mrow>
-            \amp = \frac{\pi}{2} \left. \frac{kr^3}{3} \right|_0^a
+            \amp = \frac{\pi}{2} \frac{kr^3}{3} \Bigg|_0^a
             = \frac{\pi ka^3}{6}
           </mrow>
           <mrow>
@@ -230,9 +227,9 @@
             d\theta \int_0^a r^3 dt
           </mrow>
           <mrow>
-            \amp = \frac{k}{m} \left. \left( -\cos \theta \right)
-            \right|_0^{\frac{\pi}{2}} \left. \frac{r^4}{4}
-            \right|_0^a = \frac{6}{\pi a^3} 1 \frac{a^4}{4} =
+            \amp = \frac{k}{m} \left( -\cos \theta \right)
+            \Bigg|_0^{\frac{\pi}{2}} \frac{r^4}{4}
+            \Bigg|_0^a = \frac{6}{\pi a^3} 1 \frac{a^4}{4} =
             \frac{3a}{2\pi}
           </mrow>
           <mrow>
@@ -263,21 +260,21 @@
             A \amp = \int_{-1}^1 \int_{-y^4}^{y^4}1 dx dy
           </mrow>
           <mrow>
-            \amp = \int_{-1}^1 2y^4 dy = \left. \frac{2y^5}{5}
-            \right|_{-1}^1 = \frac{4}{5}
+            \amp = \int_{-1}^1 2y^4 dy = \frac{2y^5}{5}
+            \Bigg|_{-1}^1 = \frac{4}{5}
           </mrow>
           <mrow>
             I_x \amp = \int_{-1}^1 \int_{-y^4}^{y^4} y^2 dx dy
           </mrow>
           <mrow>
-            \amp = \int_{-1}^1 \left. xy^2 \right|_{-y^4}^{y^4} =
-            \int_{-1}^1 2y^6 dy = \left. \frac{2y^7}{7} \right|_{-1}^1
+            \amp = \int_{-1}^1 xy^2 \Bigg|_{-y^4}^{y^4} =
+            \int_{-1}^1 2y^6 dy = \frac{2y^7}{7} \Bigg|_{-1}^1
             = \frac{4}{7}
           </mrow>
         </md>
         <p>
           Now I want to compare this lamina to a rectangle of height
-          <m>2</m> and width <m>2/5</m>, which has the same area. I
+          <m>2</m> and width <m>\frac{2}{5}</m>, which has the same area. I
           can quickly  calculate the moment of inertia for the
           rectangle.
         </p>
@@ -317,20 +314,20 @@
         <md>
           <mrow>
             m \amp = \int_0^{2\pi} \int_0^{\pi/2} \int_0^a k (r\cos
-            \phi) r^2 \sin^2\phi dr d\phi d\theta
+            \phi) r^2 \sin \phi dr d\phi d\theta
           </mrow>
           <mrow>
-            \amp = 2\pi k \int_0^{\pi/2} \left. \frac{r^4}{4}
-            \right|_0^a \cos \phi \sin \phi d\phi
+            \amp = 2\pi k \int_0^{\pi/2} \frac{r^4}{4}
+            \Bigg|_0^a \cos \phi \sin \phi d\phi
           </mrow>
           <mrow>
             \amp = \frac{2\pi ka^4}{4} \int_0^{\pi/2} \frac{\sin
             2\phi}{2} d\phi
           </mrow>
           <mrow>
-            \amp = \frac{\pi ka^4}{2} \left. \left(
-            \frac{-\cos2\phi}{4} \right) \right|_0^{\pi/2} =
-            \frac{\pi ka^4}{8} ( \cos 0 - \cos \pi) = \frac{\pi
+            \amp = \frac{\pi ka^4}{2} \left(
+            \frac{-\cos2\phi}{4} \right) \Bigg|_0^{\pi/2} =
+            \frac{\pi ka^4}{8} ( -\cos \pi + \cos 0) = \frac{\pi
             ka^4}{4}
           </mrow>
           <mrow>
@@ -351,8 +348,8 @@
             \phi \sin \phi d \phi
           </mrow>
           <mrow>
-            \amp = \frac{2\pi k a^5}{5} \left. \left( \frac{-\cos^3
-            \phi}{3} \right) \right|_0^{\pi/2} = \frac{2\pi k
+            \amp = \frac{2\pi k a^5}{5} \left( \frac{-\cos^3
+            \phi}{3} \right) \Bigg|_0^{\pi/2} = \frac{2\pi k
             a^5}{15}
           </mrow>
           <mrow>
@@ -386,11 +383,11 @@
             \sin \phi \right) d\phi d\theta
           </mrow>
           <mrow>
-            \amp = \frac{ka^6}{6} \left[ \left. \left( \frac{\sin^4
-            \phi}{4} \right) \right|_0^{\pi/2} \left. \left(
+            \amp = \frac{ka^6}{6} \left[ \left( \frac{\sin^4
+            \phi}{4} \right) \Bigg|_0^{\pi/2} \left(
             \frac{\theta}{2} - \frac{\sin 2\theta}{4} \right)
-            \right|_0^{2\pi} + \left. \left( \frac{-\cos^4 \phi}{4}
-            \right) \right|_0^{\pi/2} 2\pi \right]
+            \Bigg|_0^{2\pi} + \left( \frac{-\cos^4 \phi}{4}
+            \right) \Bigg|_0^{\pi/2} 2\pi \right]
           </mrow>
           <mrow>
             \amp = \frac{ka^6}{6} \left[ \left( \frac{1}{4} - 0
@@ -412,8 +409,8 @@
             \cos \phi d\phi
           </mrow>
           <mrow>
-            \amp = \frac{\pi ka^6}{3} \left. \frac{\sin^4 \phi}{4}
-            \right|_0^{\pi/2} = \frac{\pi ka^6}{12}
+            \amp = \frac{\pi ka^6}{3} \frac{\sin^4 \phi}{4}
+            \Bigg|_0^{\pi/2} = \frac{\pi ka^6}{12}
           </mrow>
           <mrow>
             \bar{\bar{x}}^2 \amp = \frac{\frac{\pi
@@ -459,8 +456,24 @@
         </p>
         <md>
           <mrow>
-            m \amp = \int_R 1 dV = \frac{\pi
-            \sqrt{\frac{h}{b}}^2h}{2} = \frac{\pi h^2}{2b}
+            m \amp = \int_S 1 dV = \int_0^{2\pi}
+            \int_0^{\sqrt{\frac{h}{b}}} \int_{br^2}^h r dz dr d\theta
+          </mrow>
+          <mrow>
+            \amp = \int_0^{2\pi} d\theta \int_0^{\sqrt{\frac{h}{b}}} z
+            \Bigg|_{br^2}^h rdr
+          </mrow>
+          <mrow>
+            \amp = 2\pi \int_0^{\sqrt{\frac{h}{b}}} (h-br^2)rdr 
+          </mrow>
+          <mrow>
+            \amp = 2\pi \left( \frac{hr^2}{2} - \frac{br^4}{4} \right)
+            \Bigg|_0^{\sqrt{\frac{h}{b}}} = 2\pi \left( \frac{h^2}{2b}
+            - \frac{bh^2}{4b^2} \right) 
+          </mrow>
+          <mrow>
+            \amp = 2\pi \frac{h^2}{b} \left( \frac{1}{2} - \frac{1}{4}
+            \right) = \frac{\pi h^2}{2b}
           </mrow>
           <mrow>
             I_z \amp = \int_0^{2\pi} \int_0^{\sqrt{\frac{h}{b}}}
@@ -475,8 +488,8 @@
             r^5 b \right) dr
           </mrow>
           <mrow>
-            \amp = 2\pi \left. \left( \frac{hr^4}{4} -
-            \frac{br^6}{6} \right) \right|_0^{\sqrt{\frac{h}{b}}}
+            \amp = 2\pi \left( \frac{hr^4}{4} -
+            \frac{br^6}{6} \right) \Bigg|_0^{\sqrt{\frac{h}{b}}}
           </mrow>
           <mrow>
             \amp = 2\pi \left( \frac{h^3}{4b^2} - \frac{bh^3}{6b^3}
@@ -504,10 +517,10 @@
             \frac{h^3}{3} - \frac{b^3r^6}{3}\right) dr d\theta
           </mrow>
           <mrow>
-            \amp = \int_0^{2\pi} \left. \frac{r^4}{4} h \sin^2
+            \amp = \int_0^{2\pi} \frac{r^4}{4} h \sin^2
             \theta - \frac{r^6}{6} b \sin^2 \theta + \frac{r^2}{2}
             \frac{h^3}{3} - \frac{r^8}{8} \frac{b^3}{3}
-            \right|_0^{\sqrt{\frac{h}{b}}} d \theta
+            \Bigg|_0^{\sqrt{\frac{h}{b}}} d \theta
           </mrow>
           <mrow>
             \amp = \int_0^{2\pi} \frac{h^2}{4b^2} h \sin^2 \theta -
@@ -521,8 +534,8 @@
             \right)
           </mrow>
           <mrow>
-            \amp = \left. \frac{h^3}{12b^2} \left( \frac{\theta}{2}
-            - \frac{\sin 2\theta}{4} \right) \right|_0^{2\pi} +
+            \amp = \frac{h^3}{12b^2} \left( \frac{\theta}{2}
+            - \frac{\sin 2\theta}{4} \right) \Bigg|_0^{2\pi} +
             \frac{3\pi h^4}{12b}
           </mrow>
           <mrow>
@@ -531,16 +544,12 @@
           </mrow>
           <mrow>
             \bar{\bar{x}}^2 \amp = \frac{ \frac{h^3\pi}{12b} \left(
-            \frac{1}{b} + 3h \right)}{\frac{\pi h^2}{2b}}
+            \frac{1}{b} + 3h \right)}{\frac{\pi h^2}{2b}} =
+            \frac{h}{6} \left( \frac{1}{b} + 3h \right) 
           </mrow>
           <mrow>
-            \bar{\bar{x}} \amp = \sqrt{\frac{a^2}{6} +
-            \frac{h^2}{3}} = \frac{h}{6} \left( \frac{1}{b} + 3h
-            \right)
-          </mrow>
-          <mrow>
-            \bar{\bar{x}} \amp = \sqrt{\frac{h}{6} \left(
-            \frac{1}{b} + 3h \right)}
+            \bar{\bar{x}} \amp = \sqrt{\frac{h}{6} \left( \frac{1}{b}
+            + 3h \right)}
           </mrow>
           <mrow>
             \bar{\bar{y}} \amp = \bar{\bar{x}} \text{ by symmetry }
@@ -704,9 +713,9 @@
           dr
         </mrow>
         <mrow>
-          \amp = \frac{\pi Gm \rho}{c^2} \int_0^a r \left. \left(
+          \amp = \frac{\pi Gm \rho}{c^2} \int_0^a r \left(
           (c^2-r^2) \frac{-1}{\omega} + \omega \right)
-          \right|_{c-r}^{c+r} dr
+          \Bigg|_{c-r}^{c+r} dr
         </mrow>
         <mrow>
           \amp = \frac{\pi Gm\rho}{c^2} \int_0^a (rc^2 - r^3)
@@ -751,8 +760,8 @@
         dr d\theta
       </mrow>
       <mrow>
-        \amp = \frac{\pi G m \rho}{c^2} \int_a^b \left. (r^3-rc^2)
-        \frac{1}{\omega} \right|_{r-c}^{r+c} + r\omega
+        \amp = \frac{\pi G m \rho}{c^2} \int_a^b (r^3-rc^2)
+        \frac{1}{\omega} \Bigg|_{r-c}^{r+c} + r\omega
         \bigg|_{r-c}^{r+c} dr
       </mrow>
       <mrow>
@@ -1021,9 +1030,9 @@
       Here I integrate by parts. 
     </p>
     <me>
-      = \frac{\imath \hbar}{2m} \left. x \left( \bar{\Psi}
+      = \frac{\imath \hbar}{2m} x \left( \bar{\Psi}
       \frac{\del \Psi}{\del x} - \frac{\del \bar{\Psi}}{\del x}
-      \Psi \right) \right|_{-\infty}^{\infty} - \frac{\imath
+      \Psi \right) \Bigg|_{-\infty}^{\infty} - \frac{\imath
       \hbar}{2m} \int \left( \bar{\Psi} \frac{\del \Psi}{\del x} -
       \frac{\del \bar{\Psi}}{\del x} \Psi \right) dx
     </me>
