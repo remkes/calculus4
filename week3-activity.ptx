@@ -227,7 +227,7 @@
         </me>
         <p>
           The region of integration <m>D</m> is the parallelogram with
-          vertices <m>(0,0</m>, <m>(4,-1</m>, <m>(3,2)</m>,
+          vertices <m>(0,0)</m>, <m>(4,-1)</m>, <m>(3,2)</m>,
           <m>(7,1)</m>, as show in <xref ref="figure-cov3" />.
         </p>
       </statement>
@@ -240,7 +240,7 @@
           parallelogram, I get the lines <m>y = \frac{2}{3}x</m>, <m>y
           = \frac{3}{2} x - \frac{11}{3}</m>, <m>y = \frac{-1}{4}
           x</m> and <m>y = \frac{-1}{4} x + \frac{11}{4}</m>. If I
-          substitute for <m>u</m> and <m>v</m> in these founds, I get
+          substitute for <m>u</m> and <m>v</m> in these bounds, I get
           the bounds (respective) <m>u=0</m>, <m>u=11</m>, <m>v=0</m>
           and <m>v=11</m>. This means I can use constant bounds for
           the new integral. Finally, the Jacobian of the
@@ -257,7 +257,7 @@
           </mrow>
         </md>
         <p>
-          The limit does not converge, but divergest to
+          The limit does not converge, but diverges to
           <m>-\infty</m>, so I conclude that the integral does not
           represent a finite volume. 
         </p>
@@ -305,7 +305,7 @@
           \int_D \frac{x^3 + 4x + 1}{x^2 - y} dA 
         </me>
         <p>
-          The region of integration <m>D</m> is the area bounded aboe
+          The region of integration <m>D</m> is the area bounded above
           by <m>y = x^2 + 1</m>, below by <m>y = x^2 +2</m>, on the
           left by the line <m>x=2</m>, and on the first by the line
           <m>x=4</m>. This region is shown in <xref ref="figure-cov4"

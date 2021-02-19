@@ -258,7 +258,7 @@
         in angle) is a larger region the further out it is on the
         circle.  Ths figure shows this at a marcoscopic level; the
         Jacobian is essentially measuring the same reality at an
-        infinitesimal level. The Jacobian multiplies by the radiu term
+        infinitesimal level. The Jacobian multiplies by the radius term
         <m>r</m> to indicate this scaling of area as the radius
         increases. 
       </p>
