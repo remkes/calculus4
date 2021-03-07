@@ -392,11 +392,11 @@
         </p>
         <md>
           <mrow>
-            \sigma(z,\theta) \amp = \left (z^{\frac{3}{2}} \cos v,
-            z^{\frac{3}{2}} \sin v, z \right) 
+            \sigma(z,\theta) \amp = \left (z^{\frac{3}{2}} \cos
+            \theta, z^{\frac{3}{2}} \sin \theta, z \right)
           </mrow>
           <mrow>
-            D \amp = (u,v) \in [0,4] \times [0,2\pi] 
+            D \amp = (z,\theta) \in [0,4] \times [0,2\pi] 
           </mrow>
         </md>
         <p>
@@ -405,19 +405,21 @@
         </p>
         <md>
           <mrow>
-            \sigma_u \amp = \left( \cos v, \sin v,
-            \frac{2}{3\sqrt[3]{u}} \right) 
+            \sigma_z \amp = \left( \frac{3}{2} z^{\frac{1}{2}} \cos
+            \theta, \frac{3}{2} z^{\frac{1}{2}} \sin \theta, 1 \right) 
           </mrow>
           <mrow>
-            \sigma_v \amp = (-u \sin v, u \cos v, 0) 
+            \sigma_\theta \amp = \left( -z^{\frac{3}{2}} \sin \theta,
+            z^{\frac{3}{2}} \cos \theta, 0 \right) 
           </mrow>
           <mrow>
-            \sigma_u \times \sigma_v \amp = \left(
-            \frac{-u^{\frac{2}{3}} \cos v}{3}, \frac{-u{^\frac{2}{3}}
-            \sin v}{3}, u \right) 
+            \sigma_z \times \sigma_\theta \amp = \left(
+            -z^{\frac{3}{2}} \cos \theta, -z^{\frac{3}{2}} \sin
+            \theta, \frac{3}{2}z^2 \right) 
           </mrow>
           <mrow>
-            |\sigma_u \times \sigma_v| \amp = \sqrt{ u^\frac{4}{3} + u^2} 
+            |\sigma_z \times \sigma_\theta| \amp = \sqrt{z^3 +
+            \frac{9z^4}{4}}
           </mrow>
         </md>
         <p>
@@ -428,8 +430,9 @@
         </p>
         <md>
           <mrow>
-            A = \int_D |\sigma_u \times \sigma_v| du dv \amp = 
-            \int_0^{2\pi} \int_0^4 \sqrt{ u^\frac{4}{3} + u^2} du dv  
+            A = \int_D |\sigma_z \times \sigma_\theta| dz d\theta \amp = 
+            \int_0^{2\pi} \int_0^4 \sqrt{z^3 + \frac{9z^4}{4}} dz
+            d\theta  
           </mrow>
         </md>
       </solution>

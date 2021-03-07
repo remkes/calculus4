@@ -21,7 +21,7 @@
         domain.
       </p>
       <me>
-        A = \int_\sigma 1 dA = \int_D |\sigma_u \times \sigma_v| du dv
+        A = \int_D |\sigma_u \times \sigma_v| du dv
       </me>
     </statement>
   </proposition>
@@ -61,9 +61,8 @@
       <p>
         The parabaloid <m>z = k(x^2 +y^2)</m> can be described by
         <m>\sigma(u,v) = (u,v,k(u^2+v^2))</m> over <m>D</m> a circle
-        of radius <m>r</m>. I can calculate its surface area. The
-        height is detemined by the radius of the domain <m>D</m>; I'll
-        call that radius <m>R</m>. 
+        of radius <m>R</m>. I can calculate its surface area. The
+        height is detemined by the radius of the domain <m>D</m>. 
       </p>
       <p>
         Since the domain is a circle, I integrate in polar
@@ -74,6 +73,19 @@
         <m>d\theta</m>, giving a simple result of <m>2\pi</m>.
       </p>
       <md>
+        <mrow>
+          \sigma_u \amp = (1, 0, 2ku) 
+        </mrow>
+        <mrow>
+          \sigma_v \amp = (0, 1, 2kv) 
+        </mrow>
+        <mrow>
+          \sigma_u \times \sigma_v \amp = (-2ku, -2kv, 1) 
+        </mrow>
+        <mrow>
+          |\sigma_u \times \sigma_v| \amp = \sqrt{4k^2u^2 + 4k^2v^1 +
+          1} 
+        </mrow>
         <mrow>
           A \amp = \int_D \sqrt{4k^2 u^2 + 4k^2 v^2 + 1} du dv
         </mrow>
@@ -94,7 +106,7 @@
           \amp = 2\pi \int_1^{4k^2R^2 + 1} \sqrt{u} \frac{1}{8k^2} du
         </mrow>
         <mrow>
-          \amp = \left. \frac{\pi}{4k^2R^2 + 1} \frac{2u^{\frac{3}{2}}}{3}
+          \amp = \left. \frac{\pi}{4k^2} \frac{2u^{\frac{3}{2}}}{3}
           \right|_1^{4k^2R^2+1} 
         </mrow>
         <mrow>

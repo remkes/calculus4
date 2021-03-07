@@ -117,7 +117,7 @@
           The axis of the surface of revolution is unchanges. The
           other two axes have rotation; parametrically, that is given
           by sine and cosine. Let <m>f(x)</m> be a continuous function
-          on <m>[a,b]</m>. Let <m>D = [a,b] \times [0,\2pi]</m>. Then
+          on <m>[a,b]</m>. Let <m>D = [a,b] \times [0,2\pi]</m>. Then
           the surface of revolution is describe as a parametric
           surface on the parameter domain <m>D</m>. 
         </p>
@@ -212,7 +212,7 @@
       <statement>
         <p>
           A parametric surface <m>\sigma: D \rightarrow \RR^3</m> is
-          called a <term>C^1</term> surface if all the partial
+          called a <m>C^1</m> surface if all the partial
           derivtive of both components of <m>\sigma</m> exist and are
           continuous. For a <m>C^1</m> parametric surface
           <m>\sigma</m>, write <m>\sigma_u</m> for the vector of
@@ -221,8 +221,8 @@
           and likewise for <m>\sigma_v</m> with partials in the
           variable <m>v</m>. For such a surface, the <term>normal
           vector</term> is the vector <m>\sigma_u \times \sigma_v</m>.
-          A parametric surface is called <term>non-singular</term> is
-          its normal is never zero. 
+          A parametric surface is called <term>non-singular</term> if
+          its normal is never the zero vector. 
         </p>
       </statement>
     </definition>
@@ -271,8 +271,8 @@
             \sigma_v \amp = \left( 0, 1, \frac{\del f}{\del v} \right) 
           </mrow>
           <mrow>
-            N(u,v) \amp = \left( -\frac{\del f}{\del u}, -\frac{\del
-            f}{\del v} , 1 \right) 
+            \sigma_u \times \sigma_v  \amp = \left( -\frac{\del
+            f}{\del u}, -\frac{\del f}{\del v} , 1 \right) 
           </mrow>
         </md>
         <p>
@@ -306,8 +306,8 @@
             \theta \right) 
           </mrow>
           <mrow>
-            N(x, \theta) \amp = \left( f(x) f^\prime(x), -f(x) \cos \theta, f(x)
-            -\sin \theta \right) 
+            \sigma_x \times \sigma_{\theta} \amp = \left( f(x)
+            f^\prime(x), -f(x) \cos \theta, -f(x) \sin \theta \right)
           </mrow>
         </md>
         <p>
@@ -339,12 +339,13 @@
             \phi \sin \theta, -R \sin \phi \right) 
           </mrow>
           <mrow>
-            N(\theta,\phi) \amp = \left( -R^2 \sin^2 \phi \cos \theta, -R^2
-            \sin^2 \phi \sin \theta, -R^2 \sin \phi \cos \phi \right)
+            \sigma_{\theta} \times \sigma_{\phi} \amp = \left( -R^2
+            \sin^2 \phi \cos \theta, -R^2 \sin^2 \phi \sin \theta,
+            -R^2 \sin \phi \cos \phi \right)
           </mrow>
           <mrow>
-            \amp = -R^2 \sin \phi \left( \sin \phi \cos \theta, \sin \phi
-            \sin \theta, \cos \phi) \right) 
+            \amp = -R \sin \phi \left( R \sin \phi \cos \theta, R \sin
+            \phi \sin \theta, R \cos \phi) \right) 
           </mrow>
         </md>
         <p>
@@ -388,7 +389,8 @@
             \sigma_z \amp = \left(0, 0, 1 \right) 
           </mrow>
           <mrow>
-            N(\theta,z) \amp = ( R \cos \theta, R \sin \theta, 0) 
+            \sigma_{\theta} \times \sigma_z \amp = ( R \cos \theta, R
+            \sin \theta, 0)
           </mrow>
         </md>
         <p>
@@ -420,9 +422,10 @@
             \sin \theta, 1 \right) 
           </mrow>
           <mrow>
-            N(\theta,z) \amp = \left( \frac{R(h-z}{h} \cos \theta +
-            \frac{Rz}{h} \sin \theta, \frac{-Rz}{h} \cos \theta +
-            \frac{R(h-z}{h} \sin \theta, \frac{R^2(h-z)}{h^2} \right) 
+            \sigma_{\theta} \times \sigma_z \amp = \left(
+            \frac{R(h-z)}{h} \cos \theta + \frac{Rz}{h} \sin \theta,
+            \frac{-Rz}{h} \cos \theta + \frac{R(h-z)}{h} \sin \theta,
+            \frac{R^2(h-z)}{h^2} \right)
           </mrow>
         </md>
         <p>
