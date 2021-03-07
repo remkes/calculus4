@@ -282,7 +282,7 @@
       There are two important results about composition of vector
       operations.
     </p>
-    <proposition>
+    <proposition xml:id="proposition-composition-nabla">
       <statement>
         <p>
           Let <m>f</m> be a scalar field on <m>\RR^3</m> and <m>F</m>

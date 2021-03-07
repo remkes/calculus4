@@ -1,0 +1,178 @@
+<section xml:id="section-surface-area">
+  <title>Area of Parametric Surfaces</title>
+  <p>
+    For parametric curves, the length of the tangent gave the speed
+    of movement along the curve. For parametric surfacaes, there is
+    no longer a unique sense of movement along the surface, due to the
+    multiple parameters. However, insteed of length, it would be good
+    to have a sense of area in terms of the parametrization. Instead
+    of the tangent vector, the calculus of parametric surfaces is
+    controlled by the normal vector. The length of the normal vector
+    does, indeed, measure area exactly the same way that the length of
+    the tangent vector to a parametric curves measures length. 
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>\sigma(u,v)</m> be a <m>C^1</m>, non-singular
+        parametric surface defined on a simply connected open set
+        <m>D</m>. The surface area of the parametric surface is given
+        by the integral of the length of the normal over the parameter
+        domain.
+      </p>
+      <me>
+        A = \int_\sigma 1 dA = \int_D |\sigma_u \times \sigma_v| du dv
+      </me>
+    </statement>
+  </proposition>
+  <example>
+    <statement>
+      <p>
+        Let <m>\sigma</m> be the graph of a differentiable function
+        <m>f: \RR^2 \rightarrow \RR</m> as defined in <xref
+        ref="example-surface-graph" />. Then I can use the area
+        formula to write the general equation of the surface area of
+        the graph of <m>f</m> over a simply-connected region <m>D</m>
+        in its domain.
+      </p>
+      <me>
+        A = \int_D \sqrt{ \left( \frac{\del f}{\del x} \right)^2 +
+        \left( \frac{\del f}{\del y} \right)^2 + 1} dx dy
+      </me>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>f: [a,b] \rightarrow \RR</m> be a differentiable
+        function and let <m>\sigma</m> be the surface of revolution as
+        defined in <xref ref="example-surface-revolution" />. Let <m>D
+        = [a,b] \times [0,2\pi]</m>. Then I can define the surface
+        area of such a general surface of revolution.
+      </p>
+      <me>
+        A = \int_D \sqrt{ 1 - \left( \frac{\del f}{\del x}
+        \right)^2} f(x) dx
+      </me>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The parabaloid <m>z = k(x^2 +y^2)</m> can be described by
+        <m>\sigma(u,v) = (u,v,k(u^2+v^2))</m> over <m>D</m> a circle
+        of radius <m>r</m>. I can calculate its surface area. The
+        height is detemined by the radius of the domain <m>D</m>; I'll
+        call that radius <m>R</m>. 
+      </p>
+      <p>
+        Since the domain is a circle, I integrate in polar
+        coordinates.  After switching to polar coordinates, a
+        substitution is required so solve the first of the two
+        iterated integrals. In polar coordinates, the two integrals
+        are seperable and the first integral is an integral of just
+        <m>d\theta</m>, giving a simple result of <m>2\pi</m>.
+      </p>
+      <md>
+        <mrow>
+          A \amp = \int_D \sqrt{4k^2 u^2 + 4k^2 v^2 + 1} du dv
+        </mrow>
+        <mrow>
+          \amp = \int_0^{2\pi} \int_0^R \sqrt{4k^2 r^2 + 1} r dr d
+          \theta
+        </mrow>
+        <mrow>
+          u \amp = 4k^2 r^2 + 1 \implies du = 8k^2 r dr
+        </mrow>
+        <mrow>
+          u (R) \amp = 4k^2 R^2 + 1 
+        </mrow>
+        <mrow>
+          u (0) \amp = 1 
+        </mrow>
+        <mrow>
+          \amp = 2\pi \int_1^{4k^2R^2 + 1} \sqrt{u} \frac{1}{8k^2} du
+        </mrow>
+        <mrow>
+          \amp = \left. \frac{\pi}{4k^2R^2 + 1} \frac{2u^{\frac{3}{2}}}{3}
+          \right|_1^{4k^2R^2+1} 
+        </mrow>
+        <mrow>
+          \amp = \frac{\pi}{6k^2} \left( (4k^2R^2 + 1)^{\frac{3}{2}} -1
+          \right) 
+        </mrow>
+      </md>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The surface of revolution under <m>f(x) = \frac{1}{x}</m> for
+        <m>x \in [1,\infty)</m> is called the Horn of Gabriel. It can
+        be described parametrically for <m>(x,\theta) \in [1, \infty)
+        \times [0, 2\pi]</m> as the following surface.
+        <me>
+          \sigma(x,\theta) = \left( x, \frac{\cos \theta}{x},
+          \frac{\sin \theta}{x} \right)
+        </me>
+      </p>
+      <p>
+        The surface area of the Horn of Gabriel is quite interesting.
+        (The comparison results for single-variable integrals are
+        useful in this calculation.)
+        <md>
+          <mrow>
+            \sigma_x \amp = \left( 1, \frac{-\cos \theta}{x^2},
+            \frac{-\sin \theta}{x^2} \right)
+          </mrow>
+          <mrow>
+            \sigma_{\theta} \amp = \left( 0, \frac{-\sin \theta}{x},
+            \frac{\cos \theta}{x} \right)
+          </mrow>
+          <mrow>
+            \sigma_x \times \sigma_{\theta} \amp = \left(
+            \frac{-1}{x^3}, \frac{\cos \theta}{x}, \frac{-\sin
+            \theta}{x} \right)
+          </mrow>
+          <mrow>
+            |\sigma_x \times \sigma_\theta| \amp = \sqrt{
+            \frac{1}{x^6} + \frac{1}{x^2}} = \frac{1}{x} \sqrt{
+            \frac{1}{x^4} + 1}
+          </mrow>
+          <mrow>
+            A \amp = \int_\sigma 1 = \int_1^{\infty} \int_0^{2\pi}
+            \frac{1}{x} \sqrt{ \frac{1}{x^4} + 1} d\theta dx
+          </mrow>
+          <mrow>
+            \amp = 2\pi \int_1^{\infty} \frac{1}{x} \sqrt{
+            \frac{1}{x^4} + 1} dx \geq 2\pi \int_1^\infty \frac{1}{x}
+            = \infty
+          </mrow>
+        </md>
+      </p>
+      <p>
+        Compare this surface are with the volume of the Horn of
+        Gabriel.
+        <md>
+          <mrow>
+            V \amp = \int_1^{\infty} \int_0^{\frac{1}{x}}
+            \int_0^{2\pi} r d \theta dr dx
+          </mrow>
+          <mrow>
+            \amp = 2\pi \int_1^\infty \left. \frac{r^2}{2}
+            \right|_0^{\frac{1}{x}} = 2\pi \int_1^\infty
+            \frac{1}{2x^2} dx
+          </mrow>
+          <mrow>
+            \amp = \left. \frac{2\pi}{2} \frac{-1}{x} \right|_1^\infty
+            = \pi
+          </mrow>
+        </md>
+      </p>
+      <p>
+        This is a very strange situation: an object with finite volume
+        and infinite surface area.
+      </p>
+    </statement>
+  </example>
+</section>

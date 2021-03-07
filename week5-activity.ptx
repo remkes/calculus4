@@ -155,7 +155,7 @@
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -164,17 +164,19 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} yz + \frac{d}{dy} xz +
-            \frac{d}{dz} xy = 0+0+0 = 0 
+            \nabla \cdot F \amp = \frac{\del}{\del x} yz +
+            \frac{\del}{\del y} xz +
+            \frac{\del}{\del z} xy = 0+0+0 = 0 
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} xy -
-            \frac{d}{dz} xz, \frac{d}{dz} yz - \frac{d}{dx} xz,
-            \frac{d}{dx} xz - \frac{d}{dy} yz \right) 
+            \nabla \times F \amp = \left( \frac{\del}{\del y} xy -
+            \frac{\del}{\del z} xz, \frac{\del}{\del z} yz -
+            \frac{\del}{\del x} xz, \frac{\del}{\del x} xz -
+            \frac{\del}{\del y} yz \right) 
           </mrow>
           <mrow>
             \amp = (x-x,y-y,z-z) = (0,0,0)
@@ -188,7 +190,7 @@
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -197,19 +199,21 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} \ln (xy) + \frac{d}{dy}
-            \frac{1}{x}  + \frac{d}{dz} \frac{-x}{z}  = \frac{1}{y} +
-            0 + \frac{x}{z^2} = \frac{1}{y} - \frac{x}{z^2}
+            \nabla \cdot F \amp = \frac{\del}{\del x} \ln (xy) +
+            \frac{\del}{\del y} \frac{1}{x}  + \frac{\del}{\del z}
+            \frac{-x}{z}  = \frac{1}{y} + 0 + \frac{x}{z^2} =
+            \frac{1}{y} - \frac{x}{z^2}
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} \frac{-x}{z} -
-            \frac{d}{dz} \frac{1}{x}, \frac{d}{dz} \ln (xy) -
-            \frac{d}{dx} \frac{-x}{z}, \frac{d}{dx} \frac{1}{x} -
-            \frac{d}{dy} \frac{1}{x}\right)
+            \nabla \times F \amp = \left( \frac{\del}{\del y}
+            \frac{-x}{z} - \frac{\del}{\del z} \frac{1}{x},
+            \frac{\del}{\del z} \ln (xy) - \frac{\del}{\del x}
+            \frac{-x}{z}, \frac{\del}{\del x} \frac{1}{x} -
+            \frac{\del}{\del y} \ln (xy)\right)
           </mrow>
           <mrow>
             \amp = \left( 0-0, 0 + \frac{1}{z}, \frac{-1}{x^2} - 0
@@ -224,7 +228,7 @@
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -233,31 +237,33 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} x^2 + \frac{d}{dy} yz +
-            \frac{d}{dz} xz = 2x + z + z = 2x + 2z  
+            \nabla \cdot F \amp = \frac{\del}{\del x} x^2 +
+            \frac{\del}{\del y} yz + \frac{\del}{\del z} xz = 2x + z +
+            z = 2x + 2z
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} xz -
-            \frac{d}{dz} yz, \frac{d}{dz} x^2 - \frac{d}{dx} yz,
-            \frac{d}{dx} yz - \frac{d}{dy} x^2 \right)
+            \nabla \times F \amp = \left( \frac{\del}{\del y} xz -
+            \frac{\del}{\del z} yz, \frac{\del}{\del z} x^2 -
+            \frac{\del}{\del x} xz, \frac{\del}{\del x} yz -
+            \frac{\del}{\del y} x^2 \right)
           </mrow>
           <mrow>
-            \amp = ( 0 - 0, 0 - 0, 0 - 0) = (0,0,0)
+            \amp = ( 0 - 0, 0 - z, 0 - 0) = (0,-z,0)
           </mrow>
         </md>
         <p>
-         The field is irrotational. 
+         The field neither irroational or incompressible
         </p>
       </solution>
     </activity>
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -266,17 +272,19 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} 4 + \frac{d}{dy} 9 +
-            \frac{d}{dz} -12  = 0 + 0 + 0 = 0 
+            \nabla \cdot F \amp = \frac{\del}{\del x} 4 +
+            \frac{\del}{\del y} 9 + \frac{\del}{\del z} -12  = 0 + 0 +
+            0 = 0 
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} -12 -
-            \frac{d}{dz} 9, \frac{d}{dz} 4 - \frac{d}{dx} -12,
-            \frac{d}{dx} 9 - \frac{d}{dy} 4 \right) = (0,0,0)
+            \nabla \times F \amp = \left( \frac{\del}{\del y} -12 -
+            \frac{\del}{\del z} 9, \frac{\del}{\del z} 4 -
+            \frac{\del}{\del x} -12, \frac{\del}{\del x} 9 -
+            \frac{\del}{\del y} 4 \right) = (0,0,0)
           </mrow>
         </md>
         <p>
@@ -287,7 +295,7 @@
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -296,17 +304,19 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} \sin x + \frac{d}{dy}
-            \cos y + \frac{d}{dz} \sin z = \cos x - \sin y + \cos z 
+            \nabla \cdot F \amp = \frac{\del}{\del x} \sin x +
+            \frac{\del}{\del y} \cos y + \frac{\del}{\del z} \sin z =
+            \cos x - \sin y + \cos z 
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} \sin z -
-            \frac{d}{dz} \cos y, \frac{d}{dz} \sin x - \frac{d}{dx}
-            \sin z, \frac{d}{dx} \cos y - \frac{d}{dy} \sin x \right)
+            \nabla \times F \amp = \left( \frac{\del}{\del y} \sin z -
+            \frac{\del}{\del z} \cos y, \frac{\del}{\del z} \sin x -
+            \frac{\del}{\del x} \sin z, \frac{\del}{\del x} \cos y -
+            \frac{\del}{\del y} \sin x \right)
           </mrow>
           <mrow>
             \amp = (0,0,0)
@@ -320,7 +330,7 @@
     <activity>
       <statement>
         <p>
-          Determine if the following vector field is irrotation
+          Determine if the following vector field is irrotational
           and/or incompressible. 
         </p>
         <me>
@@ -329,17 +339,19 @@
       </statement>
       <solution>
         <p>
-          I need to calculate both the curl and the gradient. 
+          I need to calculate both the curl and the divergence. 
         </p>
         <md>
           <mrow>
-            \nabla \cdot F \amp = \frac{d}{dx} xy^2 + \frac{d}{dy} z^2
-            + y^2 + \frac{d}{dz} x^2 - z^2  = y^2 + 2y - 2z 
+            \nabla \cdot F \amp = \frac{\del}{\del x} xy^2 +
+            \frac{\del}{\del y} z^2 + y^2 + \frac{\del}{\del z} x^2 -
+            z^2  = y^2 + 2y - 2z
           </mrow>
           <mrow>
-            \nabla \times F \amp = \left( \frac{d}{dy} x^2 - z^2 -
-            \frac{d}{dz} z^2 + y^2, \frac{d}{dz} xy^2 - \frac{d}{dx}
-            z^2 + y^2, \frac{d}{dx} z^2 + y^2 - \frac{d}{dy} xy^2
+            \nabla \times F \amp = \left( \frac{\del}{\del y} x^2 -
+            z^2 - \frac{\del}{\del z} z^2 + y^2, \frac{\del}{\del z}
+            xy^2 - \frac{\del}{\del x} z^2 + y^2, \frac{\del}{\del x}
+            z^2 + y^2 - \frac{\del}{\del y} xy^2
             \right)
           </mrow>
           <mrow>
@@ -371,7 +383,7 @@
           <mrow>
             \nabla^2 f \amp = \frac{\del^2}{\del x^2} x^2 y z +
             \frac{\del^2}{\del y^2} x^2 y z + \frac{\del^2}{\del z^2}
-            x^2 y z = 2yz + x^2 z + x^2 y 
+            x^2 y z = 2yz + x^2 z + x^2 y
           </mrow>
         </md>
         <p>

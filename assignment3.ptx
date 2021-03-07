@@ -3,11 +3,112 @@
 -->
 <section xml:id="section-assignment3">
   <title>Assignment 3</title>
-  <p><ol>
+  <ol>
     <li>
       <p>
-        Question
+        Explain how vector fields might be useful in each of the
+        following systems. (6) 
+      </p>
+      <ol>
+        <li>
+          <p>
+            Erosion patterns in mountains.
+          </p>
+        </li>
+        <li>
+          <p>
+            Submarine navigation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Traffic patterns.
+          </p>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <p>
+        Calculate the integral curves for this vector field. (You can
+        solve these differential equations by guessing, since the
+        patterns of the derivatives are familiar, or as separable
+        equations.) (5) 
+      </p>
+      <me>
+        f(x,y) = (-x, y) 
+      </me>
+    </li>
+    <li>
+      <p>
+        Calculate the integral curves for this vector field. (You can
+        solve these differential equation by guessing, since the
+        patterns of the derivatives are familiar, or as seperable
+        equations.) (5) 
+      </p>
+      <me>
+        f(x,y) = (-x^2, -y^2) 
+      </me>
+    </li>
+    <li>
+      <p>
+        Prove the following product rule identity where <m>f</m> is a
+        scalar field in <m>\RR^3</m> and <m>F</m> is a vector field in
+        <m>\RR^3</m>. (4) 
+      </p>
+      <me>
+        \nabla \times (fF) = f (\nabla \times F) + (\nabla f) \times F 
+      </me>
+    </li>
+    <li>
+      <p>
+        Prove that any vector field of the form <m>F(x,y,z) = (f(x),
+        g(y), h(z))</m> is irrotational. (4) 
       </p>
     </li>
-  </ol></p>
+    <li>
+      <p>
+        Calculate the line integral of <m>F = (x^2 +y^2, x^2 +
+        y^2)</m> over the parametric curve <m>\gamma(t) = \left(
+        t^2, \frac{1}{t} \right)</m> for <m>t \in [1,10]</m>.  (4) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the line integral of <m>F = (\cos(\pi(x^2 + y^2)),
+        \sin(\pi(x^2 + y^2)))</m> over the parametric curve
+        <m>\gamma(t) = (9 \sin t, 9 \cos t)</m> with <m>t \in
+        [0,\pi]</m>. (4)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the line integral of <m>F = (\cos(\pi(x^2 + y^2)),
+        \sin(\pi(x^2 + y^2)))</m> over the parametric curve
+        <m>\gamma(t) = (9 \cos t, 9 \sin t)</m> with <m>t \in
+        [0,\pi]</m>. Explain why you get a different result from the
+        previous question, which was very similar. (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\gamma(t)</m> be any path from <m>(0,0,0)</m> to
+        <m>(-3,7,10)</m> in <m>\RR^3</m> and let <m>F(x,y,z) = (2xy^2z,
+        2x^2yz, x^2y^2)</m>. Prove that the line integral of this
+        fields over this curve is independent of the choice of path.
+        (4)
+      </p>
+    </li>
+    <li>
+      <p>
+        Consider this scalar potential energy field. (4)
+      </p>
+      <me>
+        f(x,y,z) = -e^{-(x^2 + y^2 +z^2)} 
+      </me>
+      <p>
+        How does this potential energy influence movement? What is the
+        work requied to go from <m>(1,1,1)</m> to <m>(0,0,0)</m>? 
+      </p>
+    </li>
+  </ol>
 </section>

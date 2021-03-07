@@ -1,43 +1,450 @@
 <section xml:id="week7-activity">
   <title>Week 7 Activity</title>
   <subsection xml:id="subsection-">
-    <title>Activity</title>
+    <title>Parametric Surfaces and Areas</title>
     <activity>
       <statement>
         <p>
-          Question
+          Consider the portion of the plane <m>3x - 4y - z = 4</m>
+          which lies above the interval <m>[3,6] \times [-1,4]</m> in
+          the <m>xy</m> plane.
         </p>
+        <ul>
+          <li><p>
+            Describe this as a parametric surface.
+          </p></li>
+          <li><p>
+            Calculate its surface area. 
+          </p></li>
+        </ul>
       </statement>
       <solution>
         <p>
-          Solution
+          I would like to use <xref ref="example-surface-graph" /> to
+          parametrization this. To make this the graph of a function,
+          I can solve for <m>z</m> in the equation of the plane as
+          <m>z = 3x-4y-4</m>. The bounds of the parameter domain are
+          precisely the bounds on <m>x</m> and <m>y</m> given in the
+          descriptions.  
         </p>
+        <md>
+          <mrow>
+            \sigma(u,v) \amp = (u,v,4u-4v-4) 
+          </mrow>
+          <mrow>
+            D \amp = (u,v) \in [3,6] \times[-1,4] 
+          </mrow>
+        </md>
+        <p>
+          To calculate the surface area, I'll need the partial
+          derivative, the normal, and the length of the normal. 
+        </p>
+        <md>
+          <mrow>
+            \sigma_u \amp = (1,0,3) 
+          </mrow>
+          <mrow>
+            \sigma_v \amp = (0,1,-4) 
+          </mrow>
+          <mrow>
+            \sigma_u \times \sigma_v \amp = (-3,4,1) 
+          </mrow>
+          <mrow>
+            |\sigma_u \times \sigma_v| \amp = \sqrt{9+16+1} = \sqrt{26} 
+          </mrow>
+        </md>
+        <p>
+          Then I can calculate the surface area by integrating the
+          length of the normal over the parameter domain. 
+        </p>
+        <md>
+          <mrow>
+            A \amp = \int_D |\sigma_u \times \sigma_v| du dv 
+          </mrow>
+          <mrow>
+            \amp = \int_{-1}^4 \int_3^6 \sqrt{26} du dv = \sqrt{26}
+            (4-(-1))(6-3)
+          </mrow>
+          <mrow>
+            \amp= 15 \sqrt{26}
+          </mrow>
+        </md>
+      </solution>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Consider the sphere of radius <m>4</m> centred at
+          <m>(-1,-2,3)</m>. 
+        </p>
+        <ul>
+          <li><p>
+            Describe this as a parametric surface.
+          </p></li>
+          <li><p>
+            Calculate its surface area. 
+          </p></li>
+        </ul>
+      </statement>
+      <solution>
+        <p>
+          From <xref ref="example-sphere-parametrization" />, I already
+          have the parametrization of the sphere. However, now I have
+          shifted the centre. How to I adjust the parametrization in
+          the example? I can simply at the offset to each coordinate,
+          which moves each coordinate to give the correct centre
+          point. 
+        </p>
+        <md>
+          <mrow>
+            \sigma(\phi,v) \amp = (4 \sin \phi \cos v - 1, 4 \sin
+            \phi \sin v -
+            2, 4 \cos \phi + 3) 
+          </mrow>
+          <mrow>
+            D \amp = (\phi,\theta) \in [0,\pi] \times [0, 2\pi] 
+          </mrow>
+        <md>
+        <p>
+          To calculate the surface area, I'll need the partial
+          derivative, the normal, and the length of the normal. 
+        </p>
+        </md>
+          <mrow>
+            \sigma_\phi \amp = (4 \cos \phi \cos \theta, 4 \cos \phi
+            \sin \theta, -4 \sin \phi)
+          </mrow>
+          <mrow>
+            \sigma_\theta \amp = (-4 \sin \phi \sin \theta, 4 \sin
+            \phi \cos \theta, 0)
+          </mrow>
+          <mrow>
+            \sigma_\phi \times \sigma_\theta \amp = (16 \sin^2 \phi
+            \cos \theta, 16 \sin^2 \phi \sin \theta, 16 \cos \phi \sin
+            \phi )
+          </mrow>
+          <mrow>
+            |\sigma_\phi \times \sigma_\theta| \amp = 16 \sqrt{\sin^4
+            \phi \cos^2 \theta+ \sin^4 \phi \sin^2 \theta + \cos^2
+            \phi \sin^2\phi}
+          </mrow>
+          <mrow>
+            \amp = 16 \sqrt{\sin^4 \phi + \cos^2 \phi \sin^2 \phi } =
+            16 \sqrt{\sin^2 \phi} = 16 \sin \phi
+          </mrow>
+        </md>
+        <p>
+          Then I can calculate the surface area by integrating the
+          length of the normal over the parameter domain. 
+        </p>
+        <md>
+          <mrow>
+            A = \amp = \int_0^{2\pi} \int_0^{\pi} 16 \sin \phi d\phi
+            d\theta = (16) 2\pi (-\cos \phi) \bigg|_0^\pi =  64 \pi 
+          </mrow>
+          <mrow>
+            \int_\sigma f dA \amp = \int_0^{2\pi} \int_0^\pi (4\sin
+            \phi \cos \theta - 1)(4 \sin \phi \sin \theta - 2) (4 \cos
+            \phi + 3)(16 \sin \phi) d\phi d\theta 
+          </mrow>
+        </md>
+        <p>
+          This gets very intense. I asekd a computer algebra system
+          for the expanded form. 
+        </p>
+        <md>
+          <mrow>
+            \amp = \int_0^{2\pi} \int_0^\pi -199 \sin^2 \phi \sin
+            \theta + 1024 \sin^3\phi \cos \phi \sin \theta \cos \theta
+            + 768 \sin^3 \phi \sin \theta \cos \theta 
+          </mrow>
+          <mrow>
+            \amp - 512 \sin^2 \phi \cos \phi \cos \theta - 384 \sin^2
+            \phi \cos \theta - 256 \sin^2\phi \cos \phi \sin
+            \theta
+          </mrow>
+          <mrow>
+            \amp + 96 \sin \phi + 128 \sin \phi \cos \phi d\phi d\theta 
+          </mrow>
+        </md>
+        <p>
+          This is a bit ridiculous, but the bounds of <m>\theta</m>
+          are <m>[0,2\pi]</m>. Therefore, any integral involving
+          <m>\sin \theta</m>, <m>\cos \theta</m>, or <m>\sin \theta
+          \cos \theta</m> is zero by symmetry. That (thankfully)
+          removes all the but last two integrals.
+        </p>
+        <md>
+          <mrow>
+            \amp = \int_0^{2\pi} \int_0^\pi 96 \sin \phi + 128 \sin
+            \phi \cos \phi d\phi d\theta 
+          </mrow>
+          <mrow>
+            \amp = 96 \int_0^{2\pi} d\theta \int_0^\pi \sin d\phi +
+            128 \int_0^{2\pi} d\theta \int_0^\pi \sin \phi \cos \phi
+            d\phi d\theta = 192 
+          </mrow>
+        </md>
+      </solution>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Consider the ellipsoid centred at the origin described by
+          the following locus.
+        </p>
+        <me>
+          \frac{x^2}{9} + y^2 + \frac{z^2}{25} = 1 
+        </me>
+        <ul>
+          <li><p>
+            Describe this as a parametric surface.
+          </p></li>
+          <li><p>
+            Calculate its surface area. (Start the integral, but you
+            can stop when you get to a point where the integration is
+            impossibly by elementary functions.) 
+          </p></li>
+        </ul>
+      </statement>
+      <solution>
+        <p>
+          The approach is like previous examples for ellipses and
+          ellipsoids. I use a version of spherical coordinates where I
+          adjust the coordinates of <m>x</m>, <m>y</m> and <m>z</m> by
+          a scaling factor.   
+        </p>
+        <md>
+          <mrow>
+            \sigma(\phi,\theta) \amp = (3 \sin \phi \cos \theta, \sin
+            \phi \sin \theta, 5 \cos \phi) 
+          </mrow>
+          <mrow>
+            D \amp = (\phi,\theta) \in [0,\pi] \times [0, 2\pi] 
+          </mrow>
+        </md>
+        <p>
+          To calculate the surface area, I'll need the partial
+          deri\theta, the normal, and the length of the normal. 
+        </p>
+        <md>
+          <mrow>
+            \sigma_\phi \amp = (3 \cos \phi \cos \theta, \cos \phi
+            \sin \theta, -5 \sin \phi)
+          </mrow>
+          <mrow>
+            \sigma_\theta \amp = (-3 \sin \phi \sin \theta, \sin \phi
+            \cos \theta, 0) 
+          </mrow>
+          <mrow>
+            \sigma_\phi \times \sigma_\theta \amp = (5\sin^2 \phi \cos
+            \theta, 15 \sin^2 \phi \sin \theta, 3\cos \phi \sin \phi)
+          </mrow>
+          <mrow>
+            |\sigma_\phi \times \sigma_\theta| \amp = \sqrt{25 \sin^4
+            \phi \cos^2 \theta+ 225 \sin^4 \phi \sin^2 \theta + 9
+            \cos^2 \phi \sin^2 \phi} 
+          </mrow>
+        </md>
+        <p>
+          I can already see a problem arising here. The scalaing
+          factors mess with the lovely trig identities that simplify
+          this square root in the spherical case. I can't get rid of
+          this square root. The integral is, like other elliptic
+          integrals, impossibly by elementary functions.
+        </p>
+        <md>
+          <mrow>
+            A \amp = \int_0^{2\pi} \int_0^{\pi}  \sqrt{25 \sin^4 \phi
+            \cos^2 \theta + 225 \sin^4 \phi \sin^2 \theta + 9 \cos^2
+            \phi \sin^2 \phi} d\phi d\theta 
+          </mrow>
+        </md>
+        <p>
+          This is as far as I can go with elementary functions. Notice
+          the parallel with the circle/ellipse perimeter problem. The
+          circumference of the circle is easy to calculate with
+          parametric curves, but the circumference of the ellipse
+          leads to impossible elliptic integrals. The same is true
+          here for parametric surfaces, spheres and ellipsoids. 
+        </p>
+      </solution>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Consider the portion of hyperboloid <m>x^2 + y^2 -z^2 =
+          1</m> which has <m>z \in [-3,3]</m>. 
+        </p>
+        <ul>
+          <li><p>
+            Describe this as a parametric surface.
+          </p></li>
+          <li><p>
+            Calculate its surface area. (Start the integral, but you
+            can stop when you get to a point where the integration is
+            impossibly by elementary functions.) 
+          </p></li>
+        </ul>
+      </statement>
+      <solution>
+        <p>
+          There are a variety of ways to approach this. I could take
+          <m>x</m> and <m>y</m> as parameter and solve for <m>z</m>;
+          however, the square root gives multiple values, so I can't
+          get a whole parametric description this way. I could also
+          treat this as a surface of revolution about the <m>z</m>
+          axis and use <xref ref="example-surface-revolution" />.
+          Notice that, in the example, the axis of revolution was the
+          <m>x</m> axis. I'll just adjust for rotation around the
+          <m>z</m> axis by switching the variables.
+        </p>
+        <p>
+          However, I'm going to do something else entirely. This
+          hyperboloid is very similar to the sphere. I'd like to
+          parallel the coordinate system of the sphere to get a
+          coordinate system for this, building a kind-of hyperbolic
+          coordinate system. For rotation about the <m>z</m> axis,
+          this is still like the longitude of the sphere. However,
+          instead of the coltatitue of the sphere, I have hyperbolic
+          cross-section for vertical slices. Therefore, I can use
+          hyperbolic functions for the <sq>colatitude</sq> instead of
+          trig function. That leads to the following parametrization.
+        </p>
+        <md>
+          <mrow>
+            \sigma(\phi,\theta) \amp = (\cosh \phi \sin \theta, \cosh
+            \phi \cos \theta, \sinh \phi)
+          </mrow>
+          <mrow>
+            D \amp = (\phi,\theta) \in [\arcsinh (-3), \arcsinh (3)]
+            \times [0, 2\pi]
+          </mrow>
+        </md>
+        <p>
+          To calculate the surface area, I'll need the partial
+          derivative, the normal, and the length of the normal. 
+        </p>
+        <md>
+          <mrow>
+            \sigma_\phi \amp = (\sinh \phi \sin \theta, \sinh \phi
+            \cos \theta, \cosh \phi \phi) 
+          </mrow>
+          <mrow>
+            \sigma_\theta \amp = (\cosh \phi \cos \theta, -\cosh \phi
+            \sin \theta, 0) 
+          </mrow>
+          <mrow>
+            \sigma_\phi \times \sigma_\theta \amp = (\cosh^2 \phi \sin
+            \theta, \cosh^2 \phi \cos \theta, -\sinh \phi \cosh \phi )
+          </mrow>
+          <mrow>
+            |\sigma_\phi \times \sigma_\theta| \amp = \sqrt{\cosh^4
+            \phi \sin^2 \theta + \cosh^4 \phi \cos^2 \theta + \sinh^2
+            \phi \cosh^2 \phi}
+          </mrow>
+          <mrow>
+            \amp = \cosh \phi \sqrt{\cosh^2 \phi + \sinh^2 \phi} 
+          </mrow>
+        </md>
+        <p>
+          Here I run into a similar program as previous question. The
+          situation is not as nasty, as some simplification does
+          occur. But there is no identity for <m>\sinh^2 \phi +
+          \cosh^2 \phi</m> which can remove the square root (unlike
+          the case of the sphere). Therefore, like the last question,
+          I am stuck with this square root. For the surace area
+          integral, this will lead to integral without elementary
+          anti-derivatives.
+        </p>
+        <md>
+          <mrow>
+            A \amp = \int_0^{2\pi} \int_{\arcsinh (-3)}^{\arcsinh (3)}
+            \cosh \phi \sqrt{\cosh^2 \phi + \sinh^2 \phi} d\phi
+            d\theta 
+          </mrow>
+        </md> 
+      </solution>
+    </activity>
+    <activity>
+      <statement>
+        <p>
+          Consider the portion of the cuspoidal horn <m>z^3 = x^2 +
+          y^2</m> which has <m>z \in [0,4]</m>.
+        </p>
+        <ul>
+          <li><p>
+            Describe this as a parametric surface.
+          </p></li>
+          <li><p>
+            Calculate its surface area. (Start the integral, but you
+            can stop when you get to a point where the integration is
+            impossibly by elementary functions.) 
+          </p></li>
+        </ul>
+      </statement>
+      <solution>
+        <p>
+          I'd like to treat this as a surface of revolution about the
+          <m>z</m> axis. I'll use the setup from <xref
+          ref="example-surface-revolution" />, but I switch the
+          variables to reflect the axis of revolution. 
+        </p>
+        <md>
+          <mrow>
+            \sigma(z,\theta) \amp = \left (z^{\frac{3}{2}} \cos v,
+            z^{\frac{3}{2}} \sin v, z \right) 
+          </mrow>
+          <mrow>
+            D \amp = (u,v) \in [0,4] \times [0,2\pi] 
+          </mrow>
+        </md>
+        <p>
+          To calculate the surface area, I'll need the partial
+          derivative, the normal, and the length of the normal. 
+        </p>
+        <md>
+          <mrow>
+            \sigma_u \amp = \left( \cos v, \sin v,
+            \frac{2}{3\sqrt[3]{u}} \right) 
+          </mrow>
+          <mrow>
+            \sigma_v \amp = (-u \sin v, u \cos v, 0) 
+          </mrow>
+          <mrow>
+            \sigma_u \times \sigma_v \amp = \left(
+            \frac{-u^{\frac{2}{3}} \cos v}{3}, \frac{-u{^\frac{2}{3}}
+            \sin v}{3}, u \right) 
+          </mrow>
+          <mrow>
+            |\sigma_u \times \sigma_v| \amp = \sqrt{ u^\frac{4}{3} + u^2} 
+          </mrow>
+        </md>
+        <p>
+          Again, the problems are similar. I don't have a nice
+          technique like trigononmetric subsitution to deal with this
+          strange square root term. It leads to non-elementary
+          antiderivative for the surface area integarl. 
+        </p>
+        <md>
+          <mrow>
+            A = \int_D |\sigma_u \times \sigma_v| du dv \amp = 
+            \int_0^{2\pi} \int_0^4 \sqrt{ u^\frac{4}{3} + u^2} du dv  
+          </mrow>
+        </md>
       </solution>
     </activity>
   </subsection>
   <subsection xml:id="subsection-week7-concepts">
     <title>Conceptual Review Questions</title>
-    <p>
-      <ul>
-        <li>
-          Question
-        </li>
-      </ul>
-    </p>
-  </subsection>
-  <subsection xml:id="subsection-week7-extra-practice">
-    <title>Extra Practice</title>
-    <activity>
-      <statement>
-        <p>
-          Question
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Solution
-        </p>
-      </solution>
-    </activity>
+    <ul>
+      <li><p>
+        What is a parametric surface?
+      </p></li>
+      <li><p>
+        How does the normal to a parametric surface determine its
+        properties?
+      </p></li>
+    </ul>
   </subsection>
 </section>

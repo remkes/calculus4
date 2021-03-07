@@ -163,13 +163,13 @@
         </p>
         <md>
           <mrow>
-            I_x \amp = \int_S (y^2 + z^2) dV
+            I_x \amp = \int_S (y^2 + z^2) \rho dV
           </mrow>
           <mrow>
-            I_y \amp = \int_S (x^2 + z^2) dV
+            I_y \amp = \int_S (x^2 + z^2) \rho dV
           </mrow>
           <mrow>
-            I_z \amp = \int_S (x^2 + y^2) dV
+            I_z \amp = \int_S (x^2 + y^2) \rho dV
           </mrow>
         </md>
         <p>

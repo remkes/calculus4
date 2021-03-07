@@ -305,16 +305,16 @@
             \gamma_1 \amp = \int 1 dt = t + a
           </mrow>
           <mrow>
-            \gamma_2 \amp = 2\int \gamma_1 dt = \int 2t + 2a dt = t^2
-            + 2at + b
+            \gamma_2 \amp = 2 \int \gamma_1 dt = \int 2t + 2a dt = t^2
+            + 2at + 2b
           </mrow>
           <mrow>
-            \gamma_3 \amp = 3 \int \gamma_2 dt = \int 3t^2 + 6at + 3b
-            dt = t^3 + 3at^2 + 3bt + c
+            \gamma_3 \amp = 3 \int \gamma_2 dt = 3\int t^2 + 2at + 2b
+            dt = t^3 + 3at^2 + 6bt + 3c
           </mrow>
           <mrow>
-            \gamma(t) \amp = (t+a, t^2 + 2ta + b, t^3 + 3at^2 + 3bt +
-            c)
+            \gamma(t) \amp = (t+a, t^2 + 2ta + b, t^3 + 3at^2 + 6bt +
+            3c)
           </mrow>
         </md>
       </statement>
