@@ -29,7 +29,7 @@
         </p>
         <md>
           <mrow>
-            \sigma(u,v) \amp = (u,v,4u-4v-4) 
+            \sigma(u,v) \amp = (u,v,3u - 4v - 4) 
           </mrow>
           <mrow>
             D \amp = (u,v) \in [3,6] \times[-1,4] 

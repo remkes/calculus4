@@ -3,7 +3,7 @@
 -->
 <section xml:id="section-assignment1">
   <title>Assignment 1</title>
-  <p><ol>
+  <ol>
     <li>
       <p>
         Evaluate the following integrals. You don't need to show all
@@ -78,5 +78,5 @@
         </me>
       </p>
     </li>
-  </ol></p>
+  </ol>
 </section>
