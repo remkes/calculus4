@@ -43,8 +43,7 @@
     <p>
       The unit tangent was useful in the definition of the line
       integral. I'm going to need the equivalent definition here of
-      the unit normal. Following that, I can proceed to define the
-      integral of a vector field along a parametric surface. 
+      the unit normal. 
     </p>
     <definition>
       <statement>
@@ -59,18 +58,33 @@
         </p>
       </statement>
     </definition>
+    <p>
+      For parametric curves, the parametrization by arclength is a
+      unique parametrization that can be assigned to any particular
+      curve shape. It has the property that its tangent is aways the
+      unit tangent. I can also define a special parametrization of a
+      surface, <m>\sigma(s,t)</m>, where the <m>\sigma_s(s,t) \times
+      \sigma_t(s,t) = N</m>. This is the unique parametrization where
+      the normal is always the unit normal. Just like I used the
+      parametrization by arclength to define line integrals, I use
+      this special parametrization to defined integrals over
+      parametric surfacees. 
+    </p>
     <definition>
       <statement>
         <p>
-          Let <m>\sigma(u,v)</m> be a parametric surface in <m>\RR^3</m>
-          defined over a simply-connected domain <m>D</m>. Let <m>F</m>
-          be a vector field defined on a neighbourhood of the surface.
-          (A neighbourhood is any open set which contains the entire
-          surface.) The <term>flux integral</term> is defined to be the
-          following integral.
+          Let <m>\sigma(s,t)</m> be a parametric surface in <m>\RR^3</m>
+          defined over a simply-connected domain <m>D</m>. Assume the
+          parametrization in parameters <m>(s,t)</m> is the unique
+          parametrization where <m>\sigma_s \times \sigma_t = N</m>.
+          Let <m>F</m> be a vector field defined on a neighbourhood of
+          the surface.  (A neighbourhood is any open set which
+          contains the entire surface.) The <term>flux integral</term>
+          is defined to be the following integral.
         </p>
         <me>
-          \int_{\sigma} F \cdot N dA = \int_{\sigma} F \cdot dA
+          \int_{\sigma} F \cdot N dA = \int_{\sigma} F \cdot dA =
+          \int_D F(\sigma(s,t)) \cdot N(s,t) ds dt 
         </me>
         <p>
           The first notation is more complete, but the second notation
@@ -79,16 +93,17 @@
       </statement>
     </definition>
     <p>
-      As with curves, I don't want to calculate with the intrinsic
-      unit normal; I'd rather calculate with a specific
-      parametrization. In an arbitrary parametrization, <m>da =
+      As with curves, I don't want to calculate with the special
+      parametrizations, since it may be very difficult to actually
+      produce that parametrization.  I'd rather calculate with an
+      arbitrary parametrization. In an arbitrary parametrization, <m>dA =
       |\sigma_u \times \sigma_v| du dv</m>. I can perform a change of
       variables on the integral in the definition.
     </p>
     <md>
       <mrow>
         \int_{\sigma} F \cdot N dA \amp = \int_D F(\sigma(u,v)) \cdot
-        \frac{\sigma u \times \sigma_v}{|\sigma_u \times \sigma_v|}
+        \frac{\sigma_u \times \sigma_v}{|\sigma_u \times \sigma_v|}
         |\sigma_u \times \sigma_v| du dv
       </mrow>
       <mrow>
@@ -138,7 +153,7 @@
             d\theta dr
           </mrow>
           <mrow>
-            \amp = \frac{2\pi a^2}{2} = \pi a^2 k = (\pi a^2) k
+            \amp = \frac{2\pi a^2k}{2} = \pi a^2 k = (\pi a^2) k
           </mrow>
         </md>
         <p>
@@ -160,7 +175,7 @@
           field. 
         </p>
         <me>
-          F(x,y,z) \amp = \left( 0, 0, \frac{k (a^2 - x^2 -
+          F(x,y,z) = \left( 0, 0, \frac{k (a^2 - x^2 -
           y^2)}{a^2} \right)
         </me>
         <p>
@@ -205,7 +220,7 @@
           directions are introduced as the flow may includes vortices. 
         </p>
         <me>
-          F(x,y,z) \amp = \left( \sin \left( \left( \frac{a-r}{a}
+          F(x,y,z) = \left( \sin \left( \left( \frac{a-r}{a}
           \right) \pi \right), \sin \left( \left( \frac{a-r}{a}
           \right) \pi \right), \cos \left( \left( \frac{a-r}{a}
           \right) \pi \right) \right)
@@ -222,8 +237,8 @@
           </mrow>
           <mrow>
             \int_\sigma F \cdot dA \amp = \int_0^a \int_0^{2\pi} k
-            \cos \left( \left( \frac{a-r}{a} \right) \pi \right) r dr
-            d\theta
+            \cos \left( \left( \frac{a-r}{a} \right) \pi \right) r 
+            d\theta dr
           </mrow>
           <mrow>
             \amp = 2\pi k \int_0^a \cos \left( \pi - \frac{\pi r}{a}
@@ -279,7 +294,7 @@
         </p>
         <me>
           \int_\sigma F \cdot N dA = \int_D V \cos \theta dA = v \cos
-          \theta \int \sigma 1 dv = 450 v \cos \theta
+          \theta \int_\sigma 1 dA = 450 v \cos \theta
         </me>
         <p>
          Compared to the perpendicular force or <m>450v</m>
