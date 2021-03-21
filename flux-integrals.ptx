@@ -220,10 +220,11 @@
           directions are introduced as the flow may includes vortices. 
         </p>
         <me>
-          F(x,y,z) = \left( \sin \left( \left( \frac{a-r}{a}
-          \right) \pi \right), \sin \left( \left( \frac{a-r}{a}
-          \right) \pi \right), \cos \left( \left( \frac{a-r}{a}
-          \right) \pi \right) \right)
+          F(x,y,z) = \left( \sin \left( \left( \frac{a-\sqrt{x^2 +
+          y^2}}{a} \right) \pi \right), \sin \left( \left(
+          \frac{a-\sqrt{x^2 + y^2}}{a}
+          \right) \pi \right), \cos \left( \left( \frac{a-\sqrt{x^2 +
+          y^2}}{a} \right) \pi \right) \right)
         </me>
         <p>
           Again, I'll calculate the flux integral to see what happens
@@ -294,7 +295,7 @@
         </p>
         <me>
           \int_\sigma F \cdot N dA = \int_D V \cos \theta dA = v \cos
-          \theta \int_\sigma 1 dA = 450 v \cos \theta
+          \theta \int_D 1 dA = 450 v \cos \theta
         </me>
         <p>
          Compared to the perpendicular force or <m>450v</m>
