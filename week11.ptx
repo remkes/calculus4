@@ -4,5 +4,4 @@
   <xi:include href="tangent-spaces.ptx" />
   <xi:include href="manifolds-vector-fields.ptx" />
   <xi:include href="differential-forms.ptx" />
-  <xi:include href="week11-activity.ptx" />
 </chapter>
