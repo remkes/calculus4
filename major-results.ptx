@@ -397,17 +397,17 @@
           <mrow>
             \int_\gamma F \cdot ds \amp = \int_\sigma \left(
             \frac{\del F_2}{\del x} - \frac{\del F_1}{\del y} \right) 
-            \cdot dA = \int_\sigma ( 2xy^3 - -0) dx dy
+            \cdot dA = \int_\sigma ( 2xy^3 - -0) dA
           </mrow>
           <mrow>
             \amp = \int_0^2 \int_0^x 2 x y^3 dy dx
           </mrow>
           <mrow>
-            \amp = 2 \int_0^2 \left. \frac{xy^4}{4} \right|_0^x dx
+            \amp = 2 \int_0^2 \frac{xy^4}{4} \Bigg|_0^x dx
           </mrow>
           <mrow>
-            \amp = 2 \int_0^2 \frac{x^5}{4} dx = \left.
-            \frac{x^6}{12} \right|_0^2 = \frac{2^6}{12} =
+            \amp = 2 \int_0^2 \frac{x^5}{4} dx = 
+            \frac{x^6}{12} \Bigg|_0^2 = \frac{2^6}{12} =
             \frac{16}{3}
           </mrow>
         </md>
@@ -448,8 +448,8 @@
           <m>F</m> over the sphere. 
         </p>
         <me>
-          \int_{\sigma} \nabla \times F = \int_{\del \sigma} (\nable
-          \times F) \cdot ds = \int_{\emptyset} F \cdot ds 
+          \int_{\sigma} (\nabla \times F) \cdot N dA  = 
+          = \int_{\emptyset} F \cdot dV 
         </me>
         <p>
           The integal on the right is the integral over the empty set.
@@ -502,8 +502,8 @@
             (-2\sin t, 2\cos t, 0) dt
           </mrow>
           <mrow>
-            \amp = \int_0^{2\pi} 8 \cos^3 t dt = \left. \frac{8}{3}
-            (2 + \cos^2 2t) \sin t \right|_0^{2\pi} = 0
+            \amp = \int_0^{2\pi} 8 \cos^3 t dt = \frac{8}{3}
+            (2 + \cos^2 2t) \sin t \Bigg|_0^{2\pi} = 0
           </mrow>
         </md>
         <p>
@@ -561,8 +561,8 @@
             \sin \phi d\theta d \phi dr
           </mrow>
           <mrow>
-            \amp = 12\pi \left. ( -\cos \phi ) \right|_0^{\pi}
-            \left. \frac{r^5}{2} \right|_0^4 = \frac{12288\pi}{5}
+            \amp = 12\pi ( -\cos \phi ) \Bigg|_0^{\pi}
+            \frac{r^5}{2} \Bigg|_0^4 = \frac{12288\pi}{5}
           </mrow>
         </md>
       </statement>
@@ -570,7 +570,7 @@
     <example>
       <statement>
         <p>
-          Let <m>D</m> be the region inside the cyliner <m>x^2 + y^2 =
+          Let <m>D</m> be the region inside the cylinder <m>x^2 + y^2 =
           4</m> bounded below by the <m>xy</m> plane and above by the
           plane <m>x+z=6</m>. Let <m>F = (x^2 + \sin z, xy + \cos z,
           e^y)</m>. It would be challenging to calculate the flux of
@@ -584,12 +584,12 @@
           need to deal with this strange diagonal upper bounds. I do
           this by switching to cylindrical coordinates, where this
           upper bounding plane becomes <m>z = 6 - r \cos \theta</m>; I
-          can use this equation as the upper bound forA <m>z</m> in
+          can use this equation as the upper bound for <m>z</m> in
           the triple integral.)
         </p>
         <md>
           <mrow>
-            \int_{\sigma} F \cdot dA \amp = \int_D \nabla \cdot F dA
+            \int_{\sigma} F \cdot dA \amp = \int_D \nabla \cdot F dV
             = \int_D 3x dV
           </mrow>
           <mrow>
@@ -601,14 +601,14 @@
             \theta) dr d\theta
           </mrow>
           <mrow>
-            \amp = \int_0^{2\pi} \left. \left( 16 \frac{r^3}{3} \cos
+            \amp = \int_0^{2\pi} \left( 16 \frac{r^3}{3} \cos
             \theta - \frac{3r^4}{4} \cos^2 \theta \right)
-            \right|_0^2 d \theta
+            \Bigg|_0^2 d \theta
           </mrow>
           <mrow>
-            \amp = \frac{128}{3} \left. ( -\sin \theta)
-            \right|_0^{2\pi} - 12 \left. \left( \frac{\theta}{2} +
-            \frac{\sin 2\theta}{4} \right) \right|_0^{2\pi} =
+            \amp = \frac{128}{3} ( -\sin \theta)
+            \Bigg|_0^{2\pi} - 12 \left( \frac{\theta}{2} +
+            \frac{\sin 2\theta}{4} \right) \Bigg|_0^{2\pi} =
             -12\pi
           </mrow>
         </md>
@@ -665,7 +665,7 @@
         </p>
         <me>
           \int_{\gamma} F \cdot ds = \int_{\sigma} \nabla \times F
-          \cdot dA = \int_{\gamma} \left( \frac{z^2}{2}, 0, 0 \right) 
+          \cdot dA = \int_{\gamma} \left( 0, z, 0 \right) 
           \cdot dA
         </me>
         <p>
@@ -675,7 +675,7 @@
           the integral of the curl of this field over <m>\sigma</m>.
         </p>
         <me>
-          \int_{\gamma} \left( \frac{z^2}{2}, 0, 0 \right) \cdot dA =
+          \int_{\gamma} \left( 0, z, 0 \right) \cdot dA =
           \int_{\sigma} \nabla \times G \cdot dA = \int_{\gamma} G
           \cdot ds
         </me>
@@ -684,7 +684,7 @@
         </p>
         <me>
           \int_{\gamma} F \cdot ds = \int_{\gamma} \left(
-          \frac{z^2}{2}, 0, 0 \right) \cdot dA = \int_{\gamma} G \cdot
+          0, z, 0 \right) \cdot dA = \int_{\gamma} G \cdot
           ds 
         </me>
         <p>
@@ -920,7 +920,7 @@
             </mrow>
             <mrow>
               \amp = -\int_0^{2\pi} \int_0^1 -7rdr d\theta = 2\pi 7
-              \left. \frac{r^2}{2} \right|_0^1 = 7\pi
+              \frac{r^2}{2} \Bigg|_0^1 = 7\pi
             </mrow>
           </md>
         </p>
@@ -950,7 +950,7 @@
           is the same over either surface.
         </p>
         <me>
-          \int_{\sigma_1} F \cdot dA = \int_{\sigma_2 F \cdot dA 
+          \int_{\sigma_1} F \cdot dA = \int_{\sigma_2} F \cdot dA 
         </me>
       </statement>
     </proposition>
