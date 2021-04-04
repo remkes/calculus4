@@ -6,8 +6,118 @@
   <p><ol>
     <li>
       <p>
-        Question.
+        Calculate the flux integral of <m>F(x,y,z) = (x,y^2,z^2)</m> 
+        over the hollow rectangular prism <m>[-1,1] \times [-2,2]
+        \times [-3,3]</m> with outward normal.  (Look for uses of
+        Gauss-Green-Stokes to avoid doing the integral directly). (6)
+        
       </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux integral of <m>F(x,y,z) = \left(
+        \frac{x}{z^2+1}, \frac{y}{z^2+1} 0 \right)</m> over the hollow
+        infinite cylinder of radius <m>1</m> about the <m>z</m> axis
+        with outward normal.  (Look for uses of Gauss-Green-Stokes to
+        avoid doing the integral directly). (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux integral of <m>F(x,y,z) = (y^2, x^2, z)</m> 
+        over the hollow sphere of radius <m>1</m> with outward normal.
+        (Look for uses of Gauss-Green-Stokes to avoid doing the
+        integral directly). (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux integral of <m>F(x,y,z) = (x,y,-z)</m> 
+        over the hemiphere <m>x^2 + y^2 + z^2 = 1</m> with <m>x \geq
+        0</m> and upward pointing normal. The hemisphere does not
+        include the circle in the <m>xy</m> plane; it is not a closed
+        surface. (Look for uses of Gauss-Green-Stokes to avoid doing
+        the integral directly). (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux integral of <m>F(x,y,z) = (-y,-z,-x)</m>
+        through the sides of the square pyramid centred above
+        <m>(0,0,0)</m> with height <m>7</m>, side length <m>8</m> and
+        upward pointing normal. The surface does not include the
+        square base of the pyramid.  (Look for uses of
+        Gauss-Green-Stokes to avoid doing the integral directly). (6)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux integral of <m>F(x,y,z) = (x^2,y^2,2z)</m>
+        over the closed surface consisting of the parabaloid <m>z = 9
+        - x^2 - y^2</m> above the <m>z=-2</m> plane and the disc at
+        <m>z = -2</m> with radius <m>\sqrt{11}</m>. The normal
+        points out of the closed surface.  (Look for uses of
+        Gauss-Green-Stokes to avoid doing the integral directly). (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Consider the vector field <m>F(x,y,z) = (x,y,z)</m>. Let <m>D
+        \subset \RR^3</m> be a solid region with a smooth boundary.
+        Prove that the volume of the solid region can be calculated by
+        the following flux integral. (4). 
+      </p>
+      <me>
+        V = \frac{1}{3} \int_{\del D} F \cdot N dA 
+      </me>
+    </li>
+    <li>
+      <p>
+        It a point charge <m>q</m> at the origin produces an
+        electrical field <m>E</m> and if <m>\sigma</m> is a closed
+        surface which does not contain the origin, what is the value
+        of the following integral? (2) 
+      </p>
+      <me>
+        \int_{\sigma} E \cdot N dA
+      </me>
+    </li>
+    <li>
+      <p>
+        Let <m>\sigma</m> be the rectangle in the <m>yz</m> plane with
+        vertices <m>(0,0,0)</m>, <m>(0,0,4)</m>, <m>(0,3,4)</m> and
+        <m>(0,3,0)</m>. Assume there is a current density <m>J =
+        \frac{-\cos t}{\mu_0} (x,0,0)</m> and an electric field <m>E =
+        \frac{\sin t}{\mu_0 \epsilon_0} (x,x,y)</m> around
+        <m>\sigma</m>. (12) 
+      </p>
+      <ol>
+        <li>
+          <p>
+            Why is a magnetic field <m>B</m> induced in the
+            neighbourhood of the surface <m>\sigma</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            What is <m>\nabla \times B</m> for the induced field? 
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate <m>B</m> by finding a vector potential for
+            <m>\nabla \times B</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate this line integral. 
+          </p>
+          <me>
+            \int_{del \sigma} B 
+          </me>
+        </li>
+      </ol>
     </li>
   </ol></p>
 </section>
