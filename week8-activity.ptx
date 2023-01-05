@@ -1,6 +1,6 @@
 <section xml:id="week8-activity">
   <title>Week 8 Activity</title>
-  <subsection xml:id="subsection-">
+  <subsection xml:id="subsection-activity-flux">
     <title>Activity</title>
     <activity>
       <statement>
@@ -170,7 +170,10 @@
               <mrow>
                 \amp = \int_0^{2\pi} \cos^2 \theta d \theta \int_0^\pi
                 -\sin^3 \phi d \phi + \int_0^{2\pi} \sin^2 \theta d
-                \theta \int_0^\pi 3 \sin^3 \phi d \phi + \int_0^{2\pi}
+                \theta \int_0^\pi 3 \sin^3 \phi d \phi 
+              </mrow>
+              <mrow>
+                \amp + \int_0^{2\pi}
                 d\theta \int_0^\pi \sin \phi \cos^2 \phi d \phi 
               </mrow>
               <mrow>
@@ -473,7 +476,7 @@
                 \sin \phi \cos \theta + 2 \sin \phi cos \theta) 
               </mrow>
               <mrow>
-                \cdot -\sin \phi( \sin \phi \cos \theta, \sin \phi
+                \amp \cdot -\sin \phi( \sin \phi \cos \theta, \sin \phi
                 \sin \theta, \cos \phi) d \phi d \theta 
               </mrow>
               <mrow>
@@ -482,7 +485,7 @@
                 \theta 
               </mrow>
               <mrow>
-                + 2 \sin^2 \phi \cos \phi \cos \theta + 2
+                \amp + 2 \sin^2 \phi \cos \phi \cos \theta + 2
                 \sin^2 \phi \cos \phi \sin \theta 
               </mrow>
             </md>

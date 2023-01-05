@@ -219,13 +219,17 @@
           more. The following is a turbulent flow, where other
           directions are introduced as the flow may includes vortices. 
         </p>
-        <me>
-          F(x,y,z) = \left( \sin \left( \left( \frac{a-\sqrt{x^2 +
-          y^2}}{a} \right) \pi \right), \sin \left( \left(
-          \frac{a-\sqrt{x^2 + y^2}}{a}
-          \right) \pi \right), \cos \left( \left( \frac{a-\sqrt{x^2 +
-          y^2}}{a} \right) \pi \right) \right)
-        </me>
+        <md>
+          <mrow>
+          F(x,y,z) \amp = \left( \sin \left( \left( \frac{a-\sqrt{x^2
+          + y^2}}{a} \right) \pi \right), \sin \left( \left(
+          \frac{a-\sqrt{x^2 + y^2}}{a} \right) \pi \right), \right. 
+          </mrow>
+          <mrow>
+          \amp \left. \cos \left( \left( \frac{a-\sqrt{x^2 + y^2}}{a}
+          \right) \pi \right) \right)
+          </mrow>
+        </md>
         <p>
           Again, I'll calculate the flux integral to see what happens
           with the net flow rate through a cross-section for this

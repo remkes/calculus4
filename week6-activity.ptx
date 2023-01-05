@@ -302,8 +302,8 @@
             \frac{d}{dx} xz - \frac{d}{dy} yz \right) 
           </mrow>
           <mrow>
-          </mrow>
             \amp = (x-x, y-y, z-z) = (0,0,0)
+          </mrow>
         </md>
         <p>
           The curl is zero, so the field is conservative. Now I need
