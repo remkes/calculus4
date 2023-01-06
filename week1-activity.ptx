@@ -158,7 +158,7 @@
     <activity>
       <statement>
         <p>
-          Integrate the function <m>f(x,y) = 3x^2 + yz^2 + x^3z</m> on
+          Integrate the function <m>f(x,y,z) = 3x^2 + yz^2 + x^3z</m> on
           the interval <m>[0,2] \times [-3,3] \times [-1,1]</m>. 
         </p>
       </statement>
