@@ -1,8 +1,9 @@
 <!--
-  This assignment was used for the Winter 2021 term.
+  This assignment was used for the Winter 2023 term.
 -->
 <section xml:id="section-assignment4">
   <title>Assignment 4</title>
+  <!--
   <ol>
     <li>
       <p>
@@ -14,8 +15,8 @@
       <p>
         Construct a parametric description of a flag in the wind and
         describe its orientation. (Assume the flag has some kind of
-        shape due to the flapping in the wind -- not just a rectangle.
-        Exactly what shape you choose is up to you.) (4)
+        shape due to the flapping in the wind <emdash \> not just a
+        rectangle.  Exactly what shape you choose is up to you.) (4)
       </p>
     </li>
     <li>
@@ -40,11 +41,5 @@
       </p>
     </li>
   </ol>
+  -->
 </section>
-
-
-
-
-
-
-
