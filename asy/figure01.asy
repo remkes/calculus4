@@ -1,6 +1,5 @@
 size(12cm,12cm);
 import graph;
-usepackage("remdefs");
 
 xlimits(-1,5);
 ylimits(-1,3);
@@ -15,5 +14,3 @@ dot("$(0,0)$",(0,0),NW);
 dot("$(3,1)$",(3,1),E);
 dot("$(2,1)$",(2,1),SE);
 dot("$(1,0)$",(1,0),S);
-
-

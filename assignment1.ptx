@@ -3,82 +3,135 @@
 -->
 <section xml:id="section-assignment1">
   <title>Assignment 1</title>
-  <!--
   <ol>
     <li>
       <p>
-        Evaluate the following integrals. You don't need to show all
-        the steps of the individual single integrals, but make sure
-        the steps to setup and work through the iterated integral are
-        clealry shown and explained. (12) 
+        Evaluate this multiple integral. You don't need to show all
+        the single-variable steps, but give some comment on the
+        general technique for each single variable integral. (4) 
       </p>
-      <ol>
-        <li><me>
-          \int_{[0,1] \times [0,1]} (x^3 + y^3 - (xy)^2) dA 
-        </me></li>
-        <li><me>
-          \int_{[0,3] \times [0,2]} \frac{xy^2}{x^2+4} dA 
-        </me></li>
-        <li><me>
-          \int_{[0,1] \times [0,\pi]} x \sec^2 (xy) dA 
-        </me></li>
-      </ol>
+      <me>
+        \int_{[-\pi,\pi] \times [-\pi,\pi]} (\sin x \cos y + \sin^2 x) dA 
+      </me>
     </li>
     <li>
       <p>
-        Evaluate the following integrals. You may need to switch the
-        order of integration. Describe the region of integration
-        (either in words or by drawing). As before, show all the setup
-        work but you don't need to show all the steps of the single
-        variable integration. (16) 
+        Evaluate this multiple integral. You don't need to show all
+        the single-variable steps, but give some comment on the
+        general technique for each single variable integral. (4) 
       </p>
-      <ol>
-        <li><me>
-          \int_0^2 \int_0^{4-y^2} \frac{2}{\sqrt{4-y^2}} dx dy 
-        </me></li>
-        <li><me>
-          \int_0^1 \int_0^{1-y^2} (x+y) dx dy 
-        </me></li>
-        <li><me>
-          \int_0^1 \int_y^1 \sin (\pi x^2) dx dy 
-        </me></li>
-        <li><me>
-          \int_0^2 \int_{y^2}^4 \sqrt{x} \sin (\pi x) dx dy   
-        </me></li>
-      </ol>
+      <me>
+        \int_{[0,4] \times [0,1]} (x^2 y + x^3y^2 - 3xy^3 - 4x^2 y^4) dA 
+      </me>
     </li>
     <li>
       <p>
-        Find the areas between each set of two loci. (8) 
+        Evaluate this multiple integral. You don't need to show all
+        the single-variable steps, but give some comment on the
+        general technique for each single variable integral. (4) 
       </p>
-      <ol>
-        <li><me>
-          y = -x^2 \text{ and } 3x + y = 2 
-        </me></li>
-        <li><me>
-          xy = 3 \text{ and } x^2 + y^2 = 10 
-        </me></li>
-      </ol>
+      <me>
+        \int_{[0,4]\times[0,5]} xye^{x^2 + y^2}dA
+      </me>
     </li>
     <li>
       <p>
-        Find the volume of the tetrahedron with vertices
-        <m>(0,0,0)</m>, <m>(0,0,3)</m>, <m>(0,2,0)</m> and
-        <m>(1,0,0)</m>. (6) 
+        Evaluate the following multiple integral. You may need to
+        switch the order of integration. Describe the region of
+        integration (either in words or by drawing). As before, show
+        all the setup work but you don't need to show all the steps of
+        the single variable integration. (4)
+      </p>
+      <me>
+        \int_0^1 \int_0^{y^2} y^2 \sqrt{2 - y^2} dx dy
+      </me>
+    </li>
+    <li>
+      <p>
+        Evaluate the following multiple integral. You may need to
+        switch the order of integration. Describe the region of
+        integration (either in words or by drawing). As before, show
+        all the setup work but you don't need to show all the steps of
+        the single variable integration. (4)
+      </p>
+      <me>
+        \int_{-1}^1 \int_{-\sqrt{1-x^2}}^{\sqrt{4-(2x)^2}} xy dy dx 
+      </me>
+    </li>
+    <li>
+      <p>
+        Evaluate the following multiple integral. You may need to
+        switch the order of integration. Describe the region of
+        integration (either in words or by drawing). As before, show
+        all the setup work but you don't need to show all the steps of
+        the single variable integration. (4)
+      </p>
+      <me>
+        \int_0^3 \int_0^{\sqrt{9 - y^2}}
+      </me>
+    </li>
+    <li>
+      <p>
+        Evaluate the following multiple integral. You may need to
+        switch the order of integration. Describe the region of
+        integration (either in words or by drawing). As before, show
+        all the setup work but you don't need to show all the steps of
+        the single variable integration. (4)
+      </p>
+      <me>
+        \int_{-3}^{3}\int_{y-6}^{y+6} \frac{1}{x+y} - \frac{1}{x^2} dx
+        dxy 
+      </me>
+    </li>
+    <li>
+      <p>
+        Consider a parabolic square pyramid. That is, the pyramid has
+        height <m>h</m> and a square base with side length <m>b</m>.
+        However, moving up the pyramid at height <m>z</m>, the side
+        length of the square changes quadratically. If <m>s</m> is the
+        side length, this is expressed as <m>s(z) = \frac{b}{h^2} (h^2
+        - z^2)</m>. Calculate the volume of such a parabolic square
+        pyramid with height <m>9</m> and base side length <m>9</m>. (8) 
       </p>
     </li>
     <li>
       <p>
-        Let <m>f</m> and <m>g</m> be two piecewise continuous
-        functions defined on <m>I = [0,1] \times [0,1]</m>. Assume
-        that <m>f = g</m> everywhere except on the line <m>x=y</m>.
-        Using the Riemann definition of the integral, argue that the
-        following equality must be true. (4) 
-        <me>
-          \int_I f dA = \int_I g dA
-        </me>
+        Integrate the function <m>f(x,z,y) = xyz</m> over a unit ball
+        in <m>\RR^3</m>. Explain why the answer is reasonable as a
+        hypervolume in <m>\RR^4</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Integrate the function <m>f(x,y,z) = x^2 + y^2 - z</m> over
+        the portion of the interval <m>I = [0,2] \times [0,2] \times
+        [0,2]</m> which lies below the plane <m>x + y + z = 2</m>. (6) 
+      </p>
+    </li>
+    <li>
+      <p>
+        What are the bounds of integration (in cartesian coordinates)
+        for the 3-sphere <m>S^3</m> in <m>\RR^4</m>? What about
+        <m>S^4</m> in <m>\RR^5</m>? <m>S^{n-1}</m> in <m>\RR^n</m>?
+        (4) 
+      </p>
+    </li>
+    <li>
+      <p>
+        A hypercone in <m>\RR^n</m> with radius <m>r</m> and height
+        <m>h</m> is an object which starts with a <m>2</m>-sphere of
+        radius <m>r</m> in the <m>xyz</m> <m>3</m>-space. Then
+        moving from <m>w=0</m> to <m>w=h</m>, there are spheres with
+        smaller and smaller radii (like the circles forming a normal
+        cone) up to <m>w=h</m> where the cone has shrunk to a point.
+        Calculate the hypervolume of a hypercone in <m>\RR^4</m> with
+        radius <m>4</m> and height <m>4</m>. (In the integral, you'll
+        have an arctangent term where the argument evaluates to
+        division by zero. Approach this with a limit as <m>a
+        \rightarrow \pm \infty</m>, using the fact that arctangent has
+        horizontal asymptoties and the value of arctangent is
+        well-defined as its arguments go to infinity. (8)
       </p>
     </li>
   </ol>
-  -->
 </section>
