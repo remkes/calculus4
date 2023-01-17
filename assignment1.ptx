@@ -67,7 +67,7 @@
         the single variable integration. (4)
       </p>
       <me>
-        \int_0^3 \int_0^{\sqrt{9 - y^2}}
+        \int_0^3 \int_0^{\sqrt{9 - y^2}} \frac{y}{x} dx dy 
       </me>
     </li>
     <li>
