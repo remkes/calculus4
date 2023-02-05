@@ -3,100 +3,137 @@
 -->
 <section xml:id="section-assignment2">
   <title>Assignment 2</title>
-  <!--
   <ol>
     <li>
       <p>
-        Let <m>D</m> be all of <m>\RR^2</m> excluding the unit disc.
-        Integrate the function <m>f(x,y) = \frac{1}{(x^2+y^2)^4}</m> over
-        this region. (4) 
+        Calculate this multiple integral, choosing an appropriate set
+        of coordinates. (4) 
+        <me>
+          \int_D x^2 y dA
+        </me>
+        <m>D</m> is the unit disc in <m>\RR^2</m> centred at
+        <m>(0,1)</m>.
       </p>
     </li>
     <li>
       <p>
-        Consider a cylinder in <m>\RR^3</m>, centred around the
-        <m>z</m> axis with height <m>z \in [0,5]</m> and radius
-        <m>3</m>. Let <m>D</m> be exactly half of this cylinder where
-        the <m>y</m> coordinate is positive. Integrate the function
-        <m>f(x,y,z) = \sqrt{x^2 + y^2}</m> over this region. (6)
+        Calculate this multiple integral, choosing an appropriate set
+        of coordinates. (4) 
+        <me>
+          \int_D \frac{1}{(x^2 + y^2 + z^2)^{\frac{3}{2}}} dV
+        </me>
+        <m>D</m> is the ball of radius 2 in <m>\RR^3</m> excluding the
+        ball of radius 1. 
       </p>
     </li>
     <li>
       <p>
-        Let <m>D</m> be the region in <m>\RR^3</m> above the <m>xy</m>
-        plane and below the parabaloid <m>z = 1 - x^2 - y^2</m>.
-        Integrate the function <m>f(x,y,z) = x^4 - y^4</m> over this
-        region. (6) 
+        Calculate this multiple integral, choosing an appropriate set
+        of coordinates. (4) 
+        <me>
+          \int_C (x^2 - yz) dV 
+        </me>
+        <m>C</m> is the cone of radius 3 and height 4 in <m>\RR^3</m>
+        oriented along the <m>z</m> axis. The base of the cone is on
+        the <m>xy</m> plane and the cone narrows as <m>z</m>
+        increases. 
       </p>
     </li>
     <li>
       <p>
-        Find the volume of the portion of the solid sphere <m>x^2 +
-        y^2 + z^2 = 16</m> which remains after removing the cylinder
-        <m>x^2 + y^2 = 4</m>. (6) 
+        Calculate this multiple integral, choosing an appropriate set
+        of coordinates. (4) 
+        <me>
+          \int_D \ln (x^2 + y^2 + 1) dV 
+        </me>
+        <m>D</m> is the solid parabaloid in <m>\RR^3</m> given by the
+        equation <m>z = \frac{x^2 + y^2}{7}</m> in the range <m>z \in
+        [0,5]</m>. 
       </p>
     </li>
     <li>
       <p>
-        Find the volume of the portion of the ellipsoid <m>4x^2 + 4y^2
-        + z^2 = 64</m> which is below the plane <m>z=4</m>. (6) 
+        Consider two circles in <m>\RR^2</m>, the first centred at the
+        origin with radius <m>a</m> and the second centred at
+        <m>(0,b)</m> with radius <m>b</m>. Assume that <m>\frac{a}{2}
+        \lt b \lt a</m>. Then the region of the second circle which
+        falls outside the first circle is a crescent shape in
+        <m>\RR^2</m>. In terms of the constants <m>a</m> and <m>b</m>,
+        calculate the area of such a crescent as a double integral.
+        What happens, both geometrically and in terms of the
+        integrals, when <m>b = \frac{a}{2}</m>? (8) 
       </p>
     </li>
     <li>
       <p>
-        Find a transformation of <m>\RR^2</m> that tranforms parabolae
-        through <m>(0,0)</m> into straight lines. What is the Jacobian
-        of the transformation? (6)
+        Calculate the volume of the truncation formed by taking a cylinder
+        of radius 1 and height 6 in <m>\RR^3</m> oriented around the
+        <m>z</m> axis and removing the intersection with the sphere of
+        radius 2 centred at <m>(0,0,6)</m>. (6) 
       </p>
     </li>
     <li>
       <p>
-        The cylindrical coordinates changes cylinders in <m>\RR^3</m>
-        into equations of the form <m>r =</m> constant. Devise a
-        coordinate system which changes cones with flare angle
-        <m>\frac{\pi}{4}</m> into equations <m>r =</m> constant. It is
-        fine if you coordinate system only applies to the half of
-        <m>\RR^3</m> where <m>z \geq 0</m>. Calculate the Jacobian of
-        your transformation. (The flare angle of a cone is the angle
-        between the slope of the cone and the vertical axis of the
-        cone.) (6)
+        Calculate the volume of the region bounded by these four planes:
+        <m>z = 0</m>, <m>x + y + z = 3</m>, <m>x - y + z = 2</m>, and
+        <m>x=-4</m>. (6) 
       </p>
     </li>
     <li>
       <p>
-        Find the mass of the lamina with elliptical shape
-        <m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m> and density
-        <m>\rho(x,y) = \frac{1}{1 + b^2 x^2 + a^2 y^2}</m>. (6) 
+        Consider this ellipsoid in <m>\RR^3</m>. (6)
+        <me>
+          \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1 
+        </me>
+        Using a similar system to spherical coordinates, devise a
+        system of coordinates <m>(r,\theta,\phi)</m> where setting the
+        <m>r</m> variable as a constant <m>(r = r_0)</m> gives a scale
+        copy of this ellipsoid, with <m>r=1</m> giving this exact
+        ellipsoid. What is the Jacobian of such a system of
+        coordinates? Use the coordinates to calculate the volume of
+        the ellipsoid. 
       </p>
     </li>
     <li>
       <p>
-        Calculate the mass of the cone with height <m>10</m>, radius
-        <m>5</m> and density <m>\rho = \frac{1}{h+1}</m> where <m>h</m>
-        is the height above the base of the cone. (6) 
+        Calculate the mass of the lamina which is a triangle in
+        <m>\RR^2</m> with vertices <m>(0,0)</m>, <m>(0,a)</m> and
+        <m>(b,0)</m> with density <m>\rho = 1 + \frac{x}{a} +
+        \frac{y}{b}</m>. (6) 
       </p>
     </li>
     <li>
       <p>
-        Calculate he mass of the sphere of radius <m>6</m> with
-        density <m>\rho(x,y,z) = x^2 + y^2 + z^2</m>. (4) 
+        
+        Calculate the mass of the sphere of radius 4 in <m>\RR^3</m>
+        centred at the origin with density <m>\rho = \frac{4x^2 +
+        y^2}{7}</m>. (4) 
       </p>
     </li>
     <li>
       <p>
-        Find the moments of intertia around the three axes for the
+        Calculate the mass of the cylinder oriented along the <m>z</m>
+        axis in <m>\RR^3</m> with radius 4 and <m>z \in [0,10]</m>
+        with density <m>\rho = \frac{1}{z+1} (4 - \sqrt{x^2 +
+        y^2})</m>. (4) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the moments of intertia around the three axes for the
         uniformly dense solid surface of revolution formed by rotation
-        <m>y(z) = \cos z</m> on <m>\left[ \frac{-\pi}{2},
-        \frac{\pi}{2} \right]</m> about the <m>z</m> axis. (8) 
+        <m>y(x) = 1 + x^2</m> about the <m>x</m> axis for <m>x \in
+        [1,5]</m>. (8) 
       </p>
     </li>
     <li>
       <p>
-        Find the centre of mass of a uniformly dense truncated sphere
-        of radius <m>7</m> where the part of the sphere above the
-        plane <m>z = 3</m> has been removed. (8)
+        Calculate the centre of mass of a uniformly dense object
+        formed by taking the sphere in <m>\RR^3</m> centred at
+        <m>(0,0,2)</m> with radius 2 and removing the sphere centred
+        at the origin with radius 2. (Be careful with the bounds of
+        <m>\phi</m> in spherical coordinates.) (8) 
       </p>
     </li>
   </ol>
-  -->
 </section>
