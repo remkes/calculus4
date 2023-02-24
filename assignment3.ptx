@@ -3,114 +3,197 @@
 -->
 <section xml:id="section-assignment3">
   <title>Assignment 3</title>
-  <!--
-  <ol>
+  <p><ol>
     <li>
       <p>
         Explain how vector fields might be useful in each of the
-        following systems. (6) 
-      </p>
-      <ol>
-        <li>
-          <p>
-            Erosion patterns in mountains.
-          </p>
-        </li>
-        <li>
-          <p>
-            Submarine navigation.
-          </p>
-        </li>
-        <li>
-          <p>
-            Traffic patterns.
-          </p>
-        </li>
-      </ol>
-    </li>
-    <li>
-      <p>
-        Calculate the integral curves for this vector field. (You can
-        solve these differential equations by guessing, since the
-        patterns of the derivatives are familiar, or as separable
-        equations.) (5) 
-      </p>
-      <me>
-        f(x,y) = (-x, y) 
-      </me>
-    </li>
-    <li>
-      <p>
-        Calculate the integral curves for this vector field. (You can
-        solve these differential equation by guessing, since the
-        patterns of the derivatives are familiar, or as seperable
-        equations.) (5) 
-      </p>
-      <me>
-        f(x,y) = (-x^2, -y^2) 
-      </me>
-    </li>
-    <li>
-      <p>
-        Prove the following product rule identity where <m>f</m> is a
-        scalar field in <m>\RR^3</m> and <m>F</m> is a vector field in
-        <m>\RR^3</m>. (4) 
-      </p>
-      <me>
-        \nabla \times (fF) = f (\nabla \times F) + (\nabla f) \times F 
-      </me>
-    </li>
-    <li>
-      <p>
-        Prove that any vector field of the form <m>F(x,y,z) = (f(x),
-        g(y), h(z))</m> is irrotational. (4) 
+        following situations. (6)
+        <ol>
+          <li>
+            Planning a wind farm. 
+          </li>
+          <li>
+            Shielding a solenoid.
+          </li>
+          <li>
+            Tracking shoals of fish.
+          </li>
+        </ol>
       </p>
     </li>
     <li>
       <p>
-        Calculate the line integral of <m>F = (x^2 +y^2, x^2 +
-        y^2)</m> over the parametric curve <m>\gamma(t) = \left(
-        t^2, \frac{1}{t} \right)</m> for <m>t \in [1,10]</m>.  (4) 
+        Draw these vector fields. (You can check this with a computer,
+        but I want to see some of the calculations behind your
+        drawing.) 
+        <ol>
+          <li><me>
+            f(x,y) = (x^2 - y, y^2 -x)
+          </me></li>
+          <li><me>
+            f(x,y) = \left( \frac{1}{x+y}, \frac{1}{x-y} \right) 
+          </me></li>
+          <li><me>
+            f(x,y) = (x \cos (\pi y), y \cos (\pi x))
+          </me></li>
+        </ol>
       </p>
     </li>
     <li>
       <p>
-        Calculate the line integral of <m>F = (\cos(\pi(x^2 + y^2)),
-        \sin(\pi(x^2 + y^2)))</m> over the parametric curve
-        <m>\gamma(t) = (9 \sin t, 9 \cos t)</m> with <m>t \in
-        [0,\pi]</m>. (4)
+        Calculate the integral curves for the following vector fields.
+        (8) 
+        <ol>
+          <li><me>
+            f(x,y) = \left( \frac{x}{2}, \frac{y}{4} \right) 
+          </me></li>
+          <li><me>
+            f(x,y) = \left( \frac{1}{x^2}, \frac{1}{y^3} \right) 
+          </me></li>
+        </ol>
       </p>
     </li>
     <li>
       <p>
-        Calculate the line integral of <m>F = (\cos(\pi(x^2 + y^2)),
-        \sin(\pi(x^2 + y^2)))</m> over the parametric curve
-        <m>\gamma(t) = (9 \cos t, 9 \sin t)</m> with <m>t \in
-        [0,\pi]</m>. Explain why you get a different result from the
-        previous question, which was very similar. (6)
+        What do integral curve mean for the following vector fields?
+        (9) 
+        <ol>
+          <li><p>
+            The vector field of ocean currents. (2D or 3D)
+          </p></li>
+          <li><p>
+            The vector field of gravitational force per unit mass
+            around a gravitational source. (3D)
+          </p></li>
+          <li><p>
+            The vector field of temperature gradients over a
+            landscape. (2D)
+          </p></li>
+        </ol>
       </p>
     </li>
     <li>
       <p>
-        Let <m>\gamma(t)</m> be any path from <m>(0,0,0)</m> to
-        <m>(-3,7,10)</m> in <m>\RR^3</m> and let <m>F(x,y,z) = (2xy^2z,
-        2x^2yz, x^2y^2)</m>. Prove that the line integral of this
-        fields over this curve is independent of the choice of path.
-        (4)
+        Prove the follwoing operator composition identities for
+        <m>f</m> a <m>C^2</m> scalar field on <m>\RR^3</m> and
+        <m>F</m> a <m>C^2</m> vector field on <m>\RR^3</m>. (8) 
+        <ol>
+          <li><me>
+            \nabla \times (\nabla f) = (0,0,0)
+          </me></li>
+          <li><me>
+            \nabla \cdot (\nabla \times F) = 0
+          </me></li>
+        </ol>
       </p>
     </li>
     <li>
       <p>
-        Consider this scalar potential energy field. (4)
-      </p>
-      <me>
-        f(x,y,z) = -e^{-(x^2 + y^2 +z^2)} 
-      </me>
-      <p>
-        How does this potential energy influence movement? What is the
-        work requied to go from <m>(1,1,1)</m> to <m>(0,0,0)</m>? 
+        If <m>F = (F_1,F_2,F_3)</m> is a <m>C^2</m> vector field on
+        <m>\RR^3</m>, show that the property of being irrotational is
+        <emph>not</emph> reserved if the components of <m>F</m> are
+        re-arranged. (Use an example to show how the property is
+        lost.) Why is the order of the components important? (4) 
       </p>
     </li>
-  </ol>
-  -->
+    <li>
+      <p>
+        Calculate the line ingrals. 
+        <me>
+          \int_\gamma F \cdot dr 
+        </me>
+        for these <m>F</m> and <m>\gamma</m>. (16) 
+        <ol>
+          <li><md>
+            <mrow>
+              \amp F(x,y) = (x^2 + y^2, x - y + 3) \amp \amp 
+            </mrow>
+            <mrow>
+              \amp \gamma(t) = (t+1,t-2) \amp \amp t \in [1,5[ 
+            </mrow>
+          </md></li>
+          <li><md>
+            <mrow>
+              \amp F(x,y) = (x, y)
+              \amp \amp 
+            </mrow>
+            <mrow>
+              \amp \gamma(t) = (3 \cos 2t, 3 \sin t) \amp \amp t \in
+              [0, \pi] 
+            </mrow>
+          </md></li>
+          <li><md>
+            <mrow>
+              \amp F(x,y) = (-4x, -4y) 
+              \amp \amp 
+            </mrow>
+            <mrow>
+              \amp \gamma(t) = (t \cos t, t \sin t) \amp \amp t \in
+              [0, 2\pi] 
+            </mrow>
+          </md></li>
+          <li><md>
+            <mrow>
+              \amp F(x,y) = \left(0, \frac{-1}{x} \right) \amp \amp 
+            </mrow>
+            <mrow>
+              \amp \gamma(t) = (t^2, t^3) \amp \amp t \in [0, 8]
+            </mrow>
+          </md></li>
+        </ol>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\gamma</m> be any path from <m>(0,0,0)</m> to
+        <m>(9,9,9)</m> in <m>\RR^3</m> and consider this line
+        integral. (8) 
+        <me>
+          \int_\gamma F \cdot dr
+        </me>
+        For which of the following vector fields is the line integral
+        independent of path and why? When it is independent, what is
+        the potential function?
+        <ol>
+          <li><me>
+            F(x,y,z) = (2xyz^2, 2x^2z^2, 2x^2yz) 
+          </me></li>
+          <li><me>
+            F(x,y,z) = (2xy^2z, 2x^2yz, x^2y^2z) 
+          </me></li>
+          <li><me>
+            F(x,y,z) = (x^2y^2z, x^2yz^2, x^2y^2z^2) 
+          </me></li>
+          <li><me>
+            F(x,y,z) = (xyz^2, x^2z^2, 2x^2yz) 
+          </me></li>
+          <li><me>
+            F(x,y,z) = (2xyz^2, x^2z^2, 2x^2yz)
+          </me></li>
+        </ol>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\gamma_a</m> be a family of path which are always
+        perpendicular to a vector field <m>F</m> in <m>\RR^3</m>. (6)
+        <ol>
+          <li><p>
+            Why does the line integral of <m>F</m> along any
+            <m>\gamma_a</m> vanish? 
+          </p></li>
+          <li><p>
+            If <m>F</m> is conservative, then <m>F = \nabla f</m> for
+            some potential <m>f</m>. What is the relationship of the
+            potential <m>f</m> to the paths <m>\gamma_a</m>?
+          </p></li>
+          <li><p>
+            If <m>F</m> is conservative and depends only on the
+            <m>y</m> coordinate, what can you say about the paths
+            <m>\gamma_a</m> and the potential <m>f</m>?
+          </p></li>
+        </ol>
+      </p>
+    </li>
+  </ol></p>
 </section>
