@@ -80,7 +80,7 @@
       </p>
       <me>
         \int_{-3}^{3}\int_{y-6}^{y+6} \frac{1}{x+y} - \frac{1}{x^2} dx
-        dxy 
+        dy 
       </me>
     </li>
     <li>
