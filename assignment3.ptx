@@ -100,7 +100,7 @@
       <p>
         Calculate the line integrals. 
         <me>
-          \int_\gamma F \cdot dr 
+          \int_\gamma F \cdot ds 
         </me>
         for these <m>F</m> and <m>\gamma</m>. (16) 
         <ol>
@@ -149,7 +149,7 @@
         <m>(9,9,9)</m> in <m>\RR^3</m> and consider this line
         integral. (8) 
         <me>
-          \int_\gamma F \cdot dr
+          \int_\gamma F \cdot ds
         </me>
         For which of the following vector fields is the line integral
         independent of path and why? When it is independent, what is
@@ -175,7 +175,7 @@
     </li>
     <li>
       <p>
-        Let <m>\gamma_a</m> be a family of path which are always
+        Let <m>\gamma_a</m> be a family of paths which are always
         perpendicular to a vector field <m>F</m> in <m>\RR^3</m>. (6)
         <ol>
           <li><p>
