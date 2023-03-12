@@ -3,43 +3,94 @@
 -->
 <section xml:id="section-assignment4">
   <title>Assignment 4</title>
-  <!--
   <ol>
     <li>
       <p>
-        Construct a parametric description of a rugby ball and
-        describe its orientation. (4) 
+        Construct a parametric description of a lampshade  and
+        describe the orientation you've chosen. (You can choose the
+        shape of the lampshade within reason.) (6) 
       </p>
     </li>
     <li>
       <p>
-        Construct a parametric description of a flag in the wind and
-        describe its orientation. (Assume the flag has some kind of
-        shape due to the flapping in the wind <emdash \> not just a
-        rectangle.  Exactly what shape you choose is up to you.) (4)
+        Construct a parametric description of a truncated sphere and
+        describe the orientation you've chosen. (You can choose how
+        much of the sphere to truncate.) (6) 
       </p>
     </li>
     <li>
       <p>
-        Construct a parametric description of a vase. (The type and
-        style of vase is, again, up to you, but choose something a
-        a little interesting, i.e, not just a cylinder.) (4) 
+        Calculate the flux of the field <m>F = (x, y, x^2 + y^2)</m>
+        over the surface <m>z = x^2 + y^2</m> for <m>z \in [0,5]</m>.
+        The surface has an outward facing normal and is open at the
+        top. (5)
       </p>
     </li>
     <li>
       <p>
-        Parametrize a torus with large radius <m>a</m> and small
-        radius <m>b</m>. Use that parametrization to calculate the
-        surface area of the torus. (8) 
+        Calculate the flux of the field <m>F = \left( \cos z + z \cos
+        x, \sin x, \frac{x^2}{2} \sin z \right)</m> over the sphere of
+        radius 1 centred at <m>(3,-2,-1)</m>. The sphere has outward
+        facing normal. (5)
       </p>
     </li>
     <li>
       <p>
-        Calculate the flux of the field <m>F = (-1,1,3x^2)</m> over
-        the open cylinder with radius <m>3</m> about the <m>y</m> axis
-        with <m>y \in [-1,3]</m>. (8) 
+        Calculate the flux of the field <m>F = (x^2, y-z, y+z)</m>
+        over the boundary of the tetrahedron with vertics
+        <m>(0,0,0)</m>, <m>(2,0,0)</m>, <m>(0,2,0)</m> and
+        <m>(0,0,2))</m>. The surface of the tetrahedron has an outward
+        facing normal. (5)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux of the field <m>F = (8z - 8y, 6x, -4y)</m>
+        over the portion of the plane <m>3x - y - z = 4</m>  which
+        lies above/below the interval <m>[0,1]\times[0,3]</m>in the
+        <m>xy</m> plane. The normal points above the plane (so it has
+        a positive <m>z</m> component). (5) 
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux of the field <m>F = \left( \frac{1}{y^2 +
+        z^2}, \frac{1}{x^2 + z^2}, \frac{1}{x^2 + y^2} \right) </m>
+        over the infinite cone <m>z = 4 \sqrt{x^2 + y^2}</m> for <m>z
+        \in (0, \infty)</m>. The cone has an outward facing normal. (5)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux of the field <m>F = (3, 2y^2 x)</m> over
+        the open cylinder <m>x^2 + z^2 = 4</m> with <m>y \in
+        [3,7]</m>. The cylinder has an outward facing normal. (5)
+      </p>
+    </li>
+    <li>
+      <p>
+        Calculate the flux of the field <m>F = (2xy, x^2 + 2yz, -2yz -
+        z^2) </m> over the entire <m>xy</m> plane. The normal to the
+        plane points in the positive <m>z</m> direction. (5)
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>f</m> be a scalar field, <m>F</m> be a vector field,
+        and <m>\sigma</m> be a parametric surface. Prove this
+        identity. (3) 
+        <me>
+          \int_{\del \sigma} (fF) \cdot ds = \int_{\sigma} \left(
+          (\nabla f \times F) + f (\nabla \times F) \right) \cdot dA
+        </me>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>F</m> be a vector field of the form <m>F = \left(
+        F_1(y,z), F_2(x,z), F_3(x,y) \right)</m>. Prove that the flux
+        of <m>F</m> over any closed surface is 0. (3) 
       </p>
     </li>
   </ol>
-  -->
 </section>
