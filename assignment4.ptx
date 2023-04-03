@@ -29,7 +29,7 @@
     <li>
       <p>
         Calculate the flux of the field <m>F = \left( \cos z + z \cos
-        x, \sin x, \frac{x^2}{2} \sin z \right)</m> over the sphere of
+        x, \sin x, \frac{z^2}{2} \sin x \right)</m> over the sphere of
         radius 1 centred at <m>(3,-2,-1)</m>. The sphere has outward
         facing normal. (5)
       </p>
