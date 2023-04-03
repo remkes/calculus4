@@ -62,7 +62,7 @@
     </li>
     <li>
       <p>
-        Calculate the flux of the field <m>F = (3, 2y^2 x)</m> over
+        Calculate the flux of the field <m>F = (3, 2y^2, x)</m> over
         the open cylinder <m>x^2 + z^2 = 4</m> with <m>y \in
         [3,7]</m>. The cylinder has an outward facing normal. (5)
       </p>
