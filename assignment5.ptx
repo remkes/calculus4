@@ -3,123 +3,167 @@
 -->
 <section xml:id="section-assignment5">
   <title>Assignment 5</title>
-  <!--
   <p><ol>
     <li>
       <p>
-        Calculate the flux integral of <m>F(x,y,z) = (x,y^2,z^2)</m> 
-        over the hollow rectangular prism <m>[-1,1] \times [-2,2]
-        \times [-3,3]</m> with outward normal.  (Look for uses of
-        Gauss-Green-Stokes to avoid doing the integral directly). (6)
-        
+        Assume that there is a particle with charge <m>q</m> located
+        at everyapoint in <m>RR^3</m> which has integer coordinates.
+        What is the flux of the electric field over the following
+        surfaces? (8) 
       </p>
+      <p><ol>
+        <li>
+          The sphere of radius <m>\frac{1}{2}</m> centred at the origin. 
+        </li>
+        <li>
+          The sphere of radius <m>\frac{1}{4}</m> centred at the point
+          <m>\left(0, 0, \frac{1}{2}\right)</m>. 
+        </li>
+        <li>
+          The sphere of radius <m>1</m> centred at the the point 
+          <m>\left(\frac{1}{2}, \frac{1}{2}, \frac{1}{2}\right)</m>. 
+        </li>
+        <li>
+          The sphere of radius <m>\frac{5}{2}</m> centred at the origin. 
+        </li>
+      </ol></p>
     </li>
     <li>
       <p>
-        Calculate the flux integral of <m>F(x,y,z) = \left(
-        \frac{x}{z^2+1}, \frac{y}{z^2+1} 0 \right)</m> over the hollow
-        infinite cylinder of radius <m>1</m> about the <m>z</m> axis
-        with outward normal.  (Look for uses of Gauss-Green-Stokes to
-        avoid doing the integral directly). (6)
-      </p>
-    </li>
-    <li>
-      <p>
-        Calculate the flux integral of <m>F(x,y,z) = (y^2, x^2, z)</m> 
-        over the hollow sphere of radius <m>1</m> with outward normal.
-        (Look for uses of Gauss-Green-Stokes to avoid doing the
-        integral directly). (6) 
-      </p>
-    </li>
-    <li>
-      <p>
-        Calculate the flux integral of <m>F(x,y,z) = (x,y,-z)</m> 
-        over the hemiphere <m>x^2 + y^2 + z^2 = 1</m> with <m>x \geq
-        0</m> and upward pointing normal. The hemisphere does not
-        include the circle in the <m>xy</m> plane; it is not a closed
-        surface. (Look for uses of Gauss-Green-Stokes to avoid doing
-        the integral directly). (6) 
-      </p>
-    </li>
-    <li>
-      <p>
-        Calculate the flux integral of <m>F(x,y,z) = (-y,-z,-x)</m>
-        through the sides of the square pyramid centred above
-        <m>(0,0,0)</m> with height <m>7</m>, side length <m>8</m> and
-        upward pointing normal. The surface does not include the
-        square base of the pyramid.  (Look for uses of
-        Gauss-Green-Stokes to avoid doing the integral directly). (6)
-      </p>
-    </li>
-    <li>
-      <p>
-        Calculate the flux integral of <m>F(x,y,z) = (x^2,y^2,2z)</m>
-        over the closed surface consisting of the parabaloid <m>z = 9
-        - x^2 - y^2</m> above the <m>z=-2</m> plane and the disc at
-        <m>z = -2</m> with radius <m>\sqrt{11}</m>. The normal
-        points out of the closed surface.  (Look for uses of
-        Gauss-Green-Stokes to avoid doing the integral directly). (6) 
-      </p>
-    </li>
-    <li>
-      <p>
-        Consider the vector field <m>F(x,y,z) = (x,y,z)</m>. Let <m>D
-        \subset \RR^3</m> be a solid region with a smooth boundary.
-        Prove that the volume of the solid region can be calculated by
-        the following flux integral. (4). 
-      </p>
-      <me>
-        V = \frac{1}{3} \int_{\del D} F \cdot N dA 
-      </me>
-    </li>
-    <li>
-      <p>
-        It a point charge <m>q</m> at the origin produces an
-        electrical field <m>E</m> and if <m>\sigma</m> is a closed
-        surface which does not contain the origin, what is the value
-        of the following integral? (2) 
-      </p>
-      <me>
-        \int_{\sigma} E \cdot N dA
-      </me>
-    </li>
-    <li>
-      <p>
-        Let <m>\sigma</m> be the rectangle in the <m>yz</m> plane with
-        vertices <m>(0,0,0)</m>, <m>(0,0,4)</m>, <m>(0,3,4)</m> and
-        <m>(0,3,0)</m>. Assume there is a current density <m>J =
-        \frac{-\cos t}{\mu_0} (x,0,0)</m> and an electric field <m>E =
-        \frac{\sin t}{\mu_0 \epsilon_0} (x,x,y)</m> around
-        <m>\sigma</m>. (12) 
+        Let <m>\sigma</m> be the horizontal solid disc of radius
+        <m>1</m> centre about the <m></m> axis in the plane
+        <m>z=1</m>. Consider a scurrent density in the neighbourhood
+        of this disc. (16) 
+        <me>
+          J = \frac{\sin t}{\mu_0} (z, 0 0) 
+        </me>
       </p>
       <ol>
         <li>
           <p>
-            Why is a magnetic field <m>B</m> induced in the
-            neighbourhood of the surface <m>\sigma</m>?
+            Calculate <m>I_\sigma</m>.
           </p>
         </li>
         <li>
           <p>
-            What is <m>\nabla \times B</m> for the induced field? 
+            Calculate the induced magnetic field. (You have some
+            choice here: you need any field with a particular curl.
+            Chose the most straightforward vector potential and then
+            check that <m>\nabla \cdot B = 0</m> is still satisfied.
+            As a hint, you can find a field where both <m>B_1</m> and
+            <m>B_3</m> are zero.) 
           </p>
         </li>
         <li>
           <p>
-            Calculate <m>B</m> by finding a vector potential for
-            <m>\nabla \times B</m>. 
+            Calculate <m>\Phi_{B,\sigma}</m>.
           </p>
         </li>
         <li>
           <p>
-            Calculate this line integral. 
+            Calculate the line integral of <m>B</m> around the circle
+            <m>\del \sigma</m> in two says: directly and using
+            Maxwell's equations. (Make sure, of course, that the two
+            calculations agree.) 
           </p>
-          <me>
-            \int_{del \sigma} B 
-          </me>
         </li>
       </ol>
     </li>
+    <li>
+      <p>
+        On an open set <m>U</m> in the first octant of <m>\RR^3</m>,
+        consider the following forms and vector fields. (Implicitly,
+        this open set is treated as a manifold with coordinate
+        function <m>\phi = \Id</m>. (16) 
+        <md>
+          <mrow>
+            v_1 \amp = (x^2 + y^2) \del_x + (x^2 + z^2) \del y + (y^2 +
+            z^2) \del_z 
+          </mrow>
+          <mrow>
+            v_2 \amp = x \del x + y \del y _ z \del z 
+          </mrow>
+          <mrow>
+            v_3 \amp = \frac{1}{xyz} \del_x + \frac{1}{xyz} \del y +
+            \frac{1}{xyz} \del z 
+          </mrow>
+          <mrow>
+            w_1 \amp = x dx + y dx + z dz 
+          </mrow>
+          <mrow>
+            w_2 \amp = xy dx \wedge dy + yz dx \wedge dz + z^2 dy
+            \wedge dz  
+          </mrow>
+          <mrow>
+            w_3 \amp = \frac{1}{x^2 + y^2 + z^2} dx \wedge dy \wedge
+            dz 
+          </mrow>
+        </md>
+        Do the following calculations.
+      </p>
+      <p><ol>
+        <li>
+          <me>
+            w_1(v_1)
+          </me>
+        </li>
+        <li>
+          <me>
+            w_1(v_2)
+          </me>
+        </li>
+        <li>
+          <me>
+            i_{v_1} w_2
+          </me>
+        </li>
+        <li>
+          <me>
+            w_1 \wedge w_2 
+          </me>
+        </li>
+        <li>
+          <me>
+            i_{v_3} w_2 
+          </me>
+        </li>
+        <li>
+          <me>
+            dw_2 
+          </me>
+        </li>
+        <li>
+          <me>
+            dw_1 
+          </me>
+        </li>
+        <li>
+          <me>
+            w_3 \wedge w_1
+          </me>
+        </li>
+      </ol></p>
+    </li>
+    <li>
+      <p>
+        In several parts, this question looks at the generlization of
+        curl to <m>\RR^4</m>. (8) 
+      </p>
+      <p><ol>
+        <li>
+          Let <m>\omega</m> be a 1-form on an open set in
+          <m>\RR^4</m>. Calculate <m>d\omega</m>. Compare the
+          components to the components of curl. 
+        </li>
+        <li>
+          Let <m>\omega</m> be a 2-form on an open set in
+          <m>\RR^4</m>. Calculate <m>d\omega</m>. Compare the
+          components to the components of curl. 
+        </li>
+        <li>
+          Why are both of these calculations a generalization of curl?
+        </li>
+      </ol></p>
+    </li>
   </ol></p>
-  -->
 </section>
