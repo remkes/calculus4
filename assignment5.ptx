@@ -31,8 +31,8 @@
     <li>
       <p>
         Let <m>\sigma</m> be the horizontal solid disc of radius
-        <m>1</m> centre about the <m></m> axis in the plane
-        <m>z=1</m>. Consider a scurrent density in the neighbourhood
+        <m>1</m> centre about the <m>z</m> axis in the plane
+        <m>z=1</m>. Consider a current density in the neighbourhood
         of this disc. (16) 
         <me>
           J = \frac{\sin t}{\mu_0} (z, 0 0) 
