@@ -77,15 +77,15 @@
         function <m>\phi = \Id</m>. (16) 
         <md>
           <mrow>
-            v_1 \amp = (x^2 + y^2) \del_x + (x^2 + z^2) \del y + (y^2 +
+            v_1 \amp = (x^2 + y^2) \del_x + (x^2 + z^2) \del_y + (y^2 +
             z^2) \del_z 
           </mrow>
           <mrow>
-            v_2 \amp = x \del x + y \del y _ z \del z 
+            v_2 \amp = x \del_x + y \del_y + z \del_z 
           </mrow>
           <mrow>
-            v_3 \amp = \frac{1}{xyz} \del_x + \frac{1}{xyz} \del y +
-            \frac{1}{xyz} \del z 
+            v_3 \amp = \frac{1}{xyz} \del_x + \frac{1}{xyz} \del_y +
+            \frac{1}{xyz} \del_z 
           </mrow>
           <mrow>
             w_1 \amp = x dx + y dx + z dz 
